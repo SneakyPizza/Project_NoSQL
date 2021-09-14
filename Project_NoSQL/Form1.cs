@@ -18,6 +18,7 @@ namespace Project_NoSQL
             InitializeComponent();
         }
 
+
         public void TestConnection()
         {
             /*var connection = MongoClientSettings.FromConnectionString(ConfigurationManager.ConnectionStrings["Mongo"].ConnectionString);
@@ -30,8 +31,6 @@ namespace Project_NoSQL
                 Console.WriteLine(db);
             }
             */
-
-            int test = 0;
         }
 
     }

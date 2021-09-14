@@ -1,0 +1,15 @@
+Taakverdeling Project NoSQL
+
+
+- LoginScreen 				> Yornie	
+- Manage Users				> Taph
+- Add User				> Taph
+- Remove User				> Taph
+
+- Ticket Overview			> Gilberto
+- Create Ticket				> Gilberto
+- Remove Ticket				> Gilberto
+
+- Dashboard Overview			> Yornie
+
+- MongoDB database opzetten/beheren	> Taph
