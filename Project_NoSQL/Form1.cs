@@ -18,6 +18,7 @@ namespace Project_NoSQL
             InitializeComponent();
         }
 
+
         public void TestConnection()
         {
             String test = String.Empty;
@@ -31,8 +32,6 @@ namespace Project_NoSQL
                 Console.WriteLine(db);
             }
             */
-
-            int test = 0;
         }
 
     }
