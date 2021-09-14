@@ -20,6 +20,7 @@ namespace Project_NoSQL
 
         public void TestConnection()
         {
+            String test = String.Empty;
             /*var connection = MongoClientSettings.FromConnectionString(ConfigurationManager.ConnectionStrings["Mongo"].ConnectionString);
             MongoClient mongoClient = new MongoClient(connection);
             var dblist = mongoClient.ListDatabases().ToList();
