@@ -1,9 +1,0 @@
-D:\School-Projects\NoSql\Project_NoSQL\Project_NoSQL\bin\Debug\netcoreapp3.1\Project_NoSQL.exe
-D:\School-Projects\NoSql\Project_NoSQL\Project_NoSQL\obj\Debug\netcoreapp3.1\Project_NoSQL.csprojAssemblyReference.cache
-D:\School-Projects\NoSql\Project_NoSQL\Project_NoSQL\obj\Debug\netcoreapp3.1\Project_NoSQL.Form1.resources
-D:\School-Projects\NoSql\Project_NoSQL\Project_NoSQL\obj\Debug\netcoreapp3.1\Project_NoSQL.csproj.GenerateResource.cache
-D:\School-Projects\NoSql\Project_NoSQL\Project_NoSQL\obj\Debug\netcoreapp3.1\Project_NoSQL.AssemblyInfoInputs.cache
-D:\School-Projects\NoSql\Project_NoSQL\Project_NoSQL\obj\Debug\netcoreapp3.1\Project_NoSQL.AssemblyInfo.cs
-D:\School-Projects\NoSql\Project_NoSQL\Project_NoSQL\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
-D:\School-Projects\NoSql\Project_NoSQL\Project_NoSQL\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
-D:\School-Projects\NoSql\Project_NoSQL\Project_NoSQL\obj\Debug\netcoreapp3.1\Project_NoSQL.csproj.CopyComplete

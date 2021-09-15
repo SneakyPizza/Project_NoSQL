@@ -1,4 +1,4 @@
-﻿namespace Project_NoSQL
+﻿namespace UI
 {
     partial class Form1
     {
