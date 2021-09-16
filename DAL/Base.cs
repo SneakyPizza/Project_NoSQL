@@ -9,7 +9,7 @@ namespace DAL
 {
     public abstract class Base
     {
-        private MongoClient _client;
+        protected MongoClient _client;
         private IMongoDatabase _database;
 
         public Base()
