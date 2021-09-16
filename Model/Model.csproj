@@ -1,13 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj" />
-    <ProjectReference Include="..\Logic\Logic.csproj" />
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\..\..\source\repos\Project_Topdesk_NoSQL\packages\MongoDB.Bson.2.13.1\lib\net452\MongoDB.Bson.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

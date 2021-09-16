@@ -7,7 +7,7 @@ using MongoDB.Driver;
 
 namespace DAL
 {
-    public abstract class Base
+    public class Base
     {
         private MongoClient _client;
         private IMongoDatabase _database;
@@ -16,20 +16,15 @@ namespace DAL
         {
             // set connection string
             _client = new MongoClient(MongoClientSettings.FromConnectionString(ConfigurationManager.ConnectionStrings["Mongo"].ConnectionString));
-            _database = _client.GetDatabase("SampleCluster");
         }
 
-        
+        // return database
+        public IMongoDatabase GetDatabase() { return _client.GetDatabase("clustermongo"); }
 
         public IMongoCollection<BsonDocument> getCollection(string collectionName)
         {
             return _database.GetCollection<BsonDocument>(collectionName);
         }
 
-        //to test connection, remove later
-        public List<BsonDocument> TestDocmentList()
-        {
-            return _client.ListDatabases().ToList();
-        }
     }
 }

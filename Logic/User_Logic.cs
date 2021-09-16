@@ -9,10 +9,6 @@ namespace Logic
     public class User_Logic
     {
         //test connection, remove later
-        public List<BsonDocument> getTest()
-        {
-            User_DAL dal = new User_DAL();
-            return dal.TestDocmentList();
-        }
+      
     }
 }
