@@ -29,7 +29,6 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox_Date = new System.Windows.Forms.ComboBox();
             this.comboBox_IncidentType = new System.Windows.Forms.ComboBox();
             this.comboBox_User = new System.Windows.Forms.ComboBox();
             this.comboBox_Priority = new System.Windows.Forms.ComboBox();
@@ -45,15 +44,8 @@ namespace UI
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
-            // 
-            // comboBox_Date
-            // 
-            this.comboBox_Date.FormattingEnabled = true;
-            this.comboBox_Date.Location = new System.Drawing.Point(382, 37);
-            this.comboBox_Date.Name = "comboBox_Date";
-            this.comboBox_Date.Size = new System.Drawing.Size(151, 28);
-            this.comboBox_Date.TabIndex = 0;
             // 
             // comboBox_IncidentType
             // 
@@ -74,10 +66,6 @@ namespace UI
             // comboBox_Priority
             // 
             this.comboBox_Priority.FormattingEnabled = true;
-            this.comboBox_Priority.Items.AddRange(new object[] {
-            "Low",
-            "Normal",
-            "High"});
             this.comboBox_Priority.Location = new System.Drawing.Point(382, 237);
             this.comboBox_Priority.Name = "comboBox_Priority";
             this.comboBox_Priority.Size = new System.Drawing.Size(151, 28);
@@ -86,6 +74,14 @@ namespace UI
             // comboBox_Deadline
             // 
             this.comboBox_Deadline.FormattingEnabled = true;
+            this.comboBox_Deadline.Items.AddRange(new object[] {
+            "7 days",
+            "6 days",
+            "5 days",
+            "4 days",
+            "3 days",
+            "2 days",
+            "1 days"});
             this.comboBox_Deadline.Location = new System.Drawing.Point(382, 277);
             this.comboBox_Deadline.Name = "comboBox_Deadline";
             this.comboBox_Deadline.Size = new System.Drawing.Size(151, 28);
@@ -188,11 +184,19 @@ namespace UI
             this.label7.TabIndex = 15;
             this.label7.Text = "Description";
             // 
+            // DateTimePicker
+            // 
+            this.DateTimePicker.Location = new System.Drawing.Point(382, 45);
+            this.DateTimePicker.Name = "DateTimePicker";
+            this.DateTimePicker.Size = new System.Drawing.Size(250, 27);
+            this.DateTimePicker.TabIndex = 16;
+            // 
             // FormGIlberto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 575);
+            this.Controls.Add(this.DateTimePicker);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -208,7 +212,6 @@ namespace UI
             this.Controls.Add(this.comboBox_Priority);
             this.Controls.Add(this.comboBox_User);
             this.Controls.Add(this.comboBox_IncidentType);
-            this.Controls.Add(this.comboBox_Date);
             this.Name = "FormGIlberto";
             this.Text = "FormGIlberto";
             this.ResumeLayout(false);
@@ -217,8 +220,6 @@ namespace UI
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBox_Date;
         private System.Windows.Forms.ComboBox comboBox_IncidentType;
         private System.Windows.Forms.ComboBox comboBox_User;
         private System.Windows.Forms.ComboBox comboBox_Priority;
@@ -234,5 +235,6 @@ namespace UI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker DateTimePicker;
     }
 }

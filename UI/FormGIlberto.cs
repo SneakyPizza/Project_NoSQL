@@ -18,12 +18,17 @@ namespace UI
         public FormGIlberto()
         {
             Base database = new Base();
+            
             InitializeComponent();
+            Fillcombobox();
 
         }
-        public void fillcombobox()
+        
+        public void Fillcombobox() // fill combobox with the enum values
         {
-            
+            comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
+            comboBox_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
+
         }
 
         private void Btn_Submit_Click(object sender, EventArgs e)
@@ -32,12 +37,13 @@ namespace UI
             Ticket_Logic tickets = new Ticket_Logic();
             Ticket ticket = new Ticket()
             {
-                CreationTime = DateTime.Now,
                 Title = txt_SubjectIncident.Text,
-                Categorie = comboBox_IncidentType.Text,
-                Priority = (Priority)Enum.Parse(typeof(Priority), comboBox_Priority.Text),
-                Description = richTextBox_Description.Text,
-          
+                CreationTime = DateTimePicker.Value, // choose date of created ticket
+                IncidentType = Enum.GetName(typeof(IncidentType), (IncidentType)comboBox_IncidentType.SelectedValue),
+                Priority = Enum.GetName(typeof(Priority), (Priority)comboBox_Priority.SelectedValue),
+                Description = richTextBox_Description.Text, 
+                Deadline = comboBox_Deadline.Text,
+                status = Enum.GetName(typeof(Status), Status.Open) //convert enum to string // ticket is standaard open wanneer aangemaakt
             };
 
             tickets.InsertTicket(ticket);

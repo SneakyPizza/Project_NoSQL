@@ -10,7 +10,7 @@ namespace DAL
     public class Base
     {
         private MongoClient _client;
-        private IMongoDatabase _database;
+     //   private IMongoDatabase _database;
 
         public Base()
         {
@@ -21,10 +21,10 @@ namespace DAL
         // return database
         public IMongoDatabase GetDatabase() { return _client.GetDatabase("clustermongo"); }
 
-        public IMongoCollection<BsonDocument> getCollection(string collectionName)
-        {
-            return _database.GetCollection<BsonDocument>(collectionName);
-        }
+        //public IMongoCollection<BsonDocument> getCollection(string collectionName)
+        //{
+        //    return _database.GetCollection<BsonDocument>(collectionName);
+        //}
 
     }
 }
