@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,11 @@ namespace UI
         public FormYornie()
         {
             InitializeComponent();
+        }
+
+        private User CreateUser(string username, string password, string firstname, string lastname, UserRole role)
+        {
+            return new User(username, password, firstname, lastname, role);
         }
     }
 }

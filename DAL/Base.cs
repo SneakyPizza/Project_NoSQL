@@ -19,7 +19,8 @@ namespace DAL
             _database = _client.GetDatabase("SampleCluster");
         }
 
-        
+        public IMongoDatabase GetDatabase() { return _client.GetDatabase("ProjectNoSQL10"); }
+
 
         public IMongoCollection<BsonDocument> getCollection(string collectionName)
         {

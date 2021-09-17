@@ -15,7 +15,7 @@ namespace DAL
 
         public bool LoginUser(string username, string password)
         {
-            var db = _client.GetDatabase(""); //Insert database name
+            var db = _client.GetDatabase("Users"); //Insert database name
             IMongoCollection<User> collection = db.GetCollection<User>(""); //get collection of users
 
             var filter = Builders<User>.Filter.Eq("username", username);    //filter on username 
@@ -43,6 +43,11 @@ namespace DAL
                 return true;
             }
             return false;
+        }
+
+        public void InsertUser(User user)
+        {
+            GetDatabase().GetCollection<User>("Users").InsertOne(user);
         }
     }
 }
