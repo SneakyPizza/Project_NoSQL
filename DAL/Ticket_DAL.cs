@@ -10,7 +10,7 @@ namespace DAL
     {
         public void InsertTicket(Ticket ticket) // insert ticket in de database
         {
-            GetDatabase().GetCollection<Ticket>("Ticket").InsertOne(ticket);
+            GetDatabase().GetCollection<Ticket>("Tickets").InsertOne(ticket);
         }
     }
 }

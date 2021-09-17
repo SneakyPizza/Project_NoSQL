@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Text;
 using MongoDB.Bson;
 using DAL;
+using Model;
 
 namespace Logic
 {
+
     public class User_Logic
     {
-        //test connection, remove later
+        User_DAL dal = new User_DAL();
+
+        public User_Logic()
+        {
+           // dal.InsertUser();
+            dal.GetUser();
+        }
       
     }
 }

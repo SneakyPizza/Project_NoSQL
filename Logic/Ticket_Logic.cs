@@ -13,5 +13,10 @@ namespace Logic
         {
             tickets.InsertTicket(ticket);
         }
+
+        public void Getuser()
+        {
+
+        }
     }
 }

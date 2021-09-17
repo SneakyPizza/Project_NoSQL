@@ -75,13 +75,13 @@ namespace UI
             // 
             this.comboBox_Deadline.FormattingEnabled = true;
             this.comboBox_Deadline.Items.AddRange(new object[] {
-            "7 days",
-            "6 days",
-            "5 days",
-            "4 days",
-            "3 days",
+            "1 day",
             "2 days",
-            "1 days"});
+            "3 days",
+            "4 days",
+            "5 days",
+            "6 days",
+            "7 days"});
             this.comboBox_Deadline.Location = new System.Drawing.Point(382, 277);
             this.comboBox_Deadline.Name = "comboBox_Deadline";
             this.comboBox_Deadline.Size = new System.Drawing.Size(151, 28);

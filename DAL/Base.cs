@@ -19,7 +19,7 @@ namespace DAL
         }
 
         // return database
-        public IMongoDatabase GetDatabase() { return _client.GetDatabase("clustermongo"); }
+        public IMongoDatabase GetDatabase() { return _client.GetDatabase("ProjectNoSQL10"); }
 
         //public IMongoCollection<BsonDocument> getCollection(string collectionName)
         //{

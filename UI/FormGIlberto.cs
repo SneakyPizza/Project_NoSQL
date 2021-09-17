@@ -18,6 +18,7 @@ namespace UI
         public FormGIlberto()
         {
             Base database = new Base();
+            User_Logic logic = new User_Logic();
             
             InitializeComponent();
             Fillcombobox();
@@ -28,6 +29,7 @@ namespace UI
         {
             comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
             comboBox_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
+           // comboBox_Deadline.DataSource = Enum.GetValues(typeof(Deadlines));
 
         }
 
@@ -47,6 +49,7 @@ namespace UI
             };
 
             tickets.InsertTicket(ticket);
+            MessageBox.Show("ticket has been inserted");
         }
     }
 }
