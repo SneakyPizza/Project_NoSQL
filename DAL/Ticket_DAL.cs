@@ -8,13 +8,9 @@ namespace DAL
 {
    public class Ticket_DAL:Base
     {
-        public void InsertTicket(Ticket ticket)
+        public void InsertTicket(Ticket ticket) // insert ticket in de database
         {
-            var collection = base.GetDatabase().GetCollection<Ticket>("Ticket");
-            collection.InsertOne(ticket);
-         
-           
-
+            GetDatabase().GetCollection<Ticket>("Ticket").InsertOne(ticket);
         }
     }
 }
