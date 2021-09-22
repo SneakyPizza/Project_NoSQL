@@ -28,5 +28,21 @@ namespace Logic
                 Console.WriteLine(e.Message);
             }
         }
+
+        public bool LoginUser(string username, string password)
+        {
+            try
+            {
+                if (login_dal.LoginUser(username, password))
+                {
+                    return true;
+                }
+                return false;
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+        }
     }
 }

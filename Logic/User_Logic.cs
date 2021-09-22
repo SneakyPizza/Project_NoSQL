@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MongoDB.Bson;
 using DAL;
+using Model;
 
 namespace Logic
 {
@@ -13,6 +14,11 @@ namespace Logic
         {
             User_DAL dal = new User_DAL();
             return dal.TestDocmentList();
+        }
+
+        private User CreateUser(string username, string password, string firstname, string lastname, UserRole role)
+        {
+            return new User(username, password, firstname, lastname, role);
         }
     }
 }
