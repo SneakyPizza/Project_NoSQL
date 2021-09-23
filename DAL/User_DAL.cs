@@ -21,7 +21,6 @@ namespace DAL
             filtersList.Add(new BsonDocument("UserRole", 0));
             var builder = Builders<User>.Filter;
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(builder.And(filtersList)).ToList();
-            Login();
             return Users;
         }
         public List<User> Login()

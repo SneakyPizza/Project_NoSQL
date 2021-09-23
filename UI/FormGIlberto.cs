@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic;
 using Model;
-using DAL;
 
 namespace UI
 {
@@ -23,27 +22,29 @@ namespace UI
             _user = new User_Logic();
 
             InitializeComponent();
-            HidePanelTicketsOverview();
+            HidePanels();
             FillcomboboxCreateTicket();
             listView_TicketsOverview.MouseDoubleClick += new MouseEventHandler(listView_TicketsOverview_MouseDoubleClick);
         }
 
-        public void HidePanelTicketsOverview()
+        public void HidePanels()
         {
             pnl_TicketOverview.Visible = false;
             pnl_Ticket1.Visible = false;
+            pnl_UsermakeTicket.Visible = false;
         }
         // show everything on ticketsoverview
         public void ShowPanelTicketsOverview()
         {
             pnl_TicketOverview.Visible = true;
         }
+        // show the panel ticket
         public void ShowPanelTicket()
         {
             pnl_Ticket1.Visible = true;
         }
         // fill combobox of the create ticket panel
-        public void FillcomboboxCreateTicket() 
+        public void FillcomboboxCreateTicket()
         {
             comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
             comboBox_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
@@ -88,9 +89,10 @@ namespace UI
                 listView_TicketsOverview.Items.AddRange(new ListViewItem[] { listview });
             }
         }
-       
+
         // Load the listview with the tickets
-        private void Loadlistview() {
+        private void Loadlistview()
+        {
             FillListview(_tickets.RetrieveAllTickets());
         }
         // fill the column headers of the listview
@@ -125,7 +127,8 @@ namespace UI
             richTextBox_TicketDescription1.Text = ticket.Description;
             comboBox_TicketStatus1.Text = ticket.Status;
             Txt_IncidentType1.Text = ticket.IncidentType;
-            foreach (Status status in Enum.GetValues(typeof(Status))){
+            foreach (Status status in Enum.GetValues(typeof(Status)))
+            {
                 comboBox_TicketStatus1.Items.Add(status);
             }
             richTextBox1_TIcketSolution1.Text = ticket.Solution;
@@ -152,6 +155,31 @@ namespace UI
         {
             pnl_Ticket1.Visible = false;
             Loadlistview();
+        }
+
+        private void btn_makeTicketNormalUser_Click(object sender, EventArgs e)
+        {
+            pnl_UsermakeTicket.Visible = true;
+        }
+        private void btn_BackbuttonUserticket_Click(object sender, EventArgs e)
+        {
+            pnl_UsermakeTicket.Visible = false;
+        }
+        // normal user can enter a ticket
+        private void btn_makeTicketUSer_Click(object sender, EventArgs e)
+        {
+            User user = _user.GetUser();
+            Ticket ticket = new Ticket();
+            ticket.UserID = user.id;
+            ticket.Description = richTextBox_Userdescription.Text;
+            ticket.Title = textBoxTicketTitle.Text;
+            ticket.Status = Enum.GetName(typeof(Status), Status.Open);
+            ticket.IncidentType = Enum.GetName(typeof(IncidentType), IncidentType.Hardware);
+            ticket.Solution = string.Empty;
+            ticket.Priority = Enum.GetName(typeof(Priority), Priority.Normal);
+            ticket.CreationTime = DateTime.Now;
+            _tickets.InsertTicket(ticket);
+            MessageBox.Show("Ticket has been inserted of a normal user");
         }
     }
 }

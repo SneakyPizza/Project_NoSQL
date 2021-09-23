@@ -70,6 +70,17 @@ namespace UI
             this.richTextBox_TicketDescription1 = new System.Windows.Forms.RichTextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.pnl_UsermakeTicket = new System.Windows.Forms.Panel();
+            this.btn_BackbuttonUserticket = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.btn_makeTicketUSer = new System.Windows.Forms.Button();
+            this.TicketTItle = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBoxTicketTitle = new System.Windows.Forms.TextBox();
+            this.richTextBox_Userdescription = new System.Windows.Forms.RichTextBox();
+            this.textBoxLastname = new System.Windows.Forms.TextBox();
+            this.textBoxFirstname = new System.Windows.Forms.TextBox();
             this.pnl_TicketOverview = new System.Windows.Forms.Panel();
             this.pnl_Ticket = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
@@ -96,7 +107,9 @@ namespace UI
             this.btn_Filter = new System.Windows.Forms.Button();
             this.richTextBox_Filter = new System.Windows.Forms.RichTextBox();
             this.listView_TicketsOverview = new System.Windows.Forms.ListView();
+            this.btn_makeTicketNormalUser = new System.Windows.Forms.Button();
             this.pnl_Ticket1.SuspendLayout();
+            this.pnl_UsermakeTicket.SuspendLayout();
             this.pnl_TicketOverview.SuspendLayout();
             this.pnl_Ticket.SuspendLayout();
             this.SuspendLayout();
@@ -304,7 +317,7 @@ namespace UI
             this.pnl_Ticket1.Controls.Add(this.richTextBox_TicketDescription1);
             this.pnl_Ticket1.Controls.Add(this.label25);
             this.pnl_Ticket1.Controls.Add(this.textBox6);
-            this.pnl_Ticket1.Location = new System.Drawing.Point(1, 4);
+            this.pnl_Ticket1.Location = new System.Drawing.Point(4, 11);
             this.pnl_Ticket1.Name = "pnl_Ticket1";
             this.pnl_Ticket1.Size = new System.Drawing.Size(888, 547);
             this.pnl_Ticket1.TabIndex = 23;
@@ -469,6 +482,108 @@ namespace UI
             this.textBox6.Size = new System.Drawing.Size(125, 27);
             this.textBox6.TabIndex = 0;
             // 
+            // pnl_UsermakeTicket
+            // 
+            this.pnl_UsermakeTicket.Controls.Add(this.btn_BackbuttonUserticket);
+            this.pnl_UsermakeTicket.Controls.Add(this.label28);
+            this.pnl_UsermakeTicket.Controls.Add(this.btn_makeTicketUSer);
+            this.pnl_UsermakeTicket.Controls.Add(this.TicketTItle);
+            this.pnl_UsermakeTicket.Controls.Add(this.label27);
+            this.pnl_UsermakeTicket.Controls.Add(this.label26);
+            this.pnl_UsermakeTicket.Controls.Add(this.textBoxTicketTitle);
+            this.pnl_UsermakeTicket.Controls.Add(this.richTextBox_Userdescription);
+            this.pnl_UsermakeTicket.Controls.Add(this.textBoxLastname);
+            this.pnl_UsermakeTicket.Controls.Add(this.textBoxFirstname);
+            this.pnl_UsermakeTicket.Location = new System.Drawing.Point(6, 9);
+            this.pnl_UsermakeTicket.Name = "pnl_UsermakeTicket";
+            this.pnl_UsermakeTicket.Size = new System.Drawing.Size(917, 545);
+            this.pnl_UsermakeTicket.TabIndex = 23;
+            // 
+            // btn_BackbuttonUserticket
+            // 
+            this.btn_BackbuttonUserticket.Location = new System.Drawing.Point(751, 17);
+            this.btn_BackbuttonUserticket.Name = "btn_BackbuttonUserticket";
+            this.btn_BackbuttonUserticket.Size = new System.Drawing.Size(94, 29);
+            this.btn_BackbuttonUserticket.TabIndex = 9;
+            this.btn_BackbuttonUserticket.Text = "BackButton";
+            this.btn_BackbuttonUserticket.UseVisualStyleBackColor = true;
+            this.btn_BackbuttonUserticket.Click += new System.EventHandler(this.btn_BackbuttonUserticket_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(476, 30);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(83, 20);
+            this.label28.TabIndex = 8;
+            this.label28.Text = "description";
+            // 
+            // btn_makeTicketUSer
+            // 
+            this.btn_makeTicketUSer.Location = new System.Drawing.Point(476, 229);
+            this.btn_makeTicketUSer.Name = "btn_makeTicketUSer";
+            this.btn_makeTicketUSer.Size = new System.Drawing.Size(323, 91);
+            this.btn_makeTicketUSer.TabIndex = 7;
+            this.btn_makeTicketUSer.Text = "Make Ticket";
+            this.btn_makeTicketUSer.UseVisualStyleBackColor = true;
+            this.btn_makeTicketUSer.Click += new System.EventHandler(this.btn_makeTicketUSer_Click);
+            // 
+            // TicketTItle
+            // 
+            this.TicketTItle.AutoSize = true;
+            this.TicketTItle.Location = new System.Drawing.Point(15, 148);
+            this.TicketTItle.Name = "TicketTItle";
+            this.TicketTItle.Size = new System.Drawing.Size(77, 20);
+            this.TicketTItle.TabIndex = 6;
+            this.TicketTItle.Text = "TicketTitle";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(15, 110);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(72, 20);
+            this.label27.TabIndex = 5;
+            this.label27.Text = "Lastname";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(15, 64);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(71, 20);
+            this.label26.TabIndex = 4;
+            this.label26.Text = "firstname";
+            // 
+            // textBoxTicketTitle
+            // 
+            this.textBoxTicketTitle.Location = new System.Drawing.Point(112, 147);
+            this.textBoxTicketTitle.Name = "textBoxTicketTitle";
+            this.textBoxTicketTitle.Size = new System.Drawing.Size(125, 27);
+            this.textBoxTicketTitle.TabIndex = 3;
+            // 
+            // richTextBox_Userdescription
+            // 
+            this.richTextBox_Userdescription.Location = new System.Drawing.Point(476, 67);
+            this.richTextBox_Userdescription.Name = "richTextBox_Userdescription";
+            this.richTextBox_Userdescription.Size = new System.Drawing.Size(323, 115);
+            this.richTextBox_Userdescription.TabIndex = 2;
+            this.richTextBox_Userdescription.Text = "";
+            // 
+            // textBoxLastname
+            // 
+            this.textBoxLastname.Location = new System.Drawing.Point(112, 107);
+            this.textBoxLastname.Name = "textBoxLastname";
+            this.textBoxLastname.Size = new System.Drawing.Size(125, 27);
+            this.textBoxLastname.TabIndex = 1;
+            // 
+            // textBoxFirstname
+            // 
+            this.textBoxFirstname.Location = new System.Drawing.Point(112, 63);
+            this.textBoxFirstname.Name = "textBoxFirstname";
+            this.textBoxFirstname.Size = new System.Drawing.Size(125, 27);
+            this.textBoxFirstname.TabIndex = 0;
+            // 
             // pnl_TicketOverview
             // 
             this.pnl_TicketOverview.Controls.Add(this.pnl_Ticket1);
@@ -479,7 +594,7 @@ namespace UI
             this.pnl_TicketOverview.Controls.Add(this.btn_Filter);
             this.pnl_TicketOverview.Controls.Add(this.richTextBox_Filter);
             this.pnl_TicketOverview.Controls.Add(this.listView_TicketsOverview);
-            this.pnl_TicketOverview.Location = new System.Drawing.Point(12, 12);
+            this.pnl_TicketOverview.Location = new System.Drawing.Point(2, 12);
             this.pnl_TicketOverview.Name = "pnl_TicketOverview";
             this.pnl_TicketOverview.Size = new System.Drawing.Size(892, 545);
             this.pnl_TicketOverview.TabIndex = 18;
@@ -714,12 +829,24 @@ namespace UI
             this.listView_TicketsOverview.UseCompatibleStateImageBehavior = false;
             this.listView_TicketsOverview.View = System.Windows.Forms.View.Details;
             // 
+            // btn_makeTicketNormalUser
+            // 
+            this.btn_makeTicketNormalUser.Location = new System.Drawing.Point(654, 23);
+            this.btn_makeTicketNormalUser.Name = "btn_makeTicketNormalUser";
+            this.btn_makeTicketNormalUser.Size = new System.Drawing.Size(187, 51);
+            this.btn_makeTicketNormalUser.TabIndex = 24;
+            this.btn_makeTicketNormalUser.Text = "MakeTicketNormalUser";
+            this.btn_makeTicketNormalUser.UseVisualStyleBackColor = true;
+            this.btn_makeTicketNormalUser.Click += new System.EventHandler(this.btn_makeTicketNormalUser_Click);
+            // 
             // FormGIlberto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 575);
+            this.Controls.Add(this.pnl_UsermakeTicket);
             this.Controls.Add(this.pnl_TicketOverview);
+            this.Controls.Add(this.btn_makeTicketNormalUser);
             this.Controls.Add(this.textBox_Useremail);
             this.Controls.Add(this.textBox_Jobdescriiption);
             this.Controls.Add(this.textBox_lastname);
@@ -745,6 +872,8 @@ namespace UI
             this.Text = "FormGIlberto";
             this.pnl_Ticket1.ResumeLayout(false);
             this.pnl_Ticket1.PerformLayout();
+            this.pnl_UsermakeTicket.ResumeLayout(false);
+            this.pnl_UsermakeTicket.PerformLayout();
             this.pnl_TicketOverview.ResumeLayout(false);
             this.pnl_TicketOverview.PerformLayout();
             this.pnl_Ticket.ResumeLayout(false);
@@ -822,5 +951,17 @@ namespace UI
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button brn_BackButton;
+        private System.Windows.Forms.Panel pnl_UsermakeTicket;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox textBoxTicketTitle;
+        private System.Windows.Forms.RichTextBox richTextBox_Userdescription;
+        private System.Windows.Forms.TextBox textBoxLastname;
+        private System.Windows.Forms.TextBox textBoxFirstname;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Button btn_makeTicketUSer;
+        private System.Windows.Forms.Label TicketTItle;
+        private System.Windows.Forms.Button btn_makeTicketNormalUser;
+        private System.Windows.Forms.Button btn_BackbuttonUserticket;
     }
 }
