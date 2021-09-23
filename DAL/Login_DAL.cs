@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MongoDB.Driver;
 using Model;
+using MongoDB.Bson;
 
 namespace DAL
 {
@@ -15,19 +16,15 @@ namespace DAL
 
         public bool LoginUser(string username, string password)
         {
-            var db = _client.GetDatabase("Users"); //Insert database name
-            IMongoCollection<User> collection = db.GetCollection<User>(""); //get collection of users
+            var db = _client.GetDatabase("ProjectNoSQL10"); //Insert database name
+            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>("Users"); //get collection of users
 
-            var filter = Builders<User>.Filter.Eq("username", username);    //filter on username 
+            var filter = Builders<BsonDocument>.Filter.Eq("Username", username);    //filter on username 
 
-            List<User> list = collection.Find(filter).ToList(); //find username
-            if(list.Count > 0)  //if the list has less then 1 it hasnt found the username
+            List<BsonDocument> list = collection.Find(filter).ToList(); //find username
+            if (list[0].GetElement("Password").ToString() == password)    //check password
             {
-                //username found
-                if(list[0].Password == password)    //check password
-                {
-                    return true;
-                }
+                return true;
             }
 
 
@@ -47,7 +44,7 @@ namespace DAL
 
         public void InsertUser(User user)
         {
-            GetDatabase().GetCollection<User>("Users").InsertOne(user);
+            GetDatabase("ProjectNoSQL10").GetCollection<User>("Users").InsertOne(user);
         }
     }
 }

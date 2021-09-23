@@ -6,19 +6,30 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Logic;
 
 namespace UI
 {
     public partial class FormYornie : Form
     {
+        private Login_Logic _login_Logic = new Login_Logic();
         public FormYornie()
         {
             InitializeComponent();
         }
 
-        private User CreateUser(string username, string password, string firstname, string lastname, UserRole role)
+        private void btn_Login_Click(object sender, EventArgs e)
         {
-            return new User(username, password, firstname, lastname, role);
+            if (!string.IsNullOrEmpty(tb_Username.Text) && !string.IsNullOrEmpty(tb_Password.Text));
+            {
+                if (_login_Logic.LoginUser(tb_Username.Text, tb_Password.Text))
+                {
+                    MessageBox.Show("Succes");
+                } else
+                {
+                    MessageBox.Show("Failed");
+                }
+            }
         }
     }
 }
