@@ -10,20 +10,32 @@ namespace DAL
 {
     public class User_DAL : Base
     {
-        private object collection;
-
         public void InsertUser()
         {
-            User u = new User();
-            u.name = "victor";
-            u.lastname = "victorlastname";
-            GetDatabase().GetCollection<User>("Users").InsertOne(u);
+            GetDatabase().GetCollection<User>("Users").InsertOne(new User("Victor","Victor","Victor","Victor", UserRole.User));
         }
 
+        public List<User> GetUsers()
+        {
+            IList<FilterDefinition<User>> filtersList = new List<FilterDefinition<User>>();
+            filtersList.Add(new BsonDocument("UserRole", 0));
+            var builder = Builders<User>.Filter;
+            List<User> Users = GetDatabase().GetCollection<User>("Users").Find(builder.And(filtersList)).ToList();
+            Login();
+            return Users;
+        }
+        public List<User> Login()
+        {
+            IList<FilterDefinition<User>> filtersList = new List<FilterDefinition<User>>();
+            filtersList.Add(new BsonDocument("Username", "Victor"));
+            var builder = Builders<User>.Filter;
+            List<User> Users = GetDatabase().GetCollection<User>("Users").Find(builder.And(filtersList)).ToList();
+            return Users;
+        }
         public User GetUser()
         {
             var collection = GetDatabase().GetCollection<User>("Users");
-            var filter = Builders<User>.Filter.Eq("name","victor");
+            var filter = Builders<User>.Filter.Eq("Firstname", "Victor");
             var test = collection.Find(filter);
             User user = test.FirstOrDefault();
 

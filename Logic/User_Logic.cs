@@ -11,12 +11,23 @@ namespace Logic
     public class User_Logic
     {
         User_DAL dal = new User_DAL();
-
         public User_Logic()
         {
            // dal.InsertUser();
-            dal.GetUser();
         }
+        public List<User> GetUsers()
+        {
+            try
+            {
+                return dal.GetUsers();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        
+        }
+
       
     }
 }

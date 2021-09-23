@@ -7,24 +7,15 @@ using MongoDB.Driver;
 
 namespace DAL
 {
-    public class Base
+    public abstract class Base
     {
         private MongoClient _client;
-     //   private IMongoDatabase _database;
-
         public Base()
         {
             // set connection string
             _client = new MongoClient(MongoClientSettings.FromConnectionString(ConfigurationManager.ConnectionStrings["Mongo"].ConnectionString));
         }
-
         // return database
         public IMongoDatabase GetDatabase() { return _client.GetDatabase("ProjectNoSQL10"); }
-
-        //public IMongoCollection<BsonDocument> getCollection(string collectionName)
-        //{
-        //    return _database.GetCollection<BsonDocument>(collectionName);
-        //}
-
     }
 }
