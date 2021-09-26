@@ -55,16 +55,14 @@ namespace DAL
         // updates the list of tickets of the user after making a ticket
         public void FillTicketLIstUser(User user)
         {
-            IList<FilterDefinition<Ticket>> filtersList = new List<FilterDefinition<Ticket>>();
-            filtersList.Add(new BsonDocument("UserID", user.id));
-            var builder = Builders<Ticket>.Filter;
-            List<Ticket> TicketsOFUser = GetDatabaseTickets().Find(builder.And(filtersList)).ToList();
+            FilterDefinition<Ticket> FilterUser = Builders<Ticket>.Filter.Eq("UserID", user.id);
+            List<Ticket> TicketsOFUser = GetDatabaseTickets().Find(FilterUser).ToList();
 
-            FilterDefinition<User> filter2 = Builders<User>.Filter.Eq(x => x.id, user.id);
+            FilterDefinition<User> FilterTicket = Builders<User>.Filter.Eq(x => x.id, user.id);
             foreach (Ticket ticket in TicketsOFUser)
             {
                 UpdateDefinition<User> update = Builders<User>.Update.AddToSet("Tickets", ticket.id);
-                GetDatabase().GetCollection<User>("Users").UpdateOne(filter2, update);
+                GetDatabase().GetCollection<User>("Users").UpdateOne(FilterTicket, update);
             }
         }
     }
