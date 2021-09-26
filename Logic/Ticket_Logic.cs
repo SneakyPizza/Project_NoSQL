@@ -69,5 +69,18 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
+
+        public void TicketsOFuser(User userTicket)
+        {
+            try
+            {
+                _tickets.FillTicketLIstUser(userTicket);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
     }
 }

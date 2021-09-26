@@ -15,6 +15,7 @@ namespace Logic
         {
             try
             {
+               // dal.InsertUser();
                 return dal.GetUsers();
             }
             catch (Exception e)
@@ -35,6 +36,7 @@ namespace Logic
             }
         }
 
+      
 
     }
 }

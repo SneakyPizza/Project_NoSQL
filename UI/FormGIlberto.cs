@@ -179,6 +179,7 @@ namespace UI
             ticket.Priority = Enum.GetName(typeof(Priority), Priority.Normal);
             ticket.CreationTime = DateTime.Now;
             _tickets.InsertTicket(ticket);
+            _tickets.TicketsOFuser(user);
             MessageBox.Show("Ticket has been inserted of a normal user");
         }
     }
