@@ -8,18 +8,17 @@ namespace Model
 {
     public class Ticket
     {
-
         public ObjectId UserID { get; set; } // user that creates ticket and makes ticket. is split by user role
         public ObjectId id { get; set; } // take and send tickets from the database
-        public String Title { get; set; }
-        public String Description { get; set; }
-        public String IncidentType { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string IncidentType { get; set; }
         public DateTime Deadline { get; set; }
-        public String Priority { get; set; }
-        public String Status { get; set; }
-        public Boolean PastDeadline { get { return (DateTime.Now > Deadline); } }
+        public string Priority { get; set; }
+        public string Status { get; set; }
+        public bool PastDeadline { get { return (DateTime.Now > Deadline); } }
         public DateTime CreationTime { get; set; } // tijd dat de ticket is aangemaakt
-        public String Solution { get; set; } // solution of the ticket problem
+        public string Solution { get; set; } // solution of the ticket problem
 
     }
 }

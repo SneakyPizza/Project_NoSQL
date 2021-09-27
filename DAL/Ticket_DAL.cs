@@ -15,7 +15,8 @@ namespace DAL
         {
             return GetDatabase().GetCollection<Ticket>("Tickets");
         }
-        public void InsertTicket(Ticket ticket) // insert ticket in de database
+        // insert ticket in de database
+        public void InsertTicket(Ticket ticket)
         {
             GetDatabaseTickets().InsertOne(ticket);
         }
@@ -53,13 +54,13 @@ namespace DAL
             GetDatabaseTickets().UpdateOne(filter, update);
         }
         // updates the list of tickets of the user after making a ticket
-        public void FillTicketLIstUser(User user)
+        public void FillTicketListUser(User user)
         {
             FilterDefinition<Ticket> FilterUser = Builders<Ticket>.Filter.Eq("UserID", user.id);
-            List<Ticket> TicketsOFUser = GetDatabaseTickets().Find(FilterUser).ToList();
+            List<Ticket> TicketsOfUser = GetDatabaseTickets().Find(FilterUser).ToList();
 
             FilterDefinition<User> FilterTicket = Builders<User>.Filter.Eq(x => x.id, user.id);
-            foreach (Ticket ticket in TicketsOFUser)
+            foreach (Ticket ticket in TicketsOfUser)
             {
                 UpdateDefinition<User> update = Builders<User>.Update.AddToSet("Tickets", ticket.id);
                 GetDatabase().GetCollection<User>("Users").UpdateOne(FilterTicket, update);

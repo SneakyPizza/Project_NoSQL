@@ -7,8 +7,8 @@ Taakverdeling Project NoSQL
 - Remove User				> Taph
 
 - Ticket Overview			> Gilberto // tickets are sorted on priority level
-- Create Ticket				> Gilberto // tickets get created without user attached to it
-- Remove Ticket				> Gilberto // ticket has yet to be closed/updated
+- Create Ticket				> Gilberto // tickets get created with user attatched to it
+- Remove Ticket				> Gilberto // tickets dont get removed but updated
 
 - Dashboard Overview			> Yornie
 

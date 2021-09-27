@@ -23,10 +23,10 @@ namespace UI
 
             InitializeComponent();
             HidePanels();
-            FillcomboboxCreateTicket();
+            FillcomboboxCreateTicketAndTicketInformation();
             listView_TicketsOverview.MouseDoubleClick += new MouseEventHandler(listView_TicketsOverview_MouseDoubleClick);
         }
-
+        // hide all panels
         public void HidePanels()
         {
             pnl_TicketOverview.Visible = false;
@@ -44,16 +44,23 @@ namespace UI
             pnl_Ticket1.Visible = true;
         }
         // fill combobox of the create ticket panel
-        public void FillcomboboxCreateTicket()
+        public void FillcomboboxCreateTicketAndTicketInformation()
         {
             comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
             comboBox_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             comboBox_SortByPriority.DataSource = Enum.GetValues(typeof(Priority));
+            foreach (Status status in Enum.GetValues(typeof(Status)))
+            {
+                comboBox_TicketStatus1.Items.Add(status);
+            }
+            // comboBox_User.DataSource = _user.GetUsers();
             _user.GetUsers().ForEach(user => comboBox_User.Items.Add(user.Firstname));
+
         }
         // send the ticket to the db
         private void Btn_Submit_Click(object sender, EventArgs e)
         {
+          //  User u = (User)comboBox_User.SelectedItem;
             Ticket ticket = new Ticket()
             {
                 Title = txt_SubjectIncident.Text,
@@ -64,7 +71,7 @@ namespace UI
                 Deadline = DateTimePicker.Value.AddDays(double.Parse(comboBox_Deadline.Text.Where(Char.IsDigit).ToArray())),
                 Status = Enum.GetName(typeof(Status), Status.Open) //convert enum to string // ticket is standaard open wanneer aangemaakt
             };
-            _tickets.InsertTicket(ticket); // insert a ticket in de database
+            _tickets.InsertTicket(ticket);
             MessageBox.Show("ticket has been inserted");
         }
 
@@ -81,12 +88,14 @@ namespace UI
             foreach (Ticket ticket in tickets)
             {
                 ListViewItem listview = new ListViewItem(ticket.Title);
-                if (ticket.PastDeadline) { listview.ForeColor = Color.Red; }
+                if (ticket.PastDeadline && ticket.Deadline != DateTime.Parse("01/01/0001 00:00:00")) { listview.ForeColor = Color.Red; }
+                else if (ticket.Deadline == DateTime.Parse("01/01/0001 00:00:00")) { listview.ForeColor = Color.DarkOrange; }
                 listview.Tag = ticket;
                 listview.SubItems.Add(ticket.IncidentType.ToString());
                 listview.SubItems.Add(ticket.Priority.ToString());
                 listview.SubItems.Add(ticket.Status.ToString());
                 listView_TicketsOverview.Items.AddRange(new ListViewItem[] { listview });
+                Console.ResetColor();
             }
         }
 
@@ -98,8 +107,8 @@ namespace UI
         // fill the column headers of the listview
         private void FillListviewColumnHeaders()
         {
-            List<String> ColumnHeader = new List<String>() { "Title", "IncidentType", "Priority", "Status" };
-            foreach (String Header in ColumnHeader)
+            List<string> ColumnHeader = new List<string>() { "Title", "IncidentType", "Priority", "Status" };
+            foreach (string Header in ColumnHeader)
             {
                 listView_TicketsOverview.Columns.Add(Header, 120, HorizontalAlignment.Left);
             }
@@ -127,10 +136,8 @@ namespace UI
             richTextBox_TicketDescription1.Text = ticket.Description;
             comboBox_TicketStatus1.Text = ticket.Status;
             Txt_IncidentType1.Text = ticket.IncidentType;
-            foreach (Status status in Enum.GetValues(typeof(Status)))
-            {
-                comboBox_TicketStatus1.Items.Add(status);
-            }
+            comboBox_TicketStatus1.SelectedItem = ticket.Status;
+            comboBox_TicketStatus1.Text = ticket.Status.ToString();
             richTextBox1_TIcketSolution1.Text = ticket.Solution;
         }
         // open selected ticket in listview and load the values of the ticket;
@@ -179,7 +186,7 @@ namespace UI
             ticket.Priority = Enum.GetName(typeof(Priority), Priority.Normal);
             ticket.CreationTime = DateTime.Now;
             _tickets.InsertTicket(ticket);
-            _tickets.TicketsOFuser(user);
+            _tickets.UpdateTicketListOfUser(user);
             MessageBox.Show("Ticket has been inserted of a normal user");
         }
     }

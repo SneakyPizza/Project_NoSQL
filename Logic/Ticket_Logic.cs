@@ -70,11 +70,11 @@ namespace Logic
             }
         }
 
-        public void TicketsOFuser(User userTicket)
+        public void UpdateTicketListOfUser(User userTicket)
         {
             try
             {
-                _tickets.FillTicketLIstUser(userTicket);
+                _tickets.FillTicketListUser(userTicket);
             }
             catch (Exception e)
             {
