@@ -12,7 +12,7 @@ namespace Model
         private string _firstname;
         private string _lastname;
         private UserRole _userrole;
-        List<ObjectId> tickets;
+        List<ObjectId> _tickets;
         public User(string username, string password, string firstname, string lastname, UserRole userrole,List<ObjectId> tickets)
         {
             _name = username;
@@ -20,10 +20,10 @@ namespace Model
             _firstname = firstname;
             _lastname = lastname;
             _userrole = userrole;
-            this.tickets = tickets;
+            _tickets = tickets;
         }
-        // public List<string> Tickets { get; set; }
-        public List<ObjectId> Tickets { get => tickets; set => tickets = value; }
+        public string Fullname { get { return string.Format("{0}  {1}", Firstname, Lastname); } }
+        public List<ObjectId> Tickets { get => _tickets; set => _tickets = value; }
         public string Username { get => _name; set => _name = value; }
         public string Password { get => _password; set => _password = value; }
         public string Firstname { get => _firstname; set => _firstname = value; }

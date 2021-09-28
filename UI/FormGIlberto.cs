@@ -53,16 +53,16 @@ namespace UI
             {
                 comboBox_TicketStatus1.Items.Add(status);
             }
-            // comboBox_User.DataSource = _user.GetUsers();
-            _user.GetUsers().ForEach(user => comboBox_User.Items.Add(user.Firstname));
-
+            comboBox_User.DisplayMember = "Fullname";
+            comboBox_User.DataSource = _user.GetUsers();
         }
         // send the ticket to the db
         private void Btn_Submit_Click(object sender, EventArgs e)
         {
-          //  User u = (User)comboBox_User.SelectedItem;
+            User selectedUserID = (User)comboBox_User.SelectedItem;
             Ticket ticket = new Ticket()
             {
+                UserID = selectedUserID.id,
                 Title = txt_SubjectIncident.Text,
                 CreationTime = DateTimePicker.Value, // choose date of created ticket
                 IncidentType = Enum.GetName(typeof(IncidentType), (IncidentType)comboBox_IncidentType.SelectedValue),
