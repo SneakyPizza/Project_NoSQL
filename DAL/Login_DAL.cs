@@ -16,30 +16,19 @@ namespace DAL
 
         public bool LoginUser(string username, string password)
         {
-            var db = _client.GetDatabase("ProjectNoSQL10"); //Insert database name
-            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>("Users"); //get collection of users
-
             var filter = Builders<BsonDocument>.Filter.Eq("Username", username);    //filter on username 
+            BsonDocument collection = GetDatabaseBsonUsers().Find(filter).FirstOrDefault();
 
-            List<BsonDocument> list = collection.Find(filter).ToList(); //find username
-            if (list[0].GetElement("Password").ToString() == password)    //check password
+            if (collection.GetValue("Password", "n/a") == password)    //check password
             {
                 return true;
             }
-
-
             return false;
         }
 
-        private bool CheckUsername(string username, IMongoCollection<User> collection)
+        private IMongoCollection<BsonDocument> GetDatabaseBsonUsers()
         {
-            //if username is found get that collection and check the password
-            var filter = Builders<User>.Filter.Eq("username", username);
-            if(collection.Find(filter).ToList().Count >= 0)
-            {
-                return true;
-            }
-            return false;
+            return GetDatabase("ProjectNoSQL10").GetCollection<BsonDocument>("Users");
         }
 
         public void InsertUser(User user)

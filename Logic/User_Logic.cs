@@ -16,9 +16,10 @@ namespace Logic
             return dal.TestDocmentList();
         }
 
-        private User CreateUser(string username, string password, string firstname, string lastname, UserRole role)
+        /*
+        private User CreateUser(ObjectId objectid, string username, string password, string firstname, string lastname, UserRole role, List<ObjectId> ticketids)
         {
-            return new User(username, password, firstname, lastname, role);
-        }
+            return new User(objectid, username, password, firstname, lastname, role, ticketids);
+        }*/
     }
 }

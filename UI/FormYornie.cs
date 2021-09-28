@@ -25,6 +25,8 @@ namespace UI
                 if (_login_Logic.LoginUser(tb_Username.Text, tb_Password.Text))
                 {
                     MessageBox.Show("Succes");
+                    YornieDashboard dashboard = new YornieDashboard();
+                    dashboard.Show();
                 } else
                 {
                     MessageBox.Show("Failed");
