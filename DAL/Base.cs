@@ -32,5 +32,7 @@ namespace DAL
         {
             return _client.ListDatabases().ToList();
         }
+        // return database
+        public IMongoDatabase GetDatabase() { return _client.GetDatabase("ProjectNoSQL10"); }
     }
 }

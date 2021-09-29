@@ -18,11 +18,7 @@ namespace UI
             InitializeComponent();
 
             //test connection, remove later
-            User_Logic logic = new User_Logic();
-            foreach(var li in logic.getTest())
-            {
-                MessageBox.Show(li.GetValue(1).ToString());
-            }
+          
         }
 
     }

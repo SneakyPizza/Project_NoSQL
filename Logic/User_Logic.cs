@@ -7,13 +7,33 @@ using Model;
 
 namespace Logic
 {
+
     public class User_Logic
     {
-        //test connection, remove later
-        public List<BsonDocument> getTest()
+        User_DAL dal = new User_DAL();
+        public List<User> GetUsers()
         {
-            User_DAL dal = new User_DAL();
-            return dal.TestDocmentList();
+            try
+            {
+               // dal.InsertUser();
+                return dal.GetUsers();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        // get single user
+        public User GetUser()
+        {
+            try
+            {
+                return dal.GetUser();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         /*
