@@ -6,7 +6,7 @@ namespace Model
 {
   public class User
     {
-        public ObjectId id;
+        private ObjectId _id;
         private string _name;
         private string _password;
         private string _firstname;
@@ -15,6 +15,7 @@ namespace Model
         private List<ObjectId> _tickets;
         public User(string username, string password, string firstname, string lastname, UserRole userrole,List<ObjectId> tickets)
         {
+            //_id = d;
             _name = username;
             _password = password;
             _firstname = firstname;
@@ -30,6 +31,5 @@ namespace Model
         public string Lastname { get => _lastname; set => _lastname = value; }
         public UserRole UserRole { get => _userrole; set => _userrole = value; }
         public ObjectId Id { get => _id; set => _id = value; }
-        public List<ObjectId> Tickets {get => _tickets; }
     }
 }

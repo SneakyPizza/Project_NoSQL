@@ -12,11 +12,4 @@ namespace Model
     {Hardware,Software,Service }
     public enum Status
     { Open, Close, Pending}
-
-    public enum UserRole
-    {
-        Admin,
-        User
-
-    }
 }

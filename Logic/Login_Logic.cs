@@ -66,16 +66,16 @@ namespace Logic
             try
             {
                 BsonSerializer.Deserialize<User>(doc);
-                ObjectId[] ticketObjectIds = doc["Tickets"].AsBsonArray.Select(p => (ObjectId)p).ToArray();
-
+                List<ObjectId> ticketObjectIds = doc["Tickets"].AsBsonArray.Select(p => (ObjectId)p).ToList();
+                // ObjectId id,string username, string password, string firstname, string lastname, UserRole userrole,List<ObjectId> tickets
                 return new User(
-                    (ObjectId)doc["_id"],
-                    ticketObjectIds,
+                 
                     doc["Username"].ToString(),
                     doc["Password"].ToString(),
                     doc["Firstname"].ToString(),
                     doc["LastName"].ToString(),
-                    (UserRole)doc["UserRole"].ToInt32()
+                    (UserRole)doc["UserRole"].ToInt32(),
+                    ticketObjectIds
                     );
             } catch(Exception e)
             {

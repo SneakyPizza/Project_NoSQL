@@ -62,7 +62,7 @@ namespace UI
             User selectedUserID = (User)comboBox_User.SelectedItem;
             Ticket ticket = new Ticket()
             {
-                UserID = selectedUserID.id,
+                UserID = selectedUserID.Id,
                 Title = txt_SubjectIncident.Text,
                 CreationTime = DateTimePicker.Value, // choose date of created ticket
                 IncidentType = Enum.GetName(typeof(IncidentType), (IncidentType)comboBox_IncidentType.SelectedValue),
@@ -177,7 +177,7 @@ namespace UI
         {
             User user = _user.GetUser();
             Ticket ticket = new Ticket();
-            ticket.UserID = user.id;
+            ticket.UserID = user.Id;
             ticket.Description = richTextBox_Userdescription.Text;
             ticket.Title = textBoxTicketTitle.Text;
             ticket.Status = Enum.GetName(typeof(Status), Status.Open);
