@@ -46,9 +46,11 @@ namespace Logic
         {
             try
             {
-                
+                //Encrypt password before checking
+                //password = EncryptPassword(password);
                 if (login_dal.LoginUser(username, password))
                 {
+                    //Create logged_in user
                     return true;
                 }
                 return false;

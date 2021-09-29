@@ -17,10 +17,11 @@ namespace DAL
         public bool LoginUser(string username, string password)
         {
             var filter = Builders<BsonDocument>.Filter.Eq("Username", username);    //filter on username 
-            BsonDocument collection = GetDatabaseBsonUsers().Find(filter).FirstOrDefault();
+            BsonDocument collection = GetDatabaseBsonUsers().Find(filter).FirstOrDefault(); //gets the document of the corresponding user
 
             if (collection.GetValue("Password", "n/a") == password)    //check password
             {
+                //return bsondoc instead of bool to create a logged-in user in the logic layer
                 return true;
             }
             return false;

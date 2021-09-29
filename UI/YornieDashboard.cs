@@ -15,15 +15,22 @@ namespace UI
         public YornieDashboard()
         {
             InitializeComponent();
+        }
+
+        public void Form_Load()
+        {
             Start();
         }
 
         public void Start()
         {
+            //Getting userdata
+            string Username = logic.GetLoggedUsername();
+            string userrole = logic.GetLoggedUserRole().ToString();
             //Display dashboard
             int[] values = logic.GetDashboardValues();
-            lbl_openTickets.Text += String.Format("{0} / {1}", values[0], values[1]);
-            lbl_overTime.Text += String.Format("{0} !", values[2]);
+            lbl_openTickets.Text += String.Format(" {0} / {1}", values[0], values[1]);
+            lbl_overTime.Text += String.Format(" {0} !", values[2]);
             //unresolved tickets circle
 
             //Incidents past deadlines 
