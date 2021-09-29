@@ -35,8 +35,18 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
+        public List<User> GetNormalUser()
+        {
+            try
+            {
+                return dal.GetNormalUsers();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
 
-      
 
     }
 }

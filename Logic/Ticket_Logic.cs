@@ -46,7 +46,8 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-        public List<Ticket> OrderTickets(String OrderPriority)
+        // order tickets by priority
+        public List<Ticket> OrderTickets(string OrderPriority)
         {
             try
             {
@@ -57,7 +58,7 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-
+        // update the ticket after making changes
         public void UpdateTicket(Ticket ticket)
         {
             try
@@ -69,7 +70,7 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-
+        // Add the ticket to the list of the user
         public void UpdateTicketListOfUser(User userTicket)
         {
             try

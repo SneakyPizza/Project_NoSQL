@@ -12,15 +12,19 @@ namespace DAL
     {
         public void InsertUser()
         {
-            GetDatabase().GetCollection<User>("Users").InsertOne(new User("Victor2","Victor2","Victor2","Victor2", UserRole.User, new List<ObjectId>()));
+            GetDatabase().GetCollection<User>("Users").InsertOne(new User("VictorAdmin", "VictorAdmin", "VictorAdmin", "Victor4", UserRole.Admin, new List<ObjectId>()));
         }
 
         public List<User> GetUsers()
         {
-            IList<FilterDefinition<User>> filtersList = new List<FilterDefinition<User>>();
-            filtersList.Add(new BsonDocument("UserRole", 1));
-            var builder = Builders<User>.Filter;
-            List<User> Users = GetDatabase().GetCollection<User>("Users").Find(builder.And(filtersList)).ToList();
+            var filter = Builders<User>.Filter.Eq("UserRole",UserRole.Admin);
+            List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList();
+            return Users;
+        }
+        public List<User> GetNormalUsers()
+        {
+            var filter = Builders<User>.Filter.Eq("UserRole", UserRole.User);
+            List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList();
             return Users;
         }
         public List<User> Login()

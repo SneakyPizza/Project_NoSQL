@@ -46,6 +46,13 @@ namespace UI
         // fill combobox of the create ticket panel
         public void FillcomboboxCreateTicketAndTicketInformation()
         {
+            // autocomplete combobox
+            comboBox1_UsersToTicket.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBox1_UsersToTicket.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //
+            comboBox1_UsersToTicket.DisplayMember = "Fullname";
+            comboBox1_UsersToTicket.DataSource = _user.GetNormalUser();
+
             comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
             comboBox_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             comboBox_SortByPriority.DataSource = Enum.GetValues(typeof(Priority));
@@ -59,16 +66,18 @@ namespace UI
         // send the ticket to the db
         private void Btn_Submit_Click(object sender, EventArgs e)
         {
-            User selectedUserID = (User)comboBox_User.SelectedItem;
+            User selectedUserID = (User)comboBox1_UsersToTicket.SelectedItem; // ticket for (Normal user)
+            User selectedCreatedBy = (User)comboBox_User.SelectedItem; // ticket reportedby (Super User)
             Ticket ticket = new Ticket()
             {
                 UserID = selectedUserID.id,
+                TicketCreatedBy = selectedCreatedBy.id,
                 Title = txt_SubjectIncident.Text,
                 CreationTime = DateTimePicker.Value, // choose date of created ticket
                 IncidentType = Enum.GetName(typeof(IncidentType), (IncidentType)comboBox_IncidentType.SelectedValue),
                 Priority = Enum.GetName(typeof(Priority), (Priority)comboBox_Priority.SelectedValue),
                 Description = richTextBox_Description.Text,
-                Deadline = DateTimePicker.Value.AddDays(double.Parse(comboBox_Deadline.Text.Where(Char.IsDigit).ToArray())),
+                Deadline = DateTimePicker.Value.AddDays(double.Parse(comboBox_Deadline.Text.Where(char.IsDigit).ToArray())),
                 Status = Enum.GetName(typeof(Status), Status.Open) //convert enum to string // ticket is standaard open wanneer aangemaakt
             };
             _tickets.InsertTicket(ticket);
@@ -123,7 +132,7 @@ namespace UI
         // order tickets by priority
         private void btn_SortPriority_Click(object sender, EventArgs e)
         {
-            String sortPriority = comboBox_SortByPriority.Text;
+            string sortPriority = comboBox_SortByPriority.Text;
             FillListview(_tickets.OrderTickets(sortPriority));
         }
         public void ShowComboBoxTickets()
@@ -140,6 +149,7 @@ namespace UI
             comboBox_TicketStatus1.Text = ticket.Status.ToString();
             richTextBox1_TIcketSolution1.Text = ticket.Solution;
         }
+
         // open selected ticket in listview and load the values of the ticket;
         private void listView_TicketsOverview_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -163,7 +173,6 @@ namespace UI
             pnl_Ticket1.Visible = false;
             Loadlistview();
         }
-
         private void btn_makeTicketNormalUser_Click(object sender, EventArgs e)
         {
             pnl_UsermakeTicket.Visible = true;
@@ -187,7 +196,7 @@ namespace UI
             ticket.CreationTime = DateTime.Now;
             _tickets.InsertTicket(ticket);
             _tickets.UpdateTicketListOfUser(user);
-            MessageBox.Show("Ticket has been inserted of a normal user");
+            MessageBox.Show("Ticket has been made");
         }
     }
 }

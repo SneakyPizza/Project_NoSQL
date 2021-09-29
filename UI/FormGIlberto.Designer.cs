@@ -49,8 +49,8 @@ namespace UI
             this.textBox_Firstname = new System.Windows.Forms.TextBox();
             this.textBox_lastname = new System.Windows.Forms.TextBox();
             this.textBox_Jobdescriiption = new System.Windows.Forms.TextBox();
-            this.textBox_Useremail = new System.Windows.Forms.TextBox();
             this.pnl_Ticket1 = new System.Windows.Forms.Panel();
+            this.dateTimePicker_Ticket = new System.Windows.Forms.DateTimePicker();
             this.brn_BackButton = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -108,6 +108,7 @@ namespace UI
             this.richTextBox_Filter = new System.Windows.Forms.RichTextBox();
             this.listView_TicketsOverview = new System.Windows.Forms.ListView();
             this.btn_makeTicketNormalUser = new System.Windows.Forms.Button();
+            this.comboBox1_UsersToTicket = new System.Windows.Forms.ComboBox();
             this.pnl_Ticket1.SuspendLayout();
             this.pnl_UsermakeTicket.SuspendLayout();
             this.pnl_TicketOverview.SuspendLayout();
@@ -289,15 +290,9 @@ namespace UI
             this.textBox_Jobdescriiption.Size = new System.Drawing.Size(125, 27);
             this.textBox_Jobdescriiption.TabIndex = 21;
             // 
-            // textBox_Useremail
-            // 
-            this.textBox_Useremail.Location = new System.Drawing.Point(12, 211);
-            this.textBox_Useremail.Name = "textBox_Useremail";
-            this.textBox_Useremail.Size = new System.Drawing.Size(125, 27);
-            this.textBox_Useremail.TabIndex = 22;
-            // 
             // pnl_Ticket1
             // 
+            this.pnl_Ticket1.Controls.Add(this.dateTimePicker_Ticket);
             this.pnl_Ticket1.Controls.Add(this.brn_BackButton);
             this.pnl_Ticket1.Controls.Add(this.label17);
             this.pnl_Ticket1.Controls.Add(this.textBox1);
@@ -317,10 +312,17 @@ namespace UI
             this.pnl_Ticket1.Controls.Add(this.richTextBox_TicketDescription1);
             this.pnl_Ticket1.Controls.Add(this.label25);
             this.pnl_Ticket1.Controls.Add(this.textBox6);
-            this.pnl_Ticket1.Location = new System.Drawing.Point(4, 11);
+            this.pnl_Ticket1.Location = new System.Drawing.Point(1, 6);
             this.pnl_Ticket1.Name = "pnl_Ticket1";
             this.pnl_Ticket1.Size = new System.Drawing.Size(888, 547);
             this.pnl_Ticket1.TabIndex = 23;
+            // 
+            // dateTimePicker_Ticket
+            // 
+            this.dateTimePicker_Ticket.Location = new System.Drawing.Point(95, 339);
+            this.dateTimePicker_Ticket.Name = "dateTimePicker_Ticket";
+            this.dateTimePicker_Ticket.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePicker_Ticket.TabIndex = 24;
             // 
             // brn_BackButton
             // 
@@ -402,7 +404,7 @@ namespace UI
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(109, 341);
+            this.textBox3.Location = new System.Drawing.Point(122, 427);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(125, 27);
             this.textBox3.TabIndex = 10;
@@ -494,7 +496,7 @@ namespace UI
             this.pnl_UsermakeTicket.Controls.Add(this.richTextBox_Userdescription);
             this.pnl_UsermakeTicket.Controls.Add(this.textBoxLastname);
             this.pnl_UsermakeTicket.Controls.Add(this.textBoxFirstname);
-            this.pnl_UsermakeTicket.Location = new System.Drawing.Point(6, 9);
+            this.pnl_UsermakeTicket.Location = new System.Drawing.Point(12, 9);
             this.pnl_UsermakeTicket.Name = "pnl_UsermakeTicket";
             this.pnl_UsermakeTicket.Size = new System.Drawing.Size(917, 545);
             this.pnl_UsermakeTicket.TabIndex = 23;
@@ -594,7 +596,7 @@ namespace UI
             this.pnl_TicketOverview.Controls.Add(this.btn_Filter);
             this.pnl_TicketOverview.Controls.Add(this.richTextBox_Filter);
             this.pnl_TicketOverview.Controls.Add(this.listView_TicketsOverview);
-            this.pnl_TicketOverview.Location = new System.Drawing.Point(2, 12);
+            this.pnl_TicketOverview.Location = new System.Drawing.Point(12, 12);
             this.pnl_TicketOverview.Name = "pnl_TicketOverview";
             this.pnl_TicketOverview.Size = new System.Drawing.Size(892, 545);
             this.pnl_TicketOverview.TabIndex = 18;
@@ -839,6 +841,16 @@ namespace UI
             this.btn_makeTicketNormalUser.UseVisualStyleBackColor = true;
             this.btn_makeTicketNormalUser.Click += new System.EventHandler(this.btn_makeTicketNormalUser_Click);
             // 
+            // comboBox1_UsersToTicket
+            // 
+            this.comboBox1_UsersToTicket.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1_UsersToTicket.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1_UsersToTicket.FormattingEnabled = true;
+            this.comboBox1_UsersToTicket.Location = new System.Drawing.Point(12, 194);
+            this.comboBox1_UsersToTicket.Name = "comboBox1_UsersToTicket";
+            this.comboBox1_UsersToTicket.Size = new System.Drawing.Size(151, 28);
+            this.comboBox1_UsersToTicket.TabIndex = 25;
+            // 
             // FormGIlberto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -846,8 +858,8 @@ namespace UI
             this.ClientSize = new System.Drawing.Size(916, 575);
             this.Controls.Add(this.pnl_UsermakeTicket);
             this.Controls.Add(this.pnl_TicketOverview);
+            this.Controls.Add(this.comboBox1_UsersToTicket);
             this.Controls.Add(this.btn_makeTicketNormalUser);
-            this.Controls.Add(this.textBox_Useremail);
             this.Controls.Add(this.textBox_Jobdescriiption);
             this.Controls.Add(this.textBox_lastname);
             this.Controls.Add(this.textBox_Firstname);
@@ -904,7 +916,6 @@ namespace UI
         private System.Windows.Forms.TextBox textBox_Firstname;
         private System.Windows.Forms.TextBox textBox_lastname;
         private System.Windows.Forms.TextBox textBox_Jobdescriiption;
-        private System.Windows.Forms.TextBox textBox_Useremail;
         private System.Windows.Forms.Panel pnl_Ticket1;
         private System.Windows.Forms.Panel pnl_TicketOverview;
         private System.Windows.Forms.Panel pnl_Ticket;
@@ -963,5 +974,7 @@ namespace UI
         private System.Windows.Forms.Label TicketTItle;
         private System.Windows.Forms.Button btn_makeTicketNormalUser;
         private System.Windows.Forms.Button btn_BackbuttonUserticket;
+        private System.Windows.Forms.ComboBox comboBox1_UsersToTicket;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_Ticket;
     }
 }
