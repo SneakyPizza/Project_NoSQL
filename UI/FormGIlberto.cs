@@ -70,15 +70,17 @@ namespace UI
             User selectedCreatedBy = (User)comboBox_User.SelectedItem; // ticket reportedby (Super User)
             Ticket ticket = new Ticket()
             {
-                UserID = selectedUserID.id,
-                TicketCreatedBy = selectedCreatedBy.id,
+                UserID = selectedUserID.Id,
+                TicketCreatedBy = selectedCreatedBy.Id,
                 Title = txt_SubjectIncident.Text,
                 CreationTime = DateTimePicker.Value, // choose date of created ticket
                 IncidentType = Enum.GetName(typeof(IncidentType), (IncidentType)comboBox_IncidentType.SelectedValue),
                 Priority = Enum.GetName(typeof(Priority), (Priority)comboBox_Priority.SelectedValue),
                 Description = richTextBox_Description.Text,
                 Deadline = DateTimePicker.Value.AddDays(double.Parse(comboBox_Deadline.Text.Where(char.IsDigit).ToArray())),
-                Status = Enum.GetName(typeof(Status), Status.Open) //convert enum to string // ticket is standaard open wanneer aangemaakt
+                Status = Enum.GetName(typeof(Status), Status.Registered),
+                Open = Enum.GetName(typeof(Open), Open.Yes), //convert enum to string // ticket is standaard open wanneer aangemaakt
+                Solution = string.Empty
             };
             _tickets.InsertTicket(ticket);
             MessageBox.Show("ticket has been inserted");
@@ -103,6 +105,7 @@ namespace UI
                 listview.SubItems.Add(ticket.IncidentType.ToString());
                 listview.SubItems.Add(ticket.Priority.ToString());
                 listview.SubItems.Add(ticket.Status.ToString());
+                listview.SubItems.Add(ticket.Open);
                 listView_TicketsOverview.Items.AddRange(new ListViewItem[] { listview });
                 Console.ResetColor();
             }
@@ -125,7 +128,7 @@ namespace UI
         // filter listview of the tickets
         private void btn_Filter_Click(object sender, EventArgs e)
         {
-            String keywords = richTextBox_Filter.Text;
+            string keywords = richTextBox_Filter.Text;
             FillListview(_tickets.FilterList(keywords));
             MessageBox.Show("The list has been filtered");
         }
@@ -186,10 +189,11 @@ namespace UI
         {
             User user = _user.GetUser();
             Ticket ticket = new Ticket();
-            ticket.UserID = user.id;
+            ticket.UserID = user.Id;
             ticket.Description = richTextBox_Userdescription.Text;
             ticket.Title = textBoxTicketTitle.Text;
-            ticket.Status = Enum.GetName(typeof(Status), Status.Open);
+            ticket.Status = Enum.GetName(typeof(Status), Status.Processing);
+            ticket.Open = Enum.GetName(typeof(Open), Open.Yes);
             ticket.IncidentType = Enum.GetName(typeof(IncidentType), IncidentType.Hardware);
             ticket.Solution = string.Empty;
             ticket.Priority = Enum.GetName(typeof(Priority), Priority.Normal);
@@ -197,6 +201,13 @@ namespace UI
             _tickets.InsertTicket(ticket);
             _tickets.UpdateTicketListOfUser(user);
             MessageBox.Show("Ticket has been made");
+        }
+        private void Btn_Delete_Click_1(object sender, EventArgs e)
+        {
+            Ticket ticket = (Ticket)listView_TicketsOverview.SelectedItems[0].Tag;
+            _tickets.DeleteTicket(ticket);
+            MessageBox.Show("Ticket has been deleted");
+            Loadlistview();
         }
     }
 }

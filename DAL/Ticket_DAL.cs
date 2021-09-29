@@ -23,7 +23,7 @@ namespace DAL
         // retrieve all tickets that or open or that are pending
         public List<Ticket> RetrieveTickets()
         {
-            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq("Status", Status.Open) | Builders<Ticket>.Filter.Eq("Status", Status.Pending);
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq("Open", Open.Yes);
             List<Ticket> Tickets = GetDatabaseTickets().Find(filter).ToList();
             return Tickets;
         }
@@ -47,7 +47,7 @@ namespace DAL
         // update the ticket after changing values
         public void UpdateTicket(Ticket ticket)
         {
-            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.id, ticket.id);
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
             UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("Status", ticket.Status)
                 .Set("Solution", ticket.Solution)
                 .Set("Priority", ticket.Priority);
@@ -56,15 +56,21 @@ namespace DAL
         // updates the list of tickets of the user after making a ticket
         public void FillTicketListUser(User user)
         {
-            FilterDefinition<Ticket> FilterUser = Builders<Ticket>.Filter.Eq("UserID", user.id);
+            FilterDefinition<Ticket> FilterUser = Builders<Ticket>.Filter.Eq("UserID", user.Id);
             List<Ticket> TicketsOfUser = GetDatabaseTickets().Find(FilterUser).ToList();
 
-            FilterDefinition<User> FilterTicket = Builders<User>.Filter.Eq(x => x.id, user.id);
+            FilterDefinition<User> FilterTicket = Builders<User>.Filter.Eq(x => x.Id, user.Id);
+
             foreach (Ticket ticket in TicketsOfUser)
             {
-                UpdateDefinition<User> update = Builders<User>.Update.AddToSet("Tickets", ticket.id);
+                UpdateDefinition<User> update = Builders<User>.Update.AddToSet("Tickets", ticket.Id);
                 GetDatabase().GetCollection<User>("Users").UpdateOne(FilterTicket, update);
             }
+        }
+        public void DeleteTicket(Ticket ticket)
+        {
+            FilterDefinition<Ticket> deleteFilter = Builders<Ticket>.Filter.Eq("_id", ticket.Id);
+            GetDatabaseTickets().DeleteOne(deleteFilter);
         }
     }
 }

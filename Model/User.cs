@@ -6,7 +6,7 @@ namespace Model
 {
   public class User
     {
-        public ObjectId id;
+        private ObjectId _id;
         private string _name;
         private string _password;
         private string _firstname;
@@ -29,6 +29,7 @@ namespace Model
         public string Firstname { get => _firstname; set => _firstname = value; }
         public string Lastname { get => _lastname; set => _lastname = value; }
         public UserRole UserRole { get => _userrole; set => _userrole = value; }
-       
+        public ObjectId Id { get => _id; set => _id = value; }
+
     }
 }

@@ -82,6 +82,7 @@ namespace UI
             this.textBoxLastname = new System.Windows.Forms.TextBox();
             this.textBoxFirstname = new System.Windows.Forms.TextBox();
             this.pnl_TicketOverview = new System.Windows.Forms.Panel();
+            this.Btn_Delete = new System.Windows.Forms.Button();
             this.pnl_Ticket = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.txt_Lastname = new System.Windows.Forms.TextBox();
@@ -312,7 +313,7 @@ namespace UI
             this.pnl_Ticket1.Controls.Add(this.richTextBox_TicketDescription1);
             this.pnl_Ticket1.Controls.Add(this.label25);
             this.pnl_Ticket1.Controls.Add(this.textBox6);
-            this.pnl_Ticket1.Location = new System.Drawing.Point(1, 6);
+            this.pnl_Ticket1.Location = new System.Drawing.Point(0, 4);
             this.pnl_Ticket1.Name = "pnl_Ticket1";
             this.pnl_Ticket1.Size = new System.Drawing.Size(888, 547);
             this.pnl_Ticket1.TabIndex = 23;
@@ -496,7 +497,7 @@ namespace UI
             this.pnl_UsermakeTicket.Controls.Add(this.richTextBox_Userdescription);
             this.pnl_UsermakeTicket.Controls.Add(this.textBoxLastname);
             this.pnl_UsermakeTicket.Controls.Add(this.textBoxFirstname);
-            this.pnl_UsermakeTicket.Location = new System.Drawing.Point(12, 9);
+            this.pnl_UsermakeTicket.Location = new System.Drawing.Point(12, 12);
             this.pnl_UsermakeTicket.Name = "pnl_UsermakeTicket";
             this.pnl_UsermakeTicket.Size = new System.Drawing.Size(917, 545);
             this.pnl_UsermakeTicket.TabIndex = 23;
@@ -589,6 +590,7 @@ namespace UI
             // pnl_TicketOverview
             // 
             this.pnl_TicketOverview.Controls.Add(this.pnl_Ticket1);
+            this.pnl_TicketOverview.Controls.Add(this.Btn_Delete);
             this.pnl_TicketOverview.Controls.Add(this.pnl_Ticket);
             this.pnl_TicketOverview.Controls.Add(this.label8);
             this.pnl_TicketOverview.Controls.Add(this.comboBox_SortByPriority);
@@ -600,6 +602,16 @@ namespace UI
             this.pnl_TicketOverview.Name = "pnl_TicketOverview";
             this.pnl_TicketOverview.Size = new System.Drawing.Size(892, 545);
             this.pnl_TicketOverview.TabIndex = 18;
+            // 
+            // Btn_Delete
+            // 
+            this.Btn_Delete.Location = new System.Drawing.Point(31, 374);
+            this.Btn_Delete.Name = "Btn_Delete";
+            this.Btn_Delete.Size = new System.Drawing.Size(219, 66);
+            this.Btn_Delete.TabIndex = 24;
+            this.Btn_Delete.Text = "Delete";
+            this.Btn_Delete.UseVisualStyleBackColor = true;
+            this.Btn_Delete.Click += new System.EventHandler(this.Btn_Delete_Click_1);
             // 
             // pnl_Ticket
             // 
@@ -976,5 +988,6 @@ namespace UI
         private System.Windows.Forms.Button btn_BackbuttonUserticket;
         private System.Windows.Forms.ComboBox comboBox1_UsersToTicket;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Ticket;
+        private System.Windows.Forms.Button Btn_Delete;
     }
 }

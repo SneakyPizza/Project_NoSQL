@@ -82,6 +82,17 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
+        public void DeleteTicket(Ticket ticket)
+        {
+            try
+            {
+                _tickets.DeleteTicket(ticket);
+            }
+            catch (Exception e)
+            {
 
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
