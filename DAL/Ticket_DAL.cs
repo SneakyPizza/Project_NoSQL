@@ -28,7 +28,7 @@ namespace DAL
             return Tickets;
         }
         // take all tickets with specific keyword
-        public List<Ticket> FilterTickets(String keyword)
+        public List<Ticket> FilterTickets(string keyword)
         {
             IList<FilterDefinition<Ticket>> filtersList = new List<FilterDefinition<Ticket>>();
             filtersList.Add(new BsonDocument("IncidentType", keyword));
@@ -37,7 +37,7 @@ namespace DAL
             return Tickets;
         }
         // sort the tickets by priority
-        public List<Ticket> OrderTickets(String OrderPriority)
+        public List<Ticket> OrderTickets(string OrderPriority)
         {
             List<Ticket> tickets = RetrieveTickets();
             tickets.Sort((p, q) => p.Priority.CompareTo(q.Priority));
@@ -58,7 +58,6 @@ namespace DAL
         {
             FilterDefinition<Ticket> FilterUser = Builders<Ticket>.Filter.Eq("UserID", user.Id);
             List<Ticket> TicketsOfUser = GetDatabaseTickets().Find(FilterUser).ToList();
-
             FilterDefinition<User> FilterTicket = Builders<User>.Filter.Eq(x => x.Id, user.Id);
 
             foreach (Ticket ticket in TicketsOfUser)
@@ -66,6 +65,12 @@ namespace DAL
                 UpdateDefinition<User> update = Builders<User>.Update.AddToSet("Tickets", ticket.Id);
                 GetDatabase().GetCollection<User>("Users").UpdateOne(FilterTicket, update);
             }
+        }
+        public List<Ticket> ListTicketsOFUser(User user)
+        {
+            FilterDefinition<Ticket> FilterUser = Builders<Ticket>.Filter.Eq("UserID", user.Id);
+            List<Ticket> TicketsOfUser = GetDatabaseTickets().Find(FilterUser).ToList();
+            return TicketsOfUser;
         }
         public void DeleteTicket(Ticket ticket)
         {

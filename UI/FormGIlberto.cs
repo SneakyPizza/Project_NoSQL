@@ -16,15 +16,18 @@ namespace UI
     {
         Ticket_Logic _tickets;
         User_Logic _user;
+        User _currentuser;
         public FormGIlberto()
         {
             _tickets = new Ticket_Logic();
             _user = new User_Logic();
-
+            _currentuser = _user.GetUser();
             InitializeComponent();
             HidePanels();
             FillcomboboxCreateTicketAndTicketInformation();
+         
             listView_TicketsOverview.MouseDoubleClick += new MouseEventHandler(listView_TicketsOverview_MouseDoubleClick);
+            lv_TicketsofUser.MouseDoubleClick += new MouseEventHandler(lv_TicketsofUser_MouseDoubleClick);
         }
         // hide all panels
         public void HidePanels()
@@ -32,6 +35,7 @@ namespace UI
             pnl_TicketOverview.Visible = false;
             pnl_Ticket1.Visible = false;
             pnl_UsermakeTicket.Visible = false;
+            pnl_TicketsOfuser.Visible = false;
         }
         // show everything on ticketsoverview
         public void ShowPanelTicketsOverview()
@@ -52,7 +56,10 @@ namespace UI
             //
             comboBox1_UsersToTicket.DisplayMember = "Fullname";
             comboBox1_UsersToTicket.DataSource = _user.GetNormalUser();
-
+            // autofill textbox of the maketicketuser
+            textBoxFirstname.Text = _currentuser.Firstname;
+            textBoxLastname.Text = _currentuser.Lastname;
+            //
             comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
             comboBox_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             comboBox_SortByPriority.DataSource = Enum.GetValues(typeof(Priority));
@@ -89,13 +96,13 @@ namespace UI
         private void btn_TicketOverview_Click(object sender, EventArgs e)
         {
             ShowPanelTicketsOverview();
-            FillListviewColumnHeaders();
+            FillListviewColumnHeaders(listView_TicketsOverview);
             Loadlistview();
         }
         // fill listview with the tickets
-        private void FillListview(List<Ticket> tickets)
+        private void FillListview(List<Ticket> tickets,ListView listviews)
         {
-            listView_TicketsOverview.Items.Clear();
+            listviews.Items.Clear();
             foreach (Ticket ticket in tickets)
             {
                 ListViewItem listview = new ListViewItem(ticket.Title);
@@ -106,7 +113,7 @@ namespace UI
                 listview.SubItems.Add(ticket.Priority.ToString());
                 listview.SubItems.Add(ticket.Status.ToString());
                 listview.SubItems.Add(ticket.Open);
-                listView_TicketsOverview.Items.AddRange(new ListViewItem[] { listview });
+                listviews.Items.AddRange(new ListViewItem[] { listview });
                 Console.ResetColor();
             }
         }
@@ -114,29 +121,29 @@ namespace UI
         // Load the listview with the tickets
         private void Loadlistview()
         {
-            FillListview(_tickets.RetrieveAllTickets());
+            FillListview(_tickets.RetrieveAllTickets(), listView_TicketsOverview);
         }
         // fill the column headers of the listview
-        private void FillListviewColumnHeaders()
+        private void FillListviewColumnHeaders(ListView listview)
         {
             List<string> ColumnHeader = new List<string>() { "Title", "IncidentType", "Priority", "Status" };
             foreach (string Header in ColumnHeader)
             {
-                listView_TicketsOverview.Columns.Add(Header, 120, HorizontalAlignment.Left);
+                listview.Columns.Add(Header, 120, HorizontalAlignment.Left);
             }
         }
         // filter listview of the tickets
         private void btn_Filter_Click(object sender, EventArgs e)
         {
             string keywords = richTextBox_Filter.Text;
-            FillListview(_tickets.FilterList(keywords));
+            FillListview(_tickets.FilterList(keywords), listView_TicketsOverview);
             MessageBox.Show("The list has been filtered");
         }
         // order tickets by priority
         private void btn_SortPriority_Click(object sender, EventArgs e)
         {
             string sortPriority = comboBox_SortByPriority.Text;
-            FillListview(_tickets.OrderTickets(sortPriority));
+            FillListview(_tickets.OrderTickets(sortPriority), listView_TicketsOverview);
         }
         public void ShowComboBoxTickets()
         {
@@ -187,9 +194,9 @@ namespace UI
         // normal user can enter a ticket
         private void btn_makeTicketUSer_Click(object sender, EventArgs e)
         {
-            User user = _user.GetUser();
+           // User user = _user.GetUser();
             Ticket ticket = new Ticket();
-            ticket.UserID = user.Id;
+            ticket.UserID = _currentuser.Id;
             ticket.Description = richTextBox_Userdescription.Text;
             ticket.Title = textBoxTicketTitle.Text;
             ticket.Status = Enum.GetName(typeof(Status), Status.Processing);
@@ -199,7 +206,8 @@ namespace UI
             ticket.Priority = Enum.GetName(typeof(Priority), Priority.Normal);
             ticket.CreationTime = DateTime.Now;
             _tickets.InsertTicket(ticket);
-            _tickets.UpdateTicketListOfUser(user);
+           // _tickets.TicketsOFuser(_currentuser);
+            // _tickets.UpdateTicketListOfUser(user);
             MessageBox.Show("Ticket has been made");
         }
         private void Btn_Delete_Click_1(object sender, EventArgs e)
@@ -208,6 +216,18 @@ namespace UI
             _tickets.DeleteTicket(ticket);
             MessageBox.Show("Ticket has been deleted");
             Loadlistview();
+        }
+
+        private void btn_SeeTicketsUser_Click(object sender, EventArgs e)
+        {
+            FillListviewColumnHeaders(lv_TicketsofUser);
+            FillListview(_tickets.TicketsOFuser(_currentuser),lv_TicketsofUser);
+            pnl_TicketsOfuser.Visible = true;
+        }
+
+        private void lv_TicketsofUser_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

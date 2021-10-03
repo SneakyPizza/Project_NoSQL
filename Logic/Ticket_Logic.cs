@@ -90,7 +90,17 @@ namespace Logic
             }
             catch (Exception e)
             {
-
+                throw new Exception(e.Message);
+            }
+        }
+        public List<Ticket> TicketsOFuser(User user)
+        {
+            try
+            {
+                return _tickets.ListTicketsOFUser(user);
+            }
+            catch (Exception e)
+            {
                 throw new Exception(e.Message);
             }
         }

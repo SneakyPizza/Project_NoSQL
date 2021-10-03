@@ -12,25 +12,25 @@ namespace DAL
     {
         public void InsertUser()
         {
-            GetDatabase().GetCollection<User>("Users").InsertOne(new User("VictorAdmin", "VictorAdmin", "VictorAdmin", "Victor4", UserRole.Admin, new List<ObjectId>()));
+            GetDatabase().GetCollection<User>("Users").InsertOne(new User("VictorUser1", "VictorUser1", "VictorUser1", "VictorUser1", UserRole.User));
         }
 
         public List<User> GetUsers()
         {
-            var filter = Builders<User>.Filter.Eq("UserRole",UserRole.Admin);
-            List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList();
+            var filter = Builders<User>.Filter.Eq("UserRole",UserRole.Admin) & Builders<User>.Filter.Eq("Username", "VictorAdmin2");
+            List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList(); 
             return Users;
         }
         public List<User> GetNormalUsers()
         {
-            var filter = Builders<User>.Filter.Eq("UserRole", UserRole.User);
+            var filter = Builders<User>.Filter.Eq("UserRole", UserRole.User) & Builders<User>.Filter.Eq("Username", "VictorUser1");
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList();
             return Users;
         }
         public List<User> Login()
         {
             IList<FilterDefinition<User>> filtersList = new List<FilterDefinition<User>>();
-            filtersList.Add(new BsonDocument("Username", "Victor2"));
+            filtersList.Add(new BsonDocument("Username", "VictorUser1"));
             var builder = Builders<User>.Filter;
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(builder.And(filtersList)).ToList();
             return Users;
@@ -38,7 +38,7 @@ namespace DAL
         public User GetUser()
         {
             var collection = GetDatabase().GetCollection<User>("Users");
-            var filter = Builders<User>.Filter.Eq("Firstname", "Victor2");
+            var filter = Builders<User>.Filter.Eq("Firstname", "VictorUser1");
             var test = collection.Find(filter);
             User user = test.FirstOrDefault();
             return user;

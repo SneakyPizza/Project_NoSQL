@@ -71,6 +71,9 @@ namespace UI
             this.label25 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.pnl_UsermakeTicket = new System.Windows.Forms.Panel();
+            this.pnl_TicketsOfuser = new System.Windows.Forms.Panel();
+            this.lv_TicketsofUser = new System.Windows.Forms.ListView();
+            this.btn_SeeTicketsUser = new System.Windows.Forms.Button();
             this.btn_BackbuttonUserticket = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.btn_makeTicketUSer = new System.Windows.Forms.Button();
@@ -112,6 +115,7 @@ namespace UI
             this.comboBox1_UsersToTicket = new System.Windows.Forms.ComboBox();
             this.pnl_Ticket1.SuspendLayout();
             this.pnl_UsermakeTicket.SuspendLayout();
+            this.pnl_TicketsOfuser.SuspendLayout();
             this.pnl_TicketOverview.SuspendLayout();
             this.pnl_Ticket.SuspendLayout();
             this.SuspendLayout();
@@ -487,6 +491,8 @@ namespace UI
             // 
             // pnl_UsermakeTicket
             // 
+            this.pnl_UsermakeTicket.Controls.Add(this.pnl_TicketsOfuser);
+            this.pnl_UsermakeTicket.Controls.Add(this.btn_SeeTicketsUser);
             this.pnl_UsermakeTicket.Controls.Add(this.btn_BackbuttonUserticket);
             this.pnl_UsermakeTicket.Controls.Add(this.label28);
             this.pnl_UsermakeTicket.Controls.Add(this.btn_makeTicketUSer);
@@ -501,6 +507,37 @@ namespace UI
             this.pnl_UsermakeTicket.Name = "pnl_UsermakeTicket";
             this.pnl_UsermakeTicket.Size = new System.Drawing.Size(917, 545);
             this.pnl_UsermakeTicket.TabIndex = 23;
+            // 
+            // pnl_TicketsOfuser
+            // 
+            this.pnl_TicketsOfuser.Controls.Add(this.lv_TicketsofUser);
+            this.pnl_TicketsOfuser.Location = new System.Drawing.Point(3, 11);
+            this.pnl_TicketsOfuser.Name = "pnl_TicketsOfuser";
+            this.pnl_TicketsOfuser.Size = new System.Drawing.Size(888, 531);
+            this.pnl_TicketsOfuser.TabIndex = 11;
+            // 
+            // lv_TicketsofUser
+            // 
+            this.lv_TicketsofUser.FullRowSelect = true;
+            this.lv_TicketsofUser.GridLines = true;
+            this.lv_TicketsofUser.HideSelection = false;
+            this.lv_TicketsofUser.Location = new System.Drawing.Point(204, 4);
+            this.lv_TicketsofUser.Name = "lv_TicketsofUser";
+            this.lv_TicketsofUser.Size = new System.Drawing.Size(654, 505);
+            this.lv_TicketsofUser.TabIndex = 0;
+            this.lv_TicketsofUser.UseCompatibleStateImageBehavior = false;
+            this.lv_TicketsofUser.View = System.Windows.Forms.View.Details;
+            this.lv_TicketsofUser.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lv_TicketsofUser_MouseDoubleClick);
+            // 
+            // btn_SeeTicketsUser
+            // 
+            this.btn_SeeTicketsUser.Location = new System.Drawing.Point(145, 227);
+            this.btn_SeeTicketsUser.Name = "btn_SeeTicketsUser";
+            this.btn_SeeTicketsUser.Size = new System.Drawing.Size(241, 90);
+            this.btn_SeeTicketsUser.TabIndex = 10;
+            this.btn_SeeTicketsUser.Text = "TicketListUser";
+            this.btn_SeeTicketsUser.UseVisualStyleBackColor = true;
+            this.btn_SeeTicketsUser.Click += new System.EventHandler(this.btn_SeeTicketsUser_Click);
             // 
             // btn_BackbuttonUserticket
             // 
@@ -898,6 +935,7 @@ namespace UI
             this.pnl_Ticket1.PerformLayout();
             this.pnl_UsermakeTicket.ResumeLayout(false);
             this.pnl_UsermakeTicket.PerformLayout();
+            this.pnl_TicketsOfuser.ResumeLayout(false);
             this.pnl_TicketOverview.ResumeLayout(false);
             this.pnl_TicketOverview.PerformLayout();
             this.pnl_Ticket.ResumeLayout(false);
@@ -989,5 +1027,8 @@ namespace UI
         private System.Windows.Forms.ComboBox comboBox1_UsersToTicket;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Ticket;
         private System.Windows.Forms.Button Btn_Delete;
+        private System.Windows.Forms.Button btn_SeeTicketsUser;
+        private System.Windows.Forms.Panel pnl_TicketsOfuser;
+        private System.Windows.Forms.ListView lv_TicketsofUser;
     }
 }
