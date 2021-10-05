@@ -32,9 +32,14 @@ namespace UI
             int[] values = logic.GetDashboardValues();
             lbl_openTickets.Text += String.Format(" {0} / {1}", values[0], values[1]);
             lbl_overTime.Text += String.Format(" {0} !", values[2]);
-            //unresolved tickets circle
 
+            //unresolved tickets circle
+            UC_unresolved.CurrentValue = values[0];
+            UC_unresolved.MaxValue = values[1];
             //Incidents past deadlines 
+            UC_overTime.CurrentValue = values[2];
+            UC_overTime.MaxValue = 20;
+            UC_overTime.ProgressColor = Color.Red;
         }
     }
 }
