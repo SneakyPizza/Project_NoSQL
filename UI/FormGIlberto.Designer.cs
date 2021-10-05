@@ -72,7 +72,20 @@ namespace UI
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.pnl_UsermakeTicket = new System.Windows.Forms.Panel();
             this.pnl_TicketsOfuser = new System.Windows.Forms.Panel();
+            this.pnl_CurrentTicketOfUser = new System.Windows.Forms.Panel();
+            this.btn_TicketUserbuttonback = new System.Windows.Forms.Button();
+            this.txt_TicketOpenOrClose = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txt_TicketClosedBy = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.txt_TicketStatusUser = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.richTextBox_TicketUserSolution = new System.Windows.Forms.RichTextBox();
+            this.richTextBox_userTicketDescription = new System.Windows.Forms.RichTextBox();
             this.lv_TicketsofUser = new System.Windows.Forms.ListView();
+            this.btn_backButtonPnlTicketListOfUser = new System.Windows.Forms.Button();
             this.btn_SeeTicketsUser = new System.Windows.Forms.Button();
             this.btn_BackbuttonUserticket = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
@@ -116,6 +129,7 @@ namespace UI
             this.pnl_Ticket1.SuspendLayout();
             this.pnl_UsermakeTicket.SuspendLayout();
             this.pnl_TicketsOfuser.SuspendLayout();
+            this.pnl_CurrentTicketOfUser.SuspendLayout();
             this.pnl_TicketOverview.SuspendLayout();
             this.pnl_Ticket.SuspendLayout();
             this.SuspendLayout();
@@ -510,11 +524,123 @@ namespace UI
             // 
             // pnl_TicketsOfuser
             // 
+            this.pnl_TicketsOfuser.Controls.Add(this.pnl_CurrentTicketOfUser);
             this.pnl_TicketsOfuser.Controls.Add(this.lv_TicketsofUser);
+            this.pnl_TicketsOfuser.Controls.Add(this.btn_backButtonPnlTicketListOfUser);
             this.pnl_TicketsOfuser.Location = new System.Drawing.Point(3, 11);
             this.pnl_TicketsOfuser.Name = "pnl_TicketsOfuser";
             this.pnl_TicketsOfuser.Size = new System.Drawing.Size(888, 531);
             this.pnl_TicketsOfuser.TabIndex = 11;
+            // 
+            // pnl_CurrentTicketOfUser
+            // 
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.btn_TicketUserbuttonback);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.txt_TicketOpenOrClose);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.label33);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.txt_TicketClosedBy);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.label32);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.label31);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.txt_TicketStatusUser);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.label30);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.label29);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.richTextBox_TicketUserSolution);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.richTextBox_userTicketDescription);
+            this.pnl_CurrentTicketOfUser.Location = new System.Drawing.Point(0, 6);
+            this.pnl_CurrentTicketOfUser.Name = "pnl_CurrentTicketOfUser";
+            this.pnl_CurrentTicketOfUser.Size = new System.Drawing.Size(869, 513);
+            this.pnl_CurrentTicketOfUser.TabIndex = 1;
+            // 
+            // btn_TicketUserbuttonback
+            // 
+            this.btn_TicketUserbuttonback.Location = new System.Drawing.Point(22, 27);
+            this.btn_TicketUserbuttonback.Name = "btn_TicketUserbuttonback";
+            this.btn_TicketUserbuttonback.Size = new System.Drawing.Size(145, 59);
+            this.btn_TicketUserbuttonback.TabIndex = 10;
+            this.btn_TicketUserbuttonback.Text = "button1";
+            this.btn_TicketUserbuttonback.UseVisualStyleBackColor = true;
+            this.btn_TicketUserbuttonback.Click += new System.EventHandler(this.btn_TicketUserbuttonback_Click);
+            // 
+            // txt_TicketOpenOrClose
+            // 
+            this.txt_TicketOpenOrClose.Location = new System.Drawing.Point(106, 212);
+            this.txt_TicketOpenOrClose.Name = "txt_TicketOpenOrClose";
+            this.txt_TicketOpenOrClose.Size = new System.Drawing.Size(125, 27);
+            this.txt_TicketOpenOrClose.TabIndex = 9;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(22, 213);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(45, 20);
+            this.label33.TabIndex = 8;
+            this.label33.Text = "Open";
+            // 
+            // txt_TicketClosedBy
+            // 
+            this.txt_TicketClosedBy.Location = new System.Drawing.Point(106, 166);
+            this.txt_TicketClosedBy.Name = "txt_TicketClosedBy";
+            this.txt_TicketClosedBy.Size = new System.Drawing.Size(125, 27);
+            this.txt_TicketClosedBy.TabIndex = 7;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(14, 169);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(83, 20);
+            this.label32.TabIndex = 6;
+            this.label32.Text = "reportedBy";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(22, 132);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(47, 20);
+            this.label31.TabIndex = 5;
+            this.label31.Text = "status";
+            // 
+            // txt_TicketStatusUser
+            // 
+            this.txt_TicketStatusUser.Location = new System.Drawing.Point(106, 128);
+            this.txt_TicketStatusUser.Name = "txt_TicketStatusUser";
+            this.txt_TicketStatusUser.Size = new System.Drawing.Size(125, 27);
+            this.txt_TicketStatusUser.TabIndex = 4;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(470, 206);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(103, 20);
+            this.label30.TabIndex = 3;
+            this.label30.Text = "TicketSolution";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(469, 25);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(124, 20);
+            this.label29.TabIndex = 2;
+            this.label29.Text = "TicketDescription";
+            // 
+            // richTextBox_TicketUserSolution
+            // 
+            this.richTextBox_TicketUserSolution.Location = new System.Drawing.Point(470, 238);
+            this.richTextBox_TicketUserSolution.Name = "richTextBox_TicketUserSolution";
+            this.richTextBox_TicketUserSolution.Size = new System.Drawing.Size(295, 131);
+            this.richTextBox_TicketUserSolution.TabIndex = 1;
+            this.richTextBox_TicketUserSolution.Text = "";
+            // 
+            // richTextBox_userTicketDescription
+            // 
+            this.richTextBox_userTicketDescription.Location = new System.Drawing.Point(470, 59);
+            this.richTextBox_userTicketDescription.Name = "richTextBox_userTicketDescription";
+            this.richTextBox_userTicketDescription.Size = new System.Drawing.Size(293, 128);
+            this.richTextBox_userTicketDescription.TabIndex = 0;
+            this.richTextBox_userTicketDescription.Text = "";
             // 
             // lv_TicketsofUser
             // 
@@ -528,6 +654,16 @@ namespace UI
             this.lv_TicketsofUser.UseCompatibleStateImageBehavior = false;
             this.lv_TicketsofUser.View = System.Windows.Forms.View.Details;
             this.lv_TicketsofUser.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lv_TicketsofUser_MouseDoubleClick);
+            // 
+            // btn_backButtonPnlTicketListOfUser
+            // 
+            this.btn_backButtonPnlTicketListOfUser.Location = new System.Drawing.Point(14, 15);
+            this.btn_backButtonPnlTicketListOfUser.Name = "btn_backButtonPnlTicketListOfUser";
+            this.btn_backButtonPnlTicketListOfUser.Size = new System.Drawing.Size(108, 51);
+            this.btn_backButtonPnlTicketListOfUser.TabIndex = 2;
+            this.btn_backButtonPnlTicketListOfUser.Text = "Backbutton";
+            this.btn_backButtonPnlTicketListOfUser.UseVisualStyleBackColor = true;
+            this.btn_backButtonPnlTicketListOfUser.Click += new System.EventHandler(this.btn_backButtonPnlTicketListOfUser_Click);
             // 
             // btn_SeeTicketsUser
             // 
@@ -936,6 +1072,8 @@ namespace UI
             this.pnl_UsermakeTicket.ResumeLayout(false);
             this.pnl_UsermakeTicket.PerformLayout();
             this.pnl_TicketsOfuser.ResumeLayout(false);
+            this.pnl_CurrentTicketOfUser.ResumeLayout(false);
+            this.pnl_CurrentTicketOfUser.PerformLayout();
             this.pnl_TicketOverview.ResumeLayout(false);
             this.pnl_TicketOverview.PerformLayout();
             this.pnl_Ticket.ResumeLayout(false);
@@ -1030,5 +1168,18 @@ namespace UI
         private System.Windows.Forms.Button btn_SeeTicketsUser;
         private System.Windows.Forms.Panel pnl_TicketsOfuser;
         private System.Windows.Forms.ListView lv_TicketsofUser;
+        private System.Windows.Forms.Panel pnl_CurrentTicketOfUser;
+        private System.Windows.Forms.RichTextBox richTextBox_TicketUserSolution;
+        private System.Windows.Forms.RichTextBox richTextBox_userTicketDescription;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox txt_TicketStatusUser;
+        private System.Windows.Forms.Button btn_TicketUserbuttonback;
+        private System.Windows.Forms.TextBox txt_TicketOpenOrClose;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox txt_TicketClosedBy;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Button btn_backButtonPnlTicketListOfUser;
     }
 }

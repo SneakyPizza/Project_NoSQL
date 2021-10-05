@@ -51,7 +51,8 @@ namespace Logic
         {
             try
             {
-                return _tickets.OrderTickets(OrderPriority);
+                Priority Ticketpriority = (Priority) Enum.Parse(typeof(Priority), OrderPriority);
+                return _tickets.OrderTickets(Ticketpriority);
             }
             catch (Exception e)
             {
@@ -71,17 +72,17 @@ namespace Logic
             }
         }
         // Add the ticket to the list of the user
-        public void UpdateTicketListOfUser(User userTicket)
-        {
-            try
-            {
-                _tickets.FillTicketListUser(userTicket);
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
+        //public void UpdateTicketListOfUser(User userTicket)
+        //{
+        //    try
+        //    {
+        //        _tickets.FillTicketListUser(userTicket);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw new Exception(e.Message);
+        //    }
+        //}
         public void DeleteTicket(Ticket ticket)
         {
             try
