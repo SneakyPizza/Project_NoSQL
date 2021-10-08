@@ -50,7 +50,7 @@ namespace UI
             this.textBox_lastname = new System.Windows.Forms.TextBox();
             this.textBox_Jobdescriiption = new System.Windows.Forms.TextBox();
             this.pnl_Ticket1 = new System.Windows.Forms.Panel();
-            this.dateTimePicker_Ticket = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_TicketDeadline = new System.Windows.Forms.DateTimePicker();
             this.brn_BackButton = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -73,13 +73,17 @@ namespace UI
             this.pnl_UsermakeTicket = new System.Windows.Forms.Panel();
             this.pnl_TicketsOfuser = new System.Windows.Forms.Panel();
             this.pnl_CurrentTicketOfUser = new System.Windows.Forms.Panel();
+            this.lbl_ReportedBy = new System.Windows.Forms.Label();
+            this.lbl_Deadline = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.lbl_CreationTime = new System.Windows.Forms.Label();
+            this.lbl_CompletedTicketUser = new System.Windows.Forms.Label();
+            this.lbl_TicketStatusUser = new System.Windows.Forms.Label();
             this.btn_TicketUserbuttonback = new System.Windows.Forms.Button();
-            this.txt_TicketOpenOrClose = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.txt_TicketClosedBy = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.txt_TicketStatusUser = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.richTextBox_TicketUserSolution = new System.Windows.Forms.RichTextBox();
@@ -311,7 +315,7 @@ namespace UI
             // 
             // pnl_Ticket1
             // 
-            this.pnl_Ticket1.Controls.Add(this.dateTimePicker_Ticket);
+            this.pnl_Ticket1.Controls.Add(this.dateTimePicker_TicketDeadline);
             this.pnl_Ticket1.Controls.Add(this.brn_BackButton);
             this.pnl_Ticket1.Controls.Add(this.label17);
             this.pnl_Ticket1.Controls.Add(this.textBox1);
@@ -336,12 +340,12 @@ namespace UI
             this.pnl_Ticket1.Size = new System.Drawing.Size(888, 547);
             this.pnl_Ticket1.TabIndex = 23;
             // 
-            // dateTimePicker_Ticket
+            // dateTimePicker_TicketDeadline
             // 
-            this.dateTimePicker_Ticket.Location = new System.Drawing.Point(95, 339);
-            this.dateTimePicker_Ticket.Name = "dateTimePicker_Ticket";
-            this.dateTimePicker_Ticket.Size = new System.Drawing.Size(250, 27);
-            this.dateTimePicker_Ticket.TabIndex = 24;
+            this.dateTimePicker_TicketDeadline.Location = new System.Drawing.Point(95, 339);
+            this.dateTimePicker_TicketDeadline.Name = "dateTimePicker_TicketDeadline";
+            this.dateTimePicker_TicketDeadline.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePicker_TicketDeadline.TabIndex = 24;
             // 
             // brn_BackButton
             // 
@@ -534,13 +538,17 @@ namespace UI
             // 
             // pnl_CurrentTicketOfUser
             // 
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.lbl_ReportedBy);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.lbl_Deadline);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.label35);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.label34);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.lbl_CreationTime);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.lbl_CompletedTicketUser);
+            this.pnl_CurrentTicketOfUser.Controls.Add(this.lbl_TicketStatusUser);
             this.pnl_CurrentTicketOfUser.Controls.Add(this.btn_TicketUserbuttonback);
-            this.pnl_CurrentTicketOfUser.Controls.Add(this.txt_TicketOpenOrClose);
             this.pnl_CurrentTicketOfUser.Controls.Add(this.label33);
-            this.pnl_CurrentTicketOfUser.Controls.Add(this.txt_TicketClosedBy);
             this.pnl_CurrentTicketOfUser.Controls.Add(this.label32);
             this.pnl_CurrentTicketOfUser.Controls.Add(this.label31);
-            this.pnl_CurrentTicketOfUser.Controls.Add(this.txt_TicketStatusUser);
             this.pnl_CurrentTicketOfUser.Controls.Add(this.label30);
             this.pnl_CurrentTicketOfUser.Controls.Add(this.label29);
             this.pnl_CurrentTicketOfUser.Controls.Add(this.richTextBox_TicketUserSolution);
@@ -549,6 +557,69 @@ namespace UI
             this.pnl_CurrentTicketOfUser.Name = "pnl_CurrentTicketOfUser";
             this.pnl_CurrentTicketOfUser.Size = new System.Drawing.Size(869, 513);
             this.pnl_CurrentTicketOfUser.TabIndex = 1;
+            // 
+            // lbl_ReportedBy
+            // 
+            this.lbl_ReportedBy.AutoSize = true;
+            this.lbl_ReportedBy.Location = new System.Drawing.Point(156, 173);
+            this.lbl_ReportedBy.Name = "lbl_ReportedBy";
+            this.lbl_ReportedBy.Size = new System.Drawing.Size(58, 20);
+            this.lbl_ReportedBy.TabIndex = 17;
+            this.lbl_ReportedBy.Text = "label36";
+            // 
+            // lbl_Deadline
+            // 
+            this.lbl_Deadline.AutoSize = true;
+            this.lbl_Deadline.Location = new System.Drawing.Point(149, 311);
+            this.lbl_Deadline.Name = "lbl_Deadline";
+            this.lbl_Deadline.Size = new System.Drawing.Size(58, 20);
+            this.lbl_Deadline.TabIndex = 16;
+            this.lbl_Deadline.Text = "label36";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(26, 311);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(69, 20);
+            this.label35.TabIndex = 15;
+            this.label35.Text = "Deadline";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(22, 262);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(95, 20);
+            this.label34.TabIndex = 14;
+            this.label34.Text = "Creationtime";
+            // 
+            // lbl_CreationTime
+            // 
+            this.lbl_CreationTime.AutoSize = true;
+            this.lbl_CreationTime.Location = new System.Drawing.Point(149, 263);
+            this.lbl_CreationTime.Name = "lbl_CreationTime";
+            this.lbl_CreationTime.Size = new System.Drawing.Size(58, 20);
+            this.lbl_CreationTime.TabIndex = 13;
+            this.lbl_CreationTime.Text = "label34";
+            // 
+            // lbl_CompletedTicketUser
+            // 
+            this.lbl_CompletedTicketUser.AutoSize = true;
+            this.lbl_CompletedTicketUser.Location = new System.Drawing.Point(156, 134);
+            this.lbl_CompletedTicketUser.Name = "lbl_CompletedTicketUser";
+            this.lbl_CompletedTicketUser.Size = new System.Drawing.Size(58, 20);
+            this.lbl_CompletedTicketUser.TabIndex = 12;
+            this.lbl_CompletedTicketUser.Text = "label34";
+            // 
+            // lbl_TicketStatusUser
+            // 
+            this.lbl_TicketStatusUser.AutoSize = true;
+            this.lbl_TicketStatusUser.Location = new System.Drawing.Point(149, 213);
+            this.lbl_TicketStatusUser.Name = "lbl_TicketStatusUser";
+            this.lbl_TicketStatusUser.Size = new System.Drawing.Size(85, 20);
+            this.lbl_TicketStatusUser.TabIndex = 11;
+            this.lbl_TicketStatusUser.Text = "ticketStatus";
             // 
             // btn_TicketUserbuttonback
             // 
@@ -560,33 +631,19 @@ namespace UI
             this.btn_TicketUserbuttonback.UseVisualStyleBackColor = true;
             this.btn_TicketUserbuttonback.Click += new System.EventHandler(this.btn_TicketUserbuttonback_Click);
             // 
-            // txt_TicketOpenOrClose
-            // 
-            this.txt_TicketOpenOrClose.Location = new System.Drawing.Point(106, 212);
-            this.txt_TicketOpenOrClose.Name = "txt_TicketOpenOrClose";
-            this.txt_TicketOpenOrClose.Size = new System.Drawing.Size(125, 27);
-            this.txt_TicketOpenOrClose.TabIndex = 9;
-            // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(22, 213);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(45, 20);
+            this.label33.Size = new System.Drawing.Size(85, 20);
             this.label33.TabIndex = 8;
-            this.label33.Text = "Open";
-            // 
-            // txt_TicketClosedBy
-            // 
-            this.txt_TicketClosedBy.Location = new System.Drawing.Point(106, 166);
-            this.txt_TicketClosedBy.Name = "txt_TicketClosedBy";
-            this.txt_TicketClosedBy.Size = new System.Drawing.Size(125, 27);
-            this.txt_TicketClosedBy.TabIndex = 7;
+            this.label33.Text = "ticketStatus";
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(14, 169);
+            this.label32.Location = new System.Drawing.Point(25, 173);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(83, 20);
             this.label32.TabIndex = 6;
@@ -597,16 +654,9 @@ namespace UI
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(22, 132);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(47, 20);
+            this.label31.Size = new System.Drawing.Size(81, 20);
             this.label31.TabIndex = 5;
-            this.label31.Text = "status";
-            // 
-            // txt_TicketStatusUser
-            // 
-            this.txt_TicketStatusUser.Location = new System.Drawing.Point(106, 128);
-            this.txt_TicketStatusUser.Name = "txt_TicketStatusUser";
-            this.txt_TicketStatusUser.Size = new System.Drawing.Size(125, 27);
-            this.txt_TicketStatusUser.TabIndex = 4;
+            this.label31.Text = "completed";
             // 
             // label30
             // 
@@ -1163,7 +1213,7 @@ namespace UI
         private System.Windows.Forms.Button btn_makeTicketNormalUser;
         private System.Windows.Forms.Button btn_BackbuttonUserticket;
         private System.Windows.Forms.ComboBox comboBox1_UsersToTicket;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_Ticket;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_TicketDeadline;
         private System.Windows.Forms.Button Btn_Delete;
         private System.Windows.Forms.Button btn_SeeTicketsUser;
         private System.Windows.Forms.Panel pnl_TicketsOfuser;
@@ -1174,12 +1224,16 @@ namespace UI
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox txt_TicketStatusUser;
         private System.Windows.Forms.Button btn_TicketUserbuttonback;
-        private System.Windows.Forms.TextBox txt_TicketOpenOrClose;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TextBox txt_TicketClosedBy;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button btn_backButtonPnlTicketListOfUser;
+        private System.Windows.Forms.Label lbl_TicketStatusUser;
+        private System.Windows.Forms.Label lbl_ReportedBy;
+        private System.Windows.Forms.Label lbl_Deadline;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label lbl_CreationTime;
+        private System.Windows.Forms.Label lbl_CompletedTicketUser;
     }
 }

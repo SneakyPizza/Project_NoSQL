@@ -39,6 +39,7 @@ namespace Logic
         {
             try
             {
+                _tickets.TestAggregation();
                return _tickets.FilterTickets(keyWord);
             }
             catch (Exception e)
@@ -71,18 +72,6 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-        // Add the ticket to the list of the user
-        //public void UpdateTicketListOfUser(User userTicket)
-        //{
-        //    try
-        //    {
-        //        _tickets.FillTicketListUser(userTicket);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw new Exception(e.Message);
-        //    }
-        //}
         public void DeleteTicket(Ticket ticket)
         {
             try

@@ -28,6 +28,7 @@ namespace UI
             FillcomboboxCreateTicketAndTicketInformation();
             listView_TicketsOverview.MouseDoubleClick += new MouseEventHandler(listView_TicketsOverview_MouseDoubleClick);
             lv_TicketsofUser.MouseDoubleClick += new MouseEventHandler(lv_TicketsofUser_MouseDoubleClick);
+            dateTimePicker_TicketDeadline.ValueChanged += new System.EventHandler(this.Dtp_ValueChanged);
         }
         // hide all panels
         public void HidePanels()
@@ -84,8 +85,8 @@ namespace UI
             User selectedCreatedBy = (User)comboBox_User.SelectedItem; // ticket reportedby (Super User)
             Ticket ticket = new Ticket(selectedUserID.Id, selectedCreatedBy.Id,
                 DateTimePicker.Value.AddDays(double.Parse(comboBox_Deadline.Text.Where(char.IsDigit).ToArray())),
-                DateTimePicker.Value, txt_SubjectIncident.Text, richTextBox_Description.Text,string.Empty,(IncidentType)comboBox_IncidentType.SelectedValue, (Priority)comboBox_Priority.SelectedValue, Status.Processing);
-                _tickets.InsertTicket(ticket);
+                DateTimePicker.Value, txt_SubjectIncident.Text, richTextBox_Description.Text, string.Empty, (IncidentType)comboBox_IncidentType.SelectedValue, (Priority)comboBox_Priority.SelectedValue, Status.Processing);
+            _tickets.InsertTicket(ticket);
             MessageBox.Show("ticket has been inserted");
         }
 
@@ -122,7 +123,7 @@ namespace UI
         // fill the column headers of the listview
         private void FillListviewColumnHeaders(ListView listview)
         {
-            List<string> ColumnHeader = new List<string>() { "Title", "IncidentType", "Priority", "Status","Completed" };
+            List<string> ColumnHeader = new List<string>() { "Title", "IncidentType", "Priority", "Status", "Completed" };
             foreach (string Header in ColumnHeader)
             {
                 listview.Columns.Add(Header, 120, HorizontalAlignment.Left);
@@ -138,7 +139,7 @@ namespace UI
         // order tickets by priority
         private void btn_SortPriority_Click(object sender, EventArgs e)
         {
-             string sortPriority = comboBox_SortByPriority.Text;
+            string sortPriority = comboBox_SortByPriority.Text;
             FillListview(_tickets.OrderTickets(sortPriority), listView_TicketsOverview);
         }
         public void ShowComboBoxTickets()
@@ -154,6 +155,11 @@ namespace UI
             comboBox_TicketStatus1.SelectedItem = ticket.Status;
             comboBox_TicketStatus1.Text = ticket.Status.ToString();
             richTextBox1_TIcketSolution1.Text = ticket.Solution;
+            if (ticket.Deadline == DateTime.Parse("01/01/0001 00:00:00")) {
+                dateTimePicker_TicketDeadline.Checked = false;
+                dateTimePicker_TicketDeadline.CustomFormat = " ";
+                dateTimePicker_TicketDeadline.Format = DateTimePickerFormat.Custom;
+            }
         }
 
         // open selected ticket in listview and load the values of the ticket;
@@ -166,10 +172,12 @@ namespace UI
         }
         private void btn_Update_Click(object sender, EventArgs e)
         {
-           // check the changed values of the ticket and update them
+            // check the changed values of the ticket and update them
             Ticket ticket = (Ticket)listView_TicketsOverview.SelectedItems[0].Tag;
             ticket.Status = (Status)comboBox_TicketStatus1.SelectedItem;
             ticket.Solution = richTextBox1_TIcketSolution1.Text;
+           // dateTimePicker_TicketDeadline.Format = DateTimePickerFormat.Long;
+            ticket.Deadline = dateTimePicker_TicketDeadline.Value;
             _tickets.UpdateTicket(ticket);
             MessageBox.Show("The ticket has been updated");
         }
@@ -212,9 +220,11 @@ namespace UI
         {
             pnl_CurrentTicketOfUser.Visible = true;
             Ticket ticket = (Ticket)lv_TicketsofUser.SelectedItems[0].Tag;
-            txt_TicketOpenOrClose.Text = ticket.IsCompleted.ToString();
-            txt_TicketStatusUser.Text = ticket.Status.ToString();
-            txt_TicketClosedBy.Text = ticket.TicketCreatedBy.ToString();
+            lbl_CompletedTicketUser.Text = ticket.IsCompleted.ToString();
+            lbl_TicketStatusUser.Text = ticket.Status.ToString();
+            lbl_ReportedBy.Text = ticket.TicketCreatedBy.ToString();
+            lbl_CreationTime.Text = ticket.CreationTime.ToString();
+            lbl_Deadline.Text = ticket.Deadline.ToString();
             richTextBox_userTicketDescription.Text = ticket.Description;
             richTextBox_TicketUserSolution.Text = ticket.Solution;
         }
@@ -225,6 +235,10 @@ namespace UI
         private void btn_backButtonPnlTicketListOfUser_Click(object sender, EventArgs e)
         {
             pnl_TicketsOfuser.Visible = false;
+        }
+        void Dtp_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePicker_TicketDeadline.Format = DateTimePickerFormat.Long;
         }
     }
 }

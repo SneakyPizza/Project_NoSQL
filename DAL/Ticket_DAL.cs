@@ -52,27 +52,21 @@ namespace DAL
             FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
             UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("Status", ticket.Status)
                 .Set("Solution", ticket.Solution)
-                .Set("Priority", ticket.Priority);
+                .Set("Priority", ticket.Priority)
+                .Set("Deadline", ticket.Deadline);
             GetDatabaseTickets().UpdateMany(filter, update);
         }
-        // updates the list of tickets of the user after making a ticket
-        //public void FillTicketListUser(User user)
-        //{
-        //    FilterDefinition<Ticket> FilterUser = Builders<Ticket>.Filter.Eq("UserID", user.Id);
-        //    List<Ticket> TicketsOfUser = GetDatabaseTickets().Find(FilterUser).ToList();
-        //    FilterDefinition<User> FilterTicket = Builders<User>.Filter.Eq(x => x.Id, user.Id);
-
-        //    foreach (Ticket ticket in TicketsOfUser)
-        //    {
-        //        UpdateDefinition<User> update = Builders<User>.Update.AddToSet("Tickets", ticket.Id);
-        //        GetDatabase().GetCollection<User>("Users").UpdateOne(FilterTicket, update);
-        //    }
-        //}
+        // get the list of tickets of the logged in user
         public List<Ticket> ListTicketsOFUser(User user)
         {
             FilterDefinition<Ticket> FilterUser = Builders<Ticket>.Filter.Eq("UserID", user.Id);
             List<Ticket> TicketsOfUser = GetDatabaseTickets().Find(FilterUser).ToList();
             return TicketsOfUser;
+        }
+        public void TestAggregation()
+        {
+            var collection = GetDatabaseTickets();
+            var docs =  collection.Aggregate().Lookup("Users", "UserID", "_id","asTicket");
         }
         public void DeleteTicket(Ticket ticket)
         {
