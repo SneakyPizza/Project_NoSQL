@@ -57,7 +57,7 @@
             this.UC_unresolved.AccessibleName = "";
             this.UC_unresolved.CurrentValue = 50D;
             this.UC_unresolved.FillColor = System.Drawing.Color.White;
-            this.UC_unresolved.Location = new System.Drawing.Point(101, 179);
+            this.UC_unresolved.Location = new System.Drawing.Point(95, 179);
             this.UC_unresolved.MaxValue = 100D;
             this.UC_unresolved.Name = "UC_unresolved";
             this.UC_unresolved.ProgressColor = System.Drawing.Color.Orange;
@@ -69,7 +69,7 @@
             this.UC_overTime.AccessibleName = "UC_overTime";
             this.UC_overTime.CurrentValue = 50D;
             this.UC_overTime.FillColor = System.Drawing.Color.White;
-            this.UC_overTime.Location = new System.Drawing.Point(403, 179);
+            this.UC_overTime.Location = new System.Drawing.Point(410, 179);
             this.UC_overTime.MaxValue = 100D;
             this.UC_overTime.Name = "UC_overTime";
             this.UC_overTime.ProgressColor = System.Drawing.Color.Orange;

@@ -4,6 +4,7 @@ using System.Text;
 using MongoDB.Driver;
 using Model;
 using MongoDB.Bson;
+using BCrypt.Net;
 
 namespace DAL
 {
@@ -19,12 +20,12 @@ namespace DAL
             var filter = Builders<BsonDocument>.Filter.Eq("Username", username);    //filter on username 
             BsonDocument collection = GetDatabaseBsonUsers().Find(filter).FirstOrDefault(); //gets the document of the corresponding user
 
-            if (collection.GetValue("Password", "n/a") == password)    //check password
-            {
-                //return bsondoc instead of bool to create a logged-in user in the logic layer
-                return true;
-            }
-            return false;
+            return AuthenticateLogin(password, collection.GetValue("Password", "n/a").ToString());
+        }
+
+        private bool AuthenticateLogin(string filledpassword, string storedpassword)
+        {
+            return BCrypt.Net.BCrypt.Verify(filledpassword, storedpassword);
         }
 
         private IMongoCollection<BsonDocument> GetDatabaseBsonUsers()

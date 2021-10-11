@@ -13,11 +13,11 @@ namespace Model
         private string _firstname;
         private string _lastname;
         private UserRole _userrole;
-        private ObjectId[] _ticketIds;
+        //private ObjectId[] _ticketIds;
         private ObjectId _id;
         
 
-        public User(ObjectId id, ObjectId[] ticketids, string username, string password, string firstname, string lastname, UserRole userrole)
+        public User(ObjectId id, string username, string password, string firstname, string lastname, UserRole userrole)
         {
             _id = id;
             _username = username;
@@ -25,7 +25,16 @@ namespace Model
             _firstname = firstname;
             _lastname = lastname;
             _userrole = userrole;
-            _ticketIds = ticketids;
+            //_ticketIds = ticketids;
+        }
+
+        public User(string username, string password, string firstname, string lastname, UserRole userrole)
+        {
+            _username = username;
+            _password = password;
+            _firstname = firstname;
+            _lastname = lastname;
+            _userrole = userrole;
         }
 
         public string Username { get => _username; set => _username = value; }
@@ -33,7 +42,7 @@ namespace Model
         public string Firstname { get => _firstname; set => _firstname = value; }
         public string Lastname { get => _lastname; set => _lastname = value; }
         public UserRole UserRole { get => _userrole; set => _userrole = value; }
-        public ObjectId[] TicketIds { get => _ticketIds; set => _ticketIds = value; }
+        //public ObjectId[] TicketIds { get => _ticketIds; set => _ticketIds = value; }
         public ObjectId Id { get => _id; set => _id = value; }
     }
 }

@@ -33,6 +33,7 @@
             this.tb_Username = new System.Windows.Forms.TextBox();
             this.tb_Password = new System.Windows.Forms.TextBox();
             this.btn_Login = new System.Windows.Forms.Button();
+            this.circleProgressControl1 = new UI.CircleProgressControl();
             this.SuspendLayout();
             // 
             // lbl_Username
@@ -77,11 +78,23 @@
             this.btn_Login.UseVisualStyleBackColor = true;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
+            // circleProgressControl1
+            // 
+            this.circleProgressControl1.CurrentValue = 50D;
+            this.circleProgressControl1.FillColor = System.Drawing.Color.White;
+            this.circleProgressControl1.Location = new System.Drawing.Point(12, 12);
+            this.circleProgressControl1.MaxValue = 100D;
+            this.circleProgressControl1.Name = "circleProgressControl1";
+            this.circleProgressControl1.ProgressColor = System.Drawing.Color.Orange;
+            this.circleProgressControl1.Size = new System.Drawing.Size(113, 108);
+            this.circleProgressControl1.TabIndex = 5;
+            // 
             // FormYornie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 300);
+            this.Controls.Add(this.circleProgressControl1);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.tb_Password);
             this.Controls.Add(this.tb_Username);
@@ -101,5 +114,6 @@
         private System.Windows.Forms.TextBox tb_Username;
         private System.Windows.Forms.TextBox tb_Password;
         private System.Windows.Forms.Button btn_Login;
+        private CircleProgressControl circleProgressControl1;
     }
 }

@@ -20,7 +20,7 @@ namespace UI
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tb_Username.Text) && !string.IsNullOrEmpty(tb_Password.Text));
+            if (!string.IsNullOrEmpty(tb_Username.Text) && !string.IsNullOrEmpty(tb_Password.Text))
             {
                 if (_login_Logic.LoginUser(tb_Username.Text, tb_Password.Text))
                 {
@@ -31,6 +31,10 @@ namespace UI
                 {
                     MessageBox.Show("Failed");
                 }
+            } else
+            {
+                //_login_Logic.CreateDummyUser();
+                MessageBox.Show("Please fill in login details");
             }
         }
     }

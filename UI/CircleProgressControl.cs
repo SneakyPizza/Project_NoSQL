@@ -33,16 +33,16 @@ namespace UI
         {
             base.OnPaint(e);
 
-            Bitmap map = new Bitmap(this.Width, this.Height);
-            Graphics graphic = Graphics.FromImage(map);
-            Pen p = new Pen( new SolidBrush(_progressColor), 10f);
+            Bitmap map = new Bitmap(this.Width, this.Height);   //Creating a displayfield
+            Graphics graphic = Graphics.FromImage(map);         //using the bitmap as field for draw
+            Pen p = new Pen( new SolidBrush(_progressColor), 10f); //Creating a pen to draw using the given color and thickness
 
             graphic.SmoothingMode = SmoothingMode.AntiAlias;
+            //Drawing the progressbar and setting starting and endpoint 
+            //Starting point -90 to start at the top (0 for right, 90 bottom, 180 left)
             graphic.DrawArc(p, 3*6, 3*6, (this.Width - 7*5) - 2, (this.Height - 7*5) - 2, -90, (int)Math.Round((double)((360.0 / ((double)_maxValue)) * _currentValue)));
             graphic.FillEllipse(new SolidBrush(_fillColor), 4*6, 4*6, (this.Width - 8*6) - 1, (this.Height - 8*6) - 1);
 
-            SizeF MS = graphic.MeasureString(Convert.ToString(Convert.ToInt32((100 / 200) * 20)), Font);
-            graphic.DrawString(Convert.ToString(Convert.ToInt32((100 / 200) * 20)), Font, Brushes.Black, Convert.ToInt32(Width / 2 - MS.Width / 2), Convert.ToInt32(Height / 2 - MS.Height / 2));
             e.Graphics.DrawImage(map, 0, 0);
             graphic.Dispose();
             map.Dispose();

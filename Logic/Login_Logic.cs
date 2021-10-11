@@ -12,7 +12,7 @@ namespace Logic
 {
     public class Login_Logic
     {
-        private Login_DAL login_dal = new Login_DAL();
+        private Login_DAL _login_dal = new Login_DAL();
         private static User _loggedUser;
 
         public static User LoggedUser { get { return _loggedUser; } set { if (_loggedUser == null) _loggedUser = value; } }
@@ -29,31 +29,13 @@ namespace Logic
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
-        public void InsertUser(User user)
-        {
-            try
-            {
-                user.Password = EncryptPassword(user.Password);
-                login_dal.InsertUser(user);
-                //insert user
-            }catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
         public bool LoginUser(string username, string password)
         {
             try
             {
-                //Encrypt password before checking
-                //password = EncryptPassword(password);
-                if (login_dal.LoginUser(username, password))
-                {
-                    //Create logged_in user
-                    return true;
-                }
-                return false;
+                username = username.Trim();
+                password = password.Trim();
+                return _login_dal.LoginUser(username, password);
             } catch(Exception e)
             {
                 Console.WriteLine(e.Message);
@@ -70,7 +52,7 @@ namespace Logic
 
                 return new User(
                     (ObjectId)doc["_id"],
-                    ticketObjectIds,
+                    //ticketObjectIds,
                     doc["Username"].ToString(),
                     doc["Password"].ToString(),
                     doc["Firstname"].ToString(),
@@ -81,6 +63,23 @@ namespace Logic
             {
                 throw e;
             }
+        }
+        
+
+        //Created to insert a dummy user for testing purposes - Delete Later
+        public void CreateDummyUser()
+        {
+            try
+            {
+                string p = "test";
+                p = EncryptPassword(p);
+                User u = new User("bob1", p, "bob", "bobus", 0);
+                _login_dal.InsertUser(u);
+            } catch(Exception e)
+            {
+                throw e;
+            }
+
         }
     }
 }
