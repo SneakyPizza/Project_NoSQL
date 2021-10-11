@@ -34,13 +34,13 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-            // return list of the filter
+        // return list of the filter
         public List<Ticket> FilterList(String keyWord)
         {
             try
             {
                 _tickets.TestAggregation();
-               return _tickets.FilterTickets(keyWord);
+                return _tickets.FilterTickets(keyWord);
             }
             catch (Exception e)
             {
@@ -52,7 +52,7 @@ namespace Logic
         {
             try
             {
-                Priority Ticketpriority = (Priority) Enum.Parse(typeof(Priority), OrderPriority);
+                Priority Ticketpriority = (Priority)Enum.Parse(typeof(Priority), OrderPriority);
                 return _tickets.OrderTickets(Ticketpriority);
             }
             catch (Exception e)
@@ -88,6 +88,17 @@ namespace Logic
             try
             {
                 return _tickets.ListTicketsOFUser(user);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public string GetCreatedByName(Ticket TicketID)
+        {
+            try
+            {
+                return _tickets.GetCreatedByName(TicketID.TicketCreatedBy);
             }
             catch (Exception e)
             {

@@ -89,7 +89,7 @@ namespace UI
             _tickets.InsertTicket(ticket);
             MessageBox.Show("ticket has been inserted");
         }
-
+        
         private void btn_TicketOverview_Click(object sender, EventArgs e)
         {
             ShowPanelTicketsOverview();
@@ -176,7 +176,6 @@ namespace UI
             Ticket ticket = (Ticket)listView_TicketsOverview.SelectedItems[0].Tag;
             ticket.Status = (Status)comboBox_TicketStatus1.SelectedItem;
             ticket.Solution = richTextBox1_TIcketSolution1.Text;
-           // dateTimePicker_TicketDeadline.Format = DateTimePickerFormat.Long;
             ticket.Deadline = dateTimePicker_TicketDeadline.Value;
             _tickets.UpdateTicket(ticket);
             MessageBox.Show("The ticket has been updated");
@@ -222,7 +221,7 @@ namespace UI
             Ticket ticket = (Ticket)lv_TicketsofUser.SelectedItems[0].Tag;
             lbl_CompletedTicketUser.Text = ticket.IsCompleted.ToString();
             lbl_TicketStatusUser.Text = ticket.Status.ToString();
-            lbl_ReportedBy.Text = ticket.TicketCreatedBy.ToString();
+            lbl_ReportedBy.Text = _tickets.GetCreatedByName(ticket);
             lbl_CreationTime.Text = ticket.CreationTime.ToString();
             lbl_Deadline.Text = ticket.Deadline.ToString();
             richTextBox_userTicketDescription.Text = ticket.Description;
@@ -239,6 +238,11 @@ namespace UI
         void Dtp_ValueChanged(object sender, EventArgs e)
         {
             dateTimePicker_TicketDeadline.Format = DateTimePickerFormat.Long;
+        }
+        public void Fill()
+        {
+            comboBox_TicketHandeldBy.DisplayMember = "Fullname";
+            comboBox_TicketHandeldBy.DataSource =  _user.GetUsers();
         }
     }
 }
