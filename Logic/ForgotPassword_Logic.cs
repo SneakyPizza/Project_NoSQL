@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Mail;
+using DAL;
 
 namespace Logic
 {
@@ -15,23 +16,40 @@ namespace Logic
         private string _currentResetCode;
         private const int _RESETCODELENGTH = 6;
 
+        private Login_DAL login_dal = Login_DAL.Instance;
+
         public void SendMail(string email)
         {
             //if email is found do ....
-            SmtpClient client = new SmtpClient("MailHost");
-            client.Send(CreateMailMessage(email));
+
+            if (checkMail(email))
+            {
+                SmtpClient client = SetupClient();
+                client.Send(CreateMailMessage(email));
+            }
         }
 
+        private bool ResetCodeCheck(string code)
+        {
+            return code == _currentResetCode;
+        }
+
+        private SmtpClient SetupClient()
+        {
+            SmtpClient client = new SmtpClient();
+            client.Host = "smtp-mail.outlook.com";
+            client.Port = 587;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            System.Net.NetworkCredential credential = new System.Net.NetworkCredential("forgotpasswordnosqlproject@outlook.com", "Test.Wachtwoord.99881!");
+            client.EnableSsl = true;
+            client.Credentials = credential;
+            return client;
+        }
 
         private MailMessage CreateMailMessage(string email)
         {
-            MailAddress from = new MailAddress("", ""); //fill in sendermail
-            MailAddress to = new MailAddress(email, ""); //fill reciever mail
             string text = "Your reset code: ";
-
-            MailMessage msg = new MailMessage();
-            msg.From = from;
-            msg.To.Add(to);
+            MailMessage msg = new MailMessage("forgotpasswordnosqlproject@outlook.com", email);
             msg.Subject = "Forgot password code";
 
             string code = GenerateRandomResetCode(_RESETCODELENGTH);
@@ -58,8 +76,13 @@ namespace Logic
 
         private bool checkMail(string email)
         {
-            //return a check DAL for found email.
-            return true;
+            try
+            {
+                return login_dal.CheckEmail(email);
+            } catch(Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

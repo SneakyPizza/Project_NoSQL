@@ -14,6 +14,15 @@ namespace DAL
         // if true  -> compare password
 
         //password encryption in the logic layer 
+        private static Login_DAL instance;
+        public static Login_DAL Instance
+        {
+            get
+            {
+                if (instance == null) { instance = new Login_DAL(); }
+                return instance;
+            }
+        }
 
         public bool LoginUser(string username, string password)
         {
@@ -36,6 +45,14 @@ namespace DAL
         public void InsertUser(User user)
         {
             GetDatabase("ProjectNoSQL10").GetCollection<User>("Users").InsertOne(user);
+        }
+
+        public bool CheckEmail(string email)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("Email", email);
+            BsonDocument coll = GetDatabaseBsonUsers().Find(filter).FirstOrDefault();
+
+            return email == coll.GetValue("Email", "n/a").ToString();
         }
     }
 }

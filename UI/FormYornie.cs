@@ -34,6 +34,8 @@ namespace UI
             } else
             {
                 //_login_Logic.CreateDummyUser();
+                //ForgotPassword_Logic l = new ForgotPassword_Logic();
+                //l.SendMail("613441@student.inholland.nl");
                 MessageBox.Show("Please fill in login details");
             }
         }

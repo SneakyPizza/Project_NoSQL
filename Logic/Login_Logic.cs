@@ -12,7 +12,7 @@ namespace Logic
 {
     public class Login_Logic
     {
-        private Login_DAL _login_dal = new Login_DAL();
+        private Login_DAL _login_dal = Login_DAL.Instance;
         private static User _loggedUser;
 
         public static User LoggedUser { get { return _loggedUser; } set { if (_loggedUser == null) _loggedUser = value; } }
