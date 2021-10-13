@@ -16,20 +16,31 @@ namespace Logic
         private string _currentResetCode;
         private const int _RESETCODELENGTH = 6;
 
-        private Login_DAL login_dal = Login_DAL.Instance;
+        private Login_DAL _login_dal = Login_DAL.Instance;
+        private Login_Logic _login_logic = Login_Logic.Instance;
+
+        private static ForgotPassword_Logic _instance;
+        public static ForgotPassword_Logic Instance
+        {
+            get
+            {
+                if(_instance == null) { _instance = new ForgotPassword_Logic(); }
+                return _instance;
+            }
+        }
 
         public void SendMail(string email)
         {
             //if email is found do ....
 
-            if (checkMail(email))
+            if (CheckMail(email))
             {
                 SmtpClient client = SetupClient();
                 client.Send(CreateMailMessage(email));
             }
         }
 
-        private bool ResetCodeCheck(string code)
+        public bool ResetCodeCheck(string code)
         {
             return code == _currentResetCode;
         }
@@ -74,11 +85,24 @@ namespace Logic
             return value;
         }
 
-        private bool checkMail(string email)
+        private bool CheckMail(string email)
         {
             try
             {
-                return login_dal.CheckEmail(email);
+                return _login_dal.CheckEmail(email);
+            } catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public bool UpdateUserPassword(string email, string password)
+        {
+            try
+            {
+                password = _login_logic.EncryptPassword(password);
+                _login_dal.UpdatePasswordWithUsername(email, password);
+                return true;
             } catch(Exception e)
             {
                 throw e;

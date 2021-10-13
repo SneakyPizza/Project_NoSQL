@@ -13,6 +13,16 @@ namespace Logic
     public class Login_Logic
     {
         private Login_DAL _login_dal = Login_DAL.Instance;
+        private static Login_Logic _login_logic;
+        public static Login_Logic Instance
+        {
+            get
+            {
+                if(_login_logic == null) { _login_logic = new Login_Logic(); }
+                return _login_logic;
+            }
+        }
+
         private static User _loggedUser;
 
         public static User LoggedUser { get { return _loggedUser; } set { if (_loggedUser == null) _loggedUser = value; } }
@@ -24,7 +34,7 @@ namespace Logic
             }
         }
 
-        private string EncryptPassword(string password)
+        public string EncryptPassword(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
@@ -71,9 +81,9 @@ namespace Logic
         {
             try
             {
-                string p = "test";
+                string p = "bobuser2";
                 p = EncryptPassword(p);
-                User u = new User("bob1", p, "bob", "bobus", 0);
+                User u = new User("bob2", p, "bob2", "bobus2", (UserRole)1);
                 _login_dal.InsertUser(u);
             } catch(Exception e)
             {

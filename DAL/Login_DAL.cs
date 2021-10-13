@@ -51,8 +51,14 @@ namespace DAL
         {
             var filter = Builders<BsonDocument>.Filter.Eq("Email", email);
             BsonDocument coll = GetDatabaseBsonUsers().Find(filter).FirstOrDefault();
-
             return email == coll.GetValue("Email", "n/a").ToString();
+        }
+
+        public void UpdatePasswordWithUsername(string email, string password)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("Email", email);
+            var update = Builders<BsonDocument>.Update.Set("Password", password );
+            GetDatabaseBsonUsers().UpdateOne(filter, update);
         }
     }
 }
