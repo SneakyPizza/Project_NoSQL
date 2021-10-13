@@ -80,7 +80,7 @@ namespace UI
                 comboBox_TicketStatus1.Items.Add(status);
             }
             comboBox_User.DisplayMember = "Fullname";
-            comboBox_User.DataSource = _user.GetUsers();
+            //comboBox_User.DataSource = _user.InsertUser();
         }
         // send the ticket to the db
         private void Btn_Submit_Click(object sender, EventArgs e)
