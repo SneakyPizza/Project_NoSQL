@@ -17,5 +17,6 @@ namespace DAL
         }
         // return database
         public IMongoDatabase GetDatabase() { return _client.GetDatabase("ProjectNoSQL10"); }
+        public IMongoDatabase GetDatabase(string databasename) { return _client.GetDatabase(databasename); }
     }
 }

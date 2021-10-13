@@ -6,8 +6,7 @@ namespace Model
 {
   public class User
     {
-        private ObjectId _id;
-        private string _name;
+        private string _username;
         private string _password;
         private string _firstname;
         private string _lastname;
@@ -18,7 +17,7 @@ namespace Model
 
         public User(ObjectId id, string username, string password, string firstname, string lastname, UserRole userrole)
         {
-            _name = username;
+            _username = username;
             _password = password;
             _firstname = firstname;
             _lastname = lastname;
@@ -35,7 +34,7 @@ namespace Model
             _userrole = userrole;
         }
         public string Fullname { get { return string.Format("{0}  {1}", Firstname, Lastname); } }
-        public string Username { get => _name; set => _name = value; }
+        public string Username { get => _username; set => _username = value; }
         public string Password { get => _password; set => _password = value; }
         public string Firstname { get => _firstname; set => _firstname = value; }
         public string Lastname { get => _lastname; set => _lastname = value; }

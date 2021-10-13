@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using BCrypt;
+using BCrypt.Net;
 using Model;
 using DAL;
 using MongoDB.Bson;
@@ -37,6 +37,7 @@ namespace Logic
         public string EncryptPassword(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
+            //return BCrypt.BCryptHelper.HashPassword(password, )
         }
 
         public bool LoginUser(string username, string password)

@@ -4,7 +4,7 @@ using System.Text;
 using MongoDB.Driver;
 using Model;
 using MongoDB.Bson;
-using BCrypt.Net;
+using BCrypt;
 
 namespace DAL
 {

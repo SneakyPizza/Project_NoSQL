@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MongoDB.Bson" Version="2.13.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="MongoDB.Bson">
       <HintPath>..\..\..\..\source\repos\Project_Topdesk_NoSQL\packages\MongoDB.Bson.2.13.1\lib\net452\MongoDB.Bson.dll</HintPath>
     </Reference>

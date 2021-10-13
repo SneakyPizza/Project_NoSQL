@@ -21,7 +21,11 @@ namespace UI
         {
             _tickets = new Ticket_Logic();
             _user = new User_Logic();
-            _currentuser = _user.GetUser();
+            //_currentuser = _user.GetUser();
+
+            //DUMMY USER
+            _currentuser = new User("Remove", "test", "Remove", "test", 0);
+
             InitializeComponent();
             HidePanels();
 
