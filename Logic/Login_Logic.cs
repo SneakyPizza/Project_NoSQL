@@ -61,26 +61,26 @@ namespace Logic
             }
         }
 
-        public User CreateUserfromBson(BsonDocument doc)
-        {
-            try
-            {
-                BsonSerializer.Deserialize<User>(doc);
-                List<ObjectId> ticketObjectIds = doc["Tickets"].AsBsonArray.Select(p => (ObjectId)p).ToList();
-                // ObjectId id,string username, string password, string firstname, string lastname, UserRole userrole,List<ObjectId> tickets
-                return new User(
+        //public User CreateUserfromBson(BsonDocument doc)
+        //{
+        //    try
+        //    {
+        //        BsonSerializer.Deserialize<User>(doc);
+        //        List<ObjectId> ticketObjectIds = doc["Tickets"].AsBsonArray.Select(p => (ObjectId)p).ToList();
+        //        // ObjectId id,string username, string password, string firstname, string lastname, UserRole userrole,List<ObjectId> tickets
+        //        return new User(
                  
-                    doc["Username"].ToString(),
-                    doc["Password"].ToString(),
-                    doc["Firstname"].ToString(),
-                    doc["LastName"].ToString(),
-                    (UserRole)doc["UserRole"].ToInt32(),
-                    ticketObjectIds
-                    );
-            } catch(Exception e)
-            {
-                throw e;
-            }
-        }
+        //            doc["Username"].ToString(),
+        //            doc["Password"].ToString(),
+        //            doc["Firstname"].ToString(),
+        //            doc["LastName"].ToString(),
+        //            (UserRole)doc["UserRole"].ToInt32(),
+        //            ticketObjectIds
+        //            );
+        //    } catch(Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
     }
 }

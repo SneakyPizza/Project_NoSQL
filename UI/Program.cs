@@ -17,7 +17,7 @@ namespace UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormYornie());  //Change to main form before deployment
+            Application.Run(new FormTapharo());  //Change to main form before deployment
         }
     }
 }
