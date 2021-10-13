@@ -17,20 +17,20 @@ namespace DAL
 
         public List<User> GetUsers()
         {
-            var filter = Builders<User>.Filter.Eq("UserRole",UserRole.Admin) & Builders<User>.Filter.Eq("Username", "VictorAdmin2");
+            var filter = Builders<User>.Filter.Eq("UserRole",UserRole.Admin);
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList(); 
             return Users;
         }
         public List<User> GetNormalUsers()
         {
-            var filter = Builders<User>.Filter.Eq("UserRole", UserRole.User) & Builders<User>.Filter.Eq("Username", "VictorUser1");
+            var filter = Builders<User>.Filter.Eq("UserRole", UserRole.User);
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList();
             return Users;
         }
         public List<User> Login()
         {
             IList<FilterDefinition<User>> filtersList = new List<FilterDefinition<User>>();
-            filtersList.Add(new BsonDocument("Username", "VictorUser1"));
+            filtersList.Add(new BsonDocument("Username", "bob1"));
             var builder = Builders<User>.Filter;
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(builder.And(filtersList)).ToList();
             return Users;
@@ -38,7 +38,7 @@ namespace DAL
         public User GetUser()
         {
             var collection = GetDatabase().GetCollection<User>("Users");
-            var filter = Builders<User>.Filter.Eq("Firstname", "VictorUser1");
+            var filter = Builders<User>.Filter.Eq("Firstname", "bob");
             var test = collection.Find(filter);
             User user = test.FirstOrDefault();
             return user;

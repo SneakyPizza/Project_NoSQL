@@ -315,7 +315,7 @@ namespace UI
             // 
             // pnl_Ticket1
             // 
-            this.pnl_Ticket1.Controls.Add(this.pnl_TicketsOfuser);
+            this.pnl_Ticket1.Controls.Add(this.pnl_UsermakeTicket);
             this.pnl_Ticket1.Controls.Add(this.label36);
             this.pnl_Ticket1.Controls.Add(this.comboBox_TicketHandeldBy);
             this.pnl_Ticket1.Controls.Add(this.dateTimePicker_TicketDeadline);
@@ -341,52 +341,17 @@ namespace UI
             this.pnl_Ticket1.Size = new System.Drawing.Size(888, 547);
             this.pnl_Ticket1.TabIndex = 23;
             // 
-            this.label18.Size = new System.Drawing.Size(72, 20);
-            this.label18.TabIndex = 16;
-            this.label18.Text = "Lastname";
-            // 
-            // btn_Update
-            // 
-            this.btn_Update.Location = new System.Drawing.Point(463, 403);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(320, 81);
-            this.btn_Update.TabIndex = 15;
-            this.btn_Update.Text = "Update";
-            this.btn_Update.UseVisualStyleBackColor = true;
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
-            // 
-            // comboBox_TicketStatus1
-            // 
-            this.comboBox_TicketStatus1.FormattingEnabled = true;
-            this.comboBox_TicketStatus1.Location = new System.Drawing.Point(96, 255);
-            this.comboBox_TicketStatus1.Name = "comboBox_TicketStatus1";
-            this.comboBox_TicketStatus1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox_TicketStatus1.TabIndex = 14;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(10, 305);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(93, 20);
-            this.label19.TabIndex = 13;
-            this.label19.Text = "incidentType";
-            // 
-            // label20
-            // 
             // pnl_TicketsOfuser
             // 
-            this.pnl_TicketsOfuser.Controls.Add(this.pnl_UsermakeTicket);
             this.pnl_TicketsOfuser.Controls.Add(this.lv_TicketsofUser);
             this.pnl_TicketsOfuser.Controls.Add(this.btn_backButtonPnlTicketListOfUser);
-            this.pnl_TicketsOfuser.Location = new System.Drawing.Point(3, 11);
+            this.pnl_TicketsOfuser.Location = new System.Drawing.Point(12, 14);
             this.pnl_TicketsOfuser.Name = "pnl_TicketsOfuser";
             this.pnl_TicketsOfuser.Size = new System.Drawing.Size(888, 531);
             this.pnl_TicketsOfuser.TabIndex = 11;
             // 
             // pnl_UsermakeTicket
             // 
-            this.pnl_UsermakeTicket.Controls.Add(this.pnl_CurrentTicketOfUser);
             this.pnl_UsermakeTicket.Controls.Add(this.btn_SeeTicketsUser);
             this.pnl_UsermakeTicket.Controls.Add(this.btn_BackbuttonUserticket);
             this.pnl_UsermakeTicket.Controls.Add(this.label28);
@@ -398,7 +363,7 @@ namespace UI
             this.pnl_UsermakeTicket.Controls.Add(this.richTextBox_Userdescription);
             this.pnl_UsermakeTicket.Controls.Add(this.textBoxLastname);
             this.pnl_UsermakeTicket.Controls.Add(this.textBoxFirstname);
-            this.pnl_UsermakeTicket.Location = new System.Drawing.Point(0, 0);
+            this.pnl_UsermakeTicket.Location = new System.Drawing.Point(0, 11);
             this.pnl_UsermakeTicket.Name = "pnl_UsermakeTicket";
             this.pnl_UsermakeTicket.Size = new System.Drawing.Size(917, 545);
             this.pnl_UsermakeTicket.TabIndex = 23;
@@ -420,7 +385,7 @@ namespace UI
             this.pnl_CurrentTicketOfUser.Controls.Add(this.label29);
             this.pnl_CurrentTicketOfUser.Controls.Add(this.richTextBox_TicketUserSolution);
             this.pnl_CurrentTicketOfUser.Controls.Add(this.richTextBox_userTicketDescription);
-            this.pnl_CurrentTicketOfUser.Location = new System.Drawing.Point(0, 0);
+            this.pnl_CurrentTicketOfUser.Location = new System.Drawing.Point(12, 8);
             this.pnl_CurrentTicketOfUser.Name = "pnl_CurrentTicketOfUser";
             this.pnl_CurrentTicketOfUser.Size = new System.Drawing.Size(869, 546);
             this.pnl_CurrentTicketOfUser.TabIndex = 1;
@@ -1127,6 +1092,7 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 575);
+            this.Controls.Add(this.pnl_CurrentTicketOfUser);
             this.Controls.Add(this.pnl_Ticket1);
             this.Controls.Add(this.pnl_TicketOverview);
             this.Controls.Add(this.comboBox1_UsersToTicket);
@@ -1151,6 +1117,7 @@ namespace UI
             this.Controls.Add(this.comboBox_Priority);
             this.Controls.Add(this.comboBox_User);
             this.Controls.Add(this.comboBox_IncidentType);
+            this.Controls.Add(this.pnl_TicketsOfuser);
             this.Name = "FormGIlberto";
             this.Text = "FormGIlberto";
             this.pnl_Ticket1.ResumeLayout(false);

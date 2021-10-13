@@ -12,6 +12,7 @@ namespace Model
         private string _firstname;
         private string _lastname;
         private UserRole _userrole;
+        private string _email;
         public User(string username, string password, string firstname, string lastname, UserRole userrole)
         {
             _name = username;
@@ -25,6 +26,8 @@ namespace Model
         public string Password { get => _password; set => _password = value; }
         public string Firstname { get => _firstname; set => _firstname = value; }
         public string Lastname { get => _lastname; set => _lastname = value; }
+
+        public string Email { get => _email; set => _email = value; }
         public UserRole UserRole { get => _userrole; set => _userrole = value; }
         public ObjectId Id { get => _id; set => _id = value; }
 

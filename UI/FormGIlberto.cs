@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic;
@@ -19,7 +20,7 @@ namespace UI
         User _currentuser;
         public FormGIlberto()
         {
-            _tickets = new Ticket_Logic();
+            _tickets = Ticket_Logic.UniqueInstance;
             _user = new User_Logic();
             _currentuser = _user.GetUser();
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace UI
             dateTimePicker_TicketDeadline.ValueChanged += new System.EventHandler(this.Dtp_ValueChanged);
         }
         // hide all panels
-        public void HidePanels()
+        private void HidePanels()
         {
             pnl_TicketOverview.Visible = false;
             pnl_Ticket1.Visible = false;
@@ -45,17 +46,17 @@ namespace UI
             pnl_TicketOverview.Visible = true;
         }
         // show the panel ticket
-        public void ShowPanelTicket()
+        private void ShowPanelTicket()
         {
             pnl_Ticket1.Visible = true;
         }
         // fill combobox of the create ticket panel
 
-        public void ShowPanelCurrentTicketOfUser()
+        private void ShowPanelCurrentTicketOfUser()
         {
             pnl_CurrentTicketOfUser.Visible = true;
         }
-        public void FillcomboboxCreateTicketAndTicketInformation()
+        private void FillcomboboxCreateTicketAndTicketInformation()
         {
             listView_TicketsOverview.FullRowSelect = true;
             // autocomplete combobox
@@ -89,7 +90,7 @@ namespace UI
             _tickets.InsertTicket(ticket);
             MessageBox.Show("ticket has been inserted");
         }
-        
+
         private void btn_TicketOverview_Click(object sender, EventArgs e)
         {
             ShowPanelTicketsOverview();
@@ -103,8 +104,7 @@ namespace UI
             foreach (Ticket ticket in tickets)
             {
                 ListViewItem listview = new ListViewItem(ticket.Title);
-                if (ticket.PastDeadline && ticket.Deadline != DateTime.Parse("01/01/0001 00:00:00")) { listview.ForeColor = Color.Red; }
-                else if (ticket.Deadline == DateTime.Parse("01/01/0001 00:00:00")) { listview.ForeColor = Color.DarkOrange; }
+                if (ticket.PastDeadline) { listview.ForeColor = Color.DarkRed; }
                 listview.Tag = ticket;
                 listview.SubItems.Add(ticket.IncidentType.ToString());
                 listview.SubItems.Add(ticket.Priority.ToString());
@@ -142,12 +142,12 @@ namespace UI
             string sortPriority = comboBox_SortByPriority.Text;
             FillListview(_tickets.OrderTickets(sortPriority), listView_TicketsOverview);
         }
-        public void ShowComboBoxTickets()
+        private void ShowComboBoxTickets()
         {
             comboBox_TicketStatus.DataSource = Enum.GetValues(typeof(Priority));
         }
         // todo fill all fields en fix update button
-        public void FillTicketAndComboBoxes(Ticket ticket)
+        private void FillTicketAndComboBoxes(Ticket ticket)
         {
             richTextBox_TicketDescription1.Text = ticket.Description;
             comboBox_TicketStatus1.Text = ticket.Status.ToString();
@@ -155,11 +155,12 @@ namespace UI
             comboBox_TicketStatus1.SelectedItem = ticket.Status;
             comboBox_TicketStatus1.Text = ticket.Status.ToString();
             richTextBox1_TIcketSolution1.Text = ticket.Solution;
-            if (ticket.Deadline == DateTime.Parse("01/01/0001 00:00:00")) {
-                dateTimePicker_TicketDeadline.Checked = false;
-                dateTimePicker_TicketDeadline.CustomFormat = " ";
-                dateTimePicker_TicketDeadline.Format = DateTimePickerFormat.Custom;
-            }
+            dateTimePicker_TicketDeadline.Value = ticket.Deadline;
+            //if (ticket.Deadline == DateTime.Parse("01/01/0001 00:00:00")) {
+            //    dateTimePicker_TicketDeadline.Checked = false;
+            //    dateTimePicker_TicketDeadline.CustomFormat = " ";
+            //    dateTimePicker_TicketDeadline.Format = DateTimePickerFormat.Custom;
+            //}
         }
 
         // open selected ticket in listview and load the values of the ticket;
@@ -198,6 +199,7 @@ namespace UI
         private void btn_makeTicketUSer_Click(object sender, EventArgs e)
         {
             Ticket ticket = new Ticket(_currentuser.Id, textBoxTicketTitle.Text, richTextBox_Userdescription.Text, Priority.Normal);
+            if (ticket.Title == string.Empty || new Regex("^[a-zA-Z0-9 ]*$").IsMatch(ticket.Title)) { MessageBox.Show("Not empty string allowed or special characters allowed"); return; }
             _tickets.InsertTicket(ticket);
             MessageBox.Show("Ticket has been made");
         }
@@ -221,7 +223,7 @@ namespace UI
             Ticket ticket = (Ticket)lv_TicketsofUser.SelectedItems[0].Tag;
             lbl_CompletedTicketUser.Text = ticket.IsCompleted.ToString();
             lbl_TicketStatusUser.Text = ticket.Status.ToString();
-            lbl_ReportedBy.Text = _tickets.GetCreatedByName(ticket);
+            lbl_ReportedBy.Text = _tickets.GetCreatedByName(ticket).Item1;
             lbl_CreationTime.Text = ticket.CreationTime.ToString();
             lbl_Deadline.Text = ticket.Deadline.ToString();
             richTextBox_userTicketDescription.Text = ticket.Description;
@@ -243,6 +245,7 @@ namespace UI
         {
             comboBox_TicketHandeldBy.DisplayMember = "Fullname";
             comboBox_TicketHandeldBy.DataSource =  _user.GetUsers();
+           
         }
     }
 }

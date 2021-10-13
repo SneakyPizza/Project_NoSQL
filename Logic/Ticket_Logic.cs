@@ -11,6 +11,17 @@ namespace Logic
         Ticket_DAL _tickets = new Ticket_DAL();
 
         // insert a new ticket in the database
+        private static Ticket_Logic _uniqueInstance;
+
+        public static Ticket_Logic UniqueInstance
+        {
+            get
+            {
+                if (_uniqueInstance == null) { _uniqueInstance = new Ticket_Logic(); }
+                return _uniqueInstance;
+            }
+        }
+
         public void InsertTicket(Ticket ticket)
         {
             try

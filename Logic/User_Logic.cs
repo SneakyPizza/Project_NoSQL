@@ -11,6 +11,17 @@ namespace Logic
     public class User_Logic
     {
         User_DAL dal = new User_DAL();
+        private static User_Logic _uniqueInstance;
+
+        public static User_Logic UniqueInstance
+        {
+            get
+            {
+                if (_uniqueInstance == null) { _uniqueInstance = new User_Logic(); }
+                return _uniqueInstance;
+            }
+        }
+
         public List<User> GetUsers()
         {
             try

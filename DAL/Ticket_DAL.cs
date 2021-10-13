@@ -5,6 +5,7 @@ using System.Linq;
 using Model;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Bson.Serialization;
 
 namespace DAL
 {
@@ -53,6 +54,7 @@ namespace DAL
             UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("Status", ticket.Status)
                 .Set("Solution", ticket.Solution)
                 .Set("Priority", ticket.Priority)
+                .Set("TicketCreatedBy", ticket.TicketCreatedBy)
                 .Set("Deadline", ticket.Deadline);
             GetDatabaseTickets().UpdateMany(filter, update);
         }
@@ -65,8 +67,15 @@ namespace DAL
         }
         public void TestAggregation()
         {
-            var collection = GetDatabaseTickets();
-            var docs = collection.Aggregate().Lookup("Users", "UserID", "_id", "asTicket").ToList();
+            var ticketsss = GetDatabaseTickets().Aggregate().Lookup("Users", "UserID", "_id", "asTicket").ToList();
+            //var tt = GetDatabase().GetCollection<User>("Users").Aggregate().Lookup("Tickets", "UserID", "_id", "asgg").ToList();
+
+            var collection = GetDatabase().GetCollection<User>("Users");
+            foreach (var item in ticketsss)
+            {
+                var x = item.GetElement("asTicket").Value.AsBsonDocument;
+                if (x.Contains("Username")) { }
+            }
         }
         public void DeleteTicket(Ticket ticket)
         {
@@ -74,24 +83,28 @@ namespace DAL
             GetDatabaseTickets().DeleteOne(deleteFilter);
         }
         // get the full name of the user that handeld the ticket
-        public string GetCreatedByName(ObjectId ticketid)
+        public (string,string) GetCreatedByName(ObjectId TicketUserID, ObjectId TicketCreatedBy)
         {
             IMongoCollection<User> collection = GetDatabase().GetCollection<User>("Users");
-            FilterDefinition<User> filter = Builders<User>.Filter.Eq("_id", ticketid);
-            User user = collection.Find(filter).First();
-            return user.Fullname;
+            FilterDefinition<User> filter = Builders<User>.Filter.Eq("_id", TicketCreatedBy);
+            FilterDefinition<User> filter2 = Builders<User>.Filter.Eq("_id", TicketUserID);
+            User userCreatedBy = collection.Find(filter).First();
+            User TicketOFUSer = collection.Find(filter2).First();
+            return (userCreatedBy.Fullname, user.Email);
         }
         //public User GetUser(Ticket ticketID)
-        ////{
-        ////    var collection = GetDatabaseTickets();
-        ////    var docs = collection.Aggregate().Lookup("Users", "UserID", "_id", "asTicket").ToList();
-        ////    // var collection = GetDatabase().GetCollection<User>("Users");
-        ////    // var filter = Builders<BsonDocument>.Filter.Eq("_id", ticketID.UserID);
-        ////    var filter = Builders<BsonDocument>.Filter.Where(x => x.Equals(ticketID));
-        ////    var ss = docs.Find(new Predicate<BsonDocument>(filter)).First();
-           
-        ////   // var filter2 = Builders<User>.Filter.Eq("UserID", ticketID.TicketCreatedBy);
+        //{
+        //    var collection = GetDatabaseTickets();
+        //    var docs = collection.Aggregate().Lookup("Users", "UserID", "_id", "asTicket").ToList();
+        //    // var collection = GetDatabase().GetCollection<User>("Users");
+        //    // var filter = Builders<BsonDocument>.Filter.Eq("_id", ticketID.UserID);
+        //    FilterDefinition<User> filter = Builders<User>.Filter.Eq("_id", ticketid);
+        //    var filter = Builders<BsonDocument>.Filter.Where(x => x.Equals(ticketID));
+        //    var ss = docs.Find(new Predicate<BsonDocument>(filter)).First();
+
+        //    // var filter2 = Builders<User>.Filter.Eq("UserID", ticketID.TicketCreatedBy);
         //    return ((User)collection.Find(filter).FirstOrDefault());
-        }
+        //}
     }
+}
 
