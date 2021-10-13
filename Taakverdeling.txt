@@ -13,8 +13,3 @@ Taakverdeling Project NoSQL
 - Dashboard Overview			> Yornie
 
 - MongoDB database opzetten/beheren	> Taph
-
-
-Indivuduele opdrachten
-
-- Password reset 			> Yornie

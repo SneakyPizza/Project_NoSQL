@@ -15,7 +15,6 @@ namespace Logic
         {
             try
             {
-               // dal.InsertUser();
                 return dal.GetUsers();
             }
             catch (Exception e)
@@ -35,11 +34,18 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-
-        /*
-        private User CreateUser(ObjectId objectid, string username, string password, string firstname, string lastname, UserRole role, List<ObjectId> ticketids)
+        public List<User> GetNormalUser()
         {
-            return new User(objectid, username, password, firstname, lastname, role, ticketids);
-        }*/
+            try
+            {
+              //  dal.InsertUser();
+                return dal.GetNormalUsers();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
     }
 }

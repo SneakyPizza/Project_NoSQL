@@ -1,13 +1,12 @@
-﻿using Model;
-using MongoDB.Bson;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Model;
 
 namespace DAL
 {
-    public class Dashboard_DAL: Base
+    public class Dashboard_DAL : Base
     {
         private IMongoCollection<Ticket> GetDatabaseTickets()
         {
@@ -18,9 +17,9 @@ namespace DAL
         {
             int count = 0;
 
-            for(int i =0; i < tickets.Count; i++)
+            for (int i = 0; i < tickets.Count; i++)
             {
-                if(tickets[i].Status.ToLower() == "open")
+                if (tickets[i].Status.ToString().ToLower() == "open")
                 {
                     count++;
                 }
@@ -31,7 +30,7 @@ namespace DAL
         private int GetDueTickets(List<Ticket> tickets)
         {
             int count = 0;
-            for(int i=0; i < tickets.Count; i++)
+            for (int i = 0; i < tickets.Count; i++)
             {
                 if (tickets[i].PastDeadline)
                 {
@@ -44,7 +43,7 @@ namespace DAL
         public int[] GetDashboardValues()
         {
             List<Ticket> tickets = GetDatabaseTickets().Find(_ => true).ToList();
-            
+
             int[] values = new int[3];
             (int count, int total) = GetOpenAndTotalTickets(tickets);
             int due = GetDueTickets(tickets);

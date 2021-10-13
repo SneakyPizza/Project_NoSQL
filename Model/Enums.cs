@@ -11,5 +11,7 @@ namespace Model
     public enum IncidentType 
     {Hardware,Software,Service }
     public enum Status
-    { Open, Close, Pending}
+    { Registered,Processing,OnHold,Solved,Rejected}
+    public enum UserRole
+    {Admin,User}
 }

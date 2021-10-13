@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Model;
 using DAL;
+using Model;
 
 namespace Logic
 {
@@ -16,7 +16,8 @@ namespace Logic
             {
                 return Login_Logic.LoggedUser.UserRole;
 
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 throw e;
             }
@@ -27,9 +28,10 @@ namespace Logic
             try
             {
                 return Login_Logic.LoggedUser.Username;
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
-                throw e; 
+                throw e;
             }
         }
 
@@ -38,7 +40,8 @@ namespace Logic
             try
             {
                 return DAL.GetDashboardValues();
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 throw e;
             }

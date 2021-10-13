@@ -34,30 +34,33 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-            // return list of the filter
+        // return list of the filter
         public List<Ticket> FilterList(String keyWord)
         {
             try
             {
-               return _tickets.FilterTickets(keyWord);
+                _tickets.TestAggregation();
+                return _tickets.FilterTickets(keyWord);
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
-        public List<Ticket> OrderTickets(String OrderPriority)
+        // order tickets by priority
+        public List<Ticket> OrderTickets(string OrderPriority)
         {
             try
             {
-                return _tickets.OrderTickets(OrderPriority);
+                Priority Ticketpriority = (Priority)Enum.Parse(typeof(Priority), OrderPriority);
+                return _tickets.OrderTickets(Ticketpriority);
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
-
+        // update the ticket after making changes
         public void UpdateTicket(Ticket ticket)
         {
             try
@@ -69,18 +72,38 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-
-        public void UpdateTicketListOfUser(User userTicket)
+        public void DeleteTicket(Ticket ticket)
         {
             try
             {
-                _tickets.FillTicketListUser(userTicket);
+                _tickets.DeleteTicket(ticket);
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
-
+        public List<Ticket> TicketsOFuser(User user)
+        {
+            try
+            {
+                return _tickets.ListTicketsOFUser(user);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public string GetCreatedByName(Ticket TicketID)
+        {
+            try
+            {
+                return _tickets.GetCreatedByName(TicketID.TicketCreatedBy);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
