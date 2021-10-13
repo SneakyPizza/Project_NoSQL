@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net.Mail;
 using DAL;
+using System.Text.RegularExpressions;
 
 namespace Logic
 {
@@ -29,10 +30,13 @@ namespace Logic
             }
         }
 
+        public void RemoveResetCode()
+        {
+            if(_currentResetCode != null) { _currentResetCode = null; }
+        }
+
         public void SendMail(string email)
         {
-            //if email is found do ....
-
             if (CheckMail(email))
             {
                 SmtpClient client = SetupClient();
@@ -107,6 +111,11 @@ namespace Logic
             {
                 throw e;
             }
+        }
+
+        public bool ValidEmailAdress(string email)
+        {
+            return Regex.IsMatch(email, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
     }
 }
