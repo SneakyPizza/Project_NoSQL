@@ -6,15 +6,10 @@ Taakverdeling Project NoSQL
 - Add User				> Taph
 - Remove User				> Taph
 
-- Ticket Overview			> Gilberto
-- Create Ticket				> Gilberto
-- Remove Ticket				> Gilberto
+- Ticket Overview			> Gilberto // tickets are sorted on priority level
+- Create Ticket				> Gilberto // tickets get created with user attatched to it
+- Remove Ticket				> Gilberto // tickets dont get removed but updated
 
 - Dashboard Overview			> Yornie
 
 - MongoDB database opzetten/beheren	> Taph
-
-
-Indivuduele opdrachten
-
-- Password reset 			> Yornie

@@ -3,24 +3,49 @@ using System.Collections.Generic;
 using System.Text;
 using Model;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Driver;
 
 namespace DAL
 {
-    public class User_DAL: Base
+    public class User_DAL : Base
     {
-        
-        public void InsertUser(User user)
+        public void InsertUser()
         {
-            BsonDocument doc = new BsonDocument()
-            {
-                {"firstname", user.Firstname },
-                {"lastname", user.Lastname },
-                {"username", user.Username },
-                {"password", user.Password },
-                {"role", user.UserRole },
-            };
-
-            GetDatabase("ProjectNoSQL10").GetCollection<BsonDocument>("Users").InsertOne(doc);
+            GetDatabase().GetCollection<User>("Users").InsertOne(new User("VictorUser1", "VictorUser1", "VictorUser1", "VictorUser1", UserRole.User));
         }
+
+        public List<User> GetUsers()
+        {
+            var filter = Builders<User>.Filter.Eq("UserRole",UserRole.Admin) & Builders<User>.Filter.Eq("Username", "VictorAdmin2");
+            List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList(); 
+            return Users;
+        }
+        public List<User> GetNormalUsers()
+        {
+            var filter = Builders<User>.Filter.Eq("UserRole", UserRole.User) & Builders<User>.Filter.Eq("Username", "VictorUser1");
+            List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList();
+            return Users;
+        }
+        public List<User> Login()
+        {
+            IList<FilterDefinition<User>> filtersList = new List<FilterDefinition<User>>();
+            filtersList.Add(new BsonDocument("Username", "VictorUser1"));
+            var builder = Builders<User>.Filter;
+            List<User> Users = GetDatabase().GetCollection<User>("Users").Find(builder.And(filtersList)).ToList();
+            return Users;
+        }
+        public User GetUser()
+        {
+            var collection = GetDatabase().GetCollection<User>("Users");
+            var filter = Builders<User>.Filter.Eq("Firstname", "VictorUser1");
+            var test = collection.Find(filter);
+            User user = test.FirstOrDefault();
+            return user;
+        }
+        // update the user column and fill it with all the tickets he has made
+
+       
+       
     }
 }
