@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 using Logic;
 
 namespace UI
@@ -16,6 +17,8 @@ namespace UI
         private Login_Logic _login_Logic = Login_Logic.Instance;
         private ForgotPassword_Logic _fp_logic = ForgotPassword_Logic.Instance;
         private Dashboard_Logic _dashboard_logic = Dashboard_Logic.Instance;
+        private Ticket_Logic ticket_Logic = Ticket_Logic.Instance;
+        private User _currentUser;
         private string _emailReset;
 
         public MainForm()

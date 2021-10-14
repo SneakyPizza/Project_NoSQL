@@ -83,8 +83,8 @@ namespace Logic
             try
             {
                 string p = "bobuser2";
-                p = EncryptPassword(p);
-                User u = new User("bob2", p, "bob2", "bobus2", (UserRole)1);
+               // p = EncryptPassword(p);
+                User u = new User("bob2", "bobuser2", "bob2", "bobus2", (UserRole)1);
                 _login_dal.InsertUser(u);
             } catch(Exception e)
             {
