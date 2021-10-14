@@ -8,30 +8,15 @@ namespace Logic
 {
     public class Dashboard_Logic
     {
-        private Dashboard_DAL DAL = new Dashboard_DAL();
+        private Dashboard_DAL DAL = Dashboard_DAL.Instance;
 
-        public UserRole GetLoggedUserRole()
+        private static Dashboard_Logic _instance;
+        public static Dashboard_Logic Instance
         {
-            try
+            get
             {
-                return Login_Logic.LoggedUser.UserRole;
-
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        public string GetLoggedUsername()
-        {
-            try
-            {
-                return Login_Logic.LoggedUser.Username;
-            }
-            catch (Exception e)
-            {
-                throw e;
+                if(_instance == null) { _instance = new Dashboard_Logic(); }
+                return _instance;
             }
         }
 

@@ -8,6 +8,17 @@ namespace DAL
 {
     public class Dashboard_DAL : Base
     {
+        private static Dashboard_DAL _instance;
+        public static Dashboard_DAL Instance
+        {
+            get
+            {
+                if(_instance == null) { _instance = new Dashboard_DAL(); }
+                return _instance;
+            }
+        }
+
+
         private IMongoCollection<Ticket> GetDatabaseTickets()
         {
             return GetDatabase("ProjectNoSQL10").GetCollection<Ticket>("Tickets");

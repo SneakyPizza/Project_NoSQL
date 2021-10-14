@@ -15,6 +15,7 @@ namespace UI
     {
         private Login_Logic _login_Logic = Login_Logic.Instance;
         private ForgotPassword_Logic _fp_logic = ForgotPassword_Logic.Instance;
+        private Dashboard_Logic _dashboard_logic = Dashboard_Logic.Instance;
         private string _emailReset;
 
         public MainForm()
@@ -23,18 +24,20 @@ namespace UI
             pnl_ForgotPassword.Visible = false;
             pnl_ForgotPasswordCode.Visible = false;
             pnl_ForgotPasswordNewPassword.Visible = false;
+            pnl_Dashboard.Visible = false;
         }
 
         #region Login page & Forgot Password
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tb_Username.Text) && !string.IsNullOrEmpty(tb_Password.Text))
+            if (!string.IsNullOrEmpty(tb_Password.Text) && !string.IsNullOrEmpty(tb_Username.Text))
             {
                 if (_login_Logic.LoginUser(tb_Username.Text, tb_Password.Text))
                 {
                     MessageBox.Show("Succes");
-                    YornieDashboard dashboard = new YornieDashboard();
-                    dashboard.Show();
+                    pnl_Dashboard.Visible = true;
+                    StartDashboard();
+                    //pnl_Dashboard.Refresh();
                 }
                 else
                 {
@@ -43,11 +46,6 @@ namespace UI
             }
             else
             {
-                //_login_Logic.CreateDummyUser();
-
-                //_emailReset = "613441@student.inholland.nl";
-                //_fp_logic.SendMail(_emailReset);
-
                 MessageBox.Show("Please fill in login details");
             }
         }
@@ -121,6 +119,46 @@ namespace UI
         }
         #endregion
 
+        #region Dashboard
+        private void StartDashboard()
+        {
+            //Getting userdata
+            //string Username = logic.GetLoggedUsername();
+            //string userrole = logic.GetLoggedUserRole().ToString();
 
+            lbl_DashboardCurrentFirstname.Text = Login_Logic.LoggedUser.Firstname;
+            lbl_DashboardCurrentUserLastname.Text = Login_Logic.LoggedUser.Lastname;
+            //Display dashboard
+            int[] values = _dashboard_logic.GetDashboardValues();
+            lbl_DashboardUnresolvedText.Text += String.Format(" {0} / {1}", values[0], values[1]);
+            lbl_DashboardOvertimeText.Text += String.Format(" {0} !", values[2]);
+
+            //unresolved tickets circle
+            cpc_DashboardUnresolvedTickets.CurrentValue = values[0];
+            cpc_DashboardUnresolvedTickets.MaxValue = values[1];
+            //Incidents past deadlines 
+            cpc_DashboardOvertimeTickets.CurrentValue = values[2];
+            cpc_DashboardOvertimeTickets.MaxValue = 20;
+            cpc_DashboardOvertimeTickets.ProgressColor = Color.Red;
+        }
+
+        private void btn_DashboardLogout_Click(object sender, EventArgs e)
+        {
+            _login_Logic.LogoutUser();
+            pnl_Dashboard.Visible = false;
+            ReturnToLogin();
+        }
+
+        #endregion
+
+        private void btn_DashboardOpenTickets_Click(object sender, EventArgs e)
+        {
+            //Gilberto
+        }
+
+        private void btn_DashboardOpenUsers_Click(object sender, EventArgs e)
+        {
+            //Taph
+        }
     }
 }

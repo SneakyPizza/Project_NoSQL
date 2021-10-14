@@ -37,7 +37,6 @@ namespace Logic
         public string EncryptPassword(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
-            //return BCrypt.BCryptHelper.HashPassword(password, )
         }
 
         public bool LoginUser(string username, string password)
@@ -46,7 +45,9 @@ namespace Logic
             {
                 username = username.Trim();
                 password = password.Trim();
-                return _login_dal.LoginUser(username, password);
+                //return _login_dal.LoginUser(username, password);
+                _loggedUser = CreateUserfromBson(_login_dal.ReturnLoggingUser(username, password));
+                return true;
             } catch(Exception e)
             {
                 Console.WriteLine(e.Message);
@@ -59,16 +60,15 @@ namespace Logic
             try
             {
                 BsonSerializer.Deserialize<User>(doc);
-                List<ObjectId> ticketObjectIds = doc["Tickets"].AsBsonArray.Select(p => (ObjectId)p).ToList();
-                // ObjectId id,string username, string password, string firstname, string lastname, UserRole userrole,List<ObjectId> tickets
+                //List<ObjectId> ticketObjectIds = doc["Tickets"].AsBsonArray.Select(p => (ObjectId)p).ToList();
                 return new User(
                     (ObjectId)doc["_id"],
-                    //ticketObjectIds,
                     doc["Username"].ToString(),
                     doc["Password"].ToString(),
                     doc["Firstname"].ToString(),
-                    doc["LastName"].ToString(),
-                    (UserRole)doc["UserRole"].ToInt32()
+                    doc["Lastname"].ToString(),
+                    (UserRole)doc["UserRole"].ToInt32(),
+                    doc["Email"].ToString()
                     );
             } catch(Exception e)
             {

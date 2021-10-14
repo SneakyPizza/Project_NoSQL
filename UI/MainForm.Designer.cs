@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tb_Username = new System.Windows.Forms.TextBox();
             this.tb_Password = new System.Windows.Forms.TextBox();
+            this.tb_Username = new System.Windows.Forms.TextBox();
             this.lbl_Username = new System.Windows.Forms.Label();
             this.lbl_Password = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
@@ -38,6 +38,7 @@
             this.pnl_ForgotPassword = new System.Windows.Forms.Panel();
             this.pnl_ForgotPasswordCode = new System.Windows.Forms.Panel();
             this.pnl_ForgotPasswordNewPassword = new System.Windows.Forms.Panel();
+            this.btn_LoginReturn3 = new System.Windows.Forms.Button();
             this.btn_ForgotPasswordConfirmNewPassword = new System.Windows.Forms.Button();
             this.lbl_ForgotPasswordNewPassword2 = new System.Windows.Forms.Label();
             this.lbl_ForgotPasswordNewPassword1 = new System.Windows.Forms.Label();
@@ -46,34 +47,45 @@
             this.btn_ForgotPasswordCodeConfirm = new System.Windows.Forms.Button();
             this.tb_ForgotPasswordCode = new System.Windows.Forms.TextBox();
             this.lbl_ForgotPasswordCode = new System.Windows.Forms.Label();
+            this.btn_LoginReturn2 = new System.Windows.Forms.Button();
             this.btn_ForgotPasswordConfirm = new System.Windows.Forms.Button();
             this.lbl_ForgotPasswordEmail = new System.Windows.Forms.Label();
             this.tb_ForgotPassword = new System.Windows.Forms.TextBox();
             this.lbl_ForgotPasswordEmailText = new System.Windows.Forms.Label();
             this.btn_LoginReturn1 = new System.Windows.Forms.Button();
-            this.btn_LoginReturn2 = new System.Windows.Forms.Button();
-            this.btn_LoginReturn3 = new System.Windows.Forms.Button();
+            this.pnl_Dashboard = new System.Windows.Forms.Panel();
+            this.lbl_DashboardCurrentUserLastname = new System.Windows.Forms.Label();
+            this.lbl_DashboardCurrentFirstname = new System.Windows.Forms.Label();
+            this.btn_DashboardOpenUsers = new System.Windows.Forms.Button();
+            this.btn_DashboardLogout = new System.Windows.Forms.Button();
+            this.cpc_DashboardOvertimeTickets = new UI.CircleProgressControl();
+            this.lbl_DashboardOvertimeText = new System.Windows.Forms.Label();
+            this.lbl_DashboardUnresolvedText = new System.Windows.Forms.Label();
+            this.cpc_DashboardUnresolvedTickets = new UI.CircleProgressControl();
+            this.btn_DashboardOpenTickets = new System.Windows.Forms.Button();
             this.pnl_Login.SuspendLayout();
             this.pnl_ForgotPassword.SuspendLayout();
             this.pnl_ForgotPasswordCode.SuspendLayout();
             this.pnl_ForgotPasswordNewPassword.SuspendLayout();
+            this.pnl_Dashboard.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tb_Username
-            // 
-            this.tb_Username.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_Username.Location = new System.Drawing.Point(541, 280);
-            this.tb_Username.Name = "tb_Username";
-            this.tb_Username.Size = new System.Drawing.Size(206, 32);
-            this.tb_Username.TabIndex = 0;
             // 
             // tb_Password
             // 
             this.tb_Password.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_Password.Location = new System.Drawing.Point(541, 218);
+            this.tb_Password.Location = new System.Drawing.Point(541, 280);
             this.tb_Password.Name = "tb_Password";
+            this.tb_Password.PasswordChar = '*';
             this.tb_Password.Size = new System.Drawing.Size(206, 32);
-            this.tb_Password.TabIndex = 1;
+            this.tb_Password.TabIndex = 0;
+            // 
+            // tb_Username
+            // 
+            this.tb_Username.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_Username.Location = new System.Drawing.Point(541, 218);
+            this.tb_Username.Name = "tb_Username";
+            this.tb_Username.Size = new System.Drawing.Size(206, 32);
+            this.tb_Username.TabIndex = 1;
             // 
             // lbl_Username
             // 
@@ -122,10 +134,10 @@
             this.pnl_Login.Controls.Add(this.pnl_ForgotPassword);
             this.pnl_Login.Controls.Add(this.lbl_ForgotPassword);
             this.pnl_Login.Controls.Add(this.lbl_Username);
-            this.pnl_Login.Controls.Add(this.tb_Username);
+            this.pnl_Login.Controls.Add(this.tb_Password);
             this.pnl_Login.Controls.Add(this.btn_Login);
             this.pnl_Login.Controls.Add(this.lbl_Password);
-            this.pnl_Login.Controls.Add(this.tb_Password);
+            this.pnl_Login.Controls.Add(this.tb_Username);
             this.pnl_Login.Location = new System.Drawing.Point(0, 44);
             this.pnl_Login.Name = "pnl_Login";
             this.pnl_Login.Size = new System.Drawing.Size(1265, 638);
@@ -139,7 +151,7 @@
             this.pnl_ForgotPassword.Controls.Add(this.tb_ForgotPassword);
             this.pnl_ForgotPassword.Controls.Add(this.lbl_ForgotPasswordEmailText);
             this.pnl_ForgotPassword.Controls.Add(this.btn_LoginReturn1);
-            this.pnl_ForgotPassword.Location = new System.Drawing.Point(12, 23);
+            this.pnl_ForgotPassword.Location = new System.Drawing.Point(3, 3);
             this.pnl_ForgotPassword.Name = "pnl_ForgotPassword";
             this.pnl_ForgotPassword.Size = new System.Drawing.Size(1240, 615);
             this.pnl_ForgotPassword.TabIndex = 6;
@@ -151,7 +163,7 @@
             this.pnl_ForgotPasswordCode.Controls.Add(this.tb_ForgotPasswordCode);
             this.pnl_ForgotPasswordCode.Controls.Add(this.lbl_ForgotPasswordCode);
             this.pnl_ForgotPasswordCode.Controls.Add(this.btn_LoginReturn2);
-            this.pnl_ForgotPasswordCode.Location = new System.Drawing.Point(3, 14);
+            this.pnl_ForgotPasswordCode.Location = new System.Drawing.Point(3, 3);
             this.pnl_ForgotPasswordCode.Name = "pnl_ForgotPasswordCode";
             this.pnl_ForgotPasswordCode.Size = new System.Drawing.Size(1221, 525);
             this.pnl_ForgotPasswordCode.TabIndex = 3;
@@ -168,6 +180,16 @@
             this.pnl_ForgotPasswordNewPassword.Name = "pnl_ForgotPasswordNewPassword";
             this.pnl_ForgotPasswordNewPassword.Size = new System.Drawing.Size(1215, 519);
             this.pnl_ForgotPasswordNewPassword.TabIndex = 3;
+            // 
+            // btn_LoginReturn3
+            // 
+            this.btn_LoginReturn3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_LoginReturn3.Location = new System.Drawing.Point(7, 18);
+            this.btn_LoginReturn3.Name = "btn_LoginReturn3";
+            this.btn_LoginReturn3.Size = new System.Drawing.Size(137, 38);
+            this.btn_LoginReturn3.TabIndex = 6;
+            this.btn_LoginReturn3.Text = "Return";
+            this.btn_LoginReturn3.UseVisualStyleBackColor = true;
             // 
             // btn_ForgotPasswordConfirmNewPassword
             // 
@@ -247,6 +269,16 @@
             this.lbl_ForgotPasswordCode.TabIndex = 0;
             this.lbl_ForgotPasswordCode.Text = "Code: ";
             // 
+            // btn_LoginReturn2
+            // 
+            this.btn_LoginReturn2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_LoginReturn2.Location = new System.Drawing.Point(17, 14);
+            this.btn_LoginReturn2.Name = "btn_LoginReturn2";
+            this.btn_LoginReturn2.Size = new System.Drawing.Size(137, 38);
+            this.btn_LoginReturn2.TabIndex = 5;
+            this.btn_LoginReturn2.Text = "Return";
+            this.btn_LoginReturn2.UseVisualStyleBackColor = true;
+            // 
             // btn_ForgotPasswordConfirm
             // 
             this.btn_ForgotPasswordConfirm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -296,31 +328,121 @@
             this.btn_LoginReturn1.UseVisualStyleBackColor = true;
             this.btn_LoginReturn1.Click += new System.EventHandler(this.ReturnToLoginEvent);
             // 
-            // btn_LoginReturn2
+            // pnl_Dashboard
             // 
-            this.btn_LoginReturn2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_LoginReturn2.Location = new System.Drawing.Point(17, 14);
-            this.btn_LoginReturn2.Name = "btn_LoginReturn2";
-            this.btn_LoginReturn2.Size = new System.Drawing.Size(137, 38);
-            this.btn_LoginReturn2.TabIndex = 5;
-            this.btn_LoginReturn2.Text = "Return";
-            this.btn_LoginReturn2.UseVisualStyleBackColor = true;
+            this.pnl_Dashboard.Controls.Add(this.lbl_DashboardCurrentUserLastname);
+            this.pnl_Dashboard.Controls.Add(this.lbl_DashboardCurrentFirstname);
+            this.pnl_Dashboard.Controls.Add(this.btn_DashboardOpenUsers);
+            this.pnl_Dashboard.Controls.Add(this.btn_DashboardLogout);
+            this.pnl_Dashboard.Controls.Add(this.cpc_DashboardOvertimeTickets);
+            this.pnl_Dashboard.Controls.Add(this.lbl_DashboardOvertimeText);
+            this.pnl_Dashboard.Controls.Add(this.lbl_DashboardUnresolvedText);
+            this.pnl_Dashboard.Controls.Add(this.cpc_DashboardUnresolvedTickets);
+            this.pnl_Dashboard.Controls.Add(this.btn_DashboardOpenTickets);
+            this.pnl_Dashboard.Location = new System.Drawing.Point(0, 32);
+            this.pnl_Dashboard.Name = "pnl_Dashboard";
+            this.pnl_Dashboard.Size = new System.Drawing.Size(1262, 647);
+            this.pnl_Dashboard.TabIndex = 7;
             // 
-            // btn_LoginReturn3
+            // lbl_DashboardCurrentUserLastname
             // 
-            this.btn_LoginReturn3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_LoginReturn3.Location = new System.Drawing.Point(7, 18);
-            this.btn_LoginReturn3.Name = "btn_LoginReturn3";
-            this.btn_LoginReturn3.Size = new System.Drawing.Size(137, 38);
-            this.btn_LoginReturn3.TabIndex = 6;
-            this.btn_LoginReturn3.Text = "Return";
-            this.btn_LoginReturn3.UseVisualStyleBackColor = true;
+            this.lbl_DashboardCurrentUserLastname.AutoSize = true;
+            this.lbl_DashboardCurrentUserLastname.Location = new System.Drawing.Point(1191, 54);
+            this.lbl_DashboardCurrentUserLastname.Name = "lbl_DashboardCurrentUserLastname";
+            this.lbl_DashboardCurrentUserLastname.Size = new System.Drawing.Size(13, 15);
+            this.lbl_DashboardCurrentUserLastname.TabIndex = 8;
+            this.lbl_DashboardCurrentUserLastname.Text = "..";
+            // 
+            // lbl_DashboardCurrentFirstname
+            // 
+            this.lbl_DashboardCurrentFirstname.AutoSize = true;
+            this.lbl_DashboardCurrentFirstname.Location = new System.Drawing.Point(1130, 53);
+            this.lbl_DashboardCurrentFirstname.Name = "lbl_DashboardCurrentFirstname";
+            this.lbl_DashboardCurrentFirstname.Size = new System.Drawing.Size(10, 15);
+            this.lbl_DashboardCurrentFirstname.TabIndex = 7;
+            this.lbl_DashboardCurrentFirstname.Text = ".";
+            // 
+            // btn_DashboardOpenUsers
+            // 
+            this.btn_DashboardOpenUsers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_DashboardOpenUsers.Location = new System.Drawing.Point(730, 59);
+            this.btn_DashboardOpenUsers.Name = "btn_DashboardOpenUsers";
+            this.btn_DashboardOpenUsers.Size = new System.Drawing.Size(210, 99);
+            this.btn_DashboardOpenUsers.TabIndex = 6;
+            this.btn_DashboardOpenUsers.Text = "Open Users";
+            this.btn_DashboardOpenUsers.UseVisualStyleBackColor = true;
+            this.btn_DashboardOpenUsers.Click += new System.EventHandler(this.btn_DashboardOpenUsers_Click);
+            // 
+            // btn_DashboardLogout
+            // 
+            this.btn_DashboardLogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_DashboardLogout.Location = new System.Drawing.Point(1162, 3);
+            this.btn_DashboardLogout.Name = "btn_DashboardLogout";
+            this.btn_DashboardLogout.Size = new System.Drawing.Size(97, 37);
+            this.btn_DashboardLogout.TabIndex = 5;
+            this.btn_DashboardLogout.Text = "Logout";
+            this.btn_DashboardLogout.UseVisualStyleBackColor = true;
+            this.btn_DashboardLogout.Click += new System.EventHandler(this.btn_DashboardLogout_Click);
+            // 
+            // cpc_DashboardOvertimeTickets
+            // 
+            this.cpc_DashboardOvertimeTickets.CurrentValue = 50D;
+            this.cpc_DashboardOvertimeTickets.FillColor = System.Drawing.Color.White;
+            this.cpc_DashboardOvertimeTickets.Location = new System.Drawing.Point(730, 262);
+            this.cpc_DashboardOvertimeTickets.MaxValue = 100D;
+            this.cpc_DashboardOvertimeTickets.Name = "cpc_DashboardOvertimeTickets";
+            this.cpc_DashboardOvertimeTickets.ProgressColor = System.Drawing.Color.Orange;
+            this.cpc_DashboardOvertimeTickets.Size = new System.Drawing.Size(210, 210);
+            this.cpc_DashboardOvertimeTickets.TabIndex = 4;
+            // 
+            // lbl_DashboardOvertimeText
+            // 
+            this.lbl_DashboardOvertimeText.AutoSize = true;
+            this.lbl_DashboardOvertimeText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_DashboardOvertimeText.Location = new System.Drawing.Point(686, 224);
+            this.lbl_DashboardOvertimeText.Name = "lbl_DashboardOvertimeText";
+            this.lbl_DashboardOvertimeText.Size = new System.Drawing.Size(130, 21);
+            this.lbl_DashboardOvertimeText.TabIndex = 3;
+            this.lbl_DashboardOvertimeText.Text = "Overtime tickets: ";
+            // 
+            // lbl_DashboardUnresolvedText
+            // 
+            this.lbl_DashboardUnresolvedText.AutoSize = true;
+            this.lbl_DashboardUnresolvedText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_DashboardUnresolvedText.Location = new System.Drawing.Point(108, 218);
+            this.lbl_DashboardUnresolvedText.Name = "lbl_DashboardUnresolvedText";
+            this.lbl_DashboardUnresolvedText.Size = new System.Drawing.Size(144, 21);
+            this.lbl_DashboardUnresolvedText.TabIndex = 2;
+            this.lbl_DashboardUnresolvedText.Text = "Unresolved tickets: ";
+            // 
+            // cpc_DashboardUnresolvedTickets
+            // 
+            this.cpc_DashboardUnresolvedTickets.CurrentValue = 50D;
+            this.cpc_DashboardUnresolvedTickets.FillColor = System.Drawing.Color.White;
+            this.cpc_DashboardUnresolvedTickets.Location = new System.Drawing.Point(159, 245);
+            this.cpc_DashboardUnresolvedTickets.MaxValue = 100D;
+            this.cpc_DashboardUnresolvedTickets.Name = "cpc_DashboardUnresolvedTickets";
+            this.cpc_DashboardUnresolvedTickets.ProgressColor = System.Drawing.Color.Orange;
+            this.cpc_DashboardUnresolvedTickets.Size = new System.Drawing.Size(210, 210);
+            this.cpc_DashboardUnresolvedTickets.TabIndex = 1;
+            // 
+            // btn_DashboardOpenTickets
+            // 
+            this.btn_DashboardOpenTickets.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_DashboardOpenTickets.Location = new System.Drawing.Point(159, 59);
+            this.btn_DashboardOpenTickets.Name = "btn_DashboardOpenTickets";
+            this.btn_DashboardOpenTickets.Size = new System.Drawing.Size(210, 99);
+            this.btn_DashboardOpenTickets.TabIndex = 0;
+            this.btn_DashboardOpenTickets.Text = "Open Tickets";
+            this.btn_DashboardOpenTickets.UseVisualStyleBackColor = true;
+            this.btn_DashboardOpenTickets.Click += new System.EventHandler(this.btn_DashboardOpenTickets_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.pnl_Dashboard);
             this.Controls.Add(this.pnl_Login);
             this.Name = "MainForm";
             this.Text = "Ticket System";
@@ -332,14 +454,16 @@
             this.pnl_ForgotPasswordCode.PerformLayout();
             this.pnl_ForgotPasswordNewPassword.ResumeLayout(false);
             this.pnl_ForgotPasswordNewPassword.PerformLayout();
+            this.pnl_Dashboard.ResumeLayout(false);
+            this.pnl_Dashboard.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox tb_Username;
         private System.Windows.Forms.TextBox tb_Password;
+        private System.Windows.Forms.TextBox tb_Username;
         private System.Windows.Forms.Label lbl_Username;
         private System.Windows.Forms.Label lbl_Password;
         private System.Windows.Forms.Button btn_Login;
@@ -363,6 +487,16 @@
         private System.Windows.Forms.Button btn_LoginReturn1;
         private System.Windows.Forms.Button btn_LoginReturn3;
         private System.Windows.Forms.Button btn_LoginReturn2;
+        private System.Windows.Forms.Panel pnl_Dashboard;
+        private System.Windows.Forms.Label lbl_DashboardUnresolvedText;
+        private CircleProgressControl cpc_DashboardUnresolvedTickets;
+        private System.Windows.Forms.Button btn_DashboardOpenTickets;
+        private System.Windows.Forms.Button btn_DashboardLogout;
+        private CircleProgressControl cpc_DashboardOvertimeTickets;
+        private System.Windows.Forms.Label lbl_DashboardOvertimeText;
+        private System.Windows.Forms.Button btn_DashboardOpenUsers;
+        private System.Windows.Forms.Label lbl_DashboardCurrentFirstname;
+        private System.Windows.Forms.Label lbl_DashboardCurrentUserLastname;
     }
 }
 

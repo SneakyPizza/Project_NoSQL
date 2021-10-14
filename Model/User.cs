@@ -16,13 +16,14 @@ namespace Model
         private string _email;
         
 
-        public User(ObjectId id, string username, string password, string firstname, string lastname, UserRole userrole)
+        public User(ObjectId id, string username, string password, string firstname, string lastname, UserRole userrole, string email)
         {
             _username = username;
             _password = password;
             _firstname = firstname;
             _lastname = lastname;
             _userrole = userrole;
+            _email = email;
         }
 
         public User(string username, string password, string firstname, string lastname, UserRole userrole)
