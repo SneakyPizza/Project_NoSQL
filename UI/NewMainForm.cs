@@ -24,7 +24,8 @@ namespace UI
         public NewMainForm()
         {
             InitializeComponent();
-            //pnl_ForgotPassword.Visible = false;
+            pnl_ForgotPassword.Visible = false;
+            pnl_DashboardOptions.Visible = false;
             //pnl_ForgotPasswordCode.Visible = false;
             //pnl_ForgotPasswordNewPassword.Visible = false;
             //pnl_Dashboard.Visible = false;
@@ -52,7 +53,7 @@ namespace UI
         }
         private void lbl_ForgotPassword_Click(object sender, EventArgs e)
         {
-          //  pnl_ForgotPassword.Visible = true;
+            pnl_ForgotPassword.Visible = true;
         }
 
         private void btn_ForgotPasswordConfirm_Click(object sender, EventArgs e)
@@ -154,6 +155,12 @@ namespace UI
         private void btn_DashboardOpenUsers_Click(object sender, EventArgs e)
         {
             //Taph
+        }
+
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
