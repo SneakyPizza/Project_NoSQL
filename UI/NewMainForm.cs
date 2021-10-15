@@ -182,9 +182,18 @@ namespace UI
         {
 
         }
-
+        // fill comboxesof tickets and ticket overview
+        public void FillComboboxes()
+        {
+            cbo_SortPriority.DataSource = Enum.GetValues(typeof(Priority));
+        }
         private void btn_Tickets_Click(object sender, EventArgs e)
         {
+            // if user is normal user show other panels
+
+            Loadlistview();
+            LoadDubbleClickeventsListview();
+            FillComboboxes();
             pnl_TicketOverview.Visible = true;
         }
 
@@ -235,6 +244,27 @@ namespace UI
             ticket_Logic.DeleteTicket(ticket);
             MessageBox.Show("Ticket has been deleted");
             Loadlistview();
+        }
+
+        private void btn_CreateTicketAdmin_Click(object sender, EventArgs e)
+        {
+            pnl_CreateTicketAdmin.Visible = true;
+        }
+
+        private void btn_SubmitTicket_Click(object sender, EventArgs e)
+        {
+            User selectedUserID = (User)cbo_UserReportedBy.SelectedItem; // ticket for (Normal user)
+            User selectedCreatedBy = (User)cbo_HandeledBy.SelectedItem; // ticket reportedby (Super User)
+            Ticket ticket = new Ticket(selectedUserID.Id, selectedCreatedBy.Id,
+                dtp_TicketCreationTImeAdmin.Value.AddDays(double.Parse(cbo_Deadline.Text.Where(char.IsDigit).ToArray())),
+                dtp_TicketCreationTImeAdmin.Value, txt_subjectIncident.Text, richtb_TicketDescription.Text, string.Empty, (IncidentType)cbo_IncidentType.SelectedValue, (Priority)cbo_TicketPriority.SelectedValue, Status.Processing);
+            ticket_Logic.InsertTicket(ticket);
+            MessageBox.Show("ticket has been inserted");
+        }
+
+        private void btn_CancelTicket_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
