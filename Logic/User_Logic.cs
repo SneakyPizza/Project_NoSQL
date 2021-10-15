@@ -43,7 +43,18 @@ namespace Logic
             catch (Exception e)
             {
 
-                throw new Exception (e.Message);
+                throw new Exception(e.Message);
+            }
+        }
+        public (List<User>, List<User>) GetnormalandSuperUser()
+        {
+            try
+            {
+               return dal.GetNormalAndAdminUsers();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
         public User GetUser()

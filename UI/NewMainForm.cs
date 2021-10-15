@@ -19,13 +19,14 @@ namespace UI
         private Dashboard_Logic _dashboard_logic = Dashboard_Logic.Instance;
         private Ticket_Logic ticket_Logic = Ticket_Logic.Instance;
         User_Logic _user;
-        User _currentuser;
         private User _currentUser;
         private string _emailReset;
 
         public NewMainForm()
         {
             InitializeComponent();
+            _user = new User_Logic();
+            LoadDubbleClickeventsListview();
             //pnl_Dashboard.Visible = false;
         }
         private void HideAllPanels()
@@ -165,14 +166,6 @@ namespace UI
             //    ReturnToLogin();
         }
         #endregion
-        private void btn_DashboardOpenTickets_Click(object sender, EventArgs e)
-        {
-            //Gilberto
-        }
-        private void btn_DashboardOpenUsers_Click(object sender, EventArgs e)
-        {
-            //Taph
-        }
         //private void pic_LoginReturn1_Click(object sender, EventArgs e)
         //{
         //    HideAllPanels();
@@ -185,6 +178,21 @@ namespace UI
         // fill comboxesof tickets and ticket overview
         public void FillComboboxes()
         {
+            cbo_UserReportedBy.DisplayMember = "Fullname";
+            cbo_UserReportedBy.DataSource = _user.GetnormalandSuperUser().Item1;
+            // autofill textbox of the maketicketuser
+          //  textBoxFirstname.Text = _currentuser.Firstname;
+          //  textBoxLastname.Text = _currentuser.Lastname;
+            //
+           // comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
+            cbo_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
+            //foreach (Status status in Enum.GetValues(typeof(Status)))
+            //{
+            //    comboBox_TicketStatus1.Items.Add(status);
+            //}
+            cbo_HandeledBy.DisplayMember = "Fullname";
+            cbo_HandeledBy.DataSource = _user.GetnormalandSuperUser().Item2;
+            cbo_TicketPriority.DataSource = Enum.GetValues(typeof(Priority));
             cbo_SortPriority.DataSource = Enum.GetValues(typeof(Priority));
         }
         private void btn_Tickets_Click(object sender, EventArgs e)
@@ -192,7 +200,7 @@ namespace UI
             // if user is normal user show other panels
 
             Loadlistview();
-            LoadDubbleClickeventsListview();
+            
             FillComboboxes();
             pnl_TicketOverview.Visible = true;
         }
@@ -232,7 +240,7 @@ namespace UI
         }
         private void lv_TicketOverview_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            // ShowPanelTicket();
+            pnl_TicketOfUserAdmin.Visible = true;
             Ticket ticket = (Ticket)lv_TicketOverview.SelectedItems[0].Tag;
             //  FillTicketAndComboBoxes(ticket);
             //  ShowComboBoxTickets();
@@ -264,7 +272,15 @@ namespace UI
 
         private void btn_CancelTicket_Click(object sender, EventArgs e)
         {
+            richtb_TicketDescription.Text = string.Empty;
+            cbo_HandeledBy.Text = string.Empty;
+            cbo_UserReportedBy.Text = string.Empty;
+        }
 
+        private void pic_BacktoTicketOverviewAdmin_Click(object sender, EventArgs e)
+        {
+            pnl_CreateTicketAdmin.Visible = false;
+            Loadlistview();
         }
     }
 }

@@ -336,7 +336,7 @@ namespace UI
             this.pnl_Ticket1.Controls.Add(this.richTextBox_TicketDescription1);
             this.pnl_Ticket1.Controls.Add(this.label25);
             this.pnl_Ticket1.Controls.Add(this.textBox6);
-            this.pnl_Ticket1.Location = new System.Drawing.Point(12, 10);
+            this.pnl_Ticket1.Location = new System.Drawing.Point(270, 248);
             this.pnl_Ticket1.Name = "pnl_Ticket1";
             this.pnl_Ticket1.Size = new System.Drawing.Size(888, 547);
             this.pnl_Ticket1.TabIndex = 23;
@@ -346,7 +346,7 @@ namespace UI
             this.pnl_TicketsOfuser.Controls.Add(this.pnl_UsermakeTicket);
             this.pnl_TicketsOfuser.Controls.Add(this.lv_TicketsofUser);
             this.pnl_TicketsOfuser.Controls.Add(this.btn_backButtonPnlTicketListOfUser);
-            this.pnl_TicketsOfuser.Location = new System.Drawing.Point(131, 82);
+            this.pnl_TicketsOfuser.Location = new System.Drawing.Point(318, 120);
             this.pnl_TicketsOfuser.Name = "pnl_TicketsOfuser";
             this.pnl_TicketsOfuser.Size = new System.Drawing.Size(888, 531);
             this.pnl_TicketsOfuser.TabIndex = 11;
@@ -816,6 +816,7 @@ namespace UI
             // 
             // pnl_TicketOverview
             // 
+            this.pnl_TicketOverview.Controls.Add(this.pnl_Ticket1);
             this.pnl_TicketOverview.Controls.Add(this.Btn_Delete);
             this.pnl_TicketOverview.Controls.Add(this.pnl_Ticket);
             this.pnl_TicketOverview.Controls.Add(this.label8);
@@ -824,7 +825,7 @@ namespace UI
             this.pnl_TicketOverview.Controls.Add(this.btn_Filter);
             this.pnl_TicketOverview.Controls.Add(this.richTextBox_Filter);
             this.pnl_TicketOverview.Controls.Add(this.listView_TicketsOverview);
-            this.pnl_TicketOverview.Location = new System.Drawing.Point(12, 3);
+            this.pnl_TicketOverview.Location = new System.Drawing.Point(492, 563);
             this.pnl_TicketOverview.Name = "pnl_TicketOverview";
             this.pnl_TicketOverview.Size = new System.Drawing.Size(892, 545);
             this.pnl_TicketOverview.TabIndex = 18;
@@ -1094,7 +1095,6 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 575);
-            this.Controls.Add(this.pnl_Ticket1);
             this.Controls.Add(this.pnl_TicketOverview);
             this.Controls.Add(this.comboBox1_UsersToTicket);
             this.Controls.Add(this.btn_makeTicketNormalUser);
