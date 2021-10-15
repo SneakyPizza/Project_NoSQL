@@ -67,7 +67,6 @@ namespace UI
             this.lbl_ForgotPasswordEmail = new System.Windows.Forms.Label();
             this.tb_ForgotPassword = new System.Windows.Forms.TextBox();
             this.lbl_ForgotPasswordEmailText = new System.Windows.Forms.Label();
-            this.pnl_test = new System.Windows.Forms.Panel();
             this.pnl_DashboardOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_homeButton)).BeginInit();
             this.panel2.SuspendLayout();
@@ -235,7 +234,6 @@ namespace UI
             // 
             // pnl_ForgotPassword
             // 
-            this.pnl_ForgotPassword.Controls.Add(this.pnl_ForgotPasswordCode);
             this.pnl_ForgotPassword.Controls.Add(this.pic_LoginReturn);
             this.pnl_ForgotPassword.Controls.Add(this.btn_ForgotPasswordConfirm);
             this.pnl_ForgotPassword.Controls.Add(this.lbl_ForgotPasswordEmail);
@@ -249,12 +247,11 @@ namespace UI
             // 
             // pnl_ForgotPasswordCode
             // 
-            this.pnl_ForgotPasswordCode.Controls.Add(this.pnl_ForgotPasswordNewPassword);
             this.pnl_ForgotPasswordCode.Controls.Add(this.btn_ForgotPasswordCodeConfirm);
             this.pnl_ForgotPasswordCode.Controls.Add(this.tb_ForgotPasswordCode);
             this.pnl_ForgotPasswordCode.Controls.Add(this.lbl_ForgotPasswordCode);
             this.pnl_ForgotPasswordCode.Controls.Add(this.pic_LoginReturn2);
-            this.pnl_ForgotPasswordCode.Location = new System.Drawing.Point(3, 3);
+            this.pnl_ForgotPasswordCode.Location = new System.Drawing.Point(0, 0);
             this.pnl_ForgotPasswordCode.Name = "pnl_ForgotPasswordCode";
             this.pnl_ForgotPasswordCode.Size = new System.Drawing.Size(1140, 624);
             this.pnl_ForgotPasswordCode.TabIndex = 10;
@@ -262,14 +259,13 @@ namespace UI
             // 
             // pnl_ForgotPasswordNewPassword
             // 
-            this.pnl_ForgotPasswordNewPassword.Controls.Add(this.pnl_Dashboard);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.pic_LoginReturn3);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.btn_ForgotPasswordConfirmNewPassword);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.lbl_ForgotPasswordNewPassword2);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.lbl_ForgotPasswordNewPassword1);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.tb_ForgotPasswordConfirm);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.tb_ForgotPasswordNew);
-            this.pnl_ForgotPasswordNewPassword.Location = new System.Drawing.Point(1, 3);
+            this.pnl_ForgotPasswordNewPassword.Location = new System.Drawing.Point(0, 0);
             this.pnl_ForgotPasswordNewPassword.Name = "pnl_ForgotPasswordNewPassword";
             this.pnl_ForgotPasswordNewPassword.Size = new System.Drawing.Size(1134, 620);
             this.pnl_ForgotPasswordNewPassword.TabIndex = 6;
@@ -277,12 +273,11 @@ namespace UI
             // 
             // pnl_Dashboard
             // 
-            this.pnl_Dashboard.Controls.Add(this.pnl_test);
             this.pnl_Dashboard.Controls.Add(this.cpc_DashboardOvertimeTickets);
             this.pnl_Dashboard.Controls.Add(this.lbl_DashboardOvertimeText);
             this.pnl_Dashboard.Controls.Add(this.lbl_DashboardUnresolvedText);
             this.pnl_Dashboard.Controls.Add(this.cpc_DashboardUnresolvedTickets);
-            this.pnl_Dashboard.Location = new System.Drawing.Point(7, 21);
+            this.pnl_Dashboard.Location = new System.Drawing.Point(0, 0);
             this.pnl_Dashboard.Name = "pnl_Dashboard";
             this.pnl_Dashboard.Size = new System.Drawing.Size(1111, 526);
             this.pnl_Dashboard.TabIndex = 11;
@@ -489,29 +484,24 @@ namespace UI
             this.lbl_ForgotPasswordEmailText.TabIndex = 8;
             this.lbl_ForgotPasswordEmailText.Text = "Please enter the emailadress associated with your account";
             // 
-            // pnl_test
-            // 
-            this.pnl_test.Location = new System.Drawing.Point(131, 43);
-            this.pnl_test.Name = "pnl_test";
-            this.pnl_test.Size = new System.Drawing.Size(255, 307);
-            this.pnl_test.TabIndex = 9;
-            this.pnl_test.Visible = false;
-            // 
             // NewMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1144, 731);
+            this.Controls.Add(this.pnl_Dashboard);
+            this.Controls.Add(this.pnl_ForgotPasswordNewPassword);
+            this.Controls.Add(this.pnl_ForgotPasswordCode);
             this.Controls.Add(this.pnl_ForgotPassword);
             this.Controls.Add(this.pnl_DashboardOptions);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.lbl_ForgotPassword);
+            this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.lbl_Password);
             this.Controls.Add(this.tb_Password);
             this.Controls.Add(this.lbl_Username);
             this.Controls.Add(this.tb_Username);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.lbl_ForgotPassword);
-            this.Controls.Add(this.btn_Login);
             this.Name = "NewMainForm";
             this.Text = "NewMainForm";
             this.pnl_DashboardOptions.ResumeLayout(false);
@@ -574,6 +564,5 @@ namespace UI
         private System.Windows.Forms.Label lbl_DashboardOvertimeText;
         private System.Windows.Forms.Label lbl_DashboardUnresolvedText;
         private CircleProgressControl cpc_DashboardUnresolvedTickets;
-        private System.Windows.Forms.Panel pnl_test;
     }
 }

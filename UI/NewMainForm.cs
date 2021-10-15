@@ -40,10 +40,11 @@ namespace UI
             {
                 if (_login_Logic.LoginUser(tb_Username.Text, tb_Password.Text))
                 {
-                    MessageBox.Show("Succes");
-                    HideAllPanels();
                     pnl_Dashboard.Visible = true;
                     pnl_DashboardOptions.Visible = true;
+                    MessageBox.Show("Succes");
+                    HideAllPanels();
+                 
                     StartDashboard();
                     pnl_Dashboard.Refresh();
                 }
@@ -129,7 +130,6 @@ namespace UI
         private void StartDashboard()
         {
             pnl_Dashboard.Visible = true;
-            pnl_test.Visible = true;
          //   Getting userdata
          //   string Username = logic.GetLoggedUsername();
          //   string userrole = logic.GetLoggedUserRole().ToString();
