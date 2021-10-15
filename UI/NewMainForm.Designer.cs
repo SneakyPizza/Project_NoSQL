@@ -45,13 +45,13 @@ namespace UI
             this.lbl_ForgotPassword = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
             this.pnl_ForgotPassword = new System.Windows.Forms.Panel();
-            this.pic_LoginReturn = new System.Windows.Forms.PictureBox();
-            this.btn_ForgotPasswordConfirm = new System.Windows.Forms.Button();
-            this.lbl_ForgotPasswordEmail = new System.Windows.Forms.Label();
-            this.tb_ForgotPassword = new System.Windows.Forms.TextBox();
-            this.lbl_ForgotPasswordEmailText = new System.Windows.Forms.Label();
             this.pnl_ForgotPasswordCode = new System.Windows.Forms.Panel();
             this.pnl_ForgotPasswordNewPassword = new System.Windows.Forms.Panel();
+            this.pnl_Dashboard = new System.Windows.Forms.Panel();
+            this.cpc_DashboardOvertimeTickets = new UI.CircleProgressControl();
+            this.lbl_DashboardOvertimeText = new System.Windows.Forms.Label();
+            this.lbl_DashboardUnresolvedText = new System.Windows.Forms.Label();
+            this.cpc_DashboardUnresolvedTickets = new UI.CircleProgressControl();
             this.pic_LoginReturn3 = new System.Windows.Forms.PictureBox();
             this.btn_ForgotPasswordConfirmNewPassword = new System.Windows.Forms.Button();
             this.lbl_ForgotPasswordNewPassword2 = new System.Windows.Forms.Label();
@@ -62,16 +62,22 @@ namespace UI
             this.tb_ForgotPasswordCode = new System.Windows.Forms.TextBox();
             this.lbl_ForgotPasswordCode = new System.Windows.Forms.Label();
             this.pic_LoginReturn2 = new System.Windows.Forms.PictureBox();
+            this.pic_LoginReturn = new System.Windows.Forms.PictureBox();
+            this.btn_ForgotPasswordConfirm = new System.Windows.Forms.Button();
+            this.lbl_ForgotPasswordEmail = new System.Windows.Forms.Label();
+            this.tb_ForgotPassword = new System.Windows.Forms.TextBox();
+            this.lbl_ForgotPasswordEmailText = new System.Windows.Forms.Label();
             this.pnl_DashboardOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_homeButton)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnl_ForgotPassword.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_LoginReturn)).BeginInit();
             this.pnl_ForgotPasswordCode.SuspendLayout();
             this.pnl_ForgotPasswordNewPassword.SuspendLayout();
+            this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LoginReturn3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LoginReturn2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_LoginReturn)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_DashboardOptions
@@ -85,6 +91,7 @@ namespace UI
             this.pnl_DashboardOptions.Name = "pnl_DashboardOptions";
             this.pnl_DashboardOptions.Size = new System.Drawing.Size(1174, 100);
             this.pnl_DashboardOptions.TabIndex = 15;
+            this.pnl_DashboardOptions.Visible = false;
             // 
             // btn_ManageUsers
             // 
@@ -96,6 +103,7 @@ namespace UI
             this.btn_ManageUsers.TabIndex = 3;
             this.btn_ManageUsers.Text = "Manage Users\r\n";
             this.btn_ManageUsers.UseVisualStyleBackColor = false;
+            this.btn_ManageUsers.Click += new System.EventHandler(this.btn_ManageUsers_Click);
             // 
             // btn_Tickets
             // 
@@ -107,6 +115,7 @@ namespace UI
             this.btn_Tickets.TabIndex = 2;
             this.btn_Tickets.Text = "Manage Tickets";
             this.btn_Tickets.UseVisualStyleBackColor = false;
+            this.btn_Tickets.Click += new System.EventHandler(this.btn_Tickets_Click);
             // 
             // btn_Dashboard
             // 
@@ -119,6 +128,7 @@ namespace UI
             this.btn_Dashboard.TabIndex = 1;
             this.btn_Dashboard.Text = "Dashboard";
             this.btn_Dashboard.UseVisualStyleBackColor = false;
+            this.btn_Dashboard.Click += new System.EventHandler(this.btn_Dashboard_Click);
             // 
             // pictureBox_homeButton
             // 
@@ -220,6 +230,7 @@ namespace UI
             this.btn_Login.TabIndex = 17;
             this.btn_Login.Text = "LOGIN";
             this.btn_Login.UseVisualStyleBackColor = false;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // pnl_ForgotPassword
             // 
@@ -235,58 +246,6 @@ namespace UI
             this.pnl_ForgotPassword.TabIndex = 19;
             this.pnl_ForgotPassword.Visible = false;
             // 
-            // pic_LoginReturn
-            // 
-            this.pic_LoginReturn.Image = ((System.Drawing.Image)(resources.GetObject("pic_LoginReturn.Image")));
-            this.pic_LoginReturn.Location = new System.Drawing.Point(3, 8);
-            this.pic_LoginReturn.Name = "pic_LoginReturn";
-            this.pic_LoginReturn.Size = new System.Drawing.Size(71, 54);
-            this.pic_LoginReturn.TabIndex = 9;
-            this.pic_LoginReturn.TabStop = false;
-            this.pic_LoginReturn.Click += new System.EventHandler(this.pic_LoginReturn1_Click);
-            // 
-            // btn_ForgotPasswordConfirm
-            // 
-            this.btn_ForgotPasswordConfirm.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btn_ForgotPasswordConfirm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_ForgotPasswordConfirm.Location = new System.Drawing.Point(470, 319);
-            this.btn_ForgotPasswordConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_ForgotPasswordConfirm.Name = "btn_ForgotPasswordConfirm";
-            this.btn_ForgotPasswordConfirm.Size = new System.Drawing.Size(218, 104);
-            this.btn_ForgotPasswordConfirm.TabIndex = 7;
-            this.btn_ForgotPasswordConfirm.Text = "Confirm";
-            this.btn_ForgotPasswordConfirm.UseVisualStyleBackColor = false;
-            this.btn_ForgotPasswordConfirm.Click += new System.EventHandler(this.btn_ForgotPasswordConfirm_Click);
-            // 
-            // lbl_ForgotPasswordEmail
-            // 
-            this.lbl_ForgotPasswordEmail.AutoSize = true;
-            this.lbl_ForgotPasswordEmail.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ForgotPasswordEmail.Location = new System.Drawing.Point(253, 237);
-            this.lbl_ForgotPasswordEmail.Name = "lbl_ForgotPasswordEmail";
-            this.lbl_ForgotPasswordEmail.Size = new System.Drawing.Size(83, 32);
-            this.lbl_ForgotPasswordEmail.TabIndex = 6;
-            this.lbl_ForgotPasswordEmail.Text = "Email: ";
-            // 
-            // tb_ForgotPassword
-            // 
-            this.tb_ForgotPassword.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_ForgotPassword.Location = new System.Drawing.Point(403, 230);
-            this.tb_ForgotPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tb_ForgotPassword.Name = "tb_ForgotPassword";
-            this.tb_ForgotPassword.Size = new System.Drawing.Size(345, 39);
-            this.tb_ForgotPassword.TabIndex = 5;
-            // 
-            // lbl_ForgotPasswordEmailText
-            // 
-            this.lbl_ForgotPasswordEmailText.AutoSize = true;
-            this.lbl_ForgotPasswordEmailText.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ForgotPasswordEmailText.Location = new System.Drawing.Point(213, 115);
-            this.lbl_ForgotPasswordEmailText.Name = "lbl_ForgotPasswordEmailText";
-            this.lbl_ForgotPasswordEmailText.Size = new System.Drawing.Size(736, 38);
-            this.lbl_ForgotPasswordEmailText.TabIndex = 8;
-            this.lbl_ForgotPasswordEmailText.Text = "Please enter the emailadress associated with your account";
-            // 
             // pnl_ForgotPasswordCode
             // 
             this.pnl_ForgotPasswordCode.Controls.Add(this.pnl_ForgotPasswordNewPassword);
@@ -294,7 +253,7 @@ namespace UI
             this.pnl_ForgotPasswordCode.Controls.Add(this.tb_ForgotPasswordCode);
             this.pnl_ForgotPasswordCode.Controls.Add(this.lbl_ForgotPasswordCode);
             this.pnl_ForgotPasswordCode.Controls.Add(this.pic_LoginReturn2);
-            this.pnl_ForgotPasswordCode.Location = new System.Drawing.Point(3, 8);
+            this.pnl_ForgotPasswordCode.Location = new System.Drawing.Point(3, 3);
             this.pnl_ForgotPasswordCode.Name = "pnl_ForgotPasswordCode";
             this.pnl_ForgotPasswordCode.Size = new System.Drawing.Size(1140, 624);
             this.pnl_ForgotPasswordCode.TabIndex = 10;
@@ -302,17 +261,74 @@ namespace UI
             // 
             // pnl_ForgotPasswordNewPassword
             // 
+            this.pnl_ForgotPasswordNewPassword.Controls.Add(this.pnl_Dashboard);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.pic_LoginReturn3);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.btn_ForgotPasswordConfirmNewPassword);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.lbl_ForgotPasswordNewPassword2);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.lbl_ForgotPasswordNewPassword1);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.tb_ForgotPasswordConfirm);
             this.pnl_ForgotPasswordNewPassword.Controls.Add(this.tb_ForgotPasswordNew);
-            this.pnl_ForgotPasswordNewPassword.Location = new System.Drawing.Point(3, 7);
+            this.pnl_ForgotPasswordNewPassword.Location = new System.Drawing.Point(1, 3);
             this.pnl_ForgotPasswordNewPassword.Name = "pnl_ForgotPasswordNewPassword";
             this.pnl_ForgotPasswordNewPassword.Size = new System.Drawing.Size(1134, 620);
             this.pnl_ForgotPasswordNewPassword.TabIndex = 6;
             this.pnl_ForgotPasswordNewPassword.Visible = false;
+            // 
+            // pnl_Dashboard
+            // 
+            this.pnl_Dashboard.Controls.Add(this.cpc_DashboardOvertimeTickets);
+            this.pnl_Dashboard.Controls.Add(this.lbl_DashboardOvertimeText);
+            this.pnl_Dashboard.Controls.Add(this.lbl_DashboardUnresolvedText);
+            this.pnl_Dashboard.Controls.Add(this.cpc_DashboardUnresolvedTickets);
+            this.pnl_Dashboard.Location = new System.Drawing.Point(7, 12);
+            this.pnl_Dashboard.Name = "pnl_Dashboard";
+            this.pnl_Dashboard.Size = new System.Drawing.Size(1123, 609);
+            this.pnl_Dashboard.TabIndex = 11;
+            this.pnl_Dashboard.Visible = false;
+            // 
+            // cpc_DashboardOvertimeTickets
+            // 
+            this.cpc_DashboardOvertimeTickets.CurrentValue = 50D;
+            this.cpc_DashboardOvertimeTickets.FillColor = System.Drawing.Color.White;
+            this.cpc_DashboardOvertimeTickets.Location = new System.Drawing.Point(765, 226);
+            this.cpc_DashboardOvertimeTickets.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.cpc_DashboardOvertimeTickets.MaxValue = 100D;
+            this.cpc_DashboardOvertimeTickets.Name = "cpc_DashboardOvertimeTickets";
+            this.cpc_DashboardOvertimeTickets.ProgressColor = System.Drawing.Color.Orange;
+            this.cpc_DashboardOvertimeTickets.Size = new System.Drawing.Size(240, 280);
+            this.cpc_DashboardOvertimeTickets.TabIndex = 8;
+            // 
+            // lbl_DashboardOvertimeText
+            // 
+            this.lbl_DashboardOvertimeText.AutoSize = true;
+            this.lbl_DashboardOvertimeText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_DashboardOvertimeText.Location = new System.Drawing.Point(715, 176);
+            this.lbl_DashboardOvertimeText.Name = "lbl_DashboardOvertimeText";
+            this.lbl_DashboardOvertimeText.Size = new System.Drawing.Size(163, 28);
+            this.lbl_DashboardOvertimeText.TabIndex = 7;
+            this.lbl_DashboardOvertimeText.Text = "Overtime tickets: ";
+            // 
+            // lbl_DashboardUnresolvedText
+            // 
+            this.lbl_DashboardUnresolvedText.AutoSize = true;
+            this.lbl_DashboardUnresolvedText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_DashboardUnresolvedText.Location = new System.Drawing.Point(54, 168);
+            this.lbl_DashboardUnresolvedText.Name = "lbl_DashboardUnresolvedText";
+            this.lbl_DashboardUnresolvedText.Size = new System.Drawing.Size(181, 28);
+            this.lbl_DashboardUnresolvedText.TabIndex = 6;
+            this.lbl_DashboardUnresolvedText.Text = "Unresolved tickets: ";
+            // 
+            // cpc_DashboardUnresolvedTickets
+            // 
+            this.cpc_DashboardUnresolvedTickets.CurrentValue = 50D;
+            this.cpc_DashboardUnresolvedTickets.FillColor = System.Drawing.Color.White;
+            this.cpc_DashboardUnresolvedTickets.Location = new System.Drawing.Point(113, 204);
+            this.cpc_DashboardUnresolvedTickets.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.cpc_DashboardUnresolvedTickets.MaxValue = 100D;
+            this.cpc_DashboardUnresolvedTickets.Name = "cpc_DashboardUnresolvedTickets";
+            this.cpc_DashboardUnresolvedTickets.ProgressColor = System.Drawing.Color.Orange;
+            this.cpc_DashboardUnresolvedTickets.Size = new System.Drawing.Size(240, 280);
+            this.cpc_DashboardUnresolvedTickets.TabIndex = 5;
             // 
             // pic_LoginReturn3
             // 
@@ -419,6 +435,58 @@ namespace UI
             this.pic_LoginReturn2.TabStop = false;
             this.pic_LoginReturn2.Click += new System.EventHandler(this.pic_LoginReturn1_Click);
             // 
+            // pic_LoginReturn
+            // 
+            this.pic_LoginReturn.Image = ((System.Drawing.Image)(resources.GetObject("pic_LoginReturn.Image")));
+            this.pic_LoginReturn.Location = new System.Drawing.Point(3, 8);
+            this.pic_LoginReturn.Name = "pic_LoginReturn";
+            this.pic_LoginReturn.Size = new System.Drawing.Size(71, 54);
+            this.pic_LoginReturn.TabIndex = 9;
+            this.pic_LoginReturn.TabStop = false;
+            this.pic_LoginReturn.Click += new System.EventHandler(this.pic_LoginReturn1_Click);
+            // 
+            // btn_ForgotPasswordConfirm
+            // 
+            this.btn_ForgotPasswordConfirm.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btn_ForgotPasswordConfirm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ForgotPasswordConfirm.Location = new System.Drawing.Point(470, 319);
+            this.btn_ForgotPasswordConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_ForgotPasswordConfirm.Name = "btn_ForgotPasswordConfirm";
+            this.btn_ForgotPasswordConfirm.Size = new System.Drawing.Size(218, 104);
+            this.btn_ForgotPasswordConfirm.TabIndex = 7;
+            this.btn_ForgotPasswordConfirm.Text = "Confirm";
+            this.btn_ForgotPasswordConfirm.UseVisualStyleBackColor = false;
+            this.btn_ForgotPasswordConfirm.Click += new System.EventHandler(this.btn_ForgotPasswordConfirm_Click);
+            // 
+            // lbl_ForgotPasswordEmail
+            // 
+            this.lbl_ForgotPasswordEmail.AutoSize = true;
+            this.lbl_ForgotPasswordEmail.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_ForgotPasswordEmail.Location = new System.Drawing.Point(253, 237);
+            this.lbl_ForgotPasswordEmail.Name = "lbl_ForgotPasswordEmail";
+            this.lbl_ForgotPasswordEmail.Size = new System.Drawing.Size(83, 32);
+            this.lbl_ForgotPasswordEmail.TabIndex = 6;
+            this.lbl_ForgotPasswordEmail.Text = "Email: ";
+            // 
+            // tb_ForgotPassword
+            // 
+            this.tb_ForgotPassword.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_ForgotPassword.Location = new System.Drawing.Point(403, 230);
+            this.tb_ForgotPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_ForgotPassword.Name = "tb_ForgotPassword";
+            this.tb_ForgotPassword.Size = new System.Drawing.Size(345, 39);
+            this.tb_ForgotPassword.TabIndex = 5;
+            // 
+            // lbl_ForgotPasswordEmailText
+            // 
+            this.lbl_ForgotPasswordEmailText.AutoSize = true;
+            this.lbl_ForgotPasswordEmailText.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_ForgotPasswordEmailText.Location = new System.Drawing.Point(213, 115);
+            this.lbl_ForgotPasswordEmailText.Name = "lbl_ForgotPasswordEmailText";
+            this.lbl_ForgotPasswordEmailText.Size = new System.Drawing.Size(736, 38);
+            this.lbl_ForgotPasswordEmailText.TabIndex = 8;
+            this.lbl_ForgotPasswordEmailText.Text = "Please enter the emailadress associated with your account";
+            // 
             // NewMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -443,13 +511,15 @@ namespace UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnl_ForgotPassword.ResumeLayout(false);
             this.pnl_ForgotPassword.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_LoginReturn)).EndInit();
             this.pnl_ForgotPasswordCode.ResumeLayout(false);
             this.pnl_ForgotPasswordCode.PerformLayout();
             this.pnl_ForgotPasswordNewPassword.ResumeLayout(false);
             this.pnl_ForgotPasswordNewPassword.PerformLayout();
+            this.pnl_Dashboard.ResumeLayout(false);
+            this.pnl_Dashboard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LoginReturn3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LoginReturn2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_LoginReturn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -489,5 +559,10 @@ namespace UI
         private System.Windows.Forms.Label lbl_ForgotPasswordNewPassword1;
         private System.Windows.Forms.TextBox tb_ForgotPasswordConfirm;
         private System.Windows.Forms.TextBox tb_ForgotPasswordNew;
+        private System.Windows.Forms.Panel pnl_Dashboard;
+        private CircleProgressControl cpc_DashboardOvertimeTickets;
+        private System.Windows.Forms.Label lbl_DashboardOvertimeText;
+        private System.Windows.Forms.Label lbl_DashboardUnresolvedText;
+        private CircleProgressControl cpc_DashboardUnresolvedTickets;
     }
 }

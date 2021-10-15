@@ -24,7 +24,6 @@ namespace UI
         public NewMainForm()
         {
             InitializeComponent();
-        //    HideAllPanels();
             //pnl_Dashboard.Visible = false;
         }
         private void HideAllPanels()
@@ -41,7 +40,9 @@ namespace UI
                 if (_login_Logic.LoginUser(tb_Username.Text, tb_Password.Text))
                 {
                     MessageBox.Show("Succes");
-                 //   pnl_Dashboard.Visible = true;
+                    HideAllPanels();
+                    pnl_Dashboard.Visible = true;
+                    pnl_DashboardOptions.Visible = true;
                     StartDashboard();
                     //pnl_Dashboard.Refresh();
                 }
@@ -126,24 +127,24 @@ namespace UI
         #region Dashboard
         private void StartDashboard()
         {
-            //Getting userdata
-            //string Username = logic.GetLoggedUsername();
-            //string userrole = logic.GetLoggedUserRole().ToString();
+         //   Getting userdata
+         //   string Username = logic.GetLoggedUsername();
+         //   string userrole = logic.GetLoggedUserRole().ToString();
 
-            //lbl_DashboardCurrentFirstname.Text = Login_Logic.LoggedUser.Firstname;
-            //lbl_DashboardCurrentUserLastname.Text = Login_Logic.LoggedUser.Lastname;
-            ////Display dashboard
-            //int[] values = _dashboard_logic.GetDashboardValues();
-            //lbl_DashboardUnresolvedText.Text += String.Format(" {0} / {1}", values[0], values[1]);
-            //lbl_DashboardOvertimeText.Text += String.Format(" {0} !", values[2]);
+         //   lbl_DashboardCurrentFirstname.Text = Login_Logic.LoggedUser.Firstname;
+         //   lbl_DashboardCurrentUserLastname.Text = Login_Logic.LoggedUser.Lastname;
+            //Display dashboard
+            int[] values = _dashboard_logic.GetDashboardValues();
+            lbl_DashboardUnresolvedText.Text += String.Format(" {0} / {1}", values[0], values[1]);
+            lbl_DashboardOvertimeText.Text += String.Format(" {0} !", values[2]);
 
-            ////unresolved tickets circle
-            //cpc_DashboardUnresolvedTickets.CurrentValue = values[0];
-            //cpc_DashboardUnresolvedTickets.MaxValue = values[1];
-            ////Incidents past deadlines 
-            //cpc_DashboardOvertimeTickets.CurrentValue = values[2];
-            //cpc_DashboardOvertimeTickets.MaxValue = 20;
-            //cpc_DashboardOvertimeTickets.ProgressColor = Color.Red;
+            //unresolved tickets circle
+            cpc_DashboardUnresolvedTickets.CurrentValue = values[0];
+            cpc_DashboardUnresolvedTickets.MaxValue = values[1];
+            //Incidents past deadlines 
+            cpc_DashboardOvertimeTickets.CurrentValue = values[2];
+            cpc_DashboardOvertimeTickets.MaxValue = 20;
+            cpc_DashboardOvertimeTickets.ProgressColor = Color.Red;
         }
 
         private void btn_DashboardLogout_Click(object sender, EventArgs e)
@@ -164,6 +165,21 @@ namespace UI
         private void pic_LoginReturn1_Click(object sender, EventArgs e)
         {
             HideAllPanels();
+        }
+
+        private void btn_ManageUsers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Tickets_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Dashboard_Click(object sender, EventArgs e)
+        {
+            pnl_Dashboard.Visible = true;
         }
     }
 }
