@@ -6,7 +6,7 @@ using Model;
 
 namespace DAL
 {
-    public class Dashboard_DAL : Base
+    public class Dashboard_DAL :Ticket_DAL
     {
         private static Dashboard_DAL _instance;
         public static Dashboard_DAL Instance
@@ -18,33 +18,25 @@ namespace DAL
             }
         }
 
-
         private IMongoCollection<Ticket> GetDatabaseTickets()
         {
             return GetDatabase("ProjectNoSQL10").GetCollection<Ticket>("Tickets");
         }
 
-        private (int open, int total) GetOpenAndTotalTickets(List<Ticket> tickets)
+        private (int open, int total) GetOpenAndTotalTickets()
         {
             int count = 0;
-
-            for (int i = 0; i < tickets.Count; i++)
-            {
-                if (tickets[i].Status.ToString().ToLower() == "open")
-                {
-                    count++;
-                }
-            }
-            return (count, tickets.Count);
+            List<Ticket> tickets = RetrieveTickets();
+            int total = tickets.Count;
+            return (count, total);
         }
 
-        private int GetDueTickets(List<Ticket> tickets)
+        private int GetDueTickets()
         {
             int count = 0;
-            for (int i = 0; i < tickets.Count; i++)
+            foreach (Ticket ticket in RetrieveTickets())
             {
-                if (tickets[i].PastDeadline)
-                {
+                if (ticket.PastDeadline) {
                     count++;
                 }
             }
@@ -53,11 +45,9 @@ namespace DAL
 
         public int[] GetDashboardValues()
         {
-            List<Ticket> tickets = GetDatabaseTickets().Find(_ => true).ToList();
-
             int[] values = new int[3];
-            (int count, int total) = GetOpenAndTotalTickets(tickets);
-            int due = GetDueTickets(tickets);
+            (int count, int total) = GetOpenAndTotalTickets();
+            int due = GetDueTickets();
             values[0] = count;
             values[1] = total;
             values[2] = due;

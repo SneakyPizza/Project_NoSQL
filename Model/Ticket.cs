@@ -43,6 +43,7 @@ namespace Model
             _description = description;
             _priority = priority;
             _status = Status.Processing;
+            _deadLine = CreationTime.AddDays(7);
             _solution = string.Empty;
         }
         // return true if ticket is not closed
