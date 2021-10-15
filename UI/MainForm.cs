@@ -26,6 +26,11 @@ namespace UI
 
         }
 
+        private void btn_LoginReturn2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //public MainForm()
         //{
         //    InitializeComponent();
@@ -63,36 +68,36 @@ namespace UI
         //    pnl_ForgotPassword.Visible = true;
         //}
 
-        //private void btn_ForgotPasswordConfirm_Click(object sender, EventArgs e)
-        //{
-        //    string input = tb_ForgotPassword.Text.Trim();
-        //    if (!string.IsNullOrEmpty(input) && _fp_logic.ValidEmailAdress(input))
-        //    {
-        //        _emailReset = input;
-        //        _fp_logic.SendMail(_emailReset);
-        //        pnl_ForgotPasswordCode.Visible = true;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Invalid Email");
-        //    }
-        //}
+        private void btn_ForgotPasswordConfirm_Click(object sender, EventArgs e)
+        {
+            string input = tb_ForgotPassword.Text.Trim();
+            if (!string.IsNullOrEmpty(input) && _fp_logic.ValidEmailAdress(input))
+            {
+                _emailReset = input;
+                _fp_logic.SendMail(_emailReset);
+                pnl_ForgotPasswordCode.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Invalid Email");
+            }
+        }
 
-        //private void btn_ForgotPasswordCodeConfirm_Click(object sender, EventArgs e)
-        //{
-        //    if (!string.IsNullOrEmpty(tb_ForgotPasswordCode.Text))
-        //    {
-        //        if (_fp_logic.ResetCodeCheck(tb_ForgotPasswordCode.Text))
-        //        {
-        //            MessageBox.Show("Correct code");
-        //            pnl_ForgotPasswordNewPassword.Visible = true;
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Incorrect code");
-        //        }
-        //    }
-        //}
+        private void btn_ForgotPasswordCodeConfirm_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tb_ForgotPasswordCode.Text))
+            {
+                if (_fp_logic.ResetCodeCheck(tb_ForgotPasswordCode.Text))
+                {
+                    MessageBox.Show("Correct code");
+                    pnl_ForgotPasswordNewPassword.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect code");
+                }
+            }
+        }
 
         //private void btn_ForgotPasswordConfirmNewPassword_Click(object sender, EventArgs e)
         //{
