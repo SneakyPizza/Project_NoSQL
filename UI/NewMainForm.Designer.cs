@@ -67,6 +67,7 @@ namespace UI
             this.lbl_ForgotPasswordEmail = new System.Windows.Forms.Label();
             this.tb_ForgotPassword = new System.Windows.Forms.TextBox();
             this.lbl_ForgotPasswordEmailText = new System.Windows.Forms.Label();
+            this.pnl_test = new System.Windows.Forms.Panel();
             this.pnl_DashboardOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_homeButton)).BeginInit();
             this.panel2.SuspendLayout();
@@ -276,13 +277,14 @@ namespace UI
             // 
             // pnl_Dashboard
             // 
+            this.pnl_Dashboard.Controls.Add(this.pnl_test);
             this.pnl_Dashboard.Controls.Add(this.cpc_DashboardOvertimeTickets);
             this.pnl_Dashboard.Controls.Add(this.lbl_DashboardOvertimeText);
             this.pnl_Dashboard.Controls.Add(this.lbl_DashboardUnresolvedText);
             this.pnl_Dashboard.Controls.Add(this.cpc_DashboardUnresolvedTickets);
-            this.pnl_Dashboard.Location = new System.Drawing.Point(7, 12);
+            this.pnl_Dashboard.Location = new System.Drawing.Point(7, 21);
             this.pnl_Dashboard.Name = "pnl_Dashboard";
-            this.pnl_Dashboard.Size = new System.Drawing.Size(1123, 609);
+            this.pnl_Dashboard.Size = new System.Drawing.Size(1111, 526);
             this.pnl_Dashboard.TabIndex = 11;
             this.pnl_Dashboard.Visible = false;
             // 
@@ -290,7 +292,7 @@ namespace UI
             // 
             this.cpc_DashboardOvertimeTickets.CurrentValue = 50D;
             this.cpc_DashboardOvertimeTickets.FillColor = System.Drawing.Color.White;
-            this.cpc_DashboardOvertimeTickets.Location = new System.Drawing.Point(765, 226);
+            this.cpc_DashboardOvertimeTickets.Location = new System.Drawing.Point(723, 155);
             this.cpc_DashboardOvertimeTickets.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.cpc_DashboardOvertimeTickets.MaxValue = 100D;
             this.cpc_DashboardOvertimeTickets.Name = "cpc_DashboardOvertimeTickets";
@@ -302,7 +304,7 @@ namespace UI
             // 
             this.lbl_DashboardOvertimeText.AutoSize = true;
             this.lbl_DashboardOvertimeText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_DashboardOvertimeText.Location = new System.Drawing.Point(715, 176);
+            this.lbl_DashboardOvertimeText.Location = new System.Drawing.Point(673, 105);
             this.lbl_DashboardOvertimeText.Name = "lbl_DashboardOvertimeText";
             this.lbl_DashboardOvertimeText.Size = new System.Drawing.Size(163, 28);
             this.lbl_DashboardOvertimeText.TabIndex = 7;
@@ -312,7 +314,7 @@ namespace UI
             // 
             this.lbl_DashboardUnresolvedText.AutoSize = true;
             this.lbl_DashboardUnresolvedText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_DashboardUnresolvedText.Location = new System.Drawing.Point(54, 168);
+            this.lbl_DashboardUnresolvedText.Location = new System.Drawing.Point(12, 97);
             this.lbl_DashboardUnresolvedText.Name = "lbl_DashboardUnresolvedText";
             this.lbl_DashboardUnresolvedText.Size = new System.Drawing.Size(181, 28);
             this.lbl_DashboardUnresolvedText.TabIndex = 6;
@@ -322,7 +324,7 @@ namespace UI
             // 
             this.cpc_DashboardUnresolvedTickets.CurrentValue = 50D;
             this.cpc_DashboardUnresolvedTickets.FillColor = System.Drawing.Color.White;
-            this.cpc_DashboardUnresolvedTickets.Location = new System.Drawing.Point(113, 204);
+            this.cpc_DashboardUnresolvedTickets.Location = new System.Drawing.Point(71, 133);
             this.cpc_DashboardUnresolvedTickets.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.cpc_DashboardUnresolvedTickets.MaxValue = 100D;
             this.cpc_DashboardUnresolvedTickets.Name = "cpc_DashboardUnresolvedTickets";
@@ -487,6 +489,14 @@ namespace UI
             this.lbl_ForgotPasswordEmailText.TabIndex = 8;
             this.lbl_ForgotPasswordEmailText.Text = "Please enter the emailadress associated with your account";
             // 
+            // pnl_test
+            // 
+            this.pnl_test.Location = new System.Drawing.Point(131, 43);
+            this.pnl_test.Name = "pnl_test";
+            this.pnl_test.Size = new System.Drawing.Size(255, 307);
+            this.pnl_test.TabIndex = 9;
+            this.pnl_test.Visible = false;
+            // 
             // NewMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -564,5 +574,6 @@ namespace UI
         private System.Windows.Forms.Label lbl_DashboardOvertimeText;
         private System.Windows.Forms.Label lbl_DashboardUnresolvedText;
         private CircleProgressControl cpc_DashboardUnresolvedTickets;
+        private System.Windows.Forms.Panel pnl_test;
     }
 }

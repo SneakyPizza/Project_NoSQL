@@ -32,6 +32,7 @@ namespace UI
             pnl_DashboardOptions.Visible = false;
             pnl_ForgotPasswordCode.Visible = false;
             pnl_ForgotPasswordNewPassword.Visible = false;
+            pnl_Dashboard.Visible = false;
         }
         private void btn_Login_Click(object sender, EventArgs e)
         {
@@ -44,7 +45,7 @@ namespace UI
                     pnl_Dashboard.Visible = true;
                     pnl_DashboardOptions.Visible = true;
                     StartDashboard();
-                    //pnl_Dashboard.Refresh();
+                    pnl_Dashboard.Refresh();
                 }
                 else
                 {
@@ -127,6 +128,8 @@ namespace UI
         #region Dashboard
         private void StartDashboard()
         {
+            pnl_Dashboard.Visible = true;
+            pnl_test.Visible = true;
          //   Getting userdata
          //   string Username = logic.GetLoggedUsername();
          //   string userrole = logic.GetLoggedUserRole().ToString();
@@ -134,17 +137,17 @@ namespace UI
          //   lbl_DashboardCurrentFirstname.Text = Login_Logic.LoggedUser.Firstname;
          //   lbl_DashboardCurrentUserLastname.Text = Login_Logic.LoggedUser.Lastname;
             //Display dashboard
-            int[] values = _dashboard_logic.GetDashboardValues();
-            lbl_DashboardUnresolvedText.Text += String.Format(" {0} / {1}", values[0], values[1]);
-            lbl_DashboardOvertimeText.Text += String.Format(" {0} !", values[2]);
+            //int[] values = _dashboard_logic.GetDashboardValues();
+            //lbl_DashboardUnresolvedText.Text += String.Format(" {0} / {1}", values[0], values[1]);
+            //lbl_DashboardOvertimeText.Text += String.Format(" {0} !", values[2]);
 
-            //unresolved tickets circle
-            cpc_DashboardUnresolvedTickets.CurrentValue = values[0];
-            cpc_DashboardUnresolvedTickets.MaxValue = values[1];
-            //Incidents past deadlines 
-            cpc_DashboardOvertimeTickets.CurrentValue = values[2];
-            cpc_DashboardOvertimeTickets.MaxValue = 20;
-            cpc_DashboardOvertimeTickets.ProgressColor = Color.Red;
+            ////unresolved tickets circle
+            //cpc_DashboardUnresolvedTickets.CurrentValue = values[0];
+            //cpc_DashboardUnresolvedTickets.MaxValue = values[1];
+            ////Incidents past deadlines 
+            //cpc_DashboardOvertimeTickets.CurrentValue = values[2];
+            //cpc_DashboardOvertimeTickets.MaxValue = 20;
+            //cpc_DashboardOvertimeTickets.ProgressColor = Color.Red;
         }
 
         private void btn_DashboardLogout_Click(object sender, EventArgs e)
