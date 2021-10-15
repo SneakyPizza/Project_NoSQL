@@ -125,14 +125,13 @@
             // 
             // pnl_Login
             // 
-            this.pnl_Login.Controls.Add(this.pnl_ForgotPassword);
             this.pnl_Login.Controls.Add(this.lbl_ForgotPassword);
             this.pnl_Login.Controls.Add(this.lbl_Username);
             this.pnl_Login.Controls.Add(this.tb_Password);
             this.pnl_Login.Controls.Add(this.btn_Login);
             this.pnl_Login.Controls.Add(this.lbl_Password);
             this.pnl_Login.Controls.Add(this.tb_Username);
-            this.pnl_Login.Location = new System.Drawing.Point(0, 59);
+            this.pnl_Login.Location = new System.Drawing.Point(1, 22);
             this.pnl_Login.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_Login.Name = "pnl_Login";
             this.pnl_Login.Size = new System.Drawing.Size(1446, 851);
@@ -146,7 +145,7 @@
             this.pnl_ForgotPassword.Controls.Add(this.tb_ForgotPassword);
             this.pnl_ForgotPassword.Controls.Add(this.lbl_ForgotPasswordEmailText);
             this.pnl_ForgotPassword.Controls.Add(this.btn_LoginReturn1);
-            this.pnl_ForgotPassword.Location = new System.Drawing.Point(3, 4);
+            this.pnl_ForgotPassword.Location = new System.Drawing.Point(1, 26);
             this.pnl_ForgotPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_ForgotPassword.Name = "pnl_ForgotPassword";
             this.pnl_ForgotPassword.Size = new System.Drawing.Size(1417, 820);
@@ -159,7 +158,7 @@
             this.pnl_ForgotPasswordCode.Controls.Add(this.tb_ForgotPasswordCode);
             this.pnl_ForgotPasswordCode.Controls.Add(this.lbl_ForgotPasswordCode);
             this.pnl_ForgotPasswordCode.Controls.Add(this.btn_LoginReturn2);
-            this.pnl_ForgotPasswordCode.Location = new System.Drawing.Point(9, 14);
+            this.pnl_ForgotPasswordCode.Location = new System.Drawing.Point(94, 283);
             this.pnl_ForgotPasswordCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_ForgotPasswordCode.Name = "pnl_ForgotPasswordCode";
             this.pnl_ForgotPasswordCode.Size = new System.Drawing.Size(1395, 700);
@@ -302,6 +301,7 @@
             this.btn_LoginReturn3.TabIndex = 6;
             this.btn_LoginReturn3.Text = "Return";
             this.btn_LoginReturn3.UseVisualStyleBackColor = true;
+            this.btn_LoginReturn3.Click += new System.EventHandler(this.btn_LoginReturn3_Click);
             // 
             // btn_ForgotPasswordConfirmNewPassword
             // 
@@ -452,6 +452,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1445, 908);
+            this.Controls.Add(this.pnl_ForgotPassword);
             this.Controls.Add(this.pnl_Login);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";

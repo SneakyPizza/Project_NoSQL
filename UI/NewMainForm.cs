@@ -24,11 +24,15 @@ namespace UI
         public NewMainForm()
         {
             InitializeComponent();
+        //    HideAllPanels();
+            //pnl_Dashboard.Visible = false;
+        }
+        private void HideAllPanels()
+        {
             pnl_ForgotPassword.Visible = false;
             pnl_DashboardOptions.Visible = false;
             pnl_ForgotPasswordCode.Visible = false;
             pnl_ForgotPasswordNewPassword.Visible = false;
-            //pnl_Dashboard.Visible = false;
         }
         private void btn_Login_Click(object sender, EventArgs e)
         {
@@ -63,6 +67,7 @@ namespace UI
             {
                 _emailReset = input;
                 _fp_logic.SendMail(_emailReset);
+              //  HideAllPanels();
                 pnl_ForgotPasswordCode.Visible = true;
             }
             else
@@ -105,11 +110,11 @@ namespace UI
         }
         private void ReturnToLogin()
         {
-            //pnl_ForgotPassword.Visible = false;
-            //pnl_ForgotPasswordCode.Visible = false;
-            //pnl_ForgotPasswordNewPassword.Visible = false;
-            //pnl_Login.Visible = true;
-            //_fp_logic.RemoveResetCode();
+            pnl_ForgotPassword.Visible = false;
+            pnl_ForgotPasswordCode.Visible = false;
+            pnl_ForgotPasswordNewPassword.Visible = false;
+           // pnl_Login.Visible = true;
+            _fp_logic.RemoveResetCode();
             if (_emailReset != null) { _emailReset = null; }
         }
         private void ReturnToLoginEvent(object sender, EventArgs e)
@@ -156,21 +161,9 @@ namespace UI
         {
             //Taph
         }
-
-        // return second panel
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void pic_LoginReturn1_Click(object sender, EventArgs e)
         {
-           // pnl_ForgotPassword.Visible = false;
-            //    pnl_ForgotPasswordCode.Visible = false;
-            //    pnl_ForgotPasswordNewPassword.Visible = false;
-            //    pnl_Login.Visible = true;
-            //    _fp_logic.RemoveResetCode();
-            //    if (_emailReset != null) { _emailReset = null; }
-        }
-
-        private void pic_LoginReturn3_Click(object sender, EventArgs e)
-        {
-
+            HideAllPanels();
         }
     }
 }
