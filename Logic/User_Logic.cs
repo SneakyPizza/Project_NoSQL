@@ -67,17 +67,6 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-        public User GetUser()
-        {
-            try
-            {
-                return dal.GetUser();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
         public List<User> GetnewUser()
         {
             try
@@ -101,12 +90,22 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-
+        public string GetNameOfHandeldUser(ObjectId TicketHandeldBy)
+        {
+            try
+            {
+                return dal.GetCreatedByName(TicketHandeldBy);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+          
+         }
         public List<User> GetNormalUser()
         {
             try
             {
-                //  dal.InsertUser();
                 return dal.GetNormalUsers();
             }
             catch (Exception e)

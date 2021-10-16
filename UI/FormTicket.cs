@@ -26,20 +26,20 @@ namespace UI
         {
             this._currentTicket = _currentTicket;
             InitializeComponent();
-            FillTicketAndComboBoxes(_currentTicket);
+            FillTicketAndComboBoxesOfTicketoverview(_currentTicket);
         }
         public FormTicket(NewMainForm _newMainform, User _currentUser)
         {
             this._newMainform = _newMainform;
             this._currentUser = _currentUser;
             InitializeComponent();
+            FillComboboxesOfFrmTicket(); 
             lv_TicketOfNormalUser.MouseClick += new MouseEventHandler(lv_TicketOfNormalUser_MouseClick);
             LoadListview();
         }
-
-        public void FillTicketAndComboBoxes(Ticket ticket)
-        {
+        private void FillComboboxesOfFrmTicket() {
             cb_TicketIncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
+            cbo_TicketIncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             foreach (Status status in Enum.GetValues(typeof(Status)))
             {
                 cbo_ticketStatus.Items.Add(status);
@@ -50,6 +50,10 @@ namespace UI
             {
                 cbo_TIcketPriority.Items.Add(priority);
             }
+        }
+        public void FillTicketAndComboBoxesOfTicketoverview(Ticket ticket)
+        {
+          
             richtb_TicketDescription.Text = ticket.Description;
             cbo_ticketStatus.Text = ticket.Status.ToString();
             cbo_TicketIncidentType.Text = ticket.IncidentType.ToString();
@@ -72,11 +76,6 @@ namespace UI
             Close();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void btn_CreateTicketNormalUser_Click(object sender, EventArgs e)
         {
             pnl_CreateTicketNormalUser.Visible = true;
@@ -89,14 +88,9 @@ namespace UI
 
         private void btn_SubmitTicket_Click(object sender, EventArgs e)
         {
-            Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescription.Text, Model.Priority.Normal);
+            Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescription.Text, (IncidentType)cbo_TicketIncidentType.SelectedValue, Model.Priority.Normal);
             ticket_Logic.InsertTicket(ticket);
             MessageBox.Show("Ticket has been made");
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            pnl_CreateTicketNormalUser.Visible = false;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -121,10 +115,21 @@ namespace UI
             lbl_TicketTitle.Text = ticket.Title.ToString();
             lbl_TicketPriority.Text = ticket.Priority.ToString();
             lbl_TicketStatus.Text = ticket.Status.ToString();
-            lbl_handeldBy.Text = ticket.HandeldBy.ToString();
+            if (ticket.UserID.ToString() == "000000000000000000000000") { lbl_handeldBy.Text =  "None"; }
+            else { lbl_handeldBy.Text = user_Logic.GetNameOfHandeldUser(ticket.UserID); }
             lbl_TicketCreationTime.Text = ticket.CreationTime.ToString();
             lbl_TicketDeadline.Text = ticket.Deadline.ToString();
-            
+        }
+
+        private void pic_returnToTickerOverviewUser_Click(object sender, EventArgs e)
+        {
+            pnl_CreateTicketNormalUser.Visible = false;
+            LoadListview();
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            pnl_SeeTicket.Visible = false;
         }
     }
 }

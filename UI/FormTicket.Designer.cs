@@ -30,28 +30,8 @@ namespace UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTicket));
-            this.lbl_UserFullname = new System.Windows.Forms.Label();
-            this.richtb_TicketDescription = new System.Windows.Forms.RichTextBox();
-            this.richtb_TicketSolution = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dtp_TicketDeadline = new System.Windows.Forms.DateTimePicker();
-            this.dtp_TicketCreationTime = new System.Windows.Forms.DateTimePicker();
-            this.cbo_ticketStatus = new System.Windows.Forms.ComboBox();
-            this.cbo_TicketIncidentType = new System.Windows.Forms.ComboBox();
-            this.btn_UpdateTicket = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cbo_TIcketPriority = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cbo_TicketHandeldBy = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnl_Update_Ticket = new System.Windows.Forms.Panel();
             this.pnl_TicketoverviewNormalUser = new System.Windows.Forms.Panel();
-            this.pnl_CreateTicketNormalUser = new System.Windows.Forms.Panel();
             this.pnl_SeeTicket = new System.Windows.Forms.Panel();
             this.lbl_handeldBy = new System.Windows.Forms.Label();
             this.lbl_TicketPriority = new System.Windows.Forms.Label();
@@ -70,7 +50,8 @@ namespace UI
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pnl_CreateTicketNormalUser = new System.Windows.Forms.Panel();
+            this.pic_returnToTickerOverviewUser = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -88,229 +69,75 @@ namespace UI
             this.Status = new System.Windows.Forms.ColumnHeader();
             this.Completed = new System.Windows.Forms.ColumnHeader();
             this.pic_backToUserTicketList = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pic_returnTicketOverview = new System.Windows.Forms.PictureBox();
+            this.cbo_TicketHandeldBy = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbo_TIcketPriority = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btn_UpdateTicket = new System.Windows.Forms.Button();
+            this.cbo_TicketIncidentType = new System.Windows.Forms.ComboBox();
+            this.cbo_ticketStatus = new System.Windows.Forms.ComboBox();
+            this.dtp_TicketCreationTime = new System.Windows.Forms.DateTimePicker();
+            this.dtp_TicketDeadline = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.richtb_TicketSolution = new System.Windows.Forms.RichTextBox();
+            this.richtb_TicketDescription = new System.Windows.Forms.RichTextBox();
+            this.lbl_UserFullname = new System.Windows.Forms.Label();
+            this.pnl_Update_Ticket.SuspendLayout();
             this.pnl_TicketoverviewNormalUser.SuspendLayout();
-            this.pnl_CreateTicketNormalUser.SuspendLayout();
             this.pnl_SeeTicket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnl_CreateTicketNormalUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_returnToTickerOverviewUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_backToUserTicketList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_returnTicketOverview)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbl_UserFullname
+            // pnl_Update_Ticket
             // 
-            this.lbl_UserFullname.AutoSize = true;
-            this.lbl_UserFullname.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_UserFullname.Location = new System.Drawing.Point(93, 74);
-            this.lbl_UserFullname.Name = "lbl_UserFullname";
-            this.lbl_UserFullname.Size = new System.Drawing.Size(228, 38);
-            this.lbl_UserFullname.TabIndex = 3;
-            this.lbl_UserFullname.Text = "lbl_UserFullname";
-            // 
-            // richtb_TicketDescription
-            // 
-            this.richtb_TicketDescription.Location = new System.Drawing.Point(549, 74);
-            this.richtb_TicketDescription.Name = "richtb_TicketDescription";
-            this.richtb_TicketDescription.Size = new System.Drawing.Size(415, 137);
-            this.richtb_TicketDescription.TabIndex = 5;
-            this.richtb_TicketDescription.Text = "";
-            // 
-            // richtb_TicketSolution
-            // 
-            this.richtb_TicketSolution.Location = new System.Drawing.Point(549, 272);
-            this.richtb_TicketSolution.Name = "richtb_TicketSolution";
-            this.richtb_TicketSolution.Size = new System.Drawing.Size(415, 139);
-            this.richtb_TicketSolution.TabIndex = 6;
-            this.richtb_TicketSolution.Text = "";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(549, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 25);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Description";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(549, 228);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 25);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Solution";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(93, 159);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 25);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Incident Type";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(93, 216);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 25);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Status";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(85, 362);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 25);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Creation Time:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(85, 418);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 25);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Deadline:";
-            // 
-            // dtp_TicketDeadline
-            // 
-            this.dtp_TicketDeadline.Location = new System.Drawing.Point(232, 416);
-            this.dtp_TicketDeadline.Name = "dtp_TicketDeadline";
-            this.dtp_TicketDeadline.Size = new System.Drawing.Size(250, 27);
-            this.dtp_TicketDeadline.TabIndex = 13;
-            // 
-            // dtp_TicketCreationTime
-            // 
-            this.dtp_TicketCreationTime.Location = new System.Drawing.Point(232, 360);
-            this.dtp_TicketCreationTime.Name = "dtp_TicketCreationTime";
-            this.dtp_TicketCreationTime.Size = new System.Drawing.Size(250, 27);
-            this.dtp_TicketCreationTime.TabIndex = 14;
-            // 
-            // cbo_ticketStatus
-            // 
-            this.cbo_ticketStatus.FormattingEnabled = true;
-            this.cbo_ticketStatus.Location = new System.Drawing.Point(235, 217);
-            this.cbo_ticketStatus.Name = "cbo_ticketStatus";
-            this.cbo_ticketStatus.Size = new System.Drawing.Size(151, 28);
-            this.cbo_ticketStatus.TabIndex = 15;
-            // 
-            // cbo_TicketIncidentType
-            // 
-            this.cbo_TicketIncidentType.FormattingEnabled = true;
-            this.cbo_TicketIncidentType.Location = new System.Drawing.Point(235, 160);
-            this.cbo_TicketIncidentType.Name = "cbo_TicketIncidentType";
-            this.cbo_TicketIncidentType.Size = new System.Drawing.Size(151, 28);
-            this.cbo_TicketIncidentType.TabIndex = 16;
-            // 
-            // btn_UpdateTicket
-            // 
-            this.btn_UpdateTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_UpdateTicket.Location = new System.Drawing.Point(769, 454);
-            this.btn_UpdateTicket.Name = "btn_UpdateTicket";
-            this.btn_UpdateTicket.Size = new System.Drawing.Size(195, 64);
-            this.btn_UpdateTicket.TabIndex = 17;
-            this.btn_UpdateTicket.Text = "Update";
-            this.btn_UpdateTicket.UseVisualStyleBackColor = true;
-            this.btn_UpdateTicket.Click += new System.EventHandler(this.btn_UpdateTicket_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(93, 268);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 25);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Priority";
-            // 
-            // cbo_TIcketPriority
-            // 
-            this.cbo_TIcketPriority.FormattingEnabled = true;
-            this.cbo_TIcketPriority.Location = new System.Drawing.Point(234, 262);
-            this.cbo_TIcketPriority.Name = "cbo_TIcketPriority";
-            this.cbo_TIcketPriority.Size = new System.Drawing.Size(151, 28);
-            this.cbo_TIcketPriority.TabIndex = 19;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(549, 454);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(172, 64);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(93, 313);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(107, 25);
-            this.label12.TabIndex = 21;
-            this.label12.Text = "Handeld By:";
-            // 
-            // cbo_TicketHandeldBy
-            // 
-            this.cbo_TicketHandeldBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbo_TicketHandeldBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbo_TicketHandeldBy.FormattingEnabled = true;
-            this.cbo_TicketHandeldBy.Location = new System.Drawing.Point(232, 313);
-            this.cbo_TicketHandeldBy.Name = "cbo_TicketHandeldBy";
-            this.cbo_TicketHandeldBy.Size = new System.Drawing.Size(151, 28);
-            this.cbo_TicketHandeldBy.TabIndex = 22;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(59, 58);
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pnl_Update_Ticket.Controls.Add(this.pnl_TicketoverviewNormalUser);
+            this.pnl_Update_Ticket.Controls.Add(this.pic_returnTicketOverview);
+            this.pnl_Update_Ticket.Controls.Add(this.cbo_TicketHandeldBy);
+            this.pnl_Update_Ticket.Controls.Add(this.label12);
+            this.pnl_Update_Ticket.Controls.Add(this.button1);
+            this.pnl_Update_Ticket.Controls.Add(this.cbo_TIcketPriority);
+            this.pnl_Update_Ticket.Controls.Add(this.label11);
+            this.pnl_Update_Ticket.Controls.Add(this.btn_UpdateTicket);
+            this.pnl_Update_Ticket.Controls.Add(this.cbo_TicketIncidentType);
+            this.pnl_Update_Ticket.Controls.Add(this.cbo_ticketStatus);
+            this.pnl_Update_Ticket.Controls.Add(this.dtp_TicketCreationTime);
+            this.pnl_Update_Ticket.Controls.Add(this.dtp_TicketDeadline);
+            this.pnl_Update_Ticket.Controls.Add(this.label10);
+            this.pnl_Update_Ticket.Controls.Add(this.label9);
+            this.pnl_Update_Ticket.Controls.Add(this.label8);
+            this.pnl_Update_Ticket.Controls.Add(this.label7);
+            this.pnl_Update_Ticket.Controls.Add(this.label6);
+            this.pnl_Update_Ticket.Controls.Add(this.label3);
+            this.pnl_Update_Ticket.Controls.Add(this.richtb_TicketSolution);
+            this.pnl_Update_Ticket.Controls.Add(this.richtb_TicketDescription);
+            this.pnl_Update_Ticket.Controls.Add(this.lbl_UserFullname);
+            this.pnl_Update_Ticket.Location = new System.Drawing.Point(3, 0);
+            this.pnl_Update_Ticket.Name = "pnl_Update_Ticket";
+            this.pnl_Update_Ticket.Size = new System.Drawing.Size(1092, 556);
+            this.pnl_Update_Ticket.TabIndex = 0;
             // 
             // pnl_TicketoverviewNormalUser
             // 
+            this.pnl_TicketoverviewNormalUser.Controls.Add(this.pnl_SeeTicket);
             this.pnl_TicketoverviewNormalUser.Controls.Add(this.pnl_CreateTicketNormalUser);
             this.pnl_TicketoverviewNormalUser.Controls.Add(this.btn_CreateTicketNormalUser);
             this.pnl_TicketoverviewNormalUser.Controls.Add(this.lv_TicketOfNormalUser);
             this.pnl_TicketoverviewNormalUser.Controls.Add(this.pic_backToUserTicketList);
-            this.pnl_TicketoverviewNormalUser.Location = new System.Drawing.Point(12, 12);
+            this.pnl_TicketoverviewNormalUser.Location = new System.Drawing.Point(3, 12);
             this.pnl_TicketoverviewNormalUser.Name = "pnl_TicketoverviewNormalUser";
             this.pnl_TicketoverviewNormalUser.Size = new System.Drawing.Size(1071, 531);
-            this.pnl_TicketoverviewNormalUser.TabIndex = 24;
-            // 
-            // pnl_CreateTicketNormalUser
-            // 
-            this.pnl_CreateTicketNormalUser.Controls.Add(this.pnl_SeeTicket);
-            this.pnl_CreateTicketNormalUser.Controls.Add(this.pictureBox2);
-            this.pnl_CreateTicketNormalUser.Controls.Add(this.label13);
-            this.pnl_CreateTicketNormalUser.Controls.Add(this.label5);
-            this.pnl_CreateTicketNormalUser.Controls.Add(this.label4);
-            this.pnl_CreateTicketNormalUser.Controls.Add(this.tb_TicketTitle);
-            this.pnl_CreateTicketNormalUser.Controls.Add(this.label2);
-            this.pnl_CreateTicketNormalUser.Controls.Add(this.cb_TicketIncidentType);
-            this.pnl_CreateTicketNormalUser.Controls.Add(this.btn_SubmitTicket);
-            this.pnl_CreateTicketNormalUser.Controls.Add(this.label1);
-            this.pnl_CreateTicketNormalUser.Controls.Add(this.richtb_TicketDescriptionMakeTicketNormalUser);
-            this.pnl_CreateTicketNormalUser.Location = new System.Drawing.Point(7, 9);
-            this.pnl_CreateTicketNormalUser.Name = "pnl_CreateTicketNormalUser";
-            this.pnl_CreateTicketNormalUser.Size = new System.Drawing.Size(1064, 522);
-            this.pnl_CreateTicketNormalUser.TabIndex = 2;
-            this.pnl_CreateTicketNormalUser.Visible = false;
+            this.pnl_TicketoverviewNormalUser.TabIndex = 44;
             // 
             // pnl_SeeTicket
             // 
@@ -331,10 +158,11 @@ namespace UI
             this.pnl_SeeTicket.Controls.Add(this.label15);
             this.pnl_SeeTicket.Controls.Add(this.label14);
             this.pnl_SeeTicket.Controls.Add(this.pictureBox3);
-            this.pnl_SeeTicket.Location = new System.Drawing.Point(3, 3);
+            this.pnl_SeeTicket.Location = new System.Drawing.Point(13, 6);
             this.pnl_SeeTicket.Name = "pnl_SeeTicket";
-            this.pnl_SeeTicket.Size = new System.Drawing.Size(1044, 506);
-            this.pnl_SeeTicket.TabIndex = 10;
+            this.pnl_SeeTicket.Size = new System.Drawing.Size(1044, 519);
+            this.pnl_SeeTicket.TabIndex = 12;
+            this.pnl_SeeTicket.Visible = false;
             // 
             // lbl_handeldBy
             // 
@@ -500,17 +328,35 @@ namespace UI
             this.pictureBox3.Size = new System.Drawing.Size(62, 52);
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click_1);
             // 
-            // pictureBox2
+            // pnl_CreateTicketNormalUser
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(13, 13);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(71, 59);
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pnl_CreateTicketNormalUser.Controls.Add(this.pic_returnToTickerOverviewUser);
+            this.pnl_CreateTicketNormalUser.Controls.Add(this.label13);
+            this.pnl_CreateTicketNormalUser.Controls.Add(this.label5);
+            this.pnl_CreateTicketNormalUser.Controls.Add(this.label4);
+            this.pnl_CreateTicketNormalUser.Controls.Add(this.tb_TicketTitle);
+            this.pnl_CreateTicketNormalUser.Controls.Add(this.label2);
+            this.pnl_CreateTicketNormalUser.Controls.Add(this.cb_TicketIncidentType);
+            this.pnl_CreateTicketNormalUser.Controls.Add(this.btn_SubmitTicket);
+            this.pnl_CreateTicketNormalUser.Controls.Add(this.label1);
+            this.pnl_CreateTicketNormalUser.Controls.Add(this.richtb_TicketDescriptionMakeTicketNormalUser);
+            this.pnl_CreateTicketNormalUser.Location = new System.Drawing.Point(7, 11);
+            this.pnl_CreateTicketNormalUser.Name = "pnl_CreateTicketNormalUser";
+            this.pnl_CreateTicketNormalUser.Size = new System.Drawing.Size(1064, 522);
+            this.pnl_CreateTicketNormalUser.TabIndex = 22;
+            this.pnl_CreateTicketNormalUser.Visible = false;
+            // 
+            // pic_returnToTickerOverviewUser
+            // 
+            this.pic_returnToTickerOverviewUser.Image = ((System.Drawing.Image)(resources.GetObject("pic_returnToTickerOverviewUser.Image")));
+            this.pic_returnToTickerOverviewUser.Location = new System.Drawing.Point(13, 13);
+            this.pic_returnToTickerOverviewUser.Name = "pic_returnToTickerOverviewUser";
+            this.pic_returnToTickerOverviewUser.Size = new System.Drawing.Size(71, 59);
+            this.pic_returnToTickerOverviewUser.TabIndex = 9;
+            this.pic_returnToTickerOverviewUser.TabStop = false;
+            this.pic_returnToTickerOverviewUser.Click += new System.EventHandler(this.pic_returnToTickerOverviewUser_Click);
             // 
             // label13
             // 
@@ -649,11 +495,195 @@ namespace UI
             // pic_backToUserTicketList
             // 
             this.pic_backToUserTicketList.Image = ((System.Drawing.Image)(resources.GetObject("pic_backToUserTicketList.Image")));
-            this.pic_backToUserTicketList.Location = new System.Drawing.Point(3, 19);
+            this.pic_backToUserTicketList.Location = new System.Drawing.Point(3, 6);
             this.pic_backToUserTicketList.Name = "pic_backToUserTicketList";
             this.pic_backToUserTicketList.Size = new System.Drawing.Size(75, 56);
             this.pic_backToUserTicketList.TabIndex = 13;
             this.pic_backToUserTicketList.TabStop = false;
+            // 
+            // pic_returnTicketOverview
+            // 
+            this.pic_returnTicketOverview.Image = ((System.Drawing.Image)(resources.GetObject("pic_returnTicketOverview.Image")));
+            this.pic_returnTicketOverview.Location = new System.Drawing.Point(69, 23);
+            this.pic_returnTicketOverview.Name = "pic_returnTicketOverview";
+            this.pic_returnTicketOverview.Size = new System.Drawing.Size(59, 58);
+            this.pic_returnTicketOverview.TabIndex = 43;
+            this.pic_returnTicketOverview.TabStop = false;
+            // 
+            // cbo_TicketHandeldBy
+            // 
+            this.cbo_TicketHandeldBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbo_TicketHandeldBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbo_TicketHandeldBy.FormattingEnabled = true;
+            this.cbo_TicketHandeldBy.Location = new System.Drawing.Point(289, 324);
+            this.cbo_TicketHandeldBy.Name = "cbo_TicketHandeldBy";
+            this.cbo_TicketHandeldBy.Size = new System.Drawing.Size(151, 28);
+            this.cbo_TicketHandeldBy.TabIndex = 42;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(150, 324);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(107, 25);
+            this.label12.TabIndex = 41;
+            this.label12.Text = "Handeld By:";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(606, 465);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 64);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // cbo_TIcketPriority
+            // 
+            this.cbo_TIcketPriority.FormattingEnabled = true;
+            this.cbo_TIcketPriority.Location = new System.Drawing.Point(291, 273);
+            this.cbo_TIcketPriority.Name = "cbo_TIcketPriority";
+            this.cbo_TIcketPriority.Size = new System.Drawing.Size(151, 28);
+            this.cbo_TIcketPriority.TabIndex = 39;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(150, 279);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 25);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "Priority";
+            // 
+            // btn_UpdateTicket
+            // 
+            this.btn_UpdateTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_UpdateTicket.Location = new System.Drawing.Point(826, 465);
+            this.btn_UpdateTicket.Name = "btn_UpdateTicket";
+            this.btn_UpdateTicket.Size = new System.Drawing.Size(195, 64);
+            this.btn_UpdateTicket.TabIndex = 37;
+            this.btn_UpdateTicket.Text = "Update";
+            this.btn_UpdateTicket.UseVisualStyleBackColor = true;
+            this.btn_UpdateTicket.Click += new System.EventHandler(this.btn_UpdateTicket_Click);
+            // 
+            // cbo_TicketIncidentType
+            // 
+            this.cbo_TicketIncidentType.FormattingEnabled = true;
+            this.cbo_TicketIncidentType.Location = new System.Drawing.Point(292, 171);
+            this.cbo_TicketIncidentType.Name = "cbo_TicketIncidentType";
+            this.cbo_TicketIncidentType.Size = new System.Drawing.Size(151, 28);
+            this.cbo_TicketIncidentType.TabIndex = 36;
+            // 
+            // cbo_ticketStatus
+            // 
+            this.cbo_ticketStatus.FormattingEnabled = true;
+            this.cbo_ticketStatus.Location = new System.Drawing.Point(292, 228);
+            this.cbo_ticketStatus.Name = "cbo_ticketStatus";
+            this.cbo_ticketStatus.Size = new System.Drawing.Size(151, 28);
+            this.cbo_ticketStatus.TabIndex = 35;
+            // 
+            // dtp_TicketCreationTime
+            // 
+            this.dtp_TicketCreationTime.Location = new System.Drawing.Point(289, 371);
+            this.dtp_TicketCreationTime.Name = "dtp_TicketCreationTime";
+            this.dtp_TicketCreationTime.Size = new System.Drawing.Size(250, 27);
+            this.dtp_TicketCreationTime.TabIndex = 34;
+            // 
+            // dtp_TicketDeadline
+            // 
+            this.dtp_TicketDeadline.Location = new System.Drawing.Point(289, 427);
+            this.dtp_TicketDeadline.Name = "dtp_TicketDeadline";
+            this.dtp_TicketDeadline.Size = new System.Drawing.Size(250, 27);
+            this.dtp_TicketDeadline.TabIndex = 33;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(142, 429);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 25);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "Deadline:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(142, 373);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(125, 25);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Creation Time:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(150, 227);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 25);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Status";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(150, 170);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(117, 25);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Incident Type";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(606, 239);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 25);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Solution";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(606, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 25);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Description";
+            // 
+            // richtb_TicketSolution
+            // 
+            this.richtb_TicketSolution.Location = new System.Drawing.Point(606, 283);
+            this.richtb_TicketSolution.Name = "richtb_TicketSolution";
+            this.richtb_TicketSolution.Size = new System.Drawing.Size(415, 139);
+            this.richtb_TicketSolution.TabIndex = 26;
+            this.richtb_TicketSolution.Text = "";
+            // 
+            // richtb_TicketDescription
+            // 
+            this.richtb_TicketDescription.Location = new System.Drawing.Point(606, 85);
+            this.richtb_TicketDescription.Name = "richtb_TicketDescription";
+            this.richtb_TicketDescription.Size = new System.Drawing.Size(415, 137);
+            this.richtb_TicketDescription.TabIndex = 25;
+            this.richtb_TicketDescription.Text = "";
+            // 
+            // lbl_UserFullname
+            // 
+            this.lbl_UserFullname.AutoSize = true;
+            this.lbl_UserFullname.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_UserFullname.Location = new System.Drawing.Point(150, 85);
+            this.lbl_UserFullname.Name = "lbl_UserFullname";
+            this.lbl_UserFullname.Size = new System.Drawing.Size(228, 38);
+            this.lbl_UserFullname.TabIndex = 24;
+            this.lbl_UserFullname.Text = "lbl_UserFullname";
             // 
             // FormTicket
             // 
@@ -661,85 +691,75 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1095, 555);
-            this.Controls.Add(this.pnl_TicketoverviewNormalUser);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.cbo_TicketHandeldBy);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.cbo_TIcketPriority);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.btn_UpdateTicket);
-            this.Controls.Add(this.cbo_TicketIncidentType);
-            this.Controls.Add(this.cbo_ticketStatus);
-            this.Controls.Add(this.dtp_TicketCreationTime);
-            this.Controls.Add(this.dtp_TicketDeadline);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.richtb_TicketSolution);
-            this.Controls.Add(this.richtb_TicketDescription);
-            this.Controls.Add(this.lbl_UserFullname);
+            this.Controls.Add(this.pnl_Update_Ticket);
             this.Name = "FormTicket";
             this.Text = "FormTicket";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnl_Update_Ticket.ResumeLayout(false);
+            this.pnl_Update_Ticket.PerformLayout();
             this.pnl_TicketoverviewNormalUser.ResumeLayout(false);
-            this.pnl_CreateTicketNormalUser.ResumeLayout(false);
-            this.pnl_CreateTicketNormalUser.PerformLayout();
             this.pnl_SeeTicket.ResumeLayout(false);
             this.pnl_SeeTicket.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnl_CreateTicketNormalUser.ResumeLayout(false);
+            this.pnl_CreateTicketNormalUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_returnToTickerOverviewUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_backToUserTicketList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_returnTicketOverview)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lbl_UserFullname;
-        private System.Windows.Forms.RichTextBox richtb_TicketDescription;
-        private System.Windows.Forms.RichTextBox richtb_TicketSolution;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dtp_TicketDeadline;
-        private System.Windows.Forms.DateTimePicker dtp_TicketCreationTime;
-        private System.Windows.Forms.ComboBox cbo_ticketStatus;
-        private System.Windows.Forms.ComboBox cbo_TicketIncidentType;
-        private System.Windows.Forms.Button btn_UpdateTicket;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbo_TIcketPriority;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label12;
+
+        private System.Windows.Forms.Panel pnl_Update_Ticket;
+        private System.Windows.Forms.PictureBox pic_returnTicketOverview;
         private System.Windows.Forms.ComboBox cbo_TicketHandeldBy;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbo_TIcketPriority;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btn_UpdateTicket;
+        private System.Windows.Forms.ComboBox cbo_TicketIncidentType;
+        private System.Windows.Forms.ComboBox cbo_ticketStatus;
+        private System.Windows.Forms.DateTimePicker dtp_TicketCreationTime;
+        private System.Windows.Forms.DateTimePicker dtp_TicketDeadline;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RichTextBox richtb_TicketSolution;
+        private System.Windows.Forms.RichTextBox richtb_TicketDescription;
+        private System.Windows.Forms.Label lbl_UserFullname;
         private System.Windows.Forms.Panel pnl_TicketoverviewNormalUser;
+        private System.Windows.Forms.Button btn_CreateTicketNormalUser;
         private System.Windows.Forms.ListView lv_TicketOfNormalUser;
         private System.Windows.Forms.ColumnHeader Title;
         private System.Windows.Forms.ColumnHeader IncidentType;
         private System.Windows.Forms.ColumnHeader Priority;
         private System.Windows.Forms.ColumnHeader Status;
         private System.Windows.Forms.ColumnHeader Completed;
-        private System.Windows.Forms.Button btn_CreateTicketNormalUser;
+        private System.Windows.Forms.PictureBox pic_backToUserTicketList;
         private System.Windows.Forms.Panel pnl_CreateTicketNormalUser;
-        private System.Windows.Forms.ComboBox cb_TicketIncidentType;
-        private System.Windows.Forms.Button btn_SubmitTicket;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richtb_TicketDescriptionMakeTicketNormalUser;
+        private System.Windows.Forms.PictureBox pic_returnToTickerOverviewUser;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_TicketTitle;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.ComboBox cb_TicketIncidentType;
+        private System.Windows.Forms.Button btn_SubmitTicket;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox richtb_TicketDescriptionMakeTicketNormalUser;
         private System.Windows.Forms.Panel pnl_SeeTicket;
+        private System.Windows.Forms.Label lbl_handeldBy;
+        private System.Windows.Forms.Label lbl_TicketPriority;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.RichTextBox richtb_TicketDescriptionNormalUser;
+        private System.Windows.Forms.RichTextBox richtb_TicketSolutionNormalUser;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label lbl_TicketDeadline;
         private System.Windows.Forms.Label lbl_TicketCreationTime;
@@ -749,13 +769,6 @@ namespace UI
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.RichTextBox richtb_TicketDescriptionNormalUser;
-        private System.Windows.Forms.RichTextBox richtb_TicketSolutionNormalUser;
-        private System.Windows.Forms.PictureBox pic_backToUserTicketList;
-        private System.Windows.Forms.Label lbl_TicketPriority;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label lbl_handeldBy;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

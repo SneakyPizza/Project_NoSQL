@@ -69,13 +69,13 @@ namespace DAL
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(new BsonDocument()).ToList();
             return Users;
         }
-        public User GetUser()
+
+        public string GetCreatedByName(ObjectId TicketCreatedBy)
         {
             var collection = GetDatabase().GetCollection<User>("Users");
-            var filter = Builders<User>.Filter.Eq("Firstname", "VictorUser1");
-            var test = collection.Find(filter);
-            User user = test.FirstOrDefault();
-            return user;
+            FilterDefinition<User> filter = Builders<User>.Filter.Eq("_id", TicketCreatedBy);
+            User userCreatedBy = collection.Find(filter).First();
+            return userCreatedBy.Fullname;
         }
     }
 }

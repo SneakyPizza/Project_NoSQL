@@ -35,12 +35,13 @@ namespace Model
             _solution = solution;
         }
         // ticket normaluser
-        public Ticket(ObjectId userID, string title, string description, Priority priority)
+        public Ticket(ObjectId userID, string title, string description,IncidentType incident ,Priority priority)
         {
             _userID = userID;
             _creationTime = DateTime.Now;
             _title = title;
             _description = description;
+            _incidentType = incident;
             _priority = priority;
             _status = Status.Processing;
             _deadLine = CreationTime.AddDays(7);

@@ -45,14 +45,12 @@ namespace Logic
             {
                 username = username.Trim();
                 password = password.Trim();
-                //return _login_dal.LoginUser(username, password);
                 return _loggedUser = CreateUserfromBson(_login_dal.ReturnLoggingUser(username, password));
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                throw new Exception(e.Message);
             }
-            return null;
         }
 
         public User CreateUserfromBson(BsonDocument doc)
@@ -60,7 +58,6 @@ namespace Logic
             try
             {
                 BsonSerializer.Deserialize<User>(doc);
-                //List<ObjectId> ticketObjectIds = doc["Tickets"].AsBsonArray.Select(p => (ObjectId)p).ToList();
                 return new User(
                     (ObjectId)doc["_id"],
                     doc["Username"].ToString(),
@@ -73,26 +70,26 @@ namespace Logic
             }
             catch (Exception e)
             {
-                throw e;
+                throw new Exception(e.Message);
             }
         }
 
 
         //Created to insert a dummy user for testing purposes - Delete Later
-        public void CreateDummyUser()
-        {
-            try
-            {
-                string p = "bobuser2";
-                // p = EncryptPassword(p);
-                User u = new User("bob2", "bobuser2", "bob2", "bobus2", (UserRole)1);
-                _login_dal.InsertUser(u);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+        //public void CreateDummyUser()
+        //{
+        //    try
+        //    {
+        //        string p = "bobuser2";
+        //        // p = EncryptPassword(p);
+        //        User u = new User("bob2", "bobuser2", "bob2", "bobus2", (UserRole)1);
+        //        _login_dal.InsertUser(u);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
 
-        }
+        //}
     }
 }

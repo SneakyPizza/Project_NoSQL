@@ -201,7 +201,7 @@ namespace UI
         // normal user can enter a ticket
         private void btn_makeTicketUSer_Click(object sender, EventArgs e)
         {
-            Ticket ticket = new Ticket(_currentuser.Id, textBoxTicketTitle.Text, richTextBox_Userdescription.Text, Priority.Normal);
+            Ticket ticket = new Ticket(_currentuser.Id, textBoxTicketTitle.Text, richTextBox_Userdescription.Text, (IncidentType)comboBox_IncidentType.SelectedValue, Priority.Normal);
             _tickets.InsertTicket(ticket);
             MessageBox.Show("Ticket has been made");
         }

@@ -31,16 +31,16 @@ namespace UI
 
         }
 
-        //public MainForm()
-        //{
-        //    InitializeComponent();
-        //    pnl_ForgotPassword.Visible = false;
-        //    pnl_ForgotPasswordCode.Visible = false;
-        //    pnl_ForgotPasswordNewPassword.Visible = false;
-        //    pnl_Dashboard.Visible = false;
-        //}
+        public MainForm()
+        {
+            InitializeComponent();
+            //pnl_ForgotPassword.Visible = false;
+            //pnl_ForgotPasswordCode.Visible = false;
+            //pnl_ForgotPasswordNewPassword.Visible = false;
+            //pnl_Dashboard.Visible = false;
+        }
 
-        //#region Login page & Forgot Password
+        #region Login page & Forgot Password
         //private void btn_Login_Click(object sender, EventArgs e)
         //{
         //    if (!string.IsNullOrEmpty(tb_Password.Text) && !string.IsNullOrEmpty(tb_Username.Text))
@@ -68,41 +68,41 @@ namespace UI
         //    pnl_ForgotPassword.Visible = true;
         //}
 
-        private void btn_ForgotPasswordConfirm_Click(object sender, EventArgs e)
-        {
-            string input = tb_ForgotPassword.Text.Trim();
-            if (!string.IsNullOrEmpty(input) && _fp_logic.ValidEmailAdress(input))
-            {
-                _emailReset = input;
-                _fp_logic.SendMail(_emailReset);
-                pnl_ForgotPasswordCode.Visible = true;
-            }
-            else
-            {
-                MessageBox.Show("Invalid Email");
-            }
-        }
+        //private void btn_ForgotPasswordConfirm_Click(object sender, EventArgs e)
+        //{
+        //    string input = tb_ForgotPassword.Text.Trim();
+        //    if (!string.IsNullOrEmpty(input) && _fp_logic.ValidEmailAdress(input))
+        //    {
+        //        _emailReset = input;
+        //        _fp_logic.SendMail(_emailReset);
+        //        pnl_ForgotPasswordCode.Visible = true;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Invalid Email");
+        //    }
+        //}
 
-        private void btn_ForgotPasswordCodeConfirm_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(tb_ForgotPasswordCode.Text))
-            {
-                if (_fp_logic.ResetCodeCheck(tb_ForgotPasswordCode.Text))
-                {
-                    MessageBox.Show("Correct code");
-                    pnl_ForgotPasswordNewPassword.Visible = true;
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect code");
-                }
-            }
-        }
+        //private void btn_ForgotPasswordCodeConfirm_Click(object sender, EventArgs e)
+        //{
+        //    if (!string.IsNullOrEmpty(tb_ForgotPasswordCode.Text))
+        //    {
+        //        if (_fp_logic.ResetCodeCheck(tb_ForgotPasswordCode.Text))
+        //        {
+        //            MessageBox.Show("Correct code");
+        //            pnl_ForgotPasswordNewPassword.Visible = true;
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Incorrect code");
+        //        }
+        //    }
+        //}
 
-        private void btn_LoginReturn3_Click(object sender, EventArgs e)
-        {
+        //private void btn_LoginReturn3_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         //private void btn_ForgotPasswordConfirmNewPassword_Click(object sender, EventArgs e)
         //{
@@ -135,48 +135,48 @@ namespace UI
         //{
         //    ReturnToLogin();
         //}
-        //#endregion
+        #endregion
 
-        //#region Dashboard
-        //private void StartDashboard()
-        //{
-        //    //Getting userdata
-        //    //string Username = logic.GetLoggedUsername();
-        //    //string userrole = logic.GetLoggedUserRole().ToString();
+        #region Dashboard
+        private void StartDashboard()
+        {
+            //Getting userdata
+            //string Username = logic.GetLoggedUsername();
+            //string userrole = logic.GetLoggedUserRole().ToString();
 
-        //    lbl_DashboardCurrentFirstname.Text = Login_Logic.LoggedUser.Firstname;
-        //    lbl_DashboardCurrentUserLastname.Text = Login_Logic.LoggedUser.Lastname;
-        //    //Display dashboard
-        //    int[] values = _dashboard_logic.GetDashboardValues();
-        //    lbl_DashboardUnresolvedText.Text += String.Format(" {0} / {1}", values[0], values[1]);
-        //    lbl_DashboardOvertimeText.Text += String.Format(" {0} !", values[2]);
+            //lbl_DashboardCurrentFirstname.Text = Login_Logic.LoggedUser.Firstname;
+            //lbl_DashboardCurrentUserLastname.Text = Login_Logic.LoggedUser.Lastname;
+            ////Display dashboard
+            //int[] values = _dashboard_logic.GetDashboardValues();
+            //lbl_DashboardUnresolvedText.Text += String.Format(" {0} / {1}", values[0], values[1]);
+            //lbl_DashboardOvertimeText.Text += String.Format(" {0} !", values[2]);
 
-        //    //unresolved tickets circle
-        //    cpc_DashboardUnresolvedTickets.CurrentValue = values[0];
-        //    cpc_DashboardUnresolvedTickets.MaxValue = values[1];
-        //    //Incidents past deadlines 
-        //    cpc_DashboardOvertimeTickets.CurrentValue = values[2];
-        //    cpc_DashboardOvertimeTickets.MaxValue = 20;
-        //    cpc_DashboardOvertimeTickets.ProgressColor = Color.Red;
-        //}
+            ////unresolved tickets circle
+            //cpc_DashboardUnresolvedTickets.CurrentValue = values[0];
+            //cpc_DashboardUnresolvedTickets.MaxValue = values[1];
+            ////Incidents past deadlines 
+            //cpc_DashboardOvertimeTickets.CurrentValue = values[2];
+            //cpc_DashboardOvertimeTickets.MaxValue = 20;
+            //cpc_DashboardOvertimeTickets.ProgressColor = Color.Red;
+        }
 
-        //private void btn_DashboardLogout_Click(object sender, EventArgs e)
-        //{
-        //    _login_Logic.LogoutUser();
-        //    pnl_Dashboard.Visible = false;
-        //    ReturnToLogin();
-        //}
+        private void btn_DashboardLogout_Click(object sender, EventArgs e)
+        {
+            _login_Logic.LogoutUser();
+            //pnl_Dashboard.Visible = false;
+            //ReturnToLogin();
+        }
 
-        //#endregion
+        #endregion
 
-        //private void btn_DashboardOpenTickets_Click(object sender, EventArgs e)
-        //{
-        //    //Gilberto
-        //}
+        private void btn_DashboardOpenTickets_Click(object sender, EventArgs e)
+        {
+            //Gilberto
+        }
 
-        //private void btn_DashboardOpenUsers_Click(object sender, EventArgs e)
-        //{
-        //    //Taph
-        //}
+        private void btn_DashboardOpenUsers_Click(object sender, EventArgs e)
+        {
+            //Taph
+        }
     }
 }
