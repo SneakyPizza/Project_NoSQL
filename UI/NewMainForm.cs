@@ -125,10 +125,6 @@ namespace UI
             //
             // comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
             cbo_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
-            //foreach (Status status in Enum.GetValues(typeof(Status)))
-            //{
-            //    comboBox_TicketStatus1.Items.Add(status);
-            //}
             cbo_HandeledBy.DisplayMember = "Fullname";
             cbo_HandeledBy.DataSource = _user.GetnormalandSuperUser().Item2;
             cbo_TicketPriority.DataSource = Enum.GetValues(typeof(Priority));
@@ -145,7 +141,7 @@ namespace UI
                     pnl_TicketOverview.Visible = true;
                     return;
                 case UserRole.User:
-                    FormTicket frm_Ticket = new FormTicket();
+                    FormTicket frm_Ticket = new FormTicket(this,_currentUser);
                     frm_Ticket.ShowDialog();
                     return;
             }

@@ -33,11 +33,13 @@ namespace UI
             this._newMainform = _newMainform;
             this._currentUser = _currentUser;
             InitializeComponent();
+            lv_TicketOfNormalUser.MouseClick += new MouseEventHandler(lv_TicketOfNormalUser_MouseClick);
             LoadListview();
         }
 
         public void FillTicketAndComboBoxes(Ticket ticket)
         {
+            cb_TicketIncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             foreach (Status status in Enum.GetValues(typeof(Status)))
             {
                 cbo_ticketStatus.Items.Add(status);
@@ -77,14 +79,52 @@ namespace UI
 
         private void btn_CreateTicketNormalUser_Click(object sender, EventArgs e)
         {
-            Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescription.Text,Model.Priority.Normal);
-            ticket_Logic.InsertTicket(ticket);
-            MessageBox.Show("Ticket has been made");
+            pnl_CreateTicketNormalUser.Visible = true;
         }
     
         public void LoadListview()
         {
             _newMainform.FillListview(ticket_Logic.TicketsOFuser(_currentUser), lv_TicketOfNormalUser);
+        }
+
+        private void btn_SubmitTicket_Click(object sender, EventArgs e)
+        {
+            Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescription.Text, Model.Priority.Normal);
+            ticket_Logic.InsertTicket(ticket);
+            MessageBox.Show("Ticket has been made");
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            pnl_CreateTicketNormalUser.Visible = false;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("The application will be close if you press yes", "Close application", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                MessageBox.Show("The application is not closed. If you wish to sign in. Then press on the gardengroup logo on the top left of the application");
+            }
+        }
+
+        private void lv_TicketOfNormalUser_MouseClick(object sender, MouseEventArgs e)
+        {
+            pnl_SeeTicket.Visible = true;
+            Ticket ticket = (Ticket)lv_TicketOfNormalUser.SelectedItems[0].Tag;
+            richtb_TicketDescriptionNormalUser.Text = ticket.Description;
+            richtb_TicketSolutionNormalUser.Text = ticket.Description;
+            lbl_TicketTitle.Text = ticket.Title.ToString();
+            lbl_TicketPriority.Text = ticket.Priority.ToString();
+            lbl_TicketStatus.Text = ticket.Status.ToString();
+            lbl_handeldBy.Text = ticket.HandeldBy.ToString();
+            lbl_TicketCreationTime.Text = ticket.CreationTime.ToString();
+            lbl_TicketDeadline.Text = ticket.Deadline.ToString();
+            
         }
     }
 }

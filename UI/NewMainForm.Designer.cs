@@ -179,24 +179,26 @@ namespace UI
             // 
             // btn_CancelTicket
             // 
+            this.btn_CancelTicket.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btn_CancelTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_CancelTicket.Location = new System.Drawing.Point(584, 292);
             this.btn_CancelTicket.Name = "btn_CancelTicket";
             this.btn_CancelTicket.Size = new System.Drawing.Size(187, 83);
             this.btn_CancelTicket.TabIndex = 18;
             this.btn_CancelTicket.Text = "Cancel";
-            this.btn_CancelTicket.UseVisualStyleBackColor = true;
+            this.btn_CancelTicket.UseVisualStyleBackColor = false;
             this.btn_CancelTicket.Click += new System.EventHandler(this.btn_CancelTicket_Click);
             // 
             // btn_SubmitTicket
             // 
+            this.btn_SubmitTicket.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btn_SubmitTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_SubmitTicket.Location = new System.Drawing.Point(814, 294);
             this.btn_SubmitTicket.Name = "btn_SubmitTicket";
             this.btn_SubmitTicket.Size = new System.Drawing.Size(219, 83);
             this.btn_SubmitTicket.TabIndex = 17;
             this.btn_SubmitTicket.Text = "Submit";
-            this.btn_SubmitTicket.UseVisualStyleBackColor = true;
+            this.btn_SubmitTicket.UseVisualStyleBackColor = false;
             this.btn_SubmitTicket.Click += new System.EventHandler(this.btn_SubmitTicket_Click);
             // 
             // label9
