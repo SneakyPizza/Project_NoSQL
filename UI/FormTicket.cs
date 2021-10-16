@@ -88,7 +88,7 @@ namespace UI
 
         private void btn_SubmitTicket_Click(object sender, EventArgs e)
         {
-            Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescription.Text, (IncidentType)cbo_TicketIncidentType.SelectedValue, Model.Priority.Normal);
+            Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescription.Text, (IncidentType)cb_TicketIncidentType.SelectedValue, Model.Priority.Normal);
             ticket_Logic.InsertTicket(ticket);
             MessageBox.Show("Ticket has been made");
         }
