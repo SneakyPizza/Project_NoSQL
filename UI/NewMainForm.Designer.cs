@@ -34,7 +34,6 @@ namespace UI
             this.pnl_Dashboard = new System.Windows.Forms.Panel();
             this.pnl_TicketOverview = new System.Windows.Forms.Panel();
             this.pnl_CreateTicketAdmin = new System.Windows.Forms.Panel();
-            this.pnl_TicketOfUserAdmin = new System.Windows.Forms.Panel();
             this.cbo_Deadline = new System.Windows.Forms.ComboBox();
             this.btn_CancelTicket = new System.Windows.Forms.Button();
             this.btn_SubmitTicket = new System.Windows.Forms.Button();
@@ -137,7 +136,6 @@ namespace UI
             // 
             // pnl_CreateTicketAdmin
             // 
-            this.pnl_CreateTicketAdmin.Controls.Add(this.pnl_TicketOfUserAdmin);
             this.pnl_CreateTicketAdmin.Controls.Add(this.cbo_Deadline);
             this.pnl_CreateTicketAdmin.Controls.Add(this.btn_CancelTicket);
             this.pnl_CreateTicketAdmin.Controls.Add(this.btn_SubmitTicket);
@@ -162,14 +160,6 @@ namespace UI
             this.pnl_CreateTicketAdmin.Size = new System.Drawing.Size(1113, 602);
             this.pnl_CreateTicketAdmin.TabIndex = 5;
             this.pnl_CreateTicketAdmin.Visible = false;
-            // 
-            // pnl_TicketOfUserAdmin
-            // 
-            this.pnl_TicketOfUserAdmin.Location = new System.Drawing.Point(0, 3);
-            this.pnl_TicketOfUserAdmin.Name = "pnl_TicketOfUserAdmin";
-            this.pnl_TicketOfUserAdmin.Size = new System.Drawing.Size(1124, 607);
-            this.pnl_TicketOfUserAdmin.TabIndex = 20;
-            this.pnl_TicketOfUserAdmin.Visible = false;
             // 
             // cbo_Deadline
             // 
@@ -721,6 +711,5 @@ namespace UI
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox richtb_TicketDescription;
         private System.Windows.Forms.ComboBox cbo_Deadline;
-        private System.Windows.Forms.Panel pnl_TicketOfUserAdmin;
     }
 }

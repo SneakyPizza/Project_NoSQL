@@ -44,10 +44,7 @@ namespace UI
             {
                 if (_login_Logic.LoginUser(tb_Username.Text, tb_Password.Text))
                 {
-
-
                     // HideAllPanels();
-
                     MessageBox.Show("Succes");
                     // HideAllPanels();
                     pnl_Dashboard.Visible = true;
@@ -67,72 +64,11 @@ namespace UI
         }
         private void lbl_ForgotPassword_Click(object sender, EventArgs e)
         {
-            // pnl_ForgotPassword.Visible = true;
             ResetPassword frm_ResetPassword = new ResetPassword();
             frm_ResetPassword.ShowDialog();
         }
 
-        //private void btn_ForgotPasswordConfirm_Click(object sender, EventArgs e)
-        //{
-        //    string input = tb_ForgotPassword.Text.Trim();
-        //    if (!string.IsNullOrEmpty(input) && _fp_logic.ValidEmailAdress(input))
-        //    {
-        //        _emailReset = input;
-        //        _fp_logic.SendMail(_emailReset);
-        //      //  HideAllPanels();
-        //        pnl_ForgotPasswordCode.Visible = true;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Invalid Email");
-        //    }
-        //}
 
-        //private void btn_ForgotPasswordCodeConfirm_Click(object sender, EventArgs e)
-        //{
-        //    if (!string.IsNullOrEmpty(tb_ForgotPasswordCode.Text))
-        //    {
-        //        if (_fp_logic.ResetCodeCheck(tb_ForgotPasswordCode.Text))
-        //        {
-        //            MessageBox.Show("Correct code");
-        //            pnl_ForgotPasswordNewPassword.Visible = true;
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Incorrect code");
-        //        }
-        //    }
-        //}
-
-        private void btn_ForgotPasswordConfirmNewPassword_Click(object sender, EventArgs e)
-        {
-            //if ((!string.IsNullOrEmpty(tb_ForgotPasswordNew.Text) || !string.IsNullOrEmpty(tb_ForgotPasswordConfirm.Text)) && tb_ForgotPasswordConfirm.Text.Trim() == tb_ForgotPasswordNew.Text.Trim())
-            //{
-            //    _fp_logic.UpdateUserPassword(_emailReset, tb_ForgotPasswordConfirm.Text.Trim());
-            //    MessageBox.Show("Your password has succesfully been changed!");
-            //    ReturnToLogin();
-            //}
-            //else
-            //{
-
-            //    MessageBox.Show("Invalid password");
-            //    tb_ForgotPasswordNew.Clear();
-            //    tb_ForgotPasswordConfirm.Clear();
-            //}
-        }
-        //private void ReturnToLogin()
-        //{
-        //    pnl_ForgotPassword.Visible = false;
-        //    pnl_ForgotPasswordCode.Visible = false;
-        //    pnl_ForgotPasswordNewPassword.Visible = false;
-        //   // pnl_Login.Visible = true;
-        //    _fp_logic.RemoveResetCode();
-        //    if (_emailReset != null) { _emailReset = null; }
-        //}
-        //private void ReturnToLoginEvent(object sender, EventArgs e)
-        //{
-        //    ReturnToLogin();
-        //}
         //#endregion
 
         #region Dashboard
@@ -243,9 +179,10 @@ namespace UI
         private void lv_TicketOverview_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             lv_TicketOverview.Visible = false;
-            pnl_TicketOfUserAdmin.Visible = true;
          
             Ticket ticket = (Ticket)lv_TicketOverview.SelectedItems[0].Tag;
+            FormTicket frm_ticket = new FormTicket(ticket);
+            frm_ticket.ShowDialog();
             //  FillTicketAndComboBoxes(ticket);
             //  ShowComboBoxTickets();
         }
