@@ -24,18 +24,12 @@ namespace UI
 
         public void FillTicketAndComboBoxes(Ticket ticket)
         {
-            //richTextBox_TicketDescription1.Text = ticket.Description;
-            //comboBox_TicketStatus1.Text = ticket.Status.ToString();
-            //Txt_IncidentType1.Text = ticket.IncidentType.ToString();
-            //comboBox_TicketStatus1.SelectedItem = ticket.Status;
-            //comboBox_TicketStatus1.Text = ticket.Status.ToString();
-            //richTextBox1_TIcketSolution1.Text = ticket.Solution;
-            //if (ticket.Deadline == DateTime.Parse("01/01/0001 00:00:00"))
-            //{
-            //    dateTimePicker_TicketDeadline.Checked = false;
-            //    dateTimePicker_TicketDeadline.CustomFormat = " ";
-            //    dateTimePicker_TicketDeadline.Format = DateTimePickerFormat.Custom;
-            //}
+            richtb_TicketDescription.Text = ticket.Description;
+            cbo_ticketStatus.Text = ticket.Status.ToString();
+            cbo_TicketIncidentType.Text = ticket.IncidentType.ToString();
+            cbo_ticketStatus.SelectedItem = ticket.Status;
+            cbo_ticketStatus.Text = ticket.Status.ToString();
+            richtb_TicketSolution.Text = ticket.Solution;
         }
         private void btn_Update_Click(object sender, EventArgs e)
         {
