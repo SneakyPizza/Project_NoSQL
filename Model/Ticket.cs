@@ -65,7 +65,7 @@ namespace Model
         }
         public ObjectId UserID { get => _userID; set => _userID = value; } // user that creates ticket and makes ticket. is split by user role
         public ObjectId Id { get => _id; set => _id = value; } // take and send tickets from the database
-        public ObjectId TicketCreatedBy { get => _HandeldBy; set => _HandeldBy = value; }
+        public ObjectId HandeldBy { get => _HandeldBy; set => _HandeldBy = value; }
         public DateTime Deadline { get => _deadLine; set => _deadLine = value; }
         public DateTime CreationTime { get => _creationTime; set => _creationTime = value; } // tijd dat de ticket is aangemaakt
         public string Title { get => _title; set => _title = value; }

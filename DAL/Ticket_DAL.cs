@@ -51,6 +51,7 @@ namespace DAL
         {
             FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
             UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("Status", ticket.Status)
+                .Set("HandeldBy", ticket.HandeldBy)
                 .Set("Solution", ticket.Solution)
                 .Set("Priority", ticket.Priority)
                 .Set("Deadline", ticket.Deadline);
@@ -75,6 +76,15 @@ namespace DAL
             FilterDefinition<User> filter = Builders<User>.Filter.Eq("_id", ticketid);
             User user = collection.Find(filter).First();
             return user.Fullname;
+        }
+        public (string, string) GetCreatedByName(ObjectId TicketUserID, ObjectId TicketCreatedBy)
+        {
+            IMongoCollection<User> collection = GetDatabase().GetCollection<User>("Users");
+            FilterDefinition<User> filter = Builders<User>.Filter.Eq("_id", TicketCreatedBy);
+            FilterDefinition<User> filter2 = Builders<User>.Filter.Eq("_id", TicketUserID);
+            User userCreatedBy = collection.Find(filter).First();
+            User TicketOFUSer = collection.Find(filter2).First();
+            return (userCreatedBy.Fullname, TicketOFUSer.Fullname);
         }
     }
 }

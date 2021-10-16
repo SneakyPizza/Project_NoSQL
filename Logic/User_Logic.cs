@@ -11,6 +11,16 @@ namespace Logic
     public class User_Logic
     {
         User_DAL dal = new User_DAL();
+
+        private static User_Logic _user_logic;
+        public static User_Logic Instance
+        {
+            get
+            {
+                if (_user_logic == null) { _user_logic = new User_Logic(); }
+                return _user_logic;
+            }
+        }
         public void InsertUser(string firstname, string lastname, string username, string password, UserRole role, string email)
         {
             try

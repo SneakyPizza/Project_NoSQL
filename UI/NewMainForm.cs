@@ -18,8 +18,8 @@ namespace UI
         private ForgotPassword_Logic _fp_logic = ForgotPassword_Logic.Instance;
         private Dashboard_Logic _dashboard_logic = Dashboard_Logic.Instance;
         private Ticket_Logic ticket_Logic = Ticket_Logic.Instance;
-        User_Logic _user;
         private User _currentUser;
+        User_Logic _user;
         private string _emailReset;
 
         public NewMainForm()
@@ -42,7 +42,8 @@ namespace UI
         {
             if (!string.IsNullOrEmpty(tb_Password.Text) && !string.IsNullOrEmpty(tb_Username.Text))
             {
-                if (_login_Logic.LoginUser(tb_Username.Text, tb_Password.Text))
+                _currentUser = _login_Logic.LoginUser(tb_Username.Text, tb_Password.Text);
+                if (_currentUser != null)
                 {
                     // HideAllPanels();
                     MessageBox.Show("Succes");
@@ -119,10 +120,10 @@ namespace UI
             cbo_UserReportedBy.DisplayMember = "Fullname";
             cbo_UserReportedBy.DataSource = _user.GetnormalandSuperUser().Item1;
             // autofill textbox of the maketicketuser
-          //  textBoxFirstname.Text = _currentuser.Firstname;
-          //  textBoxLastname.Text = _currentuser.Lastname;
+            //  textBoxFirstname.Text = _currentuser.Firstname;
+            //  textBoxLastname.Text = _currentuser.Lastname;
             //
-           // comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
+            // comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
             cbo_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             //foreach (Status status in Enum.GetValues(typeof(Status)))
             //{
@@ -136,18 +137,26 @@ namespace UI
         private void btn_Tickets_Click(object sender, EventArgs e)
         {
             // if user is normal user show other panels
-
             Loadlistview();
-            
             FillComboboxes();
-            pnl_TicketOverview.Visible = true;
+            switch (_currentUser.UserRole)
+            {
+                case UserRole.Admin:
+                    pnl_TicketOverview.Visible = true;
+                    return;
+                case UserRole.User:
+                    FormTicket frm_Ticket = new FormTicket();
+                    frm_Ticket.ShowDialog();
+                    return;
+            }
+
         }
 
         private void btn_Dashboard_Click(object sender, EventArgs e)
         {
             pnl_Dashboard.Visible = true;
         }
-        private void FillListview(List<Ticket> tickets, ListView listviews)
+        public void FillListview(List<Ticket> tickets, ListView listviews)
         {
             listviews.Items.Clear();
             foreach (Ticket ticket in tickets)
@@ -169,7 +178,7 @@ namespace UI
         }
         private void LoadDubbleClickeventsListview()
         {
-            lv_TicketOverview.MouseDoubleClick += new MouseEventHandler(lv_TicketOverview_MouseDoubleClick);
+            lv_TicketOverview.MouseClick += new MouseEventHandler(lv_TicketOverview_MouseDoubleClick);
         }
         private void btn_SortPriority_Click(object sender, EventArgs e)
         {
@@ -178,13 +187,10 @@ namespace UI
         }
         private void lv_TicketOverview_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            lv_TicketOverview.Visible = false;
-         
             Ticket ticket = (Ticket)lv_TicketOverview.SelectedItems[0].Tag;
             FormTicket frm_ticket = new FormTicket(ticket);
             frm_ticket.ShowDialog();
-            //  FillTicketAndComboBoxes(ticket);
-            //  ShowComboBoxTickets();
+            Loadlistview();
         }
 
         private void btn_DeleteTicket_Click(object sender, EventArgs e)

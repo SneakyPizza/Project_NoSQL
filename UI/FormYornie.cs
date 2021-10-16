@@ -25,15 +25,15 @@ namespace UI
         {
             if (!string.IsNullOrEmpty(tb_Username.Text) && !string.IsNullOrEmpty(tb_Password.Text))
             {
-                if (_login_Logic.LoginUser(tb_Username.Text, tb_Password.Text))
-                {
-                    MessageBox.Show("Succes");
-                    YornieDashboard dashboard = new YornieDashboard();
-                    dashboard.Show();
-                } else
-                {
-                    MessageBox.Show("Failed");
-                }
+                //if (_login_Logic.LoginUser(tb_Username.Text, tb_Password.Text))
+                //{
+                //    MessageBox.Show("Succes");
+                //    YornieDashboard dashboard = new YornieDashboard();
+                //    dashboard.Show();
+                //} else
+                //{
+                //    MessageBox.Show("Failed");
+                //}
             } else
             {
                 //_login_Logic.CreateDummyUser();

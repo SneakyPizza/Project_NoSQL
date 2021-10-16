@@ -18,7 +18,7 @@ namespace Logic
         {
             get
             {
-                if(_login_logic == null) { _login_logic = new Login_Logic(); }
+                if (_login_logic == null) { _login_logic = new Login_Logic(); }
                 return _login_logic;
             }
         }
@@ -39,20 +39,20 @@ namespace Logic
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
-        public bool LoginUser(string username, string password)
+        public User LoginUser(string username, string password)
         {
             try
             {
                 username = username.Trim();
                 password = password.Trim();
                 //return _login_dal.LoginUser(username, password);
-                _loggedUser = CreateUserfromBson(_login_dal.ReturnLoggingUser(username, password));
-                return true;
-            } catch(Exception e)
+                return _loggedUser = CreateUserfromBson(_login_dal.ReturnLoggingUser(username, password));
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return false;
             }
+            return null;
         }
 
         public User CreateUserfromBson(BsonDocument doc)
@@ -70,12 +70,13 @@ namespace Logic
                     (UserRole)doc["UserRole"].ToInt32(),
                     doc["Email"].ToString()
                     );
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 throw e;
             }
         }
-        
+
 
         //Created to insert a dummy user for testing purposes - Delete Later
         public void CreateDummyUser()
@@ -83,10 +84,11 @@ namespace Logic
             try
             {
                 string p = "bobuser2";
-               // p = EncryptPassword(p);
+                // p = EncryptPassword(p);
                 User u = new User("bob2", "bobuser2", "bob2", "bobus2", (UserRole)1);
                 _login_dal.InsertUser(u);
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 throw e;
             }

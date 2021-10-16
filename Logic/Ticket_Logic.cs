@@ -48,7 +48,6 @@ namespace Logic
         {
             try
             {
-                _tickets.TestAggregation();
                 return _tickets.FilterTickets(keyWord);
             }
             catch (Exception e)
@@ -103,11 +102,11 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-        public string GetCreatedByName(Ticket TicketID)
+        public (string,string) GetCreatedByName(Ticket TicketID)
         {
             try
             {
-                return _tickets.GetCreatedByName(TicketID.TicketCreatedBy);
+                return _tickets.GetCreatedByName(TicketID.UserID,TicketID.HandeldBy);
             }
             catch (Exception e)
             {
