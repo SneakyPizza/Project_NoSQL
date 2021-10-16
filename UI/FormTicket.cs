@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using Logic;
+using System.Text.RegularExpressions;
 
 namespace UI
 {
@@ -89,6 +90,7 @@ namespace UI
         private void btn_SubmitTicket_Click(object sender, EventArgs e)
         {
             Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescription.Text, (IncidentType)cb_TicketIncidentType.SelectedValue, Model.Priority.Normal);
+            if (ticket.Title == string.Empty || new Regex("^[a-zA-Z0-9 ]*$").IsMatch(ticket.Title)) { MessageBox.Show("Not empty string allowed or special characters allowed"); return; }
             ticket_Logic.InsertTicket(ticket);
             MessageBox.Show("Ticket has been made");
         }
