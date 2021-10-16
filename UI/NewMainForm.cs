@@ -68,6 +68,8 @@ namespace UI
         private void lbl_ForgotPassword_Click(object sender, EventArgs e)
         {
             // pnl_ForgotPassword.Visible = true;
+            ResetPassword frm_ResetPassword = new ResetPassword();
+            frm_ResetPassword.ShowDialog();
         }
 
         //private void btn_ForgotPasswordConfirm_Click(object sender, EventArgs e)
@@ -240,7 +242,9 @@ namespace UI
         }
         private void lv_TicketOverview_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            lv_TicketOverview.Visible = false;
             pnl_TicketOfUserAdmin.Visible = true;
+         
             Ticket ticket = (Ticket)lv_TicketOverview.SelectedItems[0].Tag;
             //  FillTicketAndComboBoxes(ticket);
             //  ShowComboBoxTickets();

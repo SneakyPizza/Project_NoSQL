@@ -34,6 +34,7 @@ namespace UI
             this.pnl_Dashboard = new System.Windows.Forms.Panel();
             this.pnl_TicketOverview = new System.Windows.Forms.Panel();
             this.pnl_CreateTicketAdmin = new System.Windows.Forms.Panel();
+            this.pnl_TicketOfUserAdmin = new System.Windows.Forms.Panel();
             this.cbo_Deadline = new System.Windows.Forms.ComboBox();
             this.btn_CancelTicket = new System.Windows.Forms.Button();
             this.btn_SubmitTicket = new System.Windows.Forms.Button();
@@ -81,7 +82,6 @@ namespace UI
             this.btn_Tickets = new System.Windows.Forms.Button();
             this.btn_Dashboard = new System.Windows.Forms.Button();
             this.pictureBox_homeButton = new System.Windows.Forms.PictureBox();
-            this.pnl_TicketOfUserAdmin = new System.Windows.Forms.Panel();
             this.pnl_Login.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             this.pnl_TicketOverview.SuspendLayout();
@@ -162,6 +162,14 @@ namespace UI
             this.pnl_CreateTicketAdmin.Size = new System.Drawing.Size(1113, 602);
             this.pnl_CreateTicketAdmin.TabIndex = 5;
             this.pnl_CreateTicketAdmin.Visible = false;
+            // 
+            // pnl_TicketOfUserAdmin
+            // 
+            this.pnl_TicketOfUserAdmin.Location = new System.Drawing.Point(0, 3);
+            this.pnl_TicketOfUserAdmin.Name = "pnl_TicketOfUserAdmin";
+            this.pnl_TicketOfUserAdmin.Size = new System.Drawing.Size(1124, 607);
+            this.pnl_TicketOfUserAdmin.TabIndex = 20;
+            this.pnl_TicketOfUserAdmin.Visible = false;
             // 
             // cbo_Deadline
             // 
@@ -632,14 +640,6 @@ namespace UI
             this.pictureBox_homeButton.Size = new System.Drawing.Size(86, 86);
             this.pictureBox_homeButton.TabIndex = 4;
             this.pictureBox_homeButton.TabStop = false;
-            // 
-            // pnl_TicketOfUserAdmin
-            // 
-            this.pnl_TicketOfUserAdmin.Location = new System.Drawing.Point(4, 12);
-            this.pnl_TicketOfUserAdmin.Name = "pnl_TicketOfUserAdmin";
-            this.pnl_TicketOfUserAdmin.Size = new System.Drawing.Size(1106, 587);
-            this.pnl_TicketOfUserAdmin.TabIndex = 20;
-            this.pnl_TicketOfUserAdmin.Visible = false;
             // 
             // NewMainForm
             // 
