@@ -100,7 +100,6 @@ namespace UI
         {
             pnl_CreateTicketNormalUser.Visible = true;
         }
-
         public void LoadListview()
         {
             _newMainform.FillListview(ticket_Logic.TicketsOFuser(_currentUser), lv_TicketOfNormalUser);
@@ -110,8 +109,7 @@ namespace UI
         {
             Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescription.Text, (IncidentType)cb_TicketIncidentType.SelectedValue, Model.Priority.Normal);
             string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
-
-            if (ticket.Title.Contains(specialChar) && ticket.Title == string.Empty || ticket.Description.Contains(specialChar) && ticket.Description == string.Empty) { MessageBox.Show("Not empty string allowed or special characters allowed"); return; }
+            if (ticket.Title.Contains(specialChar) || ticket.Title == string.Empty || ticket.Description.Contains(specialChar) || ticket.Description == string.Empty) { MessageBox.Show("Not empty string allowed or special characters allowed"); return; }
             ticket_Logic.InsertTicket(ticket);
             MessageBox.Show("Ticket has been made");
         }
@@ -146,16 +144,17 @@ namespace UI
                 lbl_TicketDeadline.Text = ticket.Deadline.ToString();
             }
         }
-
         private void pic_returnToTickerOverviewUser_Click(object sender, EventArgs e)
         {
-            pnl_CreateTicketNormalUser.Visible = false;
+            pnl_SeeTicket.Visible = false;
+
+            pnl_TicketoverviewNormalUser.Visible = true;
             LoadListview();
         }
 
-        private void pictureBox3_Click_1(object sender, EventArgs e)
+        private void pic_backToUserTicketList_Click(object sender, EventArgs e)
         {
-            pnl_SeeTicket.Visible = false;
+            Close();
         }
     }
 }

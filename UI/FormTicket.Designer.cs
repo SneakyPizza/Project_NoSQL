@@ -88,7 +88,7 @@ namespace UI
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pic_returnToTicketOverviewUser = new System.Windows.Forms.PictureBox();
             this.pnl_Update_Ticket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnTicketOverview)).BeginInit();
             this.pnl_CreateTicketNormalUser.SuspendLayout();
@@ -96,7 +96,7 @@ namespace UI
             this.pnl_TicketoverviewNormalUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_backToUserTicketList)).BeginInit();
             this.pnl_SeeTicket.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_returnToTicketOverviewUser)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_Update_Ticket
@@ -492,6 +492,7 @@ namespace UI
             this.pic_backToUserTicketList.Size = new System.Drawing.Size(75, 56);
             this.pic_backToUserTicketList.TabIndex = 13;
             this.pic_backToUserTicketList.TabStop = false;
+            this.pic_backToUserTicketList.Click += new System.EventHandler(this.pic_backToUserTicketList_Click);
             // 
             // pnl_SeeTicket
             // 
@@ -511,7 +512,7 @@ namespace UI
             this.pnl_SeeTicket.Controls.Add(this.label16);
             this.pnl_SeeTicket.Controls.Add(this.label15);
             this.pnl_SeeTicket.Controls.Add(this.label14);
-            this.pnl_SeeTicket.Controls.Add(this.pictureBox3);
+            this.pnl_SeeTicket.Controls.Add(this.pic_returnToTicketOverviewUser);
             this.pnl_SeeTicket.Location = new System.Drawing.Point(0, 0);
             this.pnl_SeeTicket.Name = "pnl_SeeTicket";
             this.pnl_SeeTicket.Size = new System.Drawing.Size(1044, 519);
@@ -674,15 +675,15 @@ namespace UI
             this.label14.TabIndex = 4;
             this.label14.Text = "Title";
             // 
-            // pictureBox3
+            // pic_returnToTicketOverviewUser
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(62, 52);
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click_1);
+            this.pic_returnToTicketOverviewUser.Image = ((System.Drawing.Image)(resources.GetObject("pic_returnToTicketOverviewUser.Image")));
+            this.pic_returnToTicketOverviewUser.Location = new System.Drawing.Point(0, 0);
+            this.pic_returnToTicketOverviewUser.Name = "pic_returnToTicketOverviewUser";
+            this.pic_returnToTicketOverviewUser.Size = new System.Drawing.Size(62, 52);
+            this.pic_returnToTicketOverviewUser.TabIndex = 3;
+            this.pic_returnToTicketOverviewUser.TabStop = false;
+            this.pic_returnToTicketOverviewUser.Click += new System.EventHandler(this.pic_returnToTickerOverviewUser_Click);
             // 
             // FormTicket
             // 
@@ -706,7 +707,7 @@ namespace UI
             ((System.ComponentModel.ISupportInitialize)(this.pic_backToUserTicketList)).EndInit();
             this.pnl_SeeTicket.ResumeLayout(false);
             this.pnl_SeeTicket.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_returnToTicketOverviewUser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -771,6 +772,6 @@ namespace UI
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pic_returnToTicketOverviewUser;
     }
 }
