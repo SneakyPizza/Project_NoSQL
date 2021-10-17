@@ -130,7 +130,6 @@ namespace UI
             // 
             // pnl_TicketoverviewNormalUser
             // 
-            this.pnl_TicketoverviewNormalUser.Controls.Add(this.pnl_SeeTicket);
             this.pnl_TicketoverviewNormalUser.Controls.Add(this.pnl_CreateTicketNormalUser);
             this.pnl_TicketoverviewNormalUser.Controls.Add(this.btn_CreateTicketNormalUser);
             this.pnl_TicketoverviewNormalUser.Controls.Add(this.lv_TicketOfNormalUser);
@@ -160,7 +159,7 @@ namespace UI
             this.pnl_SeeTicket.Controls.Add(this.label15);
             this.pnl_SeeTicket.Controls.Add(this.label14);
             this.pnl_SeeTicket.Controls.Add(this.pictureBox3);
-            this.pnl_SeeTicket.Location = new System.Drawing.Point(13, 6);
+            this.pnl_SeeTicket.Location = new System.Drawing.Point(3, 11);
             this.pnl_SeeTicket.Name = "pnl_SeeTicket";
             this.pnl_SeeTicket.Size = new System.Drawing.Size(1044, 519);
             this.pnl_SeeTicket.TabIndex = 12;
@@ -334,6 +333,7 @@ namespace UI
             // 
             // pnl_CreateTicketNormalUser
             // 
+            this.pnl_CreateTicketNormalUser.Controls.Add(this.pnl_SeeTicket);
             this.pnl_CreateTicketNormalUser.Controls.Add(this.pic_returnToTickerOverviewUser);
             this.pnl_CreateTicketNormalUser.Controls.Add(this.label13);
             this.pnl_CreateTicketNormalUser.Controls.Add(this.label5);

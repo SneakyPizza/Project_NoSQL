@@ -85,8 +85,6 @@ namespace UI
             pnl_Dashboard.Visible = true;
             //  pnl_Dashboard.BringToFront();
             pnl_DashboardOptions.Visible = true;
-            //    lbl_DashboardCurrentFirstname.Text = Login_Logic.LoggedUser.Firstname;
-            //    lbl_DashboardCurrentUserLastname.Text = Login_Logic.LoggedUser.Lastname;
             //    Display dashboard
             int[] values = _dashboard_logic.GetDashboardValues();
             lbl_DashboardUnresolvedText.Text += String.Format(" {0} / {1}", values[0], values[1]);
@@ -144,10 +142,10 @@ namespace UI
                 case UserRole.Admin:
                     pnl_TicketOverview.Visible = true;
                     return;
-              //  case UserRole.User:
-                    //FormTicket frm_Ticket = new FormTicket(this, _currentUser);
-                    //frm_Ticket.ShowDialog();
-                    //return;
+                case UserRole.User:
+                    FormTicket frm_Ticket = new FormTicket(this, _currentUser);
+                    frm_Ticket.ShowDialog();
+                    return;
             }
 
         }

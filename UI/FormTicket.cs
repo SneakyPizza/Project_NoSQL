@@ -20,6 +20,7 @@ namespace UI
         private User_Logic user_Logic = User_Logic.Instance;
         private NewMainForm _newMainform;
         private User _currentUser;
+        // super user
         public FormTicket(Ticket _currentTicket)
         {
             this._currentTicket = _currentTicket;
@@ -27,16 +28,20 @@ namespace UI
             FillTicketAndComboBoxesOfTicketoverview(_currentTicket);
             pnl_Update_Ticket.Visible = true;
         }
+        // normal user
         public FormTicket(NewMainForm _newMainform, User _currentUser)
         {
             this._newMainform = _newMainform;
             this._currentUser = _currentUser;
             InitializeComponent();
-            FillComboboxesOfFrmTicket(); 
-            lv_TicketOfNormalUser.MouseClick += new MouseEventHandler(lv_TicketOfNormalUser_MouseClick);
+            pnl_CreateTicketNormalUser.Visible = true;
+            pnl_CreateTicketNormalUser.BringToFront();
+            FillComboboxesOfFrmTicket();
+            lv_TicketOfNormalUser.MouseDoubleClick += new MouseEventHandler(lv_TicketOfNormalUser_MouseClick);
             LoadListview();
         }
-        private void FillComboboxesOfFrmTicket() {
+        private void FillComboboxesOfFrmTicket()
+        {
             cb_TicketIncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             cbo_TicketIncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             foreach (Status status in Enum.GetValues(typeof(Status)))
@@ -45,7 +50,7 @@ namespace UI
             }
 
             cbo_TicketHandeldBy.DisplayMember = "Fullname";
-           // cbo_TicketHandeldBy.DataSource = user_Logic.GetNormalUser();
+            // cbo_TicketHandeldBy.DataSource = user_Logic.GetNormalUser();
             foreach (Priority priority in Enum.GetValues(typeof(Priority)))
             {
                 cbo_TIcketPriority.Items.Add(priority);
@@ -96,7 +101,7 @@ namespace UI
         {
             pnl_CreateTicketNormalUser.Visible = true;
         }
-    
+
         public void LoadListview()
         {
             _newMainform.FillListview(ticket_Logic.TicketsOFuser(_currentUser), lv_TicketOfNormalUser);
@@ -127,17 +132,20 @@ namespace UI
 
         private void lv_TicketOfNormalUser_MouseClick(object sender, MouseEventArgs e)
         {
-            pnl_SeeTicket.Visible = true;
-            Ticket ticket = (Ticket)lv_TicketOfNormalUser.SelectedItems[0].Tag;
-            richtb_TicketDescriptionNormalUser.Text = ticket.Description;
-            richtb_TicketSolutionNormalUser.Text = ticket.Description;
-            lbl_TicketTitle.Text = ticket.Title.ToString();
-            lbl_TicketPriority.Text = ticket.Priority.ToString();
-            lbl_TicketStatus.Text = ticket.Status.ToString();
-            if (ticket.UserID.ToString() == "000000000000000000000000") { lbl_handeldBy.Text =  "None"; }
-            else { lbl_handeldBy.Text = user_Logic.GetNameOfHandeldUser(ticket.UserID); }
-            lbl_TicketCreationTime.Text = ticket.CreationTime.ToString();
-            lbl_TicketDeadline.Text = ticket.Deadline.ToString();
+            if (lv_TicketOfNormalUser.SelectedItems.Count == 1)
+            {
+                pnl_SeeTicket.Visible = true;
+                Ticket ticket = (Ticket)lv_TicketOfNormalUser.SelectedItems[0].Tag;
+                richtb_TicketDescriptionNormalUser.Text = ticket.Description;
+                richtb_TicketSolutionNormalUser.Text = ticket.Description;
+                lbl_TicketTitle.Text = ticket.Title.ToString();
+                lbl_TicketPriority.Text = ticket.Priority.ToString();
+                lbl_TicketStatus.Text = ticket.Status.ToString();
+                if (ticket.UserID.ToString() == "000000000000000000000000") { lbl_handeldBy.Text = "None"; }
+                else { lbl_handeldBy.Text = user_Logic.GetNameOfHandeldUser(ticket.UserID); }
+                lbl_TicketCreationTime.Text = ticket.CreationTime.ToString();
+                lbl_TicketDeadline.Text = ticket.Deadline.ToString();
+            }
         }
 
         private void pic_returnToTickerOverviewUser_Click(object sender, EventArgs e)
