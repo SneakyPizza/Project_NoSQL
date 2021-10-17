@@ -31,11 +31,11 @@ namespace DAL
             return false;
         }
 
-        public BsonDocument ReturnLoggingUser(string username, string password)
+        public User ReturnLoggingUser(string username, string password)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("Username", username);    //filter on username 
-            BsonDocument collection = GetDatabaseBsonUsers().Find(filter).FirstOrDefault(); //gets the document of the corresponding user
-            if(collection != null && AuthenticateLogin(password, collection.GetValue("Password", "n/a").ToString()))
+            var filter = Builders<User>.Filter.Eq("Username", username);    //filter on username 
+            User collection = GetDatabase().GetCollection<User>("Users").Find(filter).FirstOrDefault(); //gets the document of the corresponding user
+            if (collection != null && AuthenticateLogin(password, collection.Password));
             {
                 return collection;
             }

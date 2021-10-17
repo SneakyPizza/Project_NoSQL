@@ -27,7 +27,6 @@ namespace UI
             InitializeComponent();
             _user = new User_Logic();
             LoadDubbleClickeventsListview();
-            //pnl_Dashboard.Visible = false;
         }
         private void HideAllPanels()
         {
@@ -38,6 +37,18 @@ namespace UI
             //pnl_ForgotPasswordNewPassword.Visible = false;
             //pnl_Dashboard.Visible = false;
         }
+        public void CheckUserAccess(User user) {
+            switch (_currentUser.UserRole)
+            {
+                case UserRole.Admin:
+                    btn_ManageUsers.Visible = true;
+                    btn_Dashboard.Visible = true;
+                    pnl_DashboardOptions.Visible = true;
+                    return;
+                case UserRole.User:
+                    return;
+            }
+        }
         private void btn_Login_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tb_Password.Text) && !string.IsNullOrEmpty(tb_Username.Text))
@@ -45,12 +56,9 @@ namespace UI
                 _currentUser = _login_Logic.LoginUser(tb_Username.Text, tb_Password.Text);
                 if (_currentUser != null)
                 {
-                    // HideAllPanels();
                     MessageBox.Show("Succes");
-                    // HideAllPanels();
-                    pnl_Dashboard.Visible = true;
-                    pnl_DashboardOptions.Visible = true;
-                    //   StartDashboard();
+                    CheckUserAccess(_currentUser);
+                    StartDashboard();
                     pnl_Dashboard.Refresh();
                 }
                 else
@@ -75,15 +83,6 @@ namespace UI
         #region Dashboard
         private void StartDashboard()
         {
-            pnl_Dashboard.Visible = true;
-            //  pnl_Dashboard.BringToFront();
-            pnl_DashboardOptions.Visible = true;
-            //    Getting userdata
-            //       string Username = logic.GetLoggedUsername();
-            //  string userrole = logic.GetLoggedUserRole().ToString();
-
-            //    lbl_DashboardCurrentFirstname.Text = Login_Logic.LoggedUser.Firstname;
-            //    lbl_DashboardCurrentUserLastname.Text = Login_Logic.LoggedUser.Lastname;
             //    Display dashboard
             int[] values = _dashboard_logic.GetDashboardValues();
             lbl_DashboardUnresolvedText.Text += String.Format(" {0} / {1}", values[0], values[1]);
@@ -96,6 +95,7 @@ namespace UI
             cpc_DashboardOvertimeTickets.CurrentValue = values[2];
             cpc_DashboardOvertimeTickets.MaxValue = 20;
             cpc_DashboardOvertimeTickets.ProgressColor = Color.Red;
+            pnl_Dashboard.Refresh();
         }
 
         private void btn_DashboardLogout_Click(object sender, EventArgs e)
@@ -119,11 +119,6 @@ namespace UI
         {
             cbo_UserReportedBy.DisplayMember = "Fullname";
             cbo_UserReportedBy.DataSource = _user.GetnormalandSuperUser().Item1;
-            // autofill textbox of the maketicketuser
-            //  textBoxFirstname.Text = _currentuser.Firstname;
-            //  textBoxLastname.Text = _currentuser.Lastname;
-            //
-            // comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
             cbo_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             cbo_HandeledBy.DisplayMember = "Fullname";
             cbo_HandeledBy.DataSource = _user.GetnormalandSuperUser().Item2;
@@ -141,13 +136,11 @@ namespace UI
                     pnl_TicketOverview.Visible = true;
                     return;
                 case UserRole.User:
-                    FormTicket frm_Ticket = new FormTicket(this,_currentUser);
+                    FormTicket frm_Ticket = new FormTicket(this, _currentUser);
                     frm_Ticket.ShowDialog();
                     return;
             }
-
         }
-
         private void btn_Dashboard_Click(object sender, EventArgs e)
         {
             pnl_Dashboard.Visible = true;

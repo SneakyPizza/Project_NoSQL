@@ -45,7 +45,7 @@ namespace Logic
             {
                 username = username.Trim();
                 password = password.Trim();
-                return _loggedUser = CreateUserfromBson(_login_dal.ReturnLoggingUser(username, password));
+                return _login_dal.ReturnLoggingUser(username,password);
             }
             catch (Exception e)
             {

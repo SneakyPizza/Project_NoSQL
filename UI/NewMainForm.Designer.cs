@@ -585,7 +585,6 @@ namespace UI
             this.pnl_DashboardOptions.Name = "pnl_DashboardOptions";
             this.pnl_DashboardOptions.Size = new System.Drawing.Size(1143, 100);
             this.pnl_DashboardOptions.TabIndex = 24;
-            this.pnl_DashboardOptions.Visible = false;
             // 
             // btn_ManageUsers
             // 
@@ -597,6 +596,7 @@ namespace UI
             this.btn_ManageUsers.TabIndex = 3;
             this.btn_ManageUsers.Text = "Manage Users\r\n";
             this.btn_ManageUsers.UseVisualStyleBackColor = false;
+            this.btn_ManageUsers.Visible = false;
             this.btn_ManageUsers.Click += new System.EventHandler(this.btn_ManageUsers_Click);
             // 
             // btn_Tickets
@@ -622,6 +622,7 @@ namespace UI
             this.btn_Dashboard.TabIndex = 1;
             this.btn_Dashboard.Text = "Dashboard";
             this.btn_Dashboard.UseVisualStyleBackColor = false;
+            this.btn_Dashboard.Visible = false;
             this.btn_Dashboard.Click += new System.EventHandler(this.btn_Dashboard_Click);
             // 
             // pictureBox_homeButton
