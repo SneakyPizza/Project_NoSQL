@@ -34,10 +34,10 @@ namespace DAL
         public User ReturnLoggingUser(string username, string password)
         {
             var filter = Builders<User>.Filter.Eq("Username", username);    //filter on username 
-            User collection = GetDatabase().GetCollection<User>("Users").Find(filter).FirstOrDefault(); //gets the document of the corresponding user
-            if (collection != null && AuthenticateLogin(password, collection.Password));
+            User user = GetDatabase().GetCollection<User>("Users").Find(filter).FirstOrDefault(); //gets the document of the corresponding user
+            if (user != null && AuthenticateLogin(password, user.Password))
             {
-                return collection;
+                return user;
             }
             return null;
         }

@@ -20,22 +20,12 @@ namespace UI
         private Ticket_Logic ticket_Logic = Ticket_Logic.Instance;
         private User _currentUser;
         User_Logic _user;
-        private string _emailReset;
 
         public NewMainForm()
         {
             InitializeComponent();
             _user = new User_Logic();
             LoadDubbleClickeventsListview();
-        }
-        private void HideAllPanels()
-        {
-            // pnl_DashboardOptions.Visible = false;
-            //pnl_ForgotPassword.Visible = false;
-
-            //pnl_ForgotPasswordCode.Visible = false;
-            //pnl_ForgotPasswordNewPassword.Visible = false;
-            //pnl_Dashboard.Visible = false;
         }
         public void CheckUserAccess(User user) {
             switch (user.UserRole)
@@ -76,7 +66,6 @@ namespace UI
             frm_ResetPassword.ShowDialog();
         }
 
-
         //#endregion
 
         #region Dashboard
@@ -107,14 +96,10 @@ namespace UI
             //    ReturnToLogin();
         }
         #endregion
-        //private void pic_LoginReturn1_Click(object sender, EventArgs e)
-        //{
-        //    HideAllPanels();
-        //}
 
         private void btn_ManageUsers_Click(object sender, EventArgs e)
         {
-
+            
         }
         // fill comboxesof tickets and ticket overview
         public void FillComboboxes()
