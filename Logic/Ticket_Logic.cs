@@ -102,6 +102,17 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
+        public string GetCreatedByName(ObjectId ticketUserID)
+        {
+            try
+            {
+                return _tickets.GetCreatedByName(ticketUserID);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
         public (string,string) GetCreatedByName(Ticket TicketID)
         {
             try

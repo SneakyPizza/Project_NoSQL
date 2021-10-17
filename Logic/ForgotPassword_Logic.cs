@@ -34,7 +34,6 @@ namespace Logic
         {
             if(_currentResetCode != null) { _currentResetCode = null; }
         }
-
         public void SendMail(string email)
         {
             if (CheckMail(email))

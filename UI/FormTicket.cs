@@ -81,8 +81,7 @@ namespace UI
             cbo_TIcketPriority.Text = ticket.Priority.ToString();
             richtb_TicketSolution.Text = ticket.Solution;
             if (ticket.HandeldBy.ToString() != "000000000000000000000000") { lbl_handeldBy.Text = ticket_Logic.GetCreatedByName(_currentTicket).Item1.ToString(); }
-            else { lbl_UserFullname.Text = "None"; }
-            lbl_UserFullname.Text = ticket_Logic.GetCreatedByName(_currentTicket).Item2.ToString();
+            lbl_UserFullname.Text = ticket_Logic.GetCreatedByName(_currentTicket.UserID);
             dtp_TicketCreationTime.Value = ticket.CreationTime;
             dtp_TicketDeadline.Value = ticket.Deadline;
         }
@@ -108,9 +107,9 @@ namespace UI
 
         private void btn_SubmitTicket_Click(object sender, EventArgs e)
         {
-            Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescription.Text, (IncidentType)cb_TicketIncidentType.SelectedValue, Model.Priority.Normal);
-            string specialChar = @"\|!#$%&/()=?»«@£§€{}-;'<>_";
-            if (ticket.Title.Contains(specialChar) || ticket.Title == string.Empty || ticket.Description.Contains(specialChar) || ticket.Description == string.Empty) { MessageBox.Show("Not empty string allowed or special characters allowed"); return; }
+            Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescriptionMakeTicketNormalUser.Text, (IncidentType)cb_TicketIncidentType.SelectedValue, Model.Priority.Normal);
+            Regex rgx = new Regex("[^A-Za-z0-9]");
+            if (rgx.IsMatch(ticket.Title) || ticket.Title == string.Empty || rgx.IsMatch(ticket.Description) || ticket.Description == string.Empty) { MessageBox.Show("Not empty string allowed or special characters allowed"); return; }
             ticket_Logic.InsertTicket(ticket);
             MessageBox.Show("Ticket has been made");
         }
@@ -135,12 +134,12 @@ namespace UI
                 pnl_SeeTicket.Visible = true;
                 Ticket ticket = (Ticket)lv_TicketOfNormalUser.SelectedItems[0].Tag;
                 richtb_TicketDescriptionNormalUser.Text = ticket.Description;
-                richtb_TicketSolutionNormalUser.Text = ticket.Description;
+                richtb_TicketSolutionNormalUser.Text = ticket.Solution;
                 lbl_TicketTitle.Text = ticket.Title.ToString();
                 lbl_TicketPriority.Text = ticket.Priority.ToString();
                 lbl_TicketStatus.Text = ticket.Status.ToString();
-                if (ticket.UserID.ToString() == "000000000000000000000000") { lbl_handeldBy.Text = "None"; }
-                else { lbl_handeldBy.Text = user_Logic.GetNameOfHandeldUser(ticket.UserID); }
+                if (ticket.HandeldBy.ToString() == "000000000000000000000000") { lbl_handeldBy.Text = "None"; }
+                else { lbl_handeldBy.Text = user_Logic.GetNameOfHandeldUser(ticket.HandeldBy); }
                 lbl_TicketCreationTime.Text = ticket.CreationTime.ToString();
                 lbl_TicketDeadline.Text = ticket.Deadline.ToString();
             }

@@ -105,10 +105,10 @@ namespace UI
         public void FillComboboxes()
         {
             cbo_UserReportedBy.DisplayMember = "Fullname";
-            cbo_UserReportedBy.DataSource = _user.GetnormalandSuperUser().Item1;
+            cbo_UserReportedBy.DataSource = _user.GetnormalandSuperUser().Item2;
             cbo_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             cbo_HandeledBy.DisplayMember = "Fullname";
-            cbo_HandeledBy.DataSource = _user.GetnormalandSuperUser().Item2;
+            cbo_HandeledBy.DataSource = _user.GetnormalandSuperUser().Item1;
             cbo_TicketPriority.DataSource = Enum.GetValues(typeof(Priority));
             cbo_SortPriority.DataSource = Enum.GetValues(typeof(Priority));
         }
