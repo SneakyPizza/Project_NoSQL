@@ -585,6 +585,7 @@ namespace UI
             this.pnl_DashboardOptions.Name = "pnl_DashboardOptions";
             this.pnl_DashboardOptions.Size = new System.Drawing.Size(1143, 100);
             this.pnl_DashboardOptions.TabIndex = 24;
+            this.pnl_DashboardOptions.Visible = false;
             // 
             // btn_ManageUsers
             // 

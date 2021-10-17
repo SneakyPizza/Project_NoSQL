@@ -38,12 +38,11 @@ namespace UI
             //pnl_Dashboard.Visible = false;
         }
         public void CheckUserAccess(User user) {
-            switch (_currentUser.UserRole)
+            switch (user.UserRole)
             {
                 case UserRole.Admin:
                     btn_ManageUsers.Visible = true;
                     btn_Dashboard.Visible = true;
-                    pnl_DashboardOptions.Visible = true;
                     return;
                 case UserRole.User:
                     return;
@@ -83,6 +82,11 @@ namespace UI
         #region Dashboard
         private void StartDashboard()
         {
+            pnl_Dashboard.Visible = true;
+            //  pnl_Dashboard.BringToFront();
+            pnl_DashboardOptions.Visible = true;
+            //    lbl_DashboardCurrentFirstname.Text = Login_Logic.LoggedUser.Firstname;
+            //    lbl_DashboardCurrentUserLastname.Text = Login_Logic.LoggedUser.Lastname;
             //    Display dashboard
             int[] values = _dashboard_logic.GetDashboardValues();
             lbl_DashboardUnresolvedText.Text += String.Format(" {0} / {1}", values[0], values[1]);
@@ -119,6 +123,11 @@ namespace UI
         {
             cbo_UserReportedBy.DisplayMember = "Fullname";
             cbo_UserReportedBy.DataSource = _user.GetnormalandSuperUser().Item1;
+            // autofill textbox of the maketicketuser
+            //  textBoxFirstname.Text = _currentuser.Firstname;
+            //  textBoxLastname.Text = _currentuser.Lastname;
+            //
+            // comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
             cbo_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             cbo_HandeledBy.DisplayMember = "Fullname";
             cbo_HandeledBy.DataSource = _user.GetnormalandSuperUser().Item2;
@@ -140,7 +149,9 @@ namespace UI
                     frm_Ticket.ShowDialog();
                     return;
             }
+
         }
+
         private void btn_Dashboard_Click(object sender, EventArgs e)
         {
             pnl_Dashboard.Visible = true;

@@ -54,7 +54,6 @@ namespace UI
         }
         public void FillTicketAndComboBoxesOfTicketoverview(Ticket ticket)
         {
-          
             richtb_TicketDescription.Text = ticket.Description;
             cbo_ticketStatus.Text = ticket.Status.ToString();
             cbo_TicketIncidentType.Text = ticket.IncidentType.ToString();
@@ -90,7 +89,9 @@ namespace UI
         private void btn_SubmitTicket_Click(object sender, EventArgs e)
         {
             Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescription.Text, (IncidentType)cb_TicketIncidentType.SelectedValue, Model.Priority.Normal);
-            if (ticket.Title == string.Empty || new Regex("^[a-zA-Z0-9 ]*$").IsMatch(ticket.Title)) { MessageBox.Show("Not empty string allowed or special characters allowed"); return; }
+            string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+
+            if (ticket.Title.Contains(specialChar) && ticket.Title == string.Empty || ticket.Description.Contains(specialChar) && ticket.Description == string.Empty) { MessageBox.Show("Not empty string allowed or special characters allowed"); return; }
             ticket_Logic.InsertTicket(ticket);
             MessageBox.Show("Ticket has been made");
         }
