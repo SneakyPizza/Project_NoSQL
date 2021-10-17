@@ -43,8 +43,9 @@ namespace UI
             {
                 cbo_ticketStatus.Items.Add(status);
             }
+
             cbo_TicketHandeldBy.DisplayMember = "Fullname";
-            cbo_TicketHandeldBy.DataSource = user_Logic.GetNormalUser();
+           // cbo_TicketHandeldBy.DataSource = user_Logic.GetNormalUser();
             foreach (Priority priority in Enum.GetValues(typeof(Priority)))
             {
                 cbo_TIcketPriority.Items.Add(priority);
@@ -52,7 +53,23 @@ namespace UI
         }
         public void FillTicketAndComboBoxesOfTicketoverview(Ticket ticket)
         {
+            foreach (Status status in Enum.GetValues(typeof(Status)))
+            {
+                cbo_ticketStatus.Items.Add(status);
+            }
+
+            foreach (IncidentType status in Enum.GetValues(typeof(IncidentType)))
+            {
+                cbo_TicketIncidentType.Items.Add(status);
+            }
+            foreach (Priority priority in Enum.GetValues(typeof(Priority)))
+            {
+                cbo_TIcketPriority.Items.Add(priority);
+            }
+            cbo_TicketHandeldBy.DisplayMember = "Fullname";
+            cbo_TicketHandeldBy.DataSource = user_Logic.GetnormalandSuperUser().Item2;
             richtb_TicketDescription.Text = ticket.Description;
+            cbo_TicketHandeldBy.SelectedItem = ticket.HandeldBy;
             cbo_ticketStatus.Text = ticket.Status.ToString();
             cbo_TicketIncidentType.Text = ticket.IncidentType.ToString();
             cbo_ticketStatus.SelectedItem = ticket.Status;
@@ -61,7 +78,6 @@ namespace UI
             richtb_TicketSolution.Text = ticket.Solution;
             if (ticket.HandeldBy.ToString() != "000000000000000000000000") { lbl_UserFullname.Text = ticket_Logic.GetCreatedByName(_currentTicket).Item1.ToString(); }
             else { lbl_UserFullname.Text = "None"; }
-           // lbl_UserFullname.Text = ticket_Logic.GetCreatedByName(_currentTicket).Item1.ToString();
             dtp_TicketCreationTime.Value = ticket.CreationTime;
             dtp_TicketDeadline.Value = ticket.Deadline;
         }

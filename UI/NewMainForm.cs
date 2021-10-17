@@ -187,12 +187,13 @@ namespace UI
         }
         private void lv_TicketOverview_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Ticket ticket = (Ticket)lv_TicketOverview.SelectedItems[0].Tag;
-            FormTicket frm_ticket = new FormTicket(ticket);
-            frm_ticket.ShowDialog();
-            Loadlistview();
+            if (lv_TicketOverview.SelectedItems.Count == 1) {
+                Ticket ticket = (Ticket)lv_TicketOverview.SelectedItems[0].Tag;
+                FormTicket frm_ticket = new FormTicket(ticket);
+                    frm_ticket.ShowDialog();
+                Loadlistview();
+            }
         }
-
         private void btn_DeleteTicket_Click(object sender, EventArgs e)
         {
             Ticket ticket = (Ticket)lv_TicketOverview.SelectedItems[0].Tag;
