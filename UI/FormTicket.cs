@@ -34,8 +34,7 @@ namespace UI
             this._newMainform = _newMainform;
             this._currentUser = _currentUser;
             InitializeComponent();
-            pnl_CreateTicketNormalUser.Visible = true;
-            pnl_CreateTicketNormalUser.BringToFront();
+            pnl_TicketoverviewNormalUser.Visible = true;
             FillComboboxesOfFrmTicket();
             lv_TicketOfNormalUser.MouseDoubleClick += new MouseEventHandler(lv_TicketOfNormalUser_MouseClick);
             LoadListview();
