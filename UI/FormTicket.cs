@@ -20,14 +20,12 @@ namespace UI
         private User_Logic user_Logic = User_Logic.Instance;
         private NewMainForm _newMainform;
         private User _currentUser;
-        public FormTicket() {
-            InitializeComponent();
-        }
         public FormTicket(Ticket _currentTicket)
         {
             this._currentTicket = _currentTicket;
             InitializeComponent();
             FillTicketAndComboBoxesOfTicketoverview(_currentTicket);
+            pnl_Update_Ticket.Visible = true;
         }
         public FormTicket(NewMainForm _newMainform, User _currentUser)
         {
@@ -61,7 +59,9 @@ namespace UI
             cbo_ticketStatus.Text = ticket.Status.ToString();
             cbo_TIcketPriority.Text = ticket.Priority.ToString();
             richtb_TicketSolution.Text = ticket.Solution;
-            lbl_UserFullname.Text = ticket_Logic.GetCreatedByName(_currentTicket).Item1.ToString();
+            if (ticket.HandeldBy.ToString() != "000000000000000000000000") { lbl_UserFullname.Text = ticket_Logic.GetCreatedByName(_currentTicket).Item1.ToString(); }
+            else { lbl_UserFullname.Text = "None"; }
+           // lbl_UserFullname.Text = ticket_Logic.GetCreatedByName(_currentTicket).Item1.ToString();
             dtp_TicketCreationTime.Value = ticket.CreationTime;
             dtp_TicketDeadline.Value = ticket.Deadline;
         }

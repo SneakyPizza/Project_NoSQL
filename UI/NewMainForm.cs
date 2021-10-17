@@ -144,10 +144,10 @@ namespace UI
                 case UserRole.Admin:
                     pnl_TicketOverview.Visible = true;
                     return;
-                case UserRole.User:
-                    FormTicket frm_Ticket = new FormTicket(this, _currentUser);
-                    frm_Ticket.ShowDialog();
-                    return;
+              //  case UserRole.User:
+                    //FormTicket frm_Ticket = new FormTicket(this, _currentUser);
+                    //frm_Ticket.ShowDialog();
+                    //return;
             }
 
         }
@@ -178,7 +178,7 @@ namespace UI
         }
         private void LoadDubbleClickeventsListview()
         {
-            lv_TicketOverview.MouseClick += new MouseEventHandler(lv_TicketOverview_MouseDoubleClick);
+            lv_TicketOverview.MouseDoubleClick += new MouseEventHandler(lv_TicketOverview_MouseDoubleClick);
         }
         private void btn_SortPriority_Click(object sender, EventArgs e)
         {

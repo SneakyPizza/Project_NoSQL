@@ -126,6 +126,7 @@ namespace UI
             this.pnl_Update_Ticket.Name = "pnl_Update_Ticket";
             this.pnl_Update_Ticket.Size = new System.Drawing.Size(1092, 556);
             this.pnl_Update_Ticket.TabIndex = 0;
+            this.pnl_Update_Ticket.Visible = false;
             // 
             // pnl_TicketoverviewNormalUser
             // 
@@ -138,6 +139,7 @@ namespace UI
             this.pnl_TicketoverviewNormalUser.Name = "pnl_TicketoverviewNormalUser";
             this.pnl_TicketoverviewNormalUser.Size = new System.Drawing.Size(1071, 531);
             this.pnl_TicketoverviewNormalUser.TabIndex = 44;
+            this.pnl_TicketoverviewNormalUser.Visible = false;
             // 
             // pnl_SeeTicket
             // 
