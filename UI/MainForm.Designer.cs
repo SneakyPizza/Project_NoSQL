@@ -70,7 +70,7 @@
             this.pnl_SeeTicket.Controls.Add(this.label15);
             this.pnl_SeeTicket.Controls.Add(this.label14);
             this.pnl_SeeTicket.Controls.Add(this.pictureBox3);
-            this.pnl_SeeTicket.Location = new System.Drawing.Point(62, 28);
+            this.pnl_SeeTicket.Location = new System.Drawing.Point(131, 21);
             this.pnl_SeeTicket.Name = "pnl_SeeTicket";
             this.pnl_SeeTicket.Size = new System.Drawing.Size(1044, 506);
             this.pnl_SeeTicket.TabIndex = 11;

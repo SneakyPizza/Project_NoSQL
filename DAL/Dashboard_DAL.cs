@@ -18,10 +18,10 @@ namespace DAL
             }
         }
 
-        private IMongoCollection<Ticket> GetDatabaseTickets()
-        {
-            return GetDatabase("ProjectNoSQL10").GetCollection<Ticket>("Tickets");
-        }
+        //private IMongoCollection<Ticket> GetDatabaseTickets()
+        //{
+        //    return GetDatabase("ProjectNoSQL10").GetCollection<Ticket>("Tickets");
+        //}
 
         private (int open, int total) GetOpenAndTotalTickets()
         {

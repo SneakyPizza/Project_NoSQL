@@ -156,5 +156,10 @@ namespace UI
         {
             Close();
         }
+
+        private void pic_returnTicketOverview_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

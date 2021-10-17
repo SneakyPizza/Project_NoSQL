@@ -121,11 +121,6 @@ namespace UI
         {
             cbo_UserReportedBy.DisplayMember = "Fullname";
             cbo_UserReportedBy.DataSource = _user.GetnormalandSuperUser().Item1;
-            // autofill textbox of the maketicketuser
-            //  textBoxFirstname.Text = _currentuser.Firstname;
-            //  textBoxLastname.Text = _currentuser.Lastname;
-            //
-            // comboBox_Priority.DataSource = Enum.GetValues(typeof(Priority));
             cbo_IncidentType.DataSource = Enum.GetValues(typeof(IncidentType));
             cbo_HandeledBy.DisplayMember = "Fullname";
             cbo_HandeledBy.DataSource = _user.GetnormalandSuperUser().Item2;
@@ -152,6 +147,7 @@ namespace UI
 
         private void btn_Dashboard_Click(object sender, EventArgs e)
         {
+            pnl_TicketOverview.Visible = false;
             pnl_Dashboard.Visible = true;
         }
         public void FillListview(List<Ticket> tickets, ListView listviews)

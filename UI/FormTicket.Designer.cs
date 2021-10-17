@@ -135,6 +135,7 @@ namespace UI
             this.pic_returnTicketOverview.Size = new System.Drawing.Size(59, 58);
             this.pic_returnTicketOverview.TabIndex = 43;
             this.pic_returnTicketOverview.TabStop = false;
+            this.pic_returnTicketOverview.Click += new System.EventHandler(this.pic_returnTicketOverview_Click);
             // 
             // cbo_TicketHandeldBy
             // 
