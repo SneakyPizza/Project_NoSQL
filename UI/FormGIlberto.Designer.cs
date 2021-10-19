@@ -102,6 +102,7 @@ namespace UI
             this.label25 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.pnl_TicketOverview = new System.Windows.Forms.Panel();
+            this.comboBoxIncident = new System.Windows.Forms.ComboBox();
             this.Btn_Delete = new System.Windows.Forms.Button();
             this.pnl_Ticket = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
@@ -141,25 +142,28 @@ namespace UI
             // comboBox_IncidentType
             // 
             this.comboBox_IncidentType.FormattingEnabled = true;
-            this.comboBox_IncidentType.Location = new System.Drawing.Point(382, 130);
+            this.comboBox_IncidentType.Location = new System.Drawing.Point(478, 162);
+            this.comboBox_IncidentType.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_IncidentType.Name = "comboBox_IncidentType";
-            this.comboBox_IncidentType.Size = new System.Drawing.Size(151, 28);
+            this.comboBox_IncidentType.Size = new System.Drawing.Size(188, 33);
             this.comboBox_IncidentType.TabIndex = 1;
             // 
             // comboBox_User
             // 
             this.comboBox_User.FormattingEnabled = true;
-            this.comboBox_User.Location = new System.Drawing.Point(382, 186);
+            this.comboBox_User.Location = new System.Drawing.Point(478, 232);
+            this.comboBox_User.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_User.Name = "comboBox_User";
-            this.comboBox_User.Size = new System.Drawing.Size(151, 28);
+            this.comboBox_User.Size = new System.Drawing.Size(188, 33);
             this.comboBox_User.TabIndex = 2;
             // 
             // comboBox_Priority
             // 
             this.comboBox_Priority.FormattingEnabled = true;
-            this.comboBox_Priority.Location = new System.Drawing.Point(382, 237);
+            this.comboBox_Priority.Location = new System.Drawing.Point(478, 296);
+            this.comboBox_Priority.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_Priority.Name = "comboBox_Priority";
-            this.comboBox_Priority.Size = new System.Drawing.Size(151, 28);
+            this.comboBox_Priority.Size = new System.Drawing.Size(188, 33);
             this.comboBox_Priority.TabIndex = 3;
             // 
             // comboBox_Deadline
@@ -173,31 +177,35 @@ namespace UI
             "5 days",
             "6 days",
             "7 days"});
-            this.comboBox_Deadline.Location = new System.Drawing.Point(382, 277);
+            this.comboBox_Deadline.Location = new System.Drawing.Point(478, 346);
+            this.comboBox_Deadline.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_Deadline.Name = "comboBox_Deadline";
-            this.comboBox_Deadline.Size = new System.Drawing.Size(151, 28);
+            this.comboBox_Deadline.Size = new System.Drawing.Size(188, 33);
             this.comboBox_Deadline.TabIndex = 4;
             // 
             // txt_SubjectIncident
             // 
-            this.txt_SubjectIncident.Location = new System.Drawing.Point(382, 88);
+            this.txt_SubjectIncident.Location = new System.Drawing.Point(478, 110);
+            this.txt_SubjectIncident.Margin = new System.Windows.Forms.Padding(4);
             this.txt_SubjectIncident.Name = "txt_SubjectIncident";
-            this.txt_SubjectIncident.Size = new System.Drawing.Size(151, 27);
+            this.txt_SubjectIncident.Size = new System.Drawing.Size(188, 31);
             this.txt_SubjectIncident.TabIndex = 5;
             // 
             // richTextBox_Description
             // 
-            this.richTextBox_Description.Location = new System.Drawing.Point(382, 338);
+            this.richTextBox_Description.Location = new System.Drawing.Point(478, 422);
+            this.richTextBox_Description.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_Description.Name = "richTextBox_Description";
-            this.richTextBox_Description.Size = new System.Drawing.Size(160, 135);
+            this.richTextBox_Description.Size = new System.Drawing.Size(199, 168);
             this.richTextBox_Description.TabIndex = 6;
             this.richTextBox_Description.Text = "";
             // 
             // Btn_Submit
             // 
-            this.Btn_Submit.Location = new System.Drawing.Point(503, 503);
+            this.Btn_Submit.Location = new System.Drawing.Point(629, 629);
+            this.Btn_Submit.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_Submit.Name = "Btn_Submit";
-            this.Btn_Submit.Size = new System.Drawing.Size(94, 29);
+            this.Btn_Submit.Size = new System.Drawing.Size(118, 36);
             this.Btn_Submit.TabIndex = 7;
             this.Btn_Submit.Text = "submit";
             this.Btn_Submit.UseVisualStyleBackColor = true;
@@ -205,9 +213,10 @@ namespace UI
             // 
             // Btn_Cancel
             // 
-            this.Btn_Cancel.Location = new System.Drawing.Point(382, 503);
+            this.Btn_Cancel.Location = new System.Drawing.Point(478, 629);
+            this.Btn_Cancel.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_Cancel.Name = "Btn_Cancel";
-            this.Btn_Cancel.Size = new System.Drawing.Size(94, 29);
+            this.Btn_Cancel.Size = new System.Drawing.Size(118, 36);
             this.Btn_Cancel.TabIndex = 8;
             this.Btn_Cancel.Text = "cancel";
             this.Btn_Cancel.UseVisualStyleBackColor = true;
@@ -215,78 +224,87 @@ namespace UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(191, 45);
+            this.label1.Location = new System.Drawing.Point(239, 56);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 20);
+            this.label1.Size = new System.Drawing.Size(123, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Date reported";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(191, 95);
+            this.label2.Location = new System.Drawing.Point(239, 119);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 20);
+            this.label2.Size = new System.Drawing.Size(135, 25);
             this.label2.TabIndex = 10;
             this.label2.Text = "subject incident";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(191, 138);
+            this.label3.Location = new System.Drawing.Point(239, 172);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 20);
+            this.label3.Size = new System.Drawing.Size(114, 25);
             this.label3.TabIndex = 11;
             this.label3.Text = "type incident";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(191, 194);
+            this.label4.Location = new System.Drawing.Point(239, 242);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 20);
+            this.label4.Size = new System.Drawing.Size(106, 25);
             this.label4.TabIndex = 12;
             this.label4.Text = "reported by";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(191, 245);
+            this.label5.Location = new System.Drawing.Point(239, 306);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 20);
+            this.label5.Size = new System.Drawing.Size(68, 25);
             this.label5.TabIndex = 13;
             this.label5.Text = "Priority";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(191, 280);
+            this.label6.Location = new System.Drawing.Point(239, 350);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 20);
+            this.label6.Size = new System.Drawing.Size(81, 25);
             this.label6.TabIndex = 14;
             this.label6.Text = "Deadline";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(191, 341);
+            this.label7.Location = new System.Drawing.Point(239, 426);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 20);
+            this.label7.Size = new System.Drawing.Size(102, 25);
             this.label7.TabIndex = 15;
             this.label7.Text = "Description";
             // 
             // DateTimePicker
             // 
-            this.DateTimePicker.Location = new System.Drawing.Point(382, 45);
+            this.DateTimePicker.Location = new System.Drawing.Point(478, 56);
+            this.DateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(250, 27);
+            this.DateTimePicker.Size = new System.Drawing.Size(312, 31);
             this.DateTimePicker.TabIndex = 16;
             // 
             // btn_TicketOverview
             // 
-            this.btn_TicketOverview.Location = new System.Drawing.Point(654, 80);
+            this.btn_TicketOverview.Location = new System.Drawing.Point(818, 100);
+            this.btn_TicketOverview.Margin = new System.Windows.Forms.Padding(4);
             this.btn_TicketOverview.Name = "btn_TicketOverview";
-            this.btn_TicketOverview.Size = new System.Drawing.Size(142, 126);
+            this.btn_TicketOverview.Size = new System.Drawing.Size(178, 158);
             this.btn_TicketOverview.TabIndex = 17;
             this.btn_TicketOverview.Text = "Tickets";
             this.btn_TicketOverview.UseVisualStyleBackColor = true;
@@ -294,23 +312,26 @@ namespace UI
             // 
             // textBox_Firstname
             // 
-            this.textBox_Firstname.Location = new System.Drawing.Point(12, 42);
+            this.textBox_Firstname.Location = new System.Drawing.Point(15, 52);
+            this.textBox_Firstname.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Firstname.Name = "textBox_Firstname";
-            this.textBox_Firstname.Size = new System.Drawing.Size(125, 27);
+            this.textBox_Firstname.Size = new System.Drawing.Size(155, 31);
             this.textBox_Firstname.TabIndex = 19;
             // 
             // textBox_lastname
             // 
-            this.textBox_lastname.Location = new System.Drawing.Point(12, 95);
+            this.textBox_lastname.Location = new System.Drawing.Point(15, 119);
+            this.textBox_lastname.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_lastname.Name = "textBox_lastname";
-            this.textBox_lastname.Size = new System.Drawing.Size(125, 27);
+            this.textBox_lastname.Size = new System.Drawing.Size(155, 31);
             this.textBox_lastname.TabIndex = 20;
             // 
             // textBox_Jobdescriiption
             // 
-            this.textBox_Jobdescriiption.Location = new System.Drawing.Point(12, 152);
+            this.textBox_Jobdescriiption.Location = new System.Drawing.Point(15, 190);
+            this.textBox_Jobdescriiption.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Jobdescriiption.Name = "textBox_Jobdescriiption";
-            this.textBox_Jobdescriiption.Size = new System.Drawing.Size(125, 27);
+            this.textBox_Jobdescriiption.Size = new System.Drawing.Size(155, 31);
             this.textBox_Jobdescriiption.TabIndex = 21;
             // 
             // pnl_Ticket1
@@ -336,52 +357,21 @@ namespace UI
             this.pnl_Ticket1.Controls.Add(this.richTextBox_TicketDescription1);
             this.pnl_Ticket1.Controls.Add(this.label25);
             this.pnl_Ticket1.Controls.Add(this.textBox6);
-            this.pnl_Ticket1.Location = new System.Drawing.Point(12, 1);
+            this.pnl_Ticket1.Location = new System.Drawing.Point(355, 64);
+            this.pnl_Ticket1.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_Ticket1.Name = "pnl_Ticket1";
-            this.pnl_Ticket1.Size = new System.Drawing.Size(888, 547);
+            this.pnl_Ticket1.Size = new System.Drawing.Size(1110, 684);
             this.pnl_Ticket1.TabIndex = 23;
-            // 
-            this.label18.Size = new System.Drawing.Size(72, 20);
-            this.label18.TabIndex = 16;
-            this.label18.Text = "Lastname";
-            // 
-            // btn_Update
-            // 
-            this.btn_Update.Location = new System.Drawing.Point(463, 403);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(320, 81);
-            this.btn_Update.TabIndex = 15;
-            this.btn_Update.Text = "Update";
-            this.btn_Update.UseVisualStyleBackColor = true;
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
-            // 
-            // comboBox_TicketStatus1
-            // 
-            this.comboBox_TicketStatus1.FormattingEnabled = true;
-            this.comboBox_TicketStatus1.Location = new System.Drawing.Point(96, 255);
-            this.comboBox_TicketStatus1.Name = "comboBox_TicketStatus1";
-            this.comboBox_TicketStatus1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox_TicketStatus1.TabIndex = 14;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(10, 305);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(93, 20);
-            this.label19.TabIndex = 13;
-            this.label19.Text = "incidentType";
-            // 
-            // label20
             // 
             // pnl_TicketsOfuser
             // 
             this.pnl_TicketsOfuser.Controls.Add(this.pnl_UsermakeTicket);
             this.pnl_TicketsOfuser.Controls.Add(this.lv_TicketsofUser);
             this.pnl_TicketsOfuser.Controls.Add(this.btn_backButtonPnlTicketListOfUser);
-            this.pnl_TicketsOfuser.Location = new System.Drawing.Point(3, 11);
+            this.pnl_TicketsOfuser.Location = new System.Drawing.Point(12, 69);
+            this.pnl_TicketsOfuser.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_TicketsOfuser.Name = "pnl_TicketsOfuser";
-            this.pnl_TicketsOfuser.Size = new System.Drawing.Size(888, 531);
+            this.pnl_TicketsOfuser.Size = new System.Drawing.Size(1110, 664);
             this.pnl_TicketsOfuser.TabIndex = 11;
             // 
             // pnl_UsermakeTicket
@@ -398,9 +388,10 @@ namespace UI
             this.pnl_UsermakeTicket.Controls.Add(this.richTextBox_Userdescription);
             this.pnl_UsermakeTicket.Controls.Add(this.textBoxLastname);
             this.pnl_UsermakeTicket.Controls.Add(this.textBoxFirstname);
-            this.pnl_UsermakeTicket.Location = new System.Drawing.Point(0, 0);
+            this.pnl_UsermakeTicket.Location = new System.Drawing.Point(62, 110);
+            this.pnl_UsermakeTicket.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_UsermakeTicket.Name = "pnl_UsermakeTicket";
-            this.pnl_UsermakeTicket.Size = new System.Drawing.Size(917, 545);
+            this.pnl_UsermakeTicket.Size = new System.Drawing.Size(1146, 681);
             this.pnl_UsermakeTicket.TabIndex = 23;
             // 
             // pnl_CurrentTicketOfUser
@@ -420,79 +411,88 @@ namespace UI
             this.pnl_CurrentTicketOfUser.Controls.Add(this.label29);
             this.pnl_CurrentTicketOfUser.Controls.Add(this.richTextBox_TicketUserSolution);
             this.pnl_CurrentTicketOfUser.Controls.Add(this.richTextBox_userTicketDescription);
-            this.pnl_CurrentTicketOfUser.Location = new System.Drawing.Point(0, 0);
+            this.pnl_CurrentTicketOfUser.Location = new System.Drawing.Point(192, 47);
+            this.pnl_CurrentTicketOfUser.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_CurrentTicketOfUser.Name = "pnl_CurrentTicketOfUser";
-            this.pnl_CurrentTicketOfUser.Size = new System.Drawing.Size(869, 546);
+            this.pnl_CurrentTicketOfUser.Size = new System.Drawing.Size(1086, 682);
             this.pnl_CurrentTicketOfUser.TabIndex = 1;
             // 
             // lbl_ReportedBy
             // 
             this.lbl_ReportedBy.AutoSize = true;
-            this.lbl_ReportedBy.Location = new System.Drawing.Point(156, 173);
+            this.lbl_ReportedBy.Location = new System.Drawing.Point(195, 216);
+            this.lbl_ReportedBy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_ReportedBy.Name = "lbl_ReportedBy";
-            this.lbl_ReportedBy.Size = new System.Drawing.Size(58, 20);
+            this.lbl_ReportedBy.Size = new System.Drawing.Size(69, 25);
             this.lbl_ReportedBy.TabIndex = 17;
             this.lbl_ReportedBy.Text = "label36";
             // 
             // lbl_Deadline
             // 
             this.lbl_Deadline.AutoSize = true;
-            this.lbl_Deadline.Location = new System.Drawing.Point(149, 311);
+            this.lbl_Deadline.Location = new System.Drawing.Point(186, 389);
+            this.lbl_Deadline.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Deadline.Name = "lbl_Deadline";
-            this.lbl_Deadline.Size = new System.Drawing.Size(58, 20);
+            this.lbl_Deadline.Size = new System.Drawing.Size(69, 25);
             this.lbl_Deadline.TabIndex = 16;
             this.lbl_Deadline.Text = "label36";
             // 
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(26, 311);
+            this.label35.Location = new System.Drawing.Point(32, 389);
+            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(69, 20);
+            this.label35.Size = new System.Drawing.Size(81, 25);
             this.label35.TabIndex = 15;
             this.label35.Text = "Deadline";
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(22, 262);
+            this.label34.Location = new System.Drawing.Point(28, 328);
+            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(95, 20);
+            this.label34.Size = new System.Drawing.Size(113, 25);
             this.label34.TabIndex = 14;
             this.label34.Text = "Creationtime";
             // 
             // lbl_CreationTime
             // 
             this.lbl_CreationTime.AutoSize = true;
-            this.lbl_CreationTime.Location = new System.Drawing.Point(149, 263);
+            this.lbl_CreationTime.Location = new System.Drawing.Point(186, 329);
+            this.lbl_CreationTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_CreationTime.Name = "lbl_CreationTime";
-            this.lbl_CreationTime.Size = new System.Drawing.Size(58, 20);
+            this.lbl_CreationTime.Size = new System.Drawing.Size(69, 25);
             this.lbl_CreationTime.TabIndex = 13;
             this.lbl_CreationTime.Text = "label34";
             // 
             // lbl_CompletedTicketUser
             // 
             this.lbl_CompletedTicketUser.AutoSize = true;
-            this.lbl_CompletedTicketUser.Location = new System.Drawing.Point(156, 134);
+            this.lbl_CompletedTicketUser.Location = new System.Drawing.Point(195, 168);
+            this.lbl_CompletedTicketUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_CompletedTicketUser.Name = "lbl_CompletedTicketUser";
-            this.lbl_CompletedTicketUser.Size = new System.Drawing.Size(58, 20);
+            this.lbl_CompletedTicketUser.Size = new System.Drawing.Size(69, 25);
             this.lbl_CompletedTicketUser.TabIndex = 12;
             this.lbl_CompletedTicketUser.Text = "label34";
             // 
             // lbl_TicketStatusUser
             // 
             this.lbl_TicketStatusUser.AutoSize = true;
-            this.lbl_TicketStatusUser.Location = new System.Drawing.Point(149, 213);
+            this.lbl_TicketStatusUser.Location = new System.Drawing.Point(186, 266);
+            this.lbl_TicketStatusUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_TicketStatusUser.Name = "lbl_TicketStatusUser";
-            this.lbl_TicketStatusUser.Size = new System.Drawing.Size(85, 20);
+            this.lbl_TicketStatusUser.Size = new System.Drawing.Size(102, 25);
             this.lbl_TicketStatusUser.TabIndex = 11;
             this.lbl_TicketStatusUser.Text = "ticketStatus";
             // 
             // btn_TicketUserbuttonback
             // 
-            this.btn_TicketUserbuttonback.Location = new System.Drawing.Point(22, 27);
+            this.btn_TicketUserbuttonback.Location = new System.Drawing.Point(28, 34);
+            this.btn_TicketUserbuttonback.Margin = new System.Windows.Forms.Padding(4);
             this.btn_TicketUserbuttonback.Name = "btn_TicketUserbuttonback";
-            this.btn_TicketUserbuttonback.Size = new System.Drawing.Size(145, 59);
+            this.btn_TicketUserbuttonback.Size = new System.Drawing.Size(181, 74);
             this.btn_TicketUserbuttonback.TabIndex = 10;
             this.btn_TicketUserbuttonback.Text = "button1";
             this.btn_TicketUserbuttonback.UseVisualStyleBackColor = true;
@@ -501,69 +501,77 @@ namespace UI
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(22, 213);
+            this.label33.Location = new System.Drawing.Point(28, 266);
+            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(85, 20);
+            this.label33.Size = new System.Drawing.Size(102, 25);
             this.label33.TabIndex = 8;
             this.label33.Text = "ticketStatus";
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(25, 173);
+            this.label32.Location = new System.Drawing.Point(31, 216);
+            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(83, 20);
+            this.label32.Size = new System.Drawing.Size(100, 25);
             this.label32.TabIndex = 6;
             this.label32.Text = "reportedBy";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(22, 132);
+            this.label31.Location = new System.Drawing.Point(28, 165);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(81, 20);
+            this.label31.Size = new System.Drawing.Size(97, 25);
             this.label31.TabIndex = 5;
             this.label31.Text = "completed";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(470, 206);
+            this.label30.Location = new System.Drawing.Point(588, 258);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(103, 20);
+            this.label30.Size = new System.Drawing.Size(123, 25);
             this.label30.TabIndex = 3;
             this.label30.Text = "TicketSolution";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(469, 25);
+            this.label29.Location = new System.Drawing.Point(586, 31);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(124, 20);
+            this.label29.Size = new System.Drawing.Size(147, 25);
             this.label29.TabIndex = 2;
             this.label29.Text = "TicketDescription";
             // 
             // richTextBox_TicketUserSolution
             // 
-            this.richTextBox_TicketUserSolution.Location = new System.Drawing.Point(470, 238);
+            this.richTextBox_TicketUserSolution.Location = new System.Drawing.Point(588, 298);
+            this.richTextBox_TicketUserSolution.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_TicketUserSolution.Name = "richTextBox_TicketUserSolution";
-            this.richTextBox_TicketUserSolution.Size = new System.Drawing.Size(295, 131);
+            this.richTextBox_TicketUserSolution.Size = new System.Drawing.Size(368, 163);
             this.richTextBox_TicketUserSolution.TabIndex = 1;
             this.richTextBox_TicketUserSolution.Text = "";
             // 
             // richTextBox_userTicketDescription
             // 
-            this.richTextBox_userTicketDescription.Location = new System.Drawing.Point(470, 59);
+            this.richTextBox_userTicketDescription.Location = new System.Drawing.Point(588, 74);
+            this.richTextBox_userTicketDescription.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_userTicketDescription.Name = "richTextBox_userTicketDescription";
-            this.richTextBox_userTicketDescription.Size = new System.Drawing.Size(293, 128);
+            this.richTextBox_userTicketDescription.Size = new System.Drawing.Size(365, 159);
             this.richTextBox_userTicketDescription.TabIndex = 0;
             this.richTextBox_userTicketDescription.Text = "";
             // 
             // btn_SeeTicketsUser
             // 
-            this.btn_SeeTicketsUser.Location = new System.Drawing.Point(145, 227);
+            this.btn_SeeTicketsUser.Location = new System.Drawing.Point(181, 284);
+            this.btn_SeeTicketsUser.Margin = new System.Windows.Forms.Padding(4);
             this.btn_SeeTicketsUser.Name = "btn_SeeTicketsUser";
-            this.btn_SeeTicketsUser.Size = new System.Drawing.Size(241, 90);
+            this.btn_SeeTicketsUser.Size = new System.Drawing.Size(301, 112);
             this.btn_SeeTicketsUser.TabIndex = 10;
             this.btn_SeeTicketsUser.Text = "TicketListUser";
             this.btn_SeeTicketsUser.UseVisualStyleBackColor = true;
@@ -571,9 +579,10 @@ namespace UI
             // 
             // btn_BackbuttonUserticket
             // 
-            this.btn_BackbuttonUserticket.Location = new System.Drawing.Point(751, 17);
+            this.btn_BackbuttonUserticket.Location = new System.Drawing.Point(939, 21);
+            this.btn_BackbuttonUserticket.Margin = new System.Windows.Forms.Padding(4);
             this.btn_BackbuttonUserticket.Name = "btn_BackbuttonUserticket";
-            this.btn_BackbuttonUserticket.Size = new System.Drawing.Size(94, 29);
+            this.btn_BackbuttonUserticket.Size = new System.Drawing.Size(118, 36);
             this.btn_BackbuttonUserticket.TabIndex = 9;
             this.btn_BackbuttonUserticket.Text = "BackButton";
             this.btn_BackbuttonUserticket.UseVisualStyleBackColor = true;
@@ -582,17 +591,19 @@ namespace UI
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(476, 30);
+            this.label28.Location = new System.Drawing.Point(595, 38);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(83, 20);
+            this.label28.Size = new System.Drawing.Size(100, 25);
             this.label28.TabIndex = 8;
             this.label28.Text = "description";
             // 
             // btn_makeTicketUSer
             // 
-            this.btn_makeTicketUSer.Location = new System.Drawing.Point(476, 229);
+            this.btn_makeTicketUSer.Location = new System.Drawing.Point(595, 286);
+            this.btn_makeTicketUSer.Margin = new System.Windows.Forms.Padding(4);
             this.btn_makeTicketUSer.Name = "btn_makeTicketUSer";
-            this.btn_makeTicketUSer.Size = new System.Drawing.Size(323, 91);
+            this.btn_makeTicketUSer.Size = new System.Drawing.Size(404, 114);
             this.btn_makeTicketUSer.TabIndex = 7;
             this.btn_makeTicketUSer.Text = "Make Ticket";
             this.btn_makeTicketUSer.UseVisualStyleBackColor = true;
@@ -601,57 +612,64 @@ namespace UI
             // TicketTItle
             // 
             this.TicketTItle.AutoSize = true;
-            this.TicketTItle.Location = new System.Drawing.Point(15, 148);
+            this.TicketTItle.Location = new System.Drawing.Point(19, 185);
+            this.TicketTItle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TicketTItle.Name = "TicketTItle";
-            this.TicketTItle.Size = new System.Drawing.Size(77, 20);
+            this.TicketTItle.Size = new System.Drawing.Size(89, 25);
             this.TicketTItle.TabIndex = 6;
             this.TicketTItle.Text = "TicketTitle";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(15, 110);
+            this.label27.Location = new System.Drawing.Point(19, 138);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(72, 20);
+            this.label27.Size = new System.Drawing.Size(87, 25);
             this.label27.TabIndex = 5;
             this.label27.Text = "Lastname";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(15, 64);
+            this.label26.Location = new System.Drawing.Point(19, 80);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(71, 20);
+            this.label26.Size = new System.Drawing.Size(86, 25);
             this.label26.TabIndex = 4;
             this.label26.Text = "firstname";
             // 
             // textBoxTicketTitle
             // 
-            this.textBoxTicketTitle.Location = new System.Drawing.Point(112, 147);
+            this.textBoxTicketTitle.Location = new System.Drawing.Point(140, 184);
+            this.textBoxTicketTitle.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTicketTitle.Name = "textBoxTicketTitle";
-            this.textBoxTicketTitle.Size = new System.Drawing.Size(125, 27);
+            this.textBoxTicketTitle.Size = new System.Drawing.Size(155, 31);
             this.textBoxTicketTitle.TabIndex = 3;
             // 
             // richTextBox_Userdescription
             // 
-            this.richTextBox_Userdescription.Location = new System.Drawing.Point(476, 67);
+            this.richTextBox_Userdescription.Location = new System.Drawing.Point(595, 84);
+            this.richTextBox_Userdescription.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_Userdescription.Name = "richTextBox_Userdescription";
-            this.richTextBox_Userdescription.Size = new System.Drawing.Size(323, 115);
+            this.richTextBox_Userdescription.Size = new System.Drawing.Size(403, 143);
             this.richTextBox_Userdescription.TabIndex = 2;
             this.richTextBox_Userdescription.Text = "";
             // 
             // textBoxLastname
             // 
-            this.textBoxLastname.Location = new System.Drawing.Point(112, 107);
+            this.textBoxLastname.Location = new System.Drawing.Point(140, 134);
+            this.textBoxLastname.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxLastname.Name = "textBoxLastname";
-            this.textBoxLastname.Size = new System.Drawing.Size(125, 27);
+            this.textBoxLastname.Size = new System.Drawing.Size(155, 31);
             this.textBoxLastname.TabIndex = 1;
             // 
             // textBoxFirstname
             // 
-            this.textBoxFirstname.Location = new System.Drawing.Point(112, 63);
+            this.textBoxFirstname.Location = new System.Drawing.Point(140, 79);
+            this.textBoxFirstname.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxFirstname.Name = "textBoxFirstname";
-            this.textBoxFirstname.Size = new System.Drawing.Size(125, 27);
+            this.textBoxFirstname.Size = new System.Drawing.Size(155, 31);
             this.textBoxFirstname.TabIndex = 0;
             // 
             // lv_TicketsofUser
@@ -659,9 +677,10 @@ namespace UI
             this.lv_TicketsofUser.FullRowSelect = true;
             this.lv_TicketsofUser.GridLines = true;
             this.lv_TicketsofUser.HideSelection = false;
-            this.lv_TicketsofUser.Location = new System.Drawing.Point(204, 4);
+            this.lv_TicketsofUser.Location = new System.Drawing.Point(255, 5);
+            this.lv_TicketsofUser.Margin = new System.Windows.Forms.Padding(4);
             this.lv_TicketsofUser.Name = "lv_TicketsofUser";
-            this.lv_TicketsofUser.Size = new System.Drawing.Size(654, 505);
+            this.lv_TicketsofUser.Size = new System.Drawing.Size(816, 630);
             this.lv_TicketsofUser.TabIndex = 0;
             this.lv_TicketsofUser.UseCompatibleStateImageBehavior = false;
             this.lv_TicketsofUser.View = System.Windows.Forms.View.Details;
@@ -669,9 +688,10 @@ namespace UI
             // 
             // btn_backButtonPnlTicketListOfUser
             // 
-            this.btn_backButtonPnlTicketListOfUser.Location = new System.Drawing.Point(14, 15);
+            this.btn_backButtonPnlTicketListOfUser.Location = new System.Drawing.Point(18, 19);
+            this.btn_backButtonPnlTicketListOfUser.Margin = new System.Windows.Forms.Padding(4);
             this.btn_backButtonPnlTicketListOfUser.Name = "btn_backButtonPnlTicketListOfUser";
-            this.btn_backButtonPnlTicketListOfUser.Size = new System.Drawing.Size(108, 51);
+            this.btn_backButtonPnlTicketListOfUser.Size = new System.Drawing.Size(135, 64);
             this.btn_backButtonPnlTicketListOfUser.TabIndex = 2;
             this.btn_backButtonPnlTicketListOfUser.Text = "Backbutton";
             this.btn_backButtonPnlTicketListOfUser.UseVisualStyleBackColor = true;
@@ -680,32 +700,36 @@ namespace UI
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(12, 394);
+            this.label36.Location = new System.Drawing.Point(15, 492);
+            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(83, 20);
+            this.label36.Size = new System.Drawing.Size(101, 25);
             this.label36.TabIndex = 26;
             this.label36.Text = "handeld by";
             // 
             // comboBox_TicketHandeldBy
             // 
             this.comboBox_TicketHandeldBy.FormattingEnabled = true;
-            this.comboBox_TicketHandeldBy.Location = new System.Drawing.Point(97, 392);
+            this.comboBox_TicketHandeldBy.Location = new System.Drawing.Point(121, 490);
+            this.comboBox_TicketHandeldBy.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_TicketHandeldBy.Name = "comboBox_TicketHandeldBy";
-            this.comboBox_TicketHandeldBy.Size = new System.Drawing.Size(151, 28);
+            this.comboBox_TicketHandeldBy.Size = new System.Drawing.Size(188, 33);
             this.comboBox_TicketHandeldBy.TabIndex = 25;
             // 
             // dateTimePicker_TicketDeadline
             // 
-            this.dateTimePicker_TicketDeadline.Location = new System.Drawing.Point(95, 339);
+            this.dateTimePicker_TicketDeadline.Location = new System.Drawing.Point(119, 424);
+            this.dateTimePicker_TicketDeadline.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker_TicketDeadline.Name = "dateTimePicker_TicketDeadline";
-            this.dateTimePicker_TicketDeadline.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePicker_TicketDeadline.Size = new System.Drawing.Size(312, 31);
             this.dateTimePicker_TicketDeadline.TabIndex = 24;
             // 
             // brn_BackButton
             // 
-            this.brn_BackButton.Location = new System.Drawing.Point(757, 11);
+            this.brn_BackButton.Location = new System.Drawing.Point(946, 14);
+            this.brn_BackButton.Margin = new System.Windows.Forms.Padding(4);
             this.brn_BackButton.Name = "brn_BackButton";
-            this.brn_BackButton.Size = new System.Drawing.Size(118, 48);
+            this.brn_BackButton.Size = new System.Drawing.Size(148, 60);
             this.brn_BackButton.TabIndex = 19;
             this.brn_BackButton.Text = "BACK";
             this.brn_BackButton.UseVisualStyleBackColor = true;
@@ -714,33 +738,37 @@ namespace UI
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(12, 344);
+            this.label17.Location = new System.Drawing.Point(15, 430);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(69, 20);
+            this.label17.Size = new System.Drawing.Size(81, 25);
             this.label17.TabIndex = 18;
             this.label17.Text = "Deadline";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(109, 117);
+            this.textBox1.Location = new System.Drawing.Point(136, 146);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
+            this.textBox1.Size = new System.Drawing.Size(155, 31);
             this.textBox1.TabIndex = 17;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(15, 125);
+            this.label18.Location = new System.Drawing.Point(19, 156);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(72, 20);
+            this.label18.Size = new System.Drawing.Size(87, 25);
             this.label18.TabIndex = 16;
             this.label18.Text = "Lastname";
             // 
             // btn_Update
             // 
-            this.btn_Update.Location = new System.Drawing.Point(463, 403);
+            this.btn_Update.Location = new System.Drawing.Point(579, 504);
+            this.btn_Update.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(320, 81);
+            this.btn_Update.Size = new System.Drawing.Size(400, 101);
             this.btn_Update.TabIndex = 15;
             this.btn_Update.Text = "Update";
             this.btn_Update.UseVisualStyleBackColor = true;
@@ -749,106 +777,120 @@ namespace UI
             // comboBox_TicketStatus1
             // 
             this.comboBox_TicketStatus1.FormattingEnabled = true;
-            this.comboBox_TicketStatus1.Location = new System.Drawing.Point(96, 255);
+            this.comboBox_TicketStatus1.Location = new System.Drawing.Point(120, 319);
+            this.comboBox_TicketStatus1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_TicketStatus1.Name = "comboBox_TicketStatus1";
-            this.comboBox_TicketStatus1.Size = new System.Drawing.Size(151, 28);
+            this.comboBox_TicketStatus1.Size = new System.Drawing.Size(188, 33);
             this.comboBox_TicketStatus1.TabIndex = 14;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(10, 305);
+            this.label19.Location = new System.Drawing.Point(12, 381);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(93, 20);
+            this.label19.Size = new System.Drawing.Size(111, 25);
             this.label19.TabIndex = 13;
             this.label19.Text = "incidentType";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(28, 258);
+            this.label20.Location = new System.Drawing.Point(35, 322);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(47, 20);
+            this.label20.Size = new System.Drawing.Size(59, 25);
             this.label20.TabIndex = 12;
             this.label20.Text = "status";
             // 
             // Txt_IncidentType1
             // 
-            this.Txt_IncidentType1.Location = new System.Drawing.Point(109, 298);
+            this.Txt_IncidentType1.Location = new System.Drawing.Point(136, 372);
+            this.Txt_IncidentType1.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_IncidentType1.Name = "Txt_IncidentType1";
-            this.Txt_IncidentType1.Size = new System.Drawing.Size(125, 27);
+            this.Txt_IncidentType1.Size = new System.Drawing.Size(155, 31);
             this.Txt_IncidentType1.TabIndex = 9;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(39, 204);
+            this.label21.Location = new System.Drawing.Point(49, 255);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 20);
+            this.label21.Size = new System.Drawing.Size(57, 25);
             this.label21.TabIndex = 7;
             this.label21.Text = "Ticket";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(60, 17);
+            this.label22.Location = new System.Drawing.Point(75, 21);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(38, 20);
+            this.label22.Size = new System.Drawing.Size(47, 25);
             this.label22.TabIndex = 6;
             this.label22.Text = "User";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(462, 204);
+            this.label23.Location = new System.Drawing.Point(578, 255);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(62, 20);
+            this.label23.Size = new System.Drawing.Size(76, 25);
             this.label23.TabIndex = 5;
             this.label23.Text = "solution";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(463, 32);
+            this.label24.Location = new System.Drawing.Point(579, 40);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(85, 20);
+            this.label24.Size = new System.Drawing.Size(102, 25);
             this.label24.TabIndex = 4;
             this.label24.Text = "Description";
             // 
             // richTextBox1_TIcketSolution1
             // 
-            this.richTextBox1_TIcketSolution1.Location = new System.Drawing.Point(463, 235);
+            this.richTextBox1_TIcketSolution1.Location = new System.Drawing.Point(579, 294);
+            this.richTextBox1_TIcketSolution1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1_TIcketSolution1.Name = "richTextBox1_TIcketSolution1";
-            this.richTextBox1_TIcketSolution1.Size = new System.Drawing.Size(342, 84);
+            this.richTextBox1_TIcketSolution1.Size = new System.Drawing.Size(426, 104);
             this.richTextBox1_TIcketSolution1.TabIndex = 3;
             this.richTextBox1_TIcketSolution1.Text = "";
             // 
             // richTextBox_TicketDescription1
             // 
-            this.richTextBox_TicketDescription1.Location = new System.Drawing.Point(463, 65);
+            this.richTextBox_TicketDescription1.Location = new System.Drawing.Point(579, 81);
+            this.richTextBox_TicketDescription1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_TicketDescription1.Name = "richTextBox_TicketDescription1";
-            this.richTextBox_TicketDescription1.Size = new System.Drawing.Size(336, 75);
+            this.richTextBox_TicketDescription1.Size = new System.Drawing.Size(419, 93);
             this.richTextBox_TicketDescription1.TabIndex = 2;
             this.richTextBox_TicketDescription1.Text = "";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(12, 82);
+            this.label25.Location = new System.Drawing.Point(15, 102);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(73, 20);
+            this.label25.Size = new System.Drawing.Size(89, 25);
             this.label25.TabIndex = 1;
             this.label25.Text = "Firstname";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(109, 75);
+            this.textBox6.Location = new System.Drawing.Point(136, 94);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(125, 27);
+            this.textBox6.Size = new System.Drawing.Size(155, 31);
             this.textBox6.TabIndex = 0;
             // 
             // pnl_TicketOverview
             // 
+            this.pnl_TicketOverview.Controls.Add(this.comboBoxIncident);
+            this.pnl_TicketOverview.Controls.Add(this.pnl_Ticket1);
             this.pnl_TicketOverview.Controls.Add(this.Btn_Delete);
             this.pnl_TicketOverview.Controls.Add(this.pnl_Ticket);
             this.pnl_TicketOverview.Controls.Add(this.label8);
@@ -857,16 +899,27 @@ namespace UI
             this.pnl_TicketOverview.Controls.Add(this.btn_Filter);
             this.pnl_TicketOverview.Controls.Add(this.richTextBox_Filter);
             this.pnl_TicketOverview.Controls.Add(this.listView_TicketsOverview);
-            this.pnl_TicketOverview.Location = new System.Drawing.Point(12, 3);
+            this.pnl_TicketOverview.Location = new System.Drawing.Point(15, 4);
+            this.pnl_TicketOverview.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_TicketOverview.Name = "pnl_TicketOverview";
-            this.pnl_TicketOverview.Size = new System.Drawing.Size(892, 545);
+            this.pnl_TicketOverview.Size = new System.Drawing.Size(1115, 681);
             this.pnl_TicketOverview.TabIndex = 18;
+            // 
+            // comboBoxIncident
+            // 
+            this.comboBoxIncident.FormattingEnabled = true;
+            this.comboBoxIncident.Location = new System.Drawing.Point(6, 8);
+            this.comboBoxIncident.Name = "comboBoxIncident";
+            this.comboBoxIncident.Size = new System.Drawing.Size(182, 33);
+            this.comboBoxIncident.TabIndex = 25;
+            this.comboBoxIncident.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Btn_Delete
             // 
-            this.Btn_Delete.Location = new System.Drawing.Point(31, 374);
+            this.Btn_Delete.Location = new System.Drawing.Point(39, 468);
+            this.Btn_Delete.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_Delete.Name = "Btn_Delete";
-            this.Btn_Delete.Size = new System.Drawing.Size(219, 66);
+            this.Btn_Delete.Size = new System.Drawing.Size(274, 82);
             this.Btn_Delete.TabIndex = 24;
             this.Btn_Delete.Text = "Delete";
             this.Btn_Delete.UseVisualStyleBackColor = true;
@@ -892,41 +945,46 @@ namespace UI
             this.pnl_Ticket.Controls.Add(this.richTextBox_TicketDescription);
             this.pnl_Ticket.Controls.Add(this.label9);
             this.pnl_Ticket.Controls.Add(this.txt_Firstname);
-            this.pnl_Ticket.Location = new System.Drawing.Point(352, 540);
+            this.pnl_Ticket.Location = new System.Drawing.Point(440, 675);
+            this.pnl_Ticket.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_Ticket.Name = "pnl_Ticket";
-            this.pnl_Ticket.Size = new System.Drawing.Size(888, 547);
+            this.pnl_Ticket.Size = new System.Drawing.Size(1110, 684);
             this.pnl_Ticket.TabIndex = 6;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(12, 344);
+            this.label16.Location = new System.Drawing.Point(15, 430);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(69, 20);
+            this.label16.Size = new System.Drawing.Size(81, 25);
             this.label16.TabIndex = 18;
             this.label16.Text = "Deadline";
             // 
             // txt_Lastname
             // 
-            this.txt_Lastname.Location = new System.Drawing.Point(109, 117);
+            this.txt_Lastname.Location = new System.Drawing.Point(136, 146);
+            this.txt_Lastname.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Lastname.Name = "txt_Lastname";
-            this.txt_Lastname.Size = new System.Drawing.Size(125, 27);
+            this.txt_Lastname.Size = new System.Drawing.Size(155, 31);
             this.txt_Lastname.TabIndex = 17;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(15, 125);
+            this.label15.Location = new System.Drawing.Point(19, 156);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 20);
+            this.label15.Size = new System.Drawing.Size(87, 25);
             this.label15.TabIndex = 16;
             this.label15.Text = "Lastname";
             // 
             // Btn_UpdateTicket
             // 
-            this.Btn_UpdateTicket.Location = new System.Drawing.Point(463, 403);
+            this.Btn_UpdateTicket.Location = new System.Drawing.Point(579, 504);
+            this.Btn_UpdateTicket.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_UpdateTicket.Name = "Btn_UpdateTicket";
-            this.Btn_UpdateTicket.Size = new System.Drawing.Size(320, 81);
+            this.Btn_UpdateTicket.Size = new System.Drawing.Size(400, 101);
             this.Btn_UpdateTicket.TabIndex = 15;
             this.Btn_UpdateTicket.Text = "Update";
             this.Btn_UpdateTicket.UseVisualStyleBackColor = true;
@@ -934,140 +992,157 @@ namespace UI
             // comboBox_TicketStatus
             // 
             this.comboBox_TicketStatus.FormattingEnabled = true;
-            this.comboBox_TicketStatus.Location = new System.Drawing.Point(96, 255);
+            this.comboBox_TicketStatus.Location = new System.Drawing.Point(120, 319);
+            this.comboBox_TicketStatus.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_TicketStatus.Name = "comboBox_TicketStatus";
-            this.comboBox_TicketStatus.Size = new System.Drawing.Size(151, 28);
+            this.comboBox_TicketStatus.Size = new System.Drawing.Size(188, 33);
             this.comboBox_TicketStatus.TabIndex = 14;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 305);
+            this.label14.Location = new System.Drawing.Point(12, 381);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(93, 20);
+            this.label14.Size = new System.Drawing.Size(111, 25);
             this.label14.TabIndex = 13;
             this.label14.Text = "incidentType";
             // 
             // lblstatus
             // 
             this.lblstatus.AutoSize = true;
-            this.lblstatus.Location = new System.Drawing.Point(28, 258);
+            this.lblstatus.Location = new System.Drawing.Point(35, 322);
+            this.lblstatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblstatus.Name = "lblstatus";
-            this.lblstatus.Size = new System.Drawing.Size(47, 20);
+            this.lblstatus.Size = new System.Drawing.Size(59, 25);
             this.lblstatus.TabIndex = 12;
             this.lblstatus.Text = "status";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(109, 394);
+            this.textBox4.Location = new System.Drawing.Point(136, 492);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(125, 27);
+            this.textBox4.Size = new System.Drawing.Size(155, 31);
             this.textBox4.TabIndex = 11;
             // 
             // txt_Deadline
             // 
-            this.txt_Deadline.Location = new System.Drawing.Point(109, 341);
+            this.txt_Deadline.Location = new System.Drawing.Point(136, 426);
+            this.txt_Deadline.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Deadline.Name = "txt_Deadline";
-            this.txt_Deadline.Size = new System.Drawing.Size(125, 27);
+            this.txt_Deadline.Size = new System.Drawing.Size(155, 31);
             this.txt_Deadline.TabIndex = 10;
             // 
             // Txt_IncidentType
             // 
-            this.Txt_IncidentType.Location = new System.Drawing.Point(109, 298);
+            this.Txt_IncidentType.Location = new System.Drawing.Point(136, 372);
+            this.Txt_IncidentType.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_IncidentType.Name = "Txt_IncidentType";
-            this.Txt_IncidentType.Size = new System.Drawing.Size(125, 27);
+            this.Txt_IncidentType.Size = new System.Drawing.Size(155, 31);
             this.Txt_IncidentType.TabIndex = 9;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(39, 204);
+            this.label13.Location = new System.Drawing.Point(49, 255);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 20);
+            this.label13.Size = new System.Drawing.Size(57, 25);
             this.label13.TabIndex = 7;
             this.label13.Text = "Ticket";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(60, 17);
+            this.label12.Location = new System.Drawing.Point(75, 21);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(38, 20);
+            this.label12.Size = new System.Drawing.Size(47, 25);
             this.label12.TabIndex = 6;
             this.label12.Text = "User";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(462, 204);
+            this.label11.Location = new System.Drawing.Point(578, 255);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(62, 20);
+            this.label11.Size = new System.Drawing.Size(76, 25);
             this.label11.TabIndex = 5;
             this.label11.Text = "solution";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(463, 32);
+            this.label10.Location = new System.Drawing.Point(579, 40);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 20);
+            this.label10.Size = new System.Drawing.Size(102, 25);
             this.label10.TabIndex = 4;
             this.label10.Text = "Description";
             // 
             // richTextBox_TicketSolution
             // 
-            this.richTextBox_TicketSolution.Location = new System.Drawing.Point(463, 235);
+            this.richTextBox_TicketSolution.Location = new System.Drawing.Point(579, 294);
+            this.richTextBox_TicketSolution.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_TicketSolution.Name = "richTextBox_TicketSolution";
-            this.richTextBox_TicketSolution.Size = new System.Drawing.Size(342, 84);
+            this.richTextBox_TicketSolution.Size = new System.Drawing.Size(426, 104);
             this.richTextBox_TicketSolution.TabIndex = 3;
             this.richTextBox_TicketSolution.Text = "";
             // 
             // richTextBox_TicketDescription
             // 
-            this.richTextBox_TicketDescription.Location = new System.Drawing.Point(463, 65);
+            this.richTextBox_TicketDescription.Location = new System.Drawing.Point(579, 81);
+            this.richTextBox_TicketDescription.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_TicketDescription.Name = "richTextBox_TicketDescription";
-            this.richTextBox_TicketDescription.Size = new System.Drawing.Size(336, 75);
+            this.richTextBox_TicketDescription.Size = new System.Drawing.Size(419, 93);
             this.richTextBox_TicketDescription.TabIndex = 2;
             this.richTextBox_TicketDescription.Text = "";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 82);
+            this.label9.Location = new System.Drawing.Point(15, 102);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(73, 20);
+            this.label9.Size = new System.Drawing.Size(89, 25);
             this.label9.TabIndex = 1;
             this.label9.Text = "Firstname";
             // 
             // txt_Firstname
             // 
-            this.txt_Firstname.Location = new System.Drawing.Point(109, 75);
+            this.txt_Firstname.Location = new System.Drawing.Point(136, 94);
+            this.txt_Firstname.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Firstname.Name = "txt_Firstname";
-            this.txt_Firstname.Size = new System.Drawing.Size(125, 27);
+            this.txt_Firstname.Size = new System.Drawing.Size(155, 31);
             this.txt_Firstname.TabIndex = 0;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 213);
+            this.label8.Location = new System.Drawing.Point(39, 266);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 20);
+            this.label8.Size = new System.Drawing.Size(132, 25);
             this.label8.TabIndex = 5;
             this.label8.Text = "Sort by priority";
             // 
             // comboBox_SortByPriority
             // 
             this.comboBox_SortByPriority.FormattingEnabled = true;
-            this.comboBox_SortByPriority.Location = new System.Drawing.Point(31, 249);
+            this.comboBox_SortByPriority.Location = new System.Drawing.Point(39, 311);
+            this.comboBox_SortByPriority.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_SortByPriority.Name = "comboBox_SortByPriority";
-            this.comboBox_SortByPriority.Size = new System.Drawing.Size(219, 28);
+            this.comboBox_SortByPriority.Size = new System.Drawing.Size(273, 33);
             this.comboBox_SortByPriority.TabIndex = 4;
             // 
             // btn_SortPriority
             // 
-            this.btn_SortPriority.Location = new System.Drawing.Point(31, 302);
+            this.btn_SortPriority.Location = new System.Drawing.Point(39, 378);
+            this.btn_SortPriority.Margin = new System.Windows.Forms.Padding(4);
             this.btn_SortPriority.Name = "btn_SortPriority";
-            this.btn_SortPriority.Size = new System.Drawing.Size(219, 49);
+            this.btn_SortPriority.Size = new System.Drawing.Size(274, 61);
             this.btn_SortPriority.TabIndex = 3;
             this.btn_SortPriority.Text = "Sorteer";
             this.btn_SortPriority.UseVisualStyleBackColor = true;
@@ -1075,9 +1150,10 @@ namespace UI
             // 
             // btn_Filter
             // 
-            this.btn_Filter.Location = new System.Drawing.Point(31, 124);
+            this.btn_Filter.Location = new System.Drawing.Point(39, 155);
+            this.btn_Filter.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Filter.Name = "btn_Filter";
-            this.btn_Filter.Size = new System.Drawing.Size(219, 57);
+            this.btn_Filter.Size = new System.Drawing.Size(274, 71);
             this.btn_Filter.TabIndex = 2;
             this.btn_Filter.Text = "Filter";
             this.btn_Filter.UseVisualStyleBackColor = true;
@@ -1085,9 +1161,10 @@ namespace UI
             // 
             // richTextBox_Filter
             // 
-            this.richTextBox_Filter.Location = new System.Drawing.Point(31, 17);
+            this.richTextBox_Filter.Location = new System.Drawing.Point(39, 42);
+            this.richTextBox_Filter.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_Filter.Name = "richTextBox_Filter";
-            this.richTextBox_Filter.Size = new System.Drawing.Size(219, 88);
+            this.richTextBox_Filter.Size = new System.Drawing.Size(273, 109);
             this.richTextBox_Filter.TabIndex = 1;
             this.richTextBox_Filter.Text = "";
             // 
@@ -1095,18 +1172,20 @@ namespace UI
             // 
             this.listView_TicketsOverview.GridLines = true;
             this.listView_TicketsOverview.HideSelection = false;
-            this.listView_TicketsOverview.Location = new System.Drawing.Point(352, 3);
+            this.listView_TicketsOverview.Location = new System.Drawing.Point(440, 4);
+            this.listView_TicketsOverview.Margin = new System.Windows.Forms.Padding(4);
             this.listView_TicketsOverview.Name = "listView_TicketsOverview";
-            this.listView_TicketsOverview.Size = new System.Drawing.Size(539, 550);
+            this.listView_TicketsOverview.Size = new System.Drawing.Size(673, 686);
             this.listView_TicketsOverview.TabIndex = 0;
             this.listView_TicketsOverview.UseCompatibleStateImageBehavior = false;
             this.listView_TicketsOverview.View = System.Windows.Forms.View.Details;
             // 
             // btn_makeTicketNormalUser
             // 
-            this.btn_makeTicketNormalUser.Location = new System.Drawing.Point(654, 23);
+            this.btn_makeTicketNormalUser.Location = new System.Drawing.Point(818, 29);
+            this.btn_makeTicketNormalUser.Margin = new System.Windows.Forms.Padding(4);
             this.btn_makeTicketNormalUser.Name = "btn_makeTicketNormalUser";
-            this.btn_makeTicketNormalUser.Size = new System.Drawing.Size(187, 51);
+            this.btn_makeTicketNormalUser.Size = new System.Drawing.Size(234, 64);
             this.btn_makeTicketNormalUser.TabIndex = 24;
             this.btn_makeTicketNormalUser.Text = "MakeTicketNormalUser";
             this.btn_makeTicketNormalUser.UseVisualStyleBackColor = true;
@@ -1117,17 +1196,17 @@ namespace UI
             this.comboBox1_UsersToTicket.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox1_UsersToTicket.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1_UsersToTicket.FormattingEnabled = true;
-            this.comboBox1_UsersToTicket.Location = new System.Drawing.Point(12, 194);
+            this.comboBox1_UsersToTicket.Location = new System.Drawing.Point(15, 242);
+            this.comboBox1_UsersToTicket.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1_UsersToTicket.Name = "comboBox1_UsersToTicket";
-            this.comboBox1_UsersToTicket.Size = new System.Drawing.Size(151, 28);
+            this.comboBox1_UsersToTicket.Size = new System.Drawing.Size(188, 33);
             this.comboBox1_UsersToTicket.TabIndex = 25;
             // 
             // FormGIlberto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 575);
-            this.Controls.Add(this.pnl_Ticket1);
+            this.ClientSize = new System.Drawing.Size(1145, 719);
             this.Controls.Add(this.pnl_TicketOverview);
             this.Controls.Add(this.comboBox1_UsersToTicket);
             this.Controls.Add(this.btn_makeTicketNormalUser);
@@ -1151,6 +1230,7 @@ namespace UI
             this.Controls.Add(this.comboBox_Priority);
             this.Controls.Add(this.comboBox_User);
             this.Controls.Add(this.comboBox_IncidentType);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormGIlberto";
             this.Text = "FormGIlberto";
             this.pnl_Ticket1.ResumeLayout(false);
@@ -1271,5 +1351,6 @@ namespace UI
         private System.Windows.Forms.Label lbl_CompletedTicketUser;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.ComboBox comboBox_TicketHandeldBy;
+        private System.Windows.Forms.ComboBox comboBoxIncident;
     }
 }

@@ -23,7 +23,8 @@ namespace UI
             string Username = TXTBUsername.Text;
             string Password = TXTBPassword.Text;
             string Email = TXTBEmail.Text;
-            if (RB_Admin.Checked == true)
+            Email = Email + "@hotmail.com";
+            if (RB_Admin.Checked)
             {
                 userRole = UserRole.Admin;
             }
@@ -31,6 +32,11 @@ namespace UI
             {
                 userRole = UserRole.User;
             }
+            if (_user_logic.UserCheck(Username))
+            {
+                MessageBox.Show("Username is already taken");
+            }
+            
             
             _user_logic.InsertUser(Username, Password, Firstname, Lastname, userRole, Email);
 
@@ -65,7 +71,7 @@ namespace UI
             ListviewUser.SelectedItems.Clear();
             this.EmptyTextbBox();
         }
-
+        
         private void FormTapharo_Load(object sender, EventArgs e)
         {
             refreshList();

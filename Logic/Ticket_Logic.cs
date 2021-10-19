@@ -98,7 +98,7 @@ namespace Logic
         {
             try
             {
-                return _tickets.GetCreatedByName(TicketID.TicketCreatedBy);
+                return _tickets.GetCreatedByName(TicketID.HandeldBy);
             }
             catch (Exception e)
             {

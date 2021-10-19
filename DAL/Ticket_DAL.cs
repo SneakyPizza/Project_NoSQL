@@ -32,8 +32,25 @@ namespace DAL
         // take all tickets with specific keyword
         public List<Ticket> FilterTickets(string keyword)
         {
+            
+
             IList<FilterDefinition<Ticket>> filtersList = new List<FilterDefinition<Ticket>>();
-            filtersList.Add(new BsonDocument("IncidentType", keyword));
+            int keywordint = 0;
+            if (keyword == "hardware")
+            {
+                keywordint = 0;
+            }
+            else if (keyword == "software")
+            {
+                keywordint = 1;
+            }
+            else if (keyword == "service")
+            {
+                keywordint = 2;
+            }
+            keyword = Enum.GetName(typeof(IncidentType), keywordint);
+            
+            filtersList.Add(new BsonDocument("IncidentType", keywordint));
             FilterDefinitionBuilder<Ticket> builder = Builders<Ticket>.Filter;
             List<Ticket> Tickets = GetDatabaseTickets().Find(builder.And(filtersList)).ToList();
             return Tickets;

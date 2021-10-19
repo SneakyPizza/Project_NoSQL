@@ -123,6 +123,7 @@ namespace UI
         private void Loadlistview()
         {
             FillListview(_tickets.RetrieveAllTickets(), listView_TicketsOverview);
+            comboBoxIncident.DataSource = Enum.GetValues(typeof(IncidentType));
         }
         // fill the column headers of the listview
         private void FillListviewColumnHeaders(ListView listview)
@@ -136,6 +137,7 @@ namespace UI
         // filter listview of the tickets
         private void btn_Filter_Click(object sender, EventArgs e)
         {
+            
             string keywords = richTextBox_Filter.Text;
             FillListview(_tickets.FilterList(keywords), listView_TicketsOverview);
             MessageBox.Show("The list has been filtered");
@@ -149,6 +151,7 @@ namespace UI
         public void ShowComboBoxTickets()
         {
             comboBox_TicketStatus.DataSource = Enum.GetValues(typeof(Priority));
+            comboBoxIncident.DataSource = Enum.GetValues(typeof(IncidentType));
         }
         // todo fill all fields en fix update button
         public void FillTicketAndComboBoxes(Ticket ticket)
@@ -247,6 +250,11 @@ namespace UI
         {
             comboBox_TicketHandeldBy.DisplayMember = "Fullname";
             comboBox_TicketHandeldBy.DataSource =  _user.GetUsers();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxIncident.DataSource = IncidentType.GetValues(typeof(IncidentType));
         }
     }
 }

@@ -69,5 +69,17 @@ namespace DAL
             User user = test.FirstOrDefault();
             return user;
         }
+        public bool UserCheck(string Username)
+        {
+            List<User> userlist = GetDatabase().GetCollection<User>("Users").Find(new BsonDocument()).ToList();
+            foreach (User username in userlist)
+            {
+                if (Username == username.Username)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

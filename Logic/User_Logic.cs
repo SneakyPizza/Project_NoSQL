@@ -10,11 +10,13 @@ namespace Logic
 
     public class User_Logic
     {
+        private Login_Logic _login_logic = Login_Logic.Instance; 
         User_DAL dal = new User_DAL();
         public void InsertUser(string firstname, string lastname, string username, string password, UserRole role, string email)
         {
             try
             {
+                password = _login_logic.EncryptPassword(password);
                 dal.InsertUser(firstname, lastname, username, password, role, email);
             }
             catch (Exception e)
@@ -90,6 +92,18 @@ namespace Logic
             }
             catch (Exception e)
             {
+                throw new Exception(e.Message);
+            }
+        }
+        public bool UserCheck(string username)
+        {
+            try
+            {
+                return dal.UserCheck(username);
+            }
+            catch (Exception e)
+            {
+
                 throw new Exception(e.Message);
             }
         }

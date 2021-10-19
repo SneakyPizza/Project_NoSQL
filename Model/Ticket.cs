@@ -10,7 +10,7 @@ namespace Model
     {
         private ObjectId _userID;
         private ObjectId _id;
-        private ObjectId _TicketCreadtedBy;
+        private ObjectId _handeldBy;
         private DateTime _deadLine;
         private DateTime _creationTime;
         private string _title;
@@ -21,10 +21,10 @@ namespace Model
         private Status _status;
 
         // ticket super user
-        public Ticket(ObjectId userID, ObjectId ticketCreadtedBy, DateTime deadLine, DateTime creationTime, string title, string description, string solution, IncidentType incidentType, Priority priority, Status status)
+        public Ticket(ObjectId userID, ObjectId handeldBy, DateTime deadLine, DateTime creationTime, string title, string description, string solution, IncidentType incidentType, Priority priority, Status status)
         {
             _userID = userID;
-            _TicketCreadtedBy = ticketCreadtedBy;
+            _handeldBy = handeldBy;
             _deadLine = deadLine;
             _creationTime = creationTime;
             _title = title;
@@ -64,7 +64,7 @@ namespace Model
         }
         public ObjectId UserID { get => _userID; set => _userID = value; } // user that creates ticket and makes ticket. is split by user role
         public ObjectId Id { get => _id; set => _id = value; } // take and send tickets from the database
-        public ObjectId TicketCreatedBy { get => _TicketCreadtedBy; set => _TicketCreadtedBy = value; }
+        public ObjectId HandeldBy { get => _handeldBy; set => _handeldBy = value; }
         public DateTime Deadline { get => _deadLine; set => _deadLine = value; }
         public DateTime CreationTime { get => _creationTime; set => _creationTime = value; } // tijd dat de ticket is aangemaakt
         public string Title { get => _title; set => _title = value; }
