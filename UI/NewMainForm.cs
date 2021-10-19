@@ -158,6 +158,7 @@ namespace UI
                 lvTicket.SubItems.Add(ticket.IncidentType.ToString());
                 lvTicket.SubItems.Add(ticket.Priority.ToString());
                 lvTicket.SubItems.Add(ticket.Status.ToString());
+                lvTicket.SubItems.Add(ticket.Deadline.ToString());
                 lvTicket.SubItems.Add(ticket.IsCompleted);
                 listviews.Items.AddRange(new ListViewItem[] { lvTicket });
                 Console.ResetColor();

@@ -102,16 +102,5 @@ namespace Logic
             }
           
          }
-        public List<User> GetNormalUser()
-        {
-            try
-            {
-                return dal.GetNormalUsers();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
     }
 }

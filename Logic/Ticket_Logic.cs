@@ -43,18 +43,6 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-        // return list of the filter
-        public List<Ticket> FilterList(String keyWord)
-        {
-            try
-            {
-                return _tickets.FilterTickets(keyWord);
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
         // order tickets by priority
         public List<Ticket> OrderTickets(string OrderPriority)
         {
