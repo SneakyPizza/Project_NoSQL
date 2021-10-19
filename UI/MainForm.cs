@@ -21,16 +21,6 @@ namespace UI
         private User _currentUser;
         private string _emailReset;
 
-        private void btn_LoginReturn1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_LoginReturn2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public MainForm()
         {
             InitializeComponent();

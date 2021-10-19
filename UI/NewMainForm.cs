@@ -27,6 +27,8 @@ namespace UI
             _user = new User_Logic();
             LoadDubbleClickeventsListview();
         }
+
+        #region Login - Yornie
         public void CheckUserAccess(User user) {
             switch (user.UserRole)
             {
@@ -49,6 +51,9 @@ namespace UI
                     CheckUserAccess(_currentUser);
                     StartDashboard();
                     pnl_Dashboard.Refresh();
+
+                    tb_Username.Clear();
+                    tb_Password.Clear();
                 }
                 else
                 {
@@ -57,7 +62,7 @@ namespace UI
             }
             else
             {
-                MessageBox.Show("Please fill in login details");
+                MessageBox.Show("Please fill in correct login details");
             }
         }
         private void lbl_ForgotPassword_Click(object sender, EventArgs e)
@@ -66,18 +71,25 @@ namespace UI
             frm_ResetPassword.ShowDialog();
         }
 
-        //#endregion
+        private void ReturnToLoginScreen()
+        {
+            pnl_Dashboard.Visible = false;
+            _login_Logic.LogoutUser();
+            pnl_Login.Visible = true;
 
-        #region Dashboard
+            pnl_DashboardOptions.Visible = false;
+        }
+
+        #endregion
+
+        #region Dashboard - Yornie
         private void StartDashboard()
         {
             pnl_Dashboard.Visible = true;
-            //  pnl_Dashboard.BringToFront();
             pnl_DashboardOptions.Visible = true;
-            //    Display dashboard
             int[] values = _dashboard_logic.GetDashboardValues();
-            lbl_DashboardUnresolvedText.Text += String.Format(" {0} / {1}", values[0], values[1]);
-            lbl_DashboardOvertimeText.Text += String.Format(" {0} !", values[2]);
+            lbl_DashboardUnresolvedText.Text = String.Format("Unresolved Tickets: {0} / {1}", values[0], values[1]);
+            lbl_DashboardOvertimeText.Text = String.Format("Overtime: {0} !", values[2]);
 
             //unresolved tickets circle
             cpc_DashboardUnresolvedTickets.CurrentValue = values[0];
@@ -89,18 +101,22 @@ namespace UI
             pnl_Dashboard.Refresh();
         }
 
-        private void btn_DashboardLogout_Click(object sender, EventArgs e)
+        private void btn_DashboardLogout_Click_1(object sender, EventArgs e)
         {
-            //    _login_Logic.LogoutUser();
-            //    pnl_Dashboard.Visible = false;
-            //    ReturnToLogin();
+            ReturnToLoginScreen();
         }
-        #endregion
 
         private void btn_ManageUsers_Click(object sender, EventArgs e)
         {
-            
+
         }
+
+        private void btn_Dashboard_Click(object sender, EventArgs e)
+        {
+            pnl_TicketOverview.Visible = false;
+            pnl_Dashboard.Visible = true;
+        }
+        #endregion
         // fill comboxesof tickets and ticket overview
         public void FillComboboxes()
         {
@@ -130,11 +146,7 @@ namespace UI
 
         }
 
-        private void btn_Dashboard_Click(object sender, EventArgs e)
-        {
-            pnl_TicketOverview.Visible = false;
-            pnl_Dashboard.Visible = true;
-        }
+
         public void FillListview(List<Ticket> tickets, ListView listviews)
         {
             listviews.Items.Clear();

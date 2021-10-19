@@ -29,6 +29,13 @@ namespace DAL
             List<Ticket> Tickets = GetDatabaseTickets().Find(filter).ToList();
             return Tickets;
         }
+
+        public List<Ticket> RetrieveAllTickets()
+        {
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Exists("Status");
+            List<Ticket> tickets = GetDatabaseTickets().Find(filter).ToList();
+            return tickets;
+        }
         // take all tickets with specific keyword
         public List<Ticket> FilterTickets(string keyword)
         {

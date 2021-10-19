@@ -51,6 +51,7 @@ namespace UI
                 {
                     MessageBox.Show("Correct code");
                     pnl_ForgotPasswordNewPassword.Visible = true;
+                    _fp_logic.RemoveResetCode();
                 }
                 else
                 {

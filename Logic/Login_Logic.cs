@@ -14,6 +14,8 @@ namespace Logic
     {
         private Login_DAL _login_dal = Login_DAL.Instance;
         private static Login_Logic _login_logic;
+        private static User _loggedUser;
+        //Login_logic Singleton
         public static Login_Logic Instance
         {
             get
@@ -22,9 +24,6 @@ namespace Logic
                 return _login_logic;
             }
         }
-
-        private static User _loggedUser;
-
         public static User LoggedUser { get { return _loggedUser; } set { if (_loggedUser == null) _loggedUser = value; } }
         public void LogoutUser()
         {
@@ -33,12 +32,12 @@ namespace Logic
                 _loggedUser = null;
             }
         }
-
+        //Encrypt password with Bcrypt
         public string EncryptPassword(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
-
+        //Try to login user with trimmed username and password
         public User LoginUser(string username, string password)
         {
             try
@@ -52,7 +51,7 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-
+        //Create a user form a Bson document
         public User CreateUserfromBson(BsonDocument doc)
         {
             try
@@ -73,23 +72,5 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-
-
-        //Created to insert a dummy user for testing purposes - Delete Later
-        //public void CreateDummyUser()
-        //{
-        //    try
-        //    {
-        //        string p = "bobuser2";
-        //        // p = EncryptPassword(p);
-        //        User u = new User("bob2", "bobuser2", "bob2", "bobus2", (UserRole)1);
-        //        _login_dal.InsertUser(u);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-
-        //}
     }
 }
