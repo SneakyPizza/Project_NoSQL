@@ -69,7 +69,8 @@ namespace UI
             this.IncidentType = new System.Windows.Forms.ColumnHeader();
             this.Priority = new System.Windows.Forms.ColumnHeader();
             this.Status = new System.Windows.Forms.ColumnHeader();
-            this.Completed = new System.Windows.Forms.ColumnHeader();
+            this.Deadline = new System.Windows.Forms.ColumnHeader();
+            this.Solved = new System.Windows.Forms.ColumnHeader();
             this.pic_backToUserTicketList = new System.Windows.Forms.PictureBox();
             this.pnl_SeeTicket = new System.Windows.Forms.Panel();
             this.lbl_handeldBy = new System.Windows.Forms.Label();
@@ -448,7 +449,8 @@ namespace UI
             this.IncidentType,
             this.Priority,
             this.Status,
-            this.Completed});
+            this.Deadline,
+            this.Solved});
             this.lv_TicketOfNormalUser.FullRowSelect = true;
             this.lv_TicketOfNormalUser.GridLines = true;
             this.lv_TicketOfNormalUser.HideSelection = false;
@@ -480,10 +482,15 @@ namespace UI
             this.Status.Text = "Status";
             this.Status.Width = 90;
             // 
-            // Completed
+            // Deadline
             // 
-            this.Completed.Text = "Completed";
-            this.Completed.Width = 90;
+            this.Deadline.Text = "Deadline";
+            this.Deadline.Width = 150;
+            // 
+            // Solved
+            // 
+            this.Solved.Text = "Solved";
+            this.Solved.Width = 70;
             // 
             // pic_backToUserTicketList
             // 
@@ -743,7 +750,7 @@ namespace UI
         private System.Windows.Forms.ColumnHeader IncidentType;
         private System.Windows.Forms.ColumnHeader Priority;
         private System.Windows.Forms.ColumnHeader Status;
-        private System.Windows.Forms.ColumnHeader Completed;
+        private System.Windows.Forms.ColumnHeader Deadline;
         private System.Windows.Forms.PictureBox pic_backToUserTicketList;
         private System.Windows.Forms.Panel pnl_CreateTicketNormalUser;
         private System.Windows.Forms.PictureBox pic_returnToTickerOverviewUser;
@@ -774,5 +781,6 @@ namespace UI
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pic_returnToTicketOverviewUser;
+        private System.Windows.Forms.ColumnHeader Solved;
     }
 }

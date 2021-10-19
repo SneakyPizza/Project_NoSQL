@@ -109,8 +109,7 @@ namespace UI
         private void btn_SubmitTicket_Click(object sender, EventArgs e)
         {
             Ticket ticket = new Ticket(_currentUser.Id, tb_TicketTitle.Text, richtb_TicketDescriptionMakeTicketNormalUser.Text, (IncidentType)cb_TicketIncidentType.SelectedValue, Model.Priority.Normal);
-            Regex rgx = new Regex("[^A-Za-z0-9]");
-            if (rgx.IsMatch(ticket.Title) || ticket.Title == string.Empty || rgx.IsMatch(ticket.Description) || ticket.Description == string.Empty) { MessageBox.Show("Not empty string allowed or special characters allowed"); return; }
+            if ( ticket.Title == string.Empty || ticket.Description == string.Empty) { MessageBox.Show("No empty title or description allowed"); return; }
             ticket_Logic.InsertTicket(ticket);
             MessageBox.Show("Ticket has been made");
         }
@@ -135,6 +134,7 @@ namespace UI
         private void pic_returnToTickerOverviewUser_Click(object sender, EventArgs e)
         {
             pnl_SeeTicket.Visible = false;
+            pnl_CreateTicketNormalUser.Visible = false;
             pnl_TicketoverviewNormalUser.Visible = true;
             LoadListview();
         }
