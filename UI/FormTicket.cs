@@ -91,6 +91,7 @@ namespace UI
             _currentTicket.Status = (Status)cbo_ticketStatus.SelectedItem;
             _currentTicket.Solution = richtb_TicketSolution.Text;
             _currentTicket.Deadline = dtp_TicketDeadline.Value;
+            _currentTicket.Priority = (Priority) cbo_TIcketPriority.SelectedItem;
             ticket_Logic.UpdateTicket(_currentTicket);
             MessageBox.Show("The ticket has been updated");
             Close();
@@ -114,19 +115,6 @@ namespace UI
             MessageBox.Show("Ticket has been made");
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("The application will be close if you press yes", "Close application", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                Close();
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                MessageBox.Show("The application is not closed. If you wish to sign in. Then press on the gardengroup logo on the top left of the application");
-            }
-        }
-
         private void lv_TicketOfNormalUser_MouseClick(object sender, MouseEventArgs e)
         {
             if (lv_TicketOfNormalUser.SelectedItems.Count == 1)
@@ -147,7 +135,6 @@ namespace UI
         private void pic_returnToTickerOverviewUser_Click(object sender, EventArgs e)
         {
             pnl_SeeTicket.Visible = false;
-
             pnl_TicketoverviewNormalUser.Visible = true;
             LoadListview();
         }

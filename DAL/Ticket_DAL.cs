@@ -37,15 +37,6 @@ namespace DAL
             return tickets;
         }
         // take all tickets with specific keyword
-        public List<Ticket> FilterTickets(string keyword)
-        {
-            IList<FilterDefinition<Ticket>> filtersList = new List<FilterDefinition<Ticket>>();
-            filtersList.Add(new BsonDocument("IncidentType", keyword));
-            FilterDefinitionBuilder<Ticket> builder = Builders<Ticket>.Filter;
-            List<Ticket> Tickets = GetDatabaseTickets().Find(builder.And(filtersList)).ToList();
-            return Tickets;
-        }
-        // sort the tickets by priority
         public List<Ticket> OrderTickets(Priority OrderPriority)
         {
             List<Ticket> tickets = RetrieveTickets();

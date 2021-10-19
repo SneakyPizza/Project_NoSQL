@@ -117,8 +117,9 @@ namespace UI
             pnl_Dashboard.Visible = true;
         }
         #endregion
-        // fill comboxesof tickets and ticket overview
-        public void FillComboboxes()
+
+        #region Tickets-Gilberto
+        private void FillComboboxes()
         {
             cbo_UserReportedBy.DisplayMember = "Fullname";
             cbo_UserReportedBy.DataSource = _user.GetnormalandSuperUser().Item2;
@@ -145,7 +146,6 @@ namespace UI
             }
 
         }
-
 
         public void FillListview(List<Ticket> tickets, ListView listviews)
         {
@@ -221,5 +221,6 @@ namespace UI
             pnl_CreateTicketAdmin.Visible = false;
             Loadlistview();
         }
+        #endregion 
     }
 }
