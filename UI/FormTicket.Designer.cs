@@ -188,13 +188,14 @@ namespace UI
             // 
             // btn_UpdateTicket
             // 
+            this.btn_UpdateTicket.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btn_UpdateTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_UpdateTicket.Location = new System.Drawing.Point(826, 465);
             this.btn_UpdateTicket.Name = "btn_UpdateTicket";
             this.btn_UpdateTicket.Size = new System.Drawing.Size(195, 64);
             this.btn_UpdateTicket.TabIndex = 37;
             this.btn_UpdateTicket.Text = "Update";
-            this.btn_UpdateTicket.UseVisualStyleBackColor = true;
+            this.btn_UpdateTicket.UseVisualStyleBackColor = false;
             this.btn_UpdateTicket.Click += new System.EventHandler(this.btn_UpdateTicket_Click);
             // 
             // cbo_TicketIncidentType
@@ -394,13 +395,14 @@ namespace UI
             // 
             // btn_SubmitTicket
             // 
+            this.btn_SubmitTicket.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btn_SubmitTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_SubmitTicket.Location = new System.Drawing.Point(792, 371);
             this.btn_SubmitTicket.Name = "btn_SubmitTicket";
             this.btn_SubmitTicket.Size = new System.Drawing.Size(206, 85);
             this.btn_SubmitTicket.TabIndex = 2;
             this.btn_SubmitTicket.Text = "Submit";
-            this.btn_SubmitTicket.UseVisualStyleBackColor = true;
+            this.btn_SubmitTicket.UseVisualStyleBackColor = false;
             this.btn_SubmitTicket.Click += new System.EventHandler(this.btn_SubmitTicket_Click);
             // 
             // label1
@@ -434,12 +436,13 @@ namespace UI
             // 
             // btn_CreateTicketNormalUser
             // 
+            this.btn_CreateTicketNormalUser.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btn_CreateTicketNormalUser.Location = new System.Drawing.Point(84, 70);
             this.btn_CreateTicketNormalUser.Name = "btn_CreateTicketNormalUser";
             this.btn_CreateTicketNormalUser.Size = new System.Drawing.Size(225, 106);
             this.btn_CreateTicketNormalUser.TabIndex = 1;
             this.btn_CreateTicketNormalUser.Text = "Create Ticket";
-            this.btn_CreateTicketNormalUser.UseVisualStyleBackColor = true;
+            this.btn_CreateTicketNormalUser.UseVisualStyleBackColor = false;
             this.btn_CreateTicketNormalUser.Click += new System.EventHandler(this.btn_CreateTicketNormalUser_Click);
             // 
             // lv_TicketOfNormalUser

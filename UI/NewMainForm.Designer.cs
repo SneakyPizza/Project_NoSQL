@@ -365,35 +365,38 @@ namespace UI
             // 
             // btn_SortTicket
             // 
+            this.btn_SortTicket.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btn_SortTicket.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_SortTicket.Location = new System.Drawing.Point(63, 276);
             this.btn_SortTicket.Name = "btn_SortTicket";
             this.btn_SortTicket.Size = new System.Drawing.Size(290, 85);
             this.btn_SortTicket.TabIndex = 3;
             this.btn_SortTicket.Text = "Sort";
-            this.btn_SortTicket.UseVisualStyleBackColor = true;
+            this.btn_SortTicket.UseVisualStyleBackColor = false;
             this.btn_SortTicket.Click += new System.EventHandler(this.btn_SortPriority_Click);
             // 
             // btn_DeleteTicket
             // 
+            this.btn_DeleteTicket.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btn_DeleteTicket.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_DeleteTicket.Location = new System.Drawing.Point(67, 129);
             this.btn_DeleteTicket.Name = "btn_DeleteTicket";
             this.btn_DeleteTicket.Size = new System.Drawing.Size(286, 80);
             this.btn_DeleteTicket.TabIndex = 2;
             this.btn_DeleteTicket.Text = "Delete";
-            this.btn_DeleteTicket.UseVisualStyleBackColor = true;
+            this.btn_DeleteTicket.UseVisualStyleBackColor = false;
             this.btn_DeleteTicket.Click += new System.EventHandler(this.btn_DeleteTicket_Click);
             // 
             // btn_CreateTicketAdmin
             // 
+            this.btn_CreateTicketAdmin.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btn_CreateTicketAdmin.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_CreateTicketAdmin.Location = new System.Drawing.Point(67, 16);
             this.btn_CreateTicketAdmin.Name = "btn_CreateTicketAdmin";
             this.btn_CreateTicketAdmin.Size = new System.Drawing.Size(290, 85);
             this.btn_CreateTicketAdmin.TabIndex = 1;
             this.btn_CreateTicketAdmin.Text = "Create Ticket";
-            this.btn_CreateTicketAdmin.UseVisualStyleBackColor = true;
+            this.btn_CreateTicketAdmin.UseVisualStyleBackColor = false;
             this.btn_CreateTicketAdmin.Click += new System.EventHandler(this.btn_CreateTicketAdmin_Click);
             // 
             // lv_TicketOverview
@@ -494,6 +497,7 @@ namespace UI
             // 
             // btn_DashboardLogout
             // 
+            this.btn_DashboardLogout.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btn_DashboardLogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_DashboardLogout.Location = new System.Drawing.Point(1023, 4);
             this.btn_DashboardLogout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -501,7 +505,7 @@ namespace UI
             this.btn_DashboardLogout.Size = new System.Drawing.Size(87, 39);
             this.btn_DashboardLogout.TabIndex = 20;
             this.btn_DashboardLogout.Text = "Logout";
-            this.btn_DashboardLogout.UseVisualStyleBackColor = true;
+            this.btn_DashboardLogout.UseVisualStyleBackColor = false;
             this.btn_DashboardLogout.Click += new System.EventHandler(this.btn_DashboardLogout_Click_1);
             // 
             // btn_Login
