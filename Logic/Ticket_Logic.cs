@@ -11,6 +11,15 @@ namespace Logic
         Ticket_DAL _tickets = new Ticket_DAL();
 
         // insert a new ticket in the database
+        private static Ticket_Logic _login_logic;
+        public static Ticket_Logic Instance
+        {
+            get
+            {
+                if (_login_logic == null) { _login_logic = new Ticket_Logic(); }
+                return _login_logic;
+            }
+        }
         public void InsertTicket(Ticket ticket)
         {
             try
@@ -39,7 +48,6 @@ namespace Logic
         {
             try
             {
-                _tickets.TestAggregation();
                 return _tickets.FilterTickets(keyWord);
             }
             catch (Exception e)
@@ -94,11 +102,22 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-        public string GetCreatedByName(Ticket TicketID)
+        public string GetCreatedByName(ObjectId ticketUserID)
         {
             try
             {
-                return _tickets.GetCreatedByName(TicketID.HandeldBy);
+                return _tickets.GetCreatedByName(ticketUserID);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public (string,string) GetCreatedByName(Ticket TicketID)
+        {
+            try
+            {
+                return _tickets.GetCreatedByName(TicketID.UserID,TicketID.HandeldBy);
             }
             catch (Exception e)
             {

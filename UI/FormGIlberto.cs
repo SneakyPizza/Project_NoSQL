@@ -66,8 +66,7 @@ namespace UI
             comboBox1_UsersToTicket.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox1_UsersToTicket.AutoCompleteSource = AutoCompleteSource.ListItems;
             //
-            comboBox1_UsersToTicket.DisplayMember = "Fullname";
-            comboBox1_UsersToTicket.DataSource = _user.GetNormalUser();
+            
             // autofill textbox of the maketicketuser
             textBoxFirstname.Text = _currentuser.Firstname;
             textBoxLastname.Text = _currentuser.Lastname;
@@ -186,6 +185,7 @@ namespace UI
             ticket.Deadline = dateTimePicker_TicketDeadline.Value;
             _tickets.UpdateTicket(ticket);
             MessageBox.Show("The ticket has been updated");
+
         }
         // return from the ticket to the ticket overview
         private void brn_BackButton_Click(object sender, EventArgs e)
@@ -204,7 +204,7 @@ namespace UI
         // normal user can enter a ticket
         private void btn_makeTicketUSer_Click(object sender, EventArgs e)
         {
-            Ticket ticket = new Ticket(_currentuser.Id, textBoxTicketTitle.Text, richTextBox_Userdescription.Text, Priority.Normal);
+            Ticket ticket = new Ticket(_currentuser.Id, textBoxTicketTitle.Text, richTextBox_Userdescription.Text, (IncidentType)comboBox_IncidentType.SelectedValue, Priority.Normal);
             _tickets.InsertTicket(ticket);
             MessageBox.Show("Ticket has been made");
         }
@@ -228,7 +228,7 @@ namespace UI
             Ticket ticket = (Ticket)lv_TicketsofUser.SelectedItems[0].Tag;
             lbl_CompletedTicketUser.Text = ticket.IsCompleted.ToString();
             lbl_TicketStatusUser.Text = ticket.Status.ToString();
-            lbl_ReportedBy.Text = _tickets.GetCreatedByName(ticket);
+           // lbl_ReportedBy.Text = _tickets.GetCreatedByName(ticket);
             lbl_CreationTime.Text = ticket.CreationTime.ToString();
             lbl_Deadline.Text = ticket.Deadline.ToString();
             richTextBox_userTicketDescription.Text = ticket.Description;

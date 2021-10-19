@@ -35,16 +35,24 @@ namespace DAL
             FilterDefinition<User> filter = Builders<User>.Filter.Eq("Username", username);
             GetDatabaseUser().DeleteOne(filter);
         }
+        public  (List<User>,List<User>) GetNormalAndAdminUsers(){
 
+            var filter1 = Builders<User>.Filter.Eq("UserRole", UserRole.Admin);
+            var filter2 = Builders<User>.Filter.Eq("UserRole", UserRole.User);
+            List<User> normaluser = GetDatabase().GetCollection<User>("Users").Find(filter1).ToList();
+            List<User> superuser = GetDatabase().GetCollection<User>("Users").Find(filter2).ToList();
+            return (normaluser,superuser);
+
+        }
         public List<User> GetUsers()
         {
-            var filter = Builders<User>.Filter.Eq("UserRole",UserRole.Admin) & Builders<User>.Filter.Eq("Username", "VictorAdmin2");
+            var filter = Builders<User>.Filter.Eq("UserRole",UserRole.Admin);
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList(); 
             return Users;
         }
         public List<User> GetNormalUsers()
         {
-            var filter = Builders<User>.Filter.Eq("UserRole", UserRole.User) & Builders<User>.Filter.Eq("Username", "VictorUser1");
+            var filter = Builders<User>.Filter.Eq("UserRole", UserRole.User);
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList();
             return Users;
         }
@@ -61,13 +69,13 @@ namespace DAL
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(new BsonDocument()).ToList();
             return Users;
         }
-        public User GetUser()
+
+        public string GetCreatedByName(ObjectId TicketCreatedBy)
         {
             var collection = GetDatabase().GetCollection<User>("Users");
-            var filter = Builders<User>.Filter.Eq("Firstname", "VictorUser1");
-            var test = collection.Find(filter);
-            User user = test.FirstOrDefault();
-            return user;
+            FilterDefinition<User> filter = Builders<User>.Filter.Eq("_id", TicketCreatedBy);
+            User userCreatedBy = collection.Find(filter).First();
+            return userCreatedBy.Fullname;
         }
         public bool UserCheck(string Username)
         {

@@ -29,6 +29,13 @@ namespace DAL
             List<Ticket> Tickets = GetDatabaseTickets().Find(filter).ToList();
             return Tickets;
         }
+
+        public List<Ticket> RetrieveAllTickets()
+        {
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Exists("Status");
+            List<Ticket> tickets = GetDatabaseTickets().Find(filter).ToList();
+            return tickets;
+        }
         // take all tickets with specific keyword
         public List<Ticket> FilterTickets(string keyword)
         {
@@ -68,6 +75,7 @@ namespace DAL
         {
             FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
             UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("Status", ticket.Status)
+                .Set("HandeldBy", ticket.HandeldBy)
                 .Set("Solution", ticket.Solution)
                 .Set("Priority", ticket.Priority)
                 .Set("Deadline", ticket.Deadline);
@@ -79,11 +87,6 @@ namespace DAL
             FilterDefinition<Ticket> FilterUser = Builders<Ticket>.Filter.Eq("UserID", user.Id);
             List<Ticket> TicketsOfUser = GetDatabaseTickets().Find(FilterUser).ToList();
             return TicketsOfUser;
-        }
-        public void TestAggregation()
-        {
-            var collection = GetDatabaseTickets();
-            var docs = collection.Aggregate().Lookup("Users", "UserID", "_id", "asTicket").ToList();
         }
         public void DeleteTicket(Ticket ticket)
         {
@@ -98,17 +101,15 @@ namespace DAL
             User user = collection.Find(filter).First();
             return user.Fullname;
         }
-        //public User GetUser(Ticket ticketID)
-        ////{
-        ////    var collection = GetDatabaseTickets();
-        ////    var docs = collection.Aggregate().Lookup("Users", "UserID", "_id", "asTicket").ToList();
-        ////    // var collection = GetDatabase().GetCollection<User>("Users");
-        ////    // var filter = Builders<BsonDocument>.Filter.Eq("_id", ticketID.UserID);
-        ////    var filter = Builders<BsonDocument>.Filter.Where(x => x.Equals(ticketID));
-        ////    var ss = docs.Find(new Predicate<BsonDocument>(filter)).First();
-           
-        ////   // var filter2 = Builders<User>.Filter.Eq("UserID", ticketID.TicketCreatedBy);
-        //    return ((User)collection.Find(filter).FirstOrDefault());
+        public (string, string) GetCreatedByName(ObjectId TicketUserID, ObjectId TicketCreatedBy)
+        {
+            IMongoCollection<User> collection = GetDatabase().GetCollection<User>("Users");
+            FilterDefinition<User> filter = Builders<User>.Filter.Eq("_id", TicketCreatedBy);
+            FilterDefinition<User> filter2 = Builders<User>.Filter.Eq("_id", TicketUserID);
+            User userCreatedBy = collection.Find(filter).First();
+            User TicketOFUSer = collection.Find(filter2).First();
+            return (userCreatedBy.Fullname, TicketOFUSer.Fullname);
         }
     }
+}
 

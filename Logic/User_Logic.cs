@@ -12,6 +12,16 @@ namespace Logic
     {
         private Login_Logic _login_logic = Login_Logic.Instance; 
         User_DAL dal = new User_DAL();
+
+        private static User_Logic _user_logic;
+        public static User_Logic Instance
+        {
+            get
+            {
+                if (_user_logic == null) { _user_logic = new User_Logic(); }
+                return _user_logic;
+            }
+        }
         public void InsertUser(string firstname, string lastname, string username, string password, UserRole role, string email)
         {
             try
@@ -45,14 +55,14 @@ namespace Logic
             catch (Exception e)
             {
 
-                throw new Exception (e.Message);
+                throw new Exception(e.Message);
             }
         }
-        public User GetUser()
+        public (List<User>, List<User>) GetnormalandSuperUser()
         {
             try
             {
-                return dal.GetUser();
+               return dal.GetNormalAndAdminUsers();
             }
             catch (Exception e)
             {
@@ -82,12 +92,22 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-
+        public string GetNameOfHandeldUser(ObjectId TicketHandeldBy)
+        {
+            try
+            {
+                return dal.GetCreatedByName(TicketHandeldBy);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+          
+         }
         public List<User> GetNormalUser()
         {
             try
             {
-                //  dal.InsertUser();
                 return dal.GetNormalUsers();
             }
             catch (Exception e)
