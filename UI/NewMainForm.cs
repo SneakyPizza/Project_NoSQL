@@ -19,17 +19,17 @@ namespace UI
         private Dashboard_Logic _dashboard_logic = Dashboard_Logic.Instance;
         private Ticket_Logic ticket_Logic = Ticket_Logic.Instance;
         private User _currentUser;
-        User_Logic _user;
+        private User_Logic _user = new User_Logic();
 
         public NewMainForm()
         {
             InitializeComponent();
-            _user = new User_Logic();
             LoadDubbleClickeventsListview();
         }
 
         #region Login - Yornie
-        public void CheckUserAccess(User user) {
+        public void CheckUserAccess(User user)
+        {
             switch (user.UserRole)
             {
                 case UserRole.Admin:
@@ -37,6 +37,8 @@ namespace UI
                     btn_Dashboard.Visible = true;
                     return;
                 case UserRole.User:
+                    btn_ManageUsers.Visible = false;
+                    btn_Dashboard.Visible = false;
                     return;
             }
         }
@@ -179,18 +181,29 @@ namespace UI
         }
         private void lv_TicketOverview_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (lv_TicketOverview.SelectedItems.Count == 1) {
+            if (lv_TicketOverview.SelectedItems.Count == 1)
+            {
                 Ticket ticket = (Ticket)lv_TicketOverview.SelectedItems[0].Tag;
                 FormTicket frm_ticket = new FormTicket(ticket);
-                    frm_ticket.ShowDialog();
+                frm_ticket.ShowDialog();
                 Loadlistview();
             }
         }
         private void btn_DeleteTicket_Click(object sender, EventArgs e)
         {
             Ticket ticket = (Ticket)lv_TicketOverview.SelectedItems[0].Tag;
-            ticket_Logic.DeleteTicket(ticket);
-            MessageBox.Show("Ticket has been deleted");
+            DialogResult dialogResult = MessageBox.Show("The Ticket with the title " + ticket.Title + " will be deleted ", "Delete ticket", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                ticket_Logic.DeleteTicket(ticket);
+                MessageBox.Show("Ticket has been deleted");
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                MessageBox.Show("Ticket has not been deleted");
+            }
+
+
             Loadlistview();
         }
 
@@ -206,6 +219,7 @@ namespace UI
             Ticket ticket = new Ticket(selectedUserID.Id, selectedCreatedBy.Id,
                 dtp_TicketCreationTImeAdmin.Value.AddDays(double.Parse(cbo_Deadline.Text.Where(char.IsDigit).ToArray())),
                 dtp_TicketCreationTImeAdmin.Value, txt_subjectIncident.Text, richtb_TicketDescription.Text, string.Empty, (IncidentType)cbo_IncidentType.SelectedValue, (Priority)cbo_TicketPriority.SelectedValue, Status.Processing);
+            if (ticket.Title == string.Empty || ticket.Description == string.Empty) { MessageBox.Show("No empty title or description allowed"); return; }
             ticket_Logic.InsertTicket(ticket);
             MessageBox.Show("ticket has been inserted");
         }
