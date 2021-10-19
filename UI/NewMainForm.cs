@@ -17,6 +17,7 @@ namespace UI
         private Login_Logic _login_Logic = Login_Logic.Instance;
         private ForgotPassword_Logic _fp_logic = ForgotPassword_Logic.Instance;
         private Dashboard_Logic _dashboard_logic = Dashboard_Logic.Instance;
+        private SortTicket_Logic _ticket_logic = SortTicket_Logic.Instance;
         private Ticket_Logic ticket_Logic = Ticket_Logic.Instance;
         private User _currentUser;
         private User_Logic _user = new User_Logic();
