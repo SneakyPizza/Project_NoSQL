@@ -21,6 +21,7 @@ namespace Model
         private Status _status;
 
         // ticket super user
+
         public Ticket(ObjectId userID, ObjectId HandeldBy, DateTime deadLine, DateTime creationTime, string title, string description, string solution, IncidentType incidentType, Priority priority, Status status)
         {
             _userID = userID;
