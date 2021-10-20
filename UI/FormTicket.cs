@@ -47,9 +47,7 @@ namespace UI
             {
                 cbo_ticketStatus.Items.Add(status);
             }
-
             cbo_TicketHandeldBy.DisplayMember = "Fullname";
-            // cbo_TicketHandeldBy.DataSource = user_Logic.GetNormalUser();
             foreach (Priority priority in Enum.GetValues(typeof(Priority)))
             {
                 cbo_TIcketPriority.Items.Add(priority);

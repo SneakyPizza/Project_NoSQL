@@ -212,7 +212,12 @@ namespace UI
         {
             pnl_CreateTicketAdmin.Visible = true;
         }
-
+        private void EmptyFieldsSubmitTicket()
+        {
+            txt_subjectIncident.Text = string.Empty;
+            cbo_Deadline.Text = string.Empty;
+            richtb_TicketDescription.Text = string.Empty;
+        }
         private void btn_SubmitTicket_Click(object sender, EventArgs e)
         {
             User selectedUserID = (User)cbo_UserReportedBy.SelectedItem; // ticket for (Normal user)
@@ -223,6 +228,7 @@ namespace UI
             if (ticket.Title == string.Empty || ticket.Description == string.Empty) { MessageBox.Show("No empty title or description allowed"); return; }
             ticket_Logic.InsertTicket(ticket);
             MessageBox.Show("ticket has been inserted");
+            EmptyFieldsSubmitTicket();
         }
 
         private void btn_CancelTicket_Click(object sender, EventArgs e)

@@ -20,13 +20,13 @@ namespace DAL
         {
             GetDatabaseTickets().InsertOne(ticket);
         }
-        // retrieve all tickets that or open or that are pending
+        // retrieve all tickets that or open or that are pending and sort it by the deadline
         public List<Ticket> RetrieveTickets()
         {
             FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq("Status", Status.OnHold)
                 | Builders<Ticket>.Filter.Eq("Status", Status.Processing)
                 | Builders<Ticket>.Filter.Eq("Status", Status.Registered);
-            List<Ticket> Tickets = GetDatabaseTickets().Find(filter).ToList();
+            List<Ticket> Tickets = GetDatabaseTickets().Find(filter).SortBy(ticket => ticket.Deadline).ToList();
             return Tickets;
         }
 
@@ -59,7 +59,7 @@ namespace DAL
         public List<Ticket> ListTicketsOFUser(User user)
         {
             FilterDefinition<Ticket> FilterUser = Builders<Ticket>.Filter.Eq("UserID", user.Id);
-            List<Ticket> TicketsOfUser = GetDatabaseTickets().Find(FilterUser).ToList();
+            List<Ticket> TicketsOfUser = GetDatabaseTickets().Find(FilterUser).SortBy(ticket => ticket.Deadline).ToList();
             return TicketsOfUser;
         }
         public void DeleteTicket(Ticket ticket)
