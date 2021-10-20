@@ -36,7 +36,7 @@ namespace DAL
             List<Ticket> tickets = GetDatabaseTickets().Find(filter).ToList();
             return tickets;
         }
-        // take all tickets with specific keyword
+        // take all tickets with specific keyword -- tapharo
         public List<Ticket> FilterTickets(string keyword)
         {
             IList<FilterDefinition<Ticket>> filtersList = new List<FilterDefinition<Ticket>>();
