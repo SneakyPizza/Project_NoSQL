@@ -23,6 +23,7 @@ namespace UI
         private User_Logic _user = new User_Logic();
         private UserRole userRole;
         private string oldUserName;
+        private string oldEmail;
 
         public NewMainForm()
         {
@@ -344,6 +345,7 @@ namespace UI
             firstname = this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[2].Text;
             lastname = this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[3].Text;
             this.userRole = (UserRole)Enum.Parse(typeof(UserRole), this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[4].Text);
+            this.oldEmail = this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[5].Text;
             email = this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[5].Text;
 
             txtb_UsMan_username.Text = username;
@@ -384,8 +386,27 @@ namespace UI
             {
                 userRole = UserRole.User;
             }
+            if (this.oldUserName != username)
+            {
+                if (_user.UserCheck(username))
+                {
+                    MessageBox.Show("Username is already taken!");
+                    return;
+                }
+            }
+            if (this.oldEmail != email)
+            {
+                if (_user.EmailCheck(email))
+                {
+                    MessageBox.Show("Email is already taken!");
+                }
+            }
+            else
+            {
+                _user.UpdateUser(this.oldUserName, firstname, lastname, username, password, this.userRole, email);
+            }
 
-            _user.UpdateUser(this.oldUserName, firstname, lastname, username, password, this.userRole, email);
+            this.oldEmail = email;
             this.oldUserName = username;
             refreshList();
         }
