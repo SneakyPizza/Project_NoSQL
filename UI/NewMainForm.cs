@@ -290,7 +290,12 @@ namespace UI
             }
             if (_user.UserCheck(Username))
             {
-                MessageBox.Show("Username is already taken");
+                MessageBox.Show("Username is already taken!");
+                return;
+            }
+            if (_user.EmailCheck(Email))
+            {
+                MessageBox.Show("Email is already taken!");
             }
             else
             {

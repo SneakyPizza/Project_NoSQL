@@ -81,5 +81,17 @@ namespace DAL
             }
             return false;
         }
+        public bool EmailCheck(string Email)
+        {
+            List<User> emaillist = GetDatabase().GetCollection<User>("Users").Find(new BsonDocument()).ToList();
+            foreach (User email in emaillist)
+            {
+                if (Email == email.Email)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

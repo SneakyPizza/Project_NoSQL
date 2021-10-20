@@ -127,5 +127,17 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
+        public bool EmailCheck(string email)
+        {
+            try
+            {
+                return dal.EmailCheck(email);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
