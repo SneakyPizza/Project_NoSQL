@@ -167,7 +167,7 @@ namespace UI
             this.pnl_Usermanagement.Controls.Add(this.lbl_UsMan_username);
             this.pnl_Usermanagement.Location = new System.Drawing.Point(0, 0);
             this.pnl_Usermanagement.Name = "pnl_Usermanagement";
-            this.pnl_Usermanagement.Size = new System.Drawing.Size(1372, 649);
+            this.pnl_Usermanagement.Size = new System.Drawing.Size(1414, 780);
             this.pnl_Usermanagement.TabIndex = 20;
             this.pnl_Usermanagement.Visible = false;
             // 
