@@ -266,7 +266,16 @@ namespace UI
             string Username = txtb_UsMan_username.Text;
             string Password = txtb_UsMan_password.Text;
             string Email = txtb_UsMan_email.Text;
+            string[] SC = { Firstname, Lastname, Username, Password, Email };
             char CheckEmail = '@';
+            foreach (string item in SC)
+            {
+                if (item == "")
+                {
+                    MessageBox.Show("Text box is not filled in!");
+                    return;
+                }
+            }
             if (!Email.Contains(CheckEmail))
             {
                 Email = Email + "@hotmail.com";
@@ -277,7 +286,7 @@ namespace UI
             }
             else
             {
-                userRole = UserRole.User;
+            userRole = UserRole.User;
             }
             if (_user.UserCheck(Username))
             {
@@ -287,7 +296,7 @@ namespace UI
             {
                 _user.InsertUser(Username, Password, Firstname, Lastname, userRole, Email);
             }
-            refreshList();
+             refreshList();
         }
         private void refreshList()
         {
