@@ -124,6 +124,8 @@ namespace UI
             pnl_TicketOverview.Visible = false;
             pnl_Usermanagement.Visible = false;
             pnl_Dashboard.Visible = true;
+
+            StartDashboard();
         }
         #endregion
 
