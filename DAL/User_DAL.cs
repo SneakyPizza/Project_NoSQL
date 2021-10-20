@@ -14,9 +14,9 @@ namespace DAL
         {
             return GetDatabase().GetCollection<User>("Users");
         }
-        public void InsertUser(string firstname, string lastname, string username, string password,UserRole role, string email)
+        public void InsertUser(string username, string password, string firstname, string lastname, UserRole role, string email)
         {
-            GetDatabase().GetCollection<User>("Users").InsertOne(new User(firstname, lastname,username,password , role, email));
+            GetDatabase().GetCollection<User>("Users").InsertOne(new User(username, password, firstname, lastname, role, email));
         }
 
         public void UpdateUser(string oldUserName, string firstname, string lastname, string username, string password, UserRole role, string email)

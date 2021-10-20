@@ -21,6 +21,8 @@ namespace UI
         private Ticket_Logic ticket_Logic = Ticket_Logic.Instance;
         private User _currentUser;
         private User_Logic _user = new User_Logic();
+        private UserRole userRole;
+        private string oldUserName;
 
         public NewMainForm()
         {
@@ -111,12 +113,15 @@ namespace UI
 
         private void btn_ManageUsers_Click(object sender, EventArgs e)
         {
-
+            pnl_TicketOverview.Visible = false;
+            pnl_Usermanagement.Visible = true;
+            refreshList();
         }
 
         private void btn_Dashboard_Click(object sender, EventArgs e)
         {
             pnl_TicketOverview.Visible = false;
+            pnl_Usermanagement.Visible = false;
             pnl_Dashboard.Visible = true;
         }
         #endregion
@@ -134,6 +139,7 @@ namespace UI
         }
         private void btn_Tickets_Click(object sender, EventArgs e)
         {
+            pnl_Usermanagement.Visible = false;
             // if user is normal user show other panels
             Loadlistview();
             FillComboboxes();
@@ -243,6 +249,142 @@ namespace UI
             pnl_CreateTicketAdmin.Visible = false;
             Loadlistview();
         }
-        #endregion 
+        #endregion
+
+        private void btn_TickOv_Filter_Click(object sender, EventArgs e)
+        {
+            string keywords = txtb_TickOv_Filter.Text;
+            FillListview(ticket_Logic.FilterList(keywords), lv_TicketOverview);
+            MessageBox.Show("The list has been filtered");
+        }
+
+        private void btn_UsMan_AddUser_Click(object sender, EventArgs e)
+        {
+            UserRole userRole;
+            string Firstname = txtb_UsMan_firstname.Text;
+            string Lastname = txtb_UsMan_lastname.Text;
+            string Username = txtb_UsMan_username.Text;
+            string Password = txtb_UsMan_password.Text;
+            string Email = txtb_UsMan_email.Text;
+            char CheckEmail = '@';
+            if (!Email.Contains(CheckEmail))
+            {
+                Email = Email + "@hotmail.com";
+            }
+            if (rb_UsMan_admin.Checked)
+            {
+                userRole = UserRole.Admin;
+            }
+            else
+            {
+                userRole = UserRole.User;
+            }
+            if (_user.UserCheck(Username))
+            {
+                MessageBox.Show("Username is already taken");
+            }
+            else
+            {
+                _user.InsertUser(Username, Password, Firstname, Lastname, userRole, Email);
+            }
+            refreshList();
+        }
+        private void refreshList()
+        {
+            lv_UsMan_ListViewUsermanagement.Clear();
+            FullListViewUsermanagement();
+            lv_UsMan_ListViewUsermanagement.SelectedItems.Clear();
+            this.EmptyUsManTextbBox();
+        }
+        private void FullListViewUsermanagement()
+        {
+            lv_UsMan_ListViewUsermanagement.Columns.Add("Username", 100);
+            lv_UsMan_ListViewUsermanagement.Columns.Add("Password", 100);
+            lv_UsMan_ListViewUsermanagement.Columns.Add("Firstname", 100);
+            lv_UsMan_ListViewUsermanagement.Columns.Add("Lastname", 100);
+            lv_UsMan_ListViewUsermanagement.Columns.Add("User Role", 100);
+            lv_UsMan_ListViewUsermanagement.Columns.Add("Email", 100);
+            foreach (User user in _user.GetnewUser())
+            {
+                ListViewItem UsManlistview = new ListViewItem(user.Username);
+                UsManlistview.SubItems.Add(user.Password);
+                UsManlistview.SubItems.Add(user.Firstname);
+                UsManlistview.SubItems.Add(user.Lastname);
+                UsManlistview.SubItems.Add(user.UserRole.ToString());
+                UsManlistview.SubItems.Add(user.Email);
+                lv_UsMan_ListViewUsermanagement.Items.AddRange(new ListViewItem[] { UsManlistview });
+            }
+        }
+
+        private void lv_UsMan_ListViewUsermanagement_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.lv_UsMan_ListViewUsermanagement.SelectedItems.Count == 0)
+                return;
+
+            EmptyUsManTextbBox();
+            string username, password, firstname, lastname, email;
+
+            this.oldUserName = this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[0].Text;
+            username = this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[0].Text;
+            password = this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[1].Text;
+            firstname = this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[2].Text;
+            lastname = this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[3].Text;
+            this.userRole = (UserRole)Enum.Parse(typeof(UserRole), this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[4].Text);
+            email = this.lv_UsMan_ListViewUsermanagement.SelectedItems[0].SubItems[5].Text;
+
+            txtb_UsMan_username.Text = username;
+            txtb_UsMan_password.Text = password;
+            txtb_UsMan_firstname.Text = firstname;
+            txtb_UsMan_lastname.Text = lastname;
+            if (this.userRole == UserRole.Admin)
+            {
+                rb_UsMan_admin.Checked = true;
+            }
+            else
+            {
+                rb_UsMan_user.Checked = true;
+            }
+            txtb_UsMan_email.Text = email;
+        }
+        private void EmptyUsManTextbBox()
+        {
+            txtb_UsMan_username.Text = string.Empty;
+            txtb_UsMan_password.Text = string.Empty;
+            txtb_UsMan_firstname.Text = string.Empty;
+            txtb_UsMan_lastname.Text = string.Empty;
+            txtb_UsMan_email.Text = string.Empty;
+        }
+
+        private void btn_UsMan_Update_Click(object sender, EventArgs e)
+        {
+            string username = txtb_UsMan_username.Text;
+            string password = txtb_UsMan_password.Text;
+            string firstname = txtb_UsMan_firstname.Text;
+            string lastname = txtb_UsMan_lastname.Text;
+            string email = txtb_UsMan_email.Text;
+            if (rb_UsMan_admin.Checked)
+            {
+                userRole = UserRole.Admin;
+            }
+            else
+            {
+                userRole = UserRole.User;
+            }
+
+            _user.UpdateUser(this.oldUserName, firstname, lastname, username, password, this.userRole, email);
+            this.oldUserName = username;
+            refreshList();
+        }
+
+        private void btn_UsMan_Delete_Click(object sender, EventArgs e)
+        {
+            if (this.oldUserName == null)
+            {
+                return;
+            }
+            _user.DeleteUser(this.oldUserName);
+            this.oldUserName = null;
+            refreshList();
+        }
     }
 }

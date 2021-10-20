@@ -112,5 +112,17 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
+        //filter ticket
+        public List<Ticket> FilterList(String keyWord)
+        {
+            try
+            {
+                return _tickets.FilterTickets(keyWord);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

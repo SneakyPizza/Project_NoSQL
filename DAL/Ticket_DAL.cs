@@ -39,8 +39,6 @@ namespace DAL
         // take all tickets with specific keyword
         public List<Ticket> FilterTickets(string keyword)
         {
-            
-
             IList<FilterDefinition<Ticket>> filtersList = new List<FilterDefinition<Ticket>>();
             int keywordint = 0;
             if (keyword == "hardware")
