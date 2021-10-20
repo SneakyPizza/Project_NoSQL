@@ -18,6 +18,7 @@ namespace UI
         
         private void BTNInsertUser_Click(object sender, EventArgs e)
         {
+            
             string Firstname = TXTBFirstname.Text;
             string Lastname = TXTBLastname.Text;
             string Username = TXTBUsername.Text;

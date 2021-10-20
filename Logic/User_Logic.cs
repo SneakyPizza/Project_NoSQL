@@ -22,12 +22,12 @@ namespace Logic
                 return _user_logic;
             }
         }
-        public void InsertUser(string firstname, string lastname, string username, string password, UserRole role, string email)
+        public void InsertUser(string username, string password, string firstname, string lastname, UserRole role, string email)
         {
             try
             {
                 password = _login_logic.EncryptPassword(password);
-                dal.InsertUser(firstname, lastname, username, password, role, email);
+                dal.InsertUser(username, password, firstname, lastname, role, email);
             }
             catch (Exception e)
             {
@@ -115,11 +115,11 @@ namespace Logic
                 throw new Exception(e.Message);
             }
         }
-        public bool UserCheck(string username)
+        public bool UserCheck(string Username)
         {
             try
             {
-                return dal.UserCheck(username);
+                return dal.UserCheck(Username);
             }
             catch (Exception e)
             {
