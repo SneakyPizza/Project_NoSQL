@@ -270,7 +270,6 @@ namespace UI
             string Password = txtb_UsMan_password.Text;
             string Email = txtb_UsMan_email.Text;
             string[] SC = { Firstname, Lastname, Username, Password, Email };
-            char CheckEmail = '@';
             foreach (string item in SC)
             {
                 if (item == "")
@@ -279,9 +278,10 @@ namespace UI
                     return;
                 }
             }
-            if (!Email.Contains(CheckEmail))
+            if (!_fp_logic.ValidEmailAdress(Email))
             {
-                Email = Email + "@hotmail.com";
+                MessageBox.Show("Email is not valid");
+                return;
             }
             if (rb_UsMan_admin.Checked)
             {
