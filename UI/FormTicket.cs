@@ -78,7 +78,6 @@ namespace UI
             cbo_ticketStatus.Text = ticket.Status.ToString();
             cbo_TIcketPriority.Text = ticket.Priority.ToString();
             richtb_TicketSolution.Text = ticket.Solution;
-            if (ticket.HandeldBy.ToString() != "000000000000000000000000") { lbl_handeldBy.Text = ticket_Logic.GetCreatedByName(_currentTicket).Item1.ToString(); }
             lbl_UserFullname.Text = ticket_Logic.GetCreatedByName(_currentTicket.UserID);
             dtp_TicketCreationTime.Value = ticket.CreationTime;
             dtp_TicketDeadline.Value = ticket.Deadline;
