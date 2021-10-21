@@ -48,7 +48,7 @@ namespace Logic
             int count = 0;
             foreach (Ticket t in tickets)
             {
-                if (t.PastDeadline) { count++; }
+                if (t.PastDeadline && (t.Status != Status.Solved || t.Status != Status.Rejected)) { count++; }
             }
             return count;
         }
