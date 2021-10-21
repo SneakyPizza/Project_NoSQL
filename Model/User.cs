@@ -11,7 +11,6 @@ namespace Model
         private string _firstname;
         private string _lastname;
         private UserRole _userrole;
-        //private ObjectId[] _ticketIds;
         private ObjectId _id;
         private string _email;
         

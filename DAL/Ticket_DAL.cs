@@ -40,6 +40,7 @@ namespace DAL
         public List<Ticket> FilterTickets(string keyword)
         {
             IList<FilterDefinition<Ticket>> filtersList = new List<FilterDefinition<Ticket>>();
+            keyword = keyword.ToLower();
             int keywordint = 0;
             if (keyword == "hardware")
             {

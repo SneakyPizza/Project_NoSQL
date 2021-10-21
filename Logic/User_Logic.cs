@@ -105,17 +105,6 @@ namespace Logic
             }
           
          }
-        public List<User> GetNormalUser()
-        {
-            try
-            {
-                return dal.GetNormalUsers();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
         public bool UserCheck(string username)
         {
             try
@@ -136,7 +125,6 @@ namespace Logic
             }
             catch (Exception e)
             {
-
                 throw new Exception(e.Message);
             }
         }

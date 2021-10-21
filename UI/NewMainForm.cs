@@ -53,7 +53,6 @@ namespace UI
                 _currentUser = _login_Logic.LoginUser(tb_Username.Text, tb_Password.Text);
                 if (_currentUser != null)
                 {
-                    MessageBox.Show("Succes");
                     CheckUserAccess(_currentUser);
                     StartDashboard();
                     pnl_Dashboard.Refresh();

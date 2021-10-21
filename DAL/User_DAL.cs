@@ -50,12 +50,6 @@ namespace DAL
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList(); 
             return Users;
         }
-        public List<User> GetNormalUsers()
-        {
-            var filter = Builders<User>.Filter.Eq("UserRole", UserRole.User);
-            List<User> Users = GetDatabase().GetCollection<User>("Users").Find(filter).ToList();
-            return Users;
-        }
         public List<User> GetnewUser()
         {
             List<User> Users = GetDatabase().GetCollection<User>("Users").Find(new BsonDocument()).ToList();
