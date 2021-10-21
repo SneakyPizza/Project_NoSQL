@@ -38,6 +38,7 @@ namespace Logic
         {
             try
             {
+                password = _login_logic.EncryptPassword(password);
                 dal.UpdateUser(oldUserName, firstname, lastname, username, password, role, email);
             }
             catch (Exception e)
